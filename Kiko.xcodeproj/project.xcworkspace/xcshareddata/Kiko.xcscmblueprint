@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "00DEC3D5E2C530D70CCE825BF8A3D74730FBDE3D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "00DEC3D5E2C530D70CCE825BF8A3D74730FBDE3D" : 0,
+    "A360039CCD3C50A2726F9B03302D1448EFAB360F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4486F2C3-5551-46B9-A25C-0DAF3D91D33C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "00DEC3D5E2C530D70CCE825BF8A3D74730FBDE3D" : "Kiko\/",
+    "A360039CCD3C50A2726F9B03302D1448EFAB360F" : "Kiko-Old\/Kiko_App\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Kiko",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Kiko.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/garrett-davidson\/Kiko.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "00DEC3D5E2C530D70CCE825BF8A3D74730FBDE3D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rkapurbh\/Kiko_App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A360039CCD3C50A2726F9B03302D1448EFAB360F"
+    }
+  ]
+}
