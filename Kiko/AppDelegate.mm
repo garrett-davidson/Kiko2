@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "KikoAnimator.h"
+#import "KikoFaceTracker.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    KikoAnimator *animator = [KikoAnimator sharedAnimator];
+    KikoFaceTracker *tracker = [KikoFaceTracker sharedTracker];
+    tracker.animator = animator;
+    
     return YES;
 }
 
