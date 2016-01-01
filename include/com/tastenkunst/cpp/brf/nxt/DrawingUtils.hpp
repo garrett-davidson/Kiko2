@@ -5,9 +5,9 @@
 #include <memory>
 #include <string>
 
-#include "com/tastenkunst/cpp/brf/nxt/utils/StringUtils.hpp"
-#include "com/tastenkunst/cpp/brf/nxt/geom/Point.hpp"
-#include "com/tastenkunst/cpp/brf/nxt/geom/Rectangle.hpp"
+#include "StringUtils.hpp"
+#include "geom/Point.hpp"
+#include "Rectangle.hpp"
 
 //RGB color macro
 #define UIColorFromRGB(rgbValue) [UIColor 						\

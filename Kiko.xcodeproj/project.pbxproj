@@ -25,8 +25,6 @@
 		687D18691C1F816600CD31D0 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 687D18681C1F816600CD31D0 /* CGPointExtension.m */; };
 		688698F31C192C5100FFA7D8 /* kiko-opening-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */; };
 		688698F61C1A4D9000FFA7D8 /* PlaygroundViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 688698F51C1A4D9000FFA7D8 /* PlaygroundViewController.mm */; };
-		688699131C1B55F200FFA7D8 /* include in Resources */ = {isa = PBXBuildFile; fileRef = 688699121C1B55F200FFA7D8 /* include */; };
-		688699161C1B570000FFA7D8 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 688699151C1B570000FFA7D8 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */; };
 		6886991B1C1B5B2F00FFA7D8 /* BRFTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6886991A1C1B5B2F00FFA7D8 /* BRFTracker.mm */; };
 		688E0D7F1C15ECBE008DB6AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 688E0D7E1C15ECBE008DB6AA /* main.m */; };
 		688E0D821C15ECBE008DB6AA /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 688E0D811C15ECBE008DB6AA /* AppDelegate.mm */; };
@@ -46,6 +44,7 @@
 		68F63AF71C3580B600A10C40 /* FriendCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */; };
 		68F63AFA1C3591FA00A10C40 /* KikoMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF91C3591FA00A10C40 /* KikoMessage.m */; };
 		68F63AFD1C35954000A10C40 /* KikoChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AFC1C35954000A10C40 /* KikoChat.m */; };
+		68F63B531C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F63B521C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,8 +90,6 @@
 		688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kiko-opening-logo.png"; sourceTree = "<group>"; };
 		688698F41C1A4D9000FFA7D8 /* PlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
 		688698F51C1A4D9000FFA7D8 /* PlaygroundViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlaygroundViewController.mm; sourceTree = "<group>"; };
-		688699121C1B55F200FFA7D8 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = Kiko/include; sourceTree = "<group>"; };
-		688699151C1B570000FFA7D8 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a; path = "/Users/garrett/Dropbox/Dev/iOS/Kiko-Old/Kiko_App/BRF_NXT_CPP_IOS_EXAMPLES/libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a"; sourceTree = "<absolute>"; };
 		688699171C1B58A600FFA7D8 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		688699191C1B5B2F00FFA7D8 /* BRFTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRFTracker.h; path = ../BRFTracker.h; sourceTree = "<group>"; };
 		6886991A1C1B5B2F00FFA7D8 /* BRFTracker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BRFTracker.mm; path = ../BRFTracker.mm; sourceTree = "<group>"; };
@@ -128,6 +125,20 @@
 		68F63AF91C3591FA00A10C40 /* KikoMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KikoMessage.m; sourceTree = "<group>"; };
 		68F63AFB1C35954000A10C40 /* KikoChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KikoChat.h; sourceTree = "<group>"; };
 		68F63AFC1C35954000A10C40 /* KikoChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KikoChat.m; sourceTree = "<group>"; };
+		68F63B431C370D2600A10C40 /* BRFFaceShape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BRFFaceShape.hpp; sourceTree = "<group>"; };
+		68F63B441C370D2600A10C40 /* BRFManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BRFManager.hpp; sourceTree = "<group>"; };
+		68F63B451C370D2600A10C40 /* BRFMode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BRFMode.hpp; sourceTree = "<group>"; };
+		68F63B461C370D2600A10C40 /* BRFState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BRFState.hpp; sourceTree = "<group>"; };
+		68F63B481C370D2600A10C40 /* Matrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix.hpp; sourceTree = "<group>"; };
+		68F63B491C370D2600A10C40 /* Point.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Point.hpp; sourceTree = "<group>"; };
+		68F63B4A1C370D2600A10C40 /* Rectangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Rectangle.hpp; sourceTree = "<group>"; };
+		68F63B4B1C370D2600A10C40 /* Vector3D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3D.hpp; sourceTree = "<group>"; };
+		68F63B4D1C370D2600A10C40 /* InputData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputData.hpp; sourceTree = "<group>"; };
+		68F63B4E1C370D2600A10C40 /* PreProcessorConstants.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PreProcessorConstants.hpp; sourceTree = "<group>"; };
+		68F63B501C370D2600A10C40 /* AllocUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AllocUtils.hpp; sourceTree = "<group>"; };
+		68F63B511C370D2600A10C40 /* StringUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StringUtils.hpp; sourceTree = "<group>"; };
+		68F63B521C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a; sourceTree = "<group>"; };
+		68F63B541C370DBD00A10C40 /* DrawingUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DrawingUtils.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +154,8 @@
 				687D184F1C1F6DF000CD31D0 /* AVFoundation.framework in Frameworks */,
 				687D18531C1F6E1900CD31D0 /* CFNetwork.framework in Frameworks */,
 				687D18511C1F6E0100CD31D0 /* CoreVideo.framework in Frameworks */,
-				688699161C1B570000FFA7D8 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a in Frameworks */,
 				687D184D1C1F5F1600CD31D0 /* libz.1.dylib in Frameworks */,
+				68F63B531C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,18 +188,11 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		688699141C1B567A00FFA7D8 /* BRF */ = {
-			isa = PBXGroup;
-			children = (
-				688699151C1B570000FFA7D8 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */,
-				688699121C1B55F200FFA7D8 /* include */,
-			);
-			name = BRF;
-			sourceTree = "<group>";
-		};
 		688E0D711C15ECBE008DB6AA = {
 			isa = PBXGroup;
 			children = (
+				68F63B3D1C370D2600A10C40 /* include */,
+				68F63B521C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */,
 				687D18541C1F6E5500CD31D0 /* CoreGraphics.framework */,
 				687D18551C1F6E5500CD31D0 /* CoreMedia.framework */,
 				687D18561C1F6E5500CD31D0 /* Foundation.framework */,
@@ -198,7 +202,6 @@
 				687D18501C1F6E0100CD31D0 /* CoreVideo.framework */,
 				687D184E1C1F6DF000CD31D0 /* AVFoundation.framework */,
 				688699171C1B58A600FFA7D8 /* libz.1.dylib */,
-				688699141C1B567A00FFA7D8 /* BRF */,
 				688698F11C192B6600FFA7D8 /* Images */,
 				688E0D7C1C15ECBE008DB6AA /* Kiko */,
 				688E0D961C15ECBE008DB6AA /* KikoTests */,
@@ -287,6 +290,90 @@
 				688E0DA41C15ECBE008DB6AA /* Info.plist */,
 			);
 			path = KikoUITests;
+			sourceTree = "<group>";
+		};
+		68F63B3D1C370D2600A10C40 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				68F63B3E1C370D2600A10C40 /* com */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		68F63B3E1C370D2600A10C40 /* com */ = {
+			isa = PBXGroup;
+			children = (
+				68F63B3F1C370D2600A10C40 /* tastenkunst */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		68F63B3F1C370D2600A10C40 /* tastenkunst */ = {
+			isa = PBXGroup;
+			children = (
+				68F63B401C370D2600A10C40 /* cpp */,
+			);
+			path = tastenkunst;
+			sourceTree = "<group>";
+		};
+		68F63B401C370D2600A10C40 /* cpp */ = {
+			isa = PBXGroup;
+			children = (
+				68F63B411C370D2600A10C40 /* brf */,
+			);
+			path = cpp;
+			sourceTree = "<group>";
+		};
+		68F63B411C370D2600A10C40 /* brf */ = {
+			isa = PBXGroup;
+			children = (
+				68F63B421C370D2600A10C40 /* nxt */,
+			);
+			path = brf;
+			sourceTree = "<group>";
+		};
+		68F63B421C370D2600A10C40 /* nxt */ = {
+			isa = PBXGroup;
+			children = (
+				68F63B541C370DBD00A10C40 /* DrawingUtils.hpp */,
+				68F63B431C370D2600A10C40 /* BRFFaceShape.hpp */,
+				68F63B441C370D2600A10C40 /* BRFManager.hpp */,
+				68F63B451C370D2600A10C40 /* BRFMode.hpp */,
+				68F63B461C370D2600A10C40 /* BRFState.hpp */,
+				68F63B471C370D2600A10C40 /* geom */,
+				68F63B4C1C370D2600A10C40 /* image */,
+				68F63B4E1C370D2600A10C40 /* PreProcessorConstants.hpp */,
+				68F63B4F1C370D2600A10C40 /* utils */,
+			);
+			path = nxt;
+			sourceTree = "<group>";
+		};
+		68F63B471C370D2600A10C40 /* geom */ = {
+			isa = PBXGroup;
+			children = (
+				68F63B481C370D2600A10C40 /* Matrix.hpp */,
+				68F63B491C370D2600A10C40 /* Point.hpp */,
+				68F63B4A1C370D2600A10C40 /* Rectangle.hpp */,
+				68F63B4B1C370D2600A10C40 /* Vector3D.hpp */,
+			);
+			path = geom;
+			sourceTree = "<group>";
+		};
+		68F63B4C1C370D2600A10C40 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				68F63B4D1C370D2600A10C40 /* InputData.hpp */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		68F63B4F1C370D2600A10C40 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				68F63B501C370D2600A10C40 /* AllocUtils.hpp */,
+				68F63B511C370D2600A10C40 /* StringUtils.hpp */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,7 +490,6 @@
 				688E0D8A1C15ECBE008DB6AA /* Assets.xcassets in Resources */,
 				68B8CB351C32C9B0000E7913 /* Next.png in Resources */,
 				688E0D881C15ECBE008DB6AA /* Main.storyboard in Resources */,
-				688699131C1B55F200FFA7D8 /* include in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,7 +678,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)-Old/Kiko_App/BRF_NXT_CPP_IOS_EXAMPLES",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -611,7 +697,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)-Old/Kiko_App/BRF_NXT_CPP_IOS_EXAMPLES",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
 				PRODUCT_NAME = "$(TARGET_NAME)";

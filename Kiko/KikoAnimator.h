@@ -14,13 +14,13 @@
 
 #include <cstdlib>
 #include <cstdint>
-#include "com/tastenkunst/cpp/brf/nxt/BRFManager.hpp"
-#include "com/tastenkunst/cpp/brf/nxt/geom/Rectangle.hpp"
+#include "BRFManager.hpp"
+#include "Rectangle.hpp"
 
-#include "com/tastenkunst/cpp/brf/nxt/BRFMode.hpp"
-#include "com/tastenkunst/cpp/brf/nxt/BRFState.hpp"
+#include "BRFMode.hpp"
+#include "BRFState.hpp"
 
-#include "com/tastenkunst/cpp/brf/nxt/utils/DrawingUtils.hpp"
+#include "DrawingUtils.hpp"
 
 #endif
 
