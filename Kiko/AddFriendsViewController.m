@@ -44,8 +44,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqual: @"StartChatSegue"]) {
-        ChatViewController *dest = (ChatViewController *) segue.destinationViewController;
-        
+        ChatViewController *dest = (ChatViewController*) ((UINavigationController *)segue.destinationViewController).topViewController;
+
         [dest createNewChatWithFriends:selectedFriends];
     }
 }
