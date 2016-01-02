@@ -67,10 +67,6 @@
     
     DrawingUtils::drawRect(context, *(self.brfRoi), false, 2, 0x00ff00, 1);
     
-    if (&state == 0x0) {
-        NSLog(@"Null pointer problem");
-    }
-    
      if (!state.compare(brf::BRFState::FACE_DETECTION)) {
         DrawingUtils::drawRect(context, *(self.faceDetectionROI), true, 1, 0xffff00, 1);
         
