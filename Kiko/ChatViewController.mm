@@ -9,6 +9,7 @@
 #import "ChatViewController.h"
 #import "KikoAnimator.h"
 #import "KikoFaceTracker.h"
+#import "MessageTableViewCell.h"
 
 @interface ChatViewController ()< UITableViewDelegate, UITableViewDataSource> {
     KikoAnimator *animator;
@@ -112,13 +113,39 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    bool isLeftCell = indexPath.row % 2;
+    NSString *identifier;
+    
+    UIImage *backgroundImage = [UIImage imageNamed:@"LeftPinch.png"];
+    backgroundImage = [backgroundImage stretchableImageWithLeftCapWidth:80 topCapHeight:20];
+
+
+    if (isLeftCell) {
+        identifier = @"leftCell";
+    }
+    else {
+        identifier = @"rightCell";
+    }
+    
+    MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: identifier];
+    
+    if (!cell) {
+        cell = [[MessageTableViewCell alloc] initWithStyle:isLeftCell ?  UITableViewCellStyleValue1 : UITableViewCellStyleValue2 reuseIdentifier:identifier andWidth:tableView.frame.size.width];
+    }
+    
+    cell.backgroundImageView.image = backgroundImage;
     
     return cell;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.currentChat.messages.count;
+    return 5;
+//    return self.currentChat.messages.count;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 120;
 }
 
 /*

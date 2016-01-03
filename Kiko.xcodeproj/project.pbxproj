@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684F11701C394F970039AD12 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684F116F1C394F970039AD12 /* MessageTableViewCell.m */; };
+		684F11721C3955930039AD12 /* LeftPinch.png in Resources */ = {isa = PBXBuildFile; fileRef = 684F11711C3955930039AD12 /* LeftPinch.png */; };
 		685D88051C32107F002A3608 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685D88041C32107F002A3608 /* LoginViewController.m */; };
 		685D88081C3214B0002A3608 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685D88071C3214B0002A3608 /* RegisterViewController.m */; };
 		685D880B1C32B464002A3608 /* RegistrationImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 685D880A1C32B464002A3608 /* RegistrationImageViewController.mm */; };
@@ -65,6 +67,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		684F116E1C394F970039AD12 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageTableViewCell.h; path = ../MessageTableViewCell.h; sourceTree = "<group>"; };
+		684F116F1C394F970039AD12 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageTableViewCell.m; path = ../MessageTableViewCell.m; sourceTree = "<group>"; };
+		684F11711C3955930039AD12 /* LeftPinch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftPinch.png; sourceTree = "<group>"; };
 		685D88031C32107F002A3608 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		685D88041C32107F002A3608 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		685D88061C3214B0002A3608 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -179,11 +184,12 @@
 		688698F11C192B6600FFA7D8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				68B8CB321C32C927000E7913 /* Retake-photo.png */,
-				688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */,
-				68B8CB341C32C9B0000E7913 /* Next.png */,
 				68B8CB3C1C32E36C000E7913 /* Add.png */,
 				68B8CB3E1C32F74D000E7913 /* Hamburger.png */,
+				688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */,
+				684F11711C3955930039AD12 /* LeftPinch.png */,
+				68B8CB341C32C9B0000E7913 /* Next.png */,
+				68B8CB321C32C927000E7913 /* Retake-photo.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -251,6 +257,8 @@
 				685D88031C32107F002A3608 /* LoginViewController.h */,
 				685D88041C32107F002A3608 /* LoginViewController.m */,
 				688E0D861C15ECBE008DB6AA /* Main.storyboard */,
+				684F116E1C394F970039AD12 /* MessageTableViewCell.h */,
+				684F116F1C394F970039AD12 /* MessageTableViewCell.m */,
 				688698F41C1A4D9000FFA7D8 /* PlaygroundViewController.h */,
 				688698F51C1A4D9000FFA7D8 /* PlaygroundViewController.mm */,
 				685D88061C3214B0002A3608 /* RegisterViewController.h */,
@@ -487,6 +495,7 @@
 				688E0D8D1C15ECBE008DB6AA /* LaunchScreen.storyboard in Resources */,
 				68B8CB3F1C32F74D000E7913 /* Hamburger.png in Resources */,
 				688698F31C192C5100FFA7D8 /* kiko-opening-logo.png in Resources */,
+				684F11721C3955930039AD12 /* LeftPinch.png in Resources */,
 				688E0D8A1C15ECBE008DB6AA /* Assets.xcassets in Resources */,
 				68B8CB351C32C9B0000E7913 /* Next.png in Resources */,
 				688E0D881C15ECBE008DB6AA /* Main.storyboard in Resources */,
@@ -515,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68B8CB451C32FFE9000E7913 /* User.m in Sources */,
+				684F11701C394F970039AD12 /* MessageTableViewCell.m in Sources */,
 				685D88081C3214B0002A3608 /* RegisterViewController.m in Sources */,
 				68B8CB481C3305CC000E7913 /* AddFriendsViewController.m in Sources */,
 				68B8CB3B1C32DD52000E7913 /* ChatViewController.mm in Sources */,

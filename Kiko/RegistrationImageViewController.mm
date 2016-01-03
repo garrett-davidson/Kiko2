@@ -10,7 +10,7 @@
 #import "KikoAnimator.h"
 #import "KikoFaceTracker.h"
 
-#define DEBUGGING
+//#define DEBUGGING
 
 //If debugging
 #ifdef DEBUGGING
