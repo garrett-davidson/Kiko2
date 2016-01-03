@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "KikoAnimator.h"
 #import "KikoFaceTracker.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -23,6 +24,8 @@
     KikoAnimator *animator = [KikoAnimator sharedAnimator];
     KikoFaceTracker *tracker = [KikoFaceTracker sharedTracker];
     tracker.animator = animator;
+    
+    [Parse setApplicationId:@"ftnLt0eateNi2Cl1SNPeKiIjBJlGrPVFqbCIJLAT" clientKey:@"iZoYKBjyqkrqSDq1sS8VPrvooeAWxktTvRmzGKok"];
     
     return YES;
 }
