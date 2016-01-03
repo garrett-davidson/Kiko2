@@ -13,14 +13,14 @@
 
 #define kDefaultCellSize 120
 
-@interface AddFriendsViewController ()<UICollectionViewDataSource, UICollectionViewDelegate> {
+@interface FriendSelectionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate> {
     NSArray *userFriends;
     NSMutableArray *selectedFriends;
 }
 
 @end
 
-@implementation AddFriendsViewController
+@implementation FriendSelectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

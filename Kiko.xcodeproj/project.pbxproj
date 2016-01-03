@@ -249,8 +249,6 @@
 		688E0D7C1C15ECBE008DB6AA /* Kiko */ = {
 			isa = PBXGroup;
 			children = (
-				68B8CB461C3305CC000E7913 /* FriendSelectionViewController.h */,
-				68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */,
 				688E0D801C15ECBE008DB6AA /* AppDelegate.h */,
 				688E0D811C15ECBE008DB6AA /* AppDelegate.mm */,
 				688E0D891C15ECBE008DB6AA /* Assets.xcassets */,
@@ -266,6 +264,8 @@
 				68ACA10A1C39970A0038FD9F /* FaceCustomizationViewController.m */,
 				68F63AF51C3580B600A10C40 /* FriendCollectionViewCell.h */,
 				68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */,
+				68B8CB461C3305CC000E7913 /* FriendSelectionViewController.h */,
+				68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */,
 				688E0D8E1C15ECBE008DB6AA /* Info.plist */,
 				687D185E1C1F749E00CD31D0 /* KikoAnimator.h */,
 				687D185F1C1F749E00CD31D0 /* KikoAnimator.mm */,
