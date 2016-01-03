@@ -86,6 +86,31 @@
     }
 }
 
+- (IBAction)beginRecording:(id)sender {
+    UILongPressGestureRecognizer *press = sender;
+    
+    switch (press.state) {
+        case UIGestureRecognizerStateBegan:
+            NSLog(@"Began recording");
+            [animator startRecording];
+            break;
+        case UIGestureRecognizerStateEnded:
+            NSLog(@"Saved recording");
+            [self saveMessage];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) saveMessage {
+    NSArray *recording = [animator endRecording];
+    
+    KikoMessage *newMessage = [[KikoMessage alloc] initWithSender:[User getCurrentUser] andFrames:recording];
+    
+    [animator playMessage:newMessage];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     

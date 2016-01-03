@@ -11,7 +11,10 @@
 
 @interface KikoAnimator () {
     BOOL paused;
+    BOOL isRecording;
     CAShapeLayer *animationLayer;
+    NSMutableArray *recording;
+    KikoMessage *currentMessage;
 }
 
 @end
@@ -78,6 +81,7 @@ static float _layerHeight;
     [animationLayer setStrokeColor:[[UIColor blackColor] CGColor]];
     
     paused = true;
+    isRecording = false;
     
     return self;
 }
@@ -108,6 +112,9 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
         });
         
 
+        if (isRecording) {
+            [recording addObject:facePath];
+        }
     }
 }
 
@@ -136,6 +143,31 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
 
 - (UIBezierPath *) getCurrentPath {
    return [UIBezierPath bezierPathWithCGPath: animationLayer.path];
+}
+
+- (void) startRecording {
+    recording = [NSMutableArray new];
+    isRecording = true;
+}
+
+- (NSArray *)endRecording {
+    isRecording = false;
+    NSArray *savedRecording = recording;
+    recording = nil;
+    return savedRecording;
+}
+
+- (void) playMessage:(KikoMessage*)message {
+    currentMessage = message;
+    [self pause];
+    animationLayer.hidden = true;
+    [self.animationView.layer addSublayer:message.faceLayer];
+    [message play];
+}
+
+- (void) stopPlayingMessage {
+    [currentMessage stop];
+    [currentMessage.faceLayer removeFromSuperlayer];
 }
 
 @end

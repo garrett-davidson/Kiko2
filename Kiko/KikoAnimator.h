@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "KikoMessage.h"
 
 #ifndef __KikoAnimator
 #define __KikoAnimator
@@ -37,5 +38,11 @@
 - (void) unpause;
 
 - (UIBezierPath *) getCurrentPath;
+
+- (void) startRecording;
+- (NSArray *)endRecording;
+
+- (void)playMessage: (KikoMessage*)message;
+- (void)stopPlayingMessage;
 
 @end

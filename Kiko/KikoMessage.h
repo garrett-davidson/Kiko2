@@ -12,7 +12,13 @@
 
 @interface KikoMessage : NSObject
 
-@property (nonatomic) CAShapeLayer *previewFace;
-@property (nonatomic) User* sender;
+@property (nonatomic, readonly) CAShapeLayer *faceLayer;
+@property (nonatomic, readonly) User* sender;
+
+- (id) initWithSender:(User*)sender andFrames: (NSArray*)frames;
+
+- (void) play;
+- (void) pause;
+- (void) stop;
 
 @end

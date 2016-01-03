@@ -682,6 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Kiko/include $(SRCROOT)/Kiko";
 				VALID_ARCHS = "armv7 arm64";
 			};
@@ -701,6 +702,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Kiko/include $(SRCROOT)/Kiko";
 				VALID_ARCHS = "armv7 arm64";
 			};

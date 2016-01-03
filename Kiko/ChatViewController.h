@@ -18,5 +18,6 @@
 @property (nonatomic) KikoChat *currentChat;
 
 - (void) createNewChatWithFriends:(NSArray *)friends;
+- (IBAction)beginRecording:(id)sender;
 
 @end
