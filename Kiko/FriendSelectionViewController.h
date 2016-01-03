@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFriendsViewController : UIViewController
+@interface FriendSelectionViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

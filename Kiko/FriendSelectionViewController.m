@@ -6,7 +6,7 @@
 //  Copyright © 2015 G&R. All rights reserved.
 //
 
-#import "AddFriendsViewController.h"
+#import "FriendSelectionViewController.h"
 #import "ChatViewController.h"
 #import "FriendCollectionViewCell.h"
 #import "User.h"

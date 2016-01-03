@@ -44,7 +44,7 @@
 		68B8CB3D1C32E36C000E7913 /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B8CB3C1C32E36C000E7913 /* Add.png */; };
 		68B8CB3F1C32F74D000E7913 /* Hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B8CB3E1C32F74D000E7913 /* Hamburger.png */; };
 		68B8CB451C32FFE9000E7913 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB441C32FFE9000E7913 /* User.m */; };
-		68B8CB481C3305CC000E7913 /* AddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB471C3305CC000E7913 /* AddFriendsViewController.m */; };
+		68B8CB481C3305CC000E7913 /* FriendSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */; };
 		68F63AF71C3580B600A10C40 /* FriendCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */; };
 		68F63AFA1C3591FA00A10C40 /* KikoMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF91C3591FA00A10C40 /* KikoMessage.m */; };
 		68F63AFD1C35954000A10C40 /* KikoChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AFC1C35954000A10C40 /* KikoChat.m */; };
@@ -129,8 +129,8 @@
 		68B8CB3E1C32F74D000E7913 /* Hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hamburger.png; sourceTree = "<group>"; };
 		68B8CB431C32FFE9000E7913 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
 		68B8CB441C32FFE9000E7913 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
-		68B8CB461C3305CC000E7913 /* AddFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendsViewController.h; sourceTree = "<group>"; };
-		68B8CB471C3305CC000E7913 /* AddFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendsViewController.m; sourceTree = "<group>"; };
+		68B8CB461C3305CC000E7913 /* FriendSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendSelectionViewController.h; sourceTree = "<group>"; };
+		68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendSelectionViewController.m; sourceTree = "<group>"; };
 		68F63AF51C3580B600A10C40 /* FriendCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCollectionViewCell.h; sourceTree = "<group>"; };
 		68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCollectionViewCell.m; sourceTree = "<group>"; };
 		68F63AF81C3591FA00A10C40 /* KikoMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KikoMessage.h; sourceTree = "<group>"; };
@@ -249,8 +249,8 @@
 		688E0D7C1C15ECBE008DB6AA /* Kiko */ = {
 			isa = PBXGroup;
 			children = (
-				68B8CB461C3305CC000E7913 /* AddFriendsViewController.h */,
-				68B8CB471C3305CC000E7913 /* AddFriendsViewController.m */,
+				68B8CB461C3305CC000E7913 /* FriendSelectionViewController.h */,
+				68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */,
 				688E0D801C15ECBE008DB6AA /* AppDelegate.h */,
 				688E0D811C15ECBE008DB6AA /* AppDelegate.mm */,
 				688E0D891C15ECBE008DB6AA /* Assets.xcassets */,
@@ -608,7 +608,7 @@
 				68B8CB451C32FFE9000E7913 /* User.m in Sources */,
 				684F11701C394F970039AD12 /* MessageTableViewCell.m in Sources */,
 				685D88081C3214B0002A3608 /* RegisterViewController.m in Sources */,
-				68B8CB481C3305CC000E7913 /* AddFriendsViewController.m in Sources */,
+				68B8CB481C3305CC000E7913 /* FriendSelectionViewController.m in Sources */,
 				68B8CB3B1C32DD52000E7913 /* ChatViewController.mm in Sources */,
 				688698F61C1A4D9000FFA7D8 /* PlaygroundViewController.mm in Sources */,
 				685D880B1C32B464002A3608 /* RegistrationImageViewController.mm in Sources */,
