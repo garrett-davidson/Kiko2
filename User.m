@@ -14,13 +14,13 @@
 @dynamic name, userFace;
 
 + (id) getCurrentUser {
-    static User *currentUser = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        currentUser = (User *) [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUser"];
-    });
+    PFUser *currentUser = [PFUser currentUser];
     
-    return currentUser;
+    if ([currentUser isMemberOfClass:User.self]) {
+        return currentUser;
+    }
+    
+    return nil;
 }
 
 + (void)load {

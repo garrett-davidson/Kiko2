@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import <Parse/Parse.h>
+#import "User.h"
 
 @interface LoginViewController ()
 
@@ -23,8 +23,7 @@
 }
 
 - (BOOL) isLoggedIn {
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
+    if ([User currentUser]) {
         return true;
     }
     return false;
