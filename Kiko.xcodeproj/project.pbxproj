@@ -36,6 +36,7 @@
 		688E0D8D1C15ECBE008DB6AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 688E0D8B1C15ECBE008DB6AA /* LaunchScreen.storyboard */; };
 		688E0D981C15ECBE008DB6AA /* KikoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 688E0D971C15ECBE008DB6AA /* KikoTests.m */; };
 		688E0DA31C15ECBE008DB6AA /* KikoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 688E0DA21C15ECBE008DB6AA /* KikoUITests.m */; };
+		68ACA10B1C39970A0038FD9F /* FaceCustomizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ACA10A1C39970A0038FD9F /* FaceCustomizationViewController.m */; };
 		68B8CB331C32C927000E7913 /* Retake-photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B8CB321C32C927000E7913 /* Retake-photo.png */; };
 		68B8CB351C32C9B0000E7913 /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B8CB341C32C9B0000E7913 /* Next.png */; };
 		68B8CB381C32CF11000E7913 /* Face.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB371C32CF11000E7913 /* Face.m */; };
@@ -115,6 +116,9 @@
 		688E0D9E1C15ECBE008DB6AA /* KikoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		688E0DA21C15ECBE008DB6AA /* KikoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KikoUITests.m; sourceTree = "<group>"; };
 		688E0DA41C15ECBE008DB6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68ACA1071C39765F0038FD9F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		68ACA1091C39970A0038FD9F /* FaceCustomizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceCustomizationViewController.h; sourceTree = "<group>"; };
+		68ACA10A1C39970A0038FD9F /* FaceCustomizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceCustomizationViewController.m; sourceTree = "<group>"; };
 		68B8CB321C32C927000E7913 /* Retake-photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Retake-photo.png"; sourceTree = "<group>"; };
 		68B8CB341C32C9B0000E7913 /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
 		68B8CB361C32CF11000E7913 /* Face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Face.h; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				68B8CB3A1C32DD52000E7913 /* ChatViewController.mm */,
 				68B8CB361C32CF11000E7913 /* Face.h */,
 				68B8CB371C32CF11000E7913 /* Face.m */,
+				68ACA1091C39970A0038FD9F /* FaceCustomizationViewController.h */,
+				68ACA10A1C39970A0038FD9F /* FaceCustomizationViewController.m */,
 				68F63AF51C3580B600A10C40 /* FriendCollectionViewCell.h */,
 				68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */,
 				688E0D8E1C15ECBE008DB6AA /* Info.plist */,
@@ -403,6 +409,7 @@
 		F06FB8896A883D7FD164A361 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68ACA1071C39765F0038FD9F /* libsqlite3.tbd */,
 				6881D76281E05559DF1E165C /* libPods.a */,
 			);
 			name = Frameworks;
@@ -611,6 +618,7 @@
 				685D880E1C32B65F002A3608 /* KikoFaceTracker.mm in Sources */,
 				68F63AFA1C3591FA00A10C40 /* KikoMessage.m in Sources */,
 				68F63AF71C3580B600A10C40 /* FriendCollectionViewCell.m in Sources */,
+				68ACA10B1C39970A0038FD9F /* FaceCustomizationViewController.m in Sources */,
 				687D18691C1F816600CD31D0 /* CGPointExtension.m in Sources */,
 				6886991B1C1B5B2F00FFA7D8 /* BRFTracker.mm in Sources */,
 				688E0D821C15ECBE008DB6AA /* AppDelegate.mm in Sources */,

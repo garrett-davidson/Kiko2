@@ -20,6 +20,7 @@
 
 @interface KikoFaceTracker () {
     AVCaptureVideoPreviewLayer *captureLayer;
+    int discardFrames;
 }
 
 @end
@@ -55,6 +56,8 @@ double DrawingUtils::CANVAS_HEIGHT = (double)_cameraHeight;
         [self initializeCamera];
     });
     
+    discardFrames = 0;
+    
     return self;
 }
 
@@ -84,6 +87,7 @@ double DrawingUtils::CANVAS_HEIGHT = (double)_cameraHeight;
     }
     
     else {
+        if (discardFrames > 10) {
         uint8_t* baseAddress = (uint8_t*) CVPixelBufferGetBaseAddress(imageBuffer);
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
         CGContextRef context = CGBitmapContextCreate(baseAddress, width, height, 8, CVPixelBufferGetBytesPerRow(imageBuffer), colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
@@ -105,6 +109,11 @@ double DrawingUtils::CANVAS_HEIGHT = (double)_cameraHeight;
         CGImageRelease(quartzImage);
         
         [self.trackingImageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
+        }
+        
+        else {
+            discardFrames++;
+        }
     }
 }
 

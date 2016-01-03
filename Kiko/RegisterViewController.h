@@ -18,4 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *nextButton;
 @property (weak, nonatomic) IBOutlet UILabel *nextButtonLabel;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *activityView;
+
 @end

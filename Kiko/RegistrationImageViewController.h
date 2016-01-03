@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "User.h"
+
 @interface RegistrationImageViewController : UIViewController
 
-@property (nonatomic) NSMutableDictionary *userInfo;
+@property (nonatomic) User *user;
 @property (weak, nonatomic) IBOutlet UIView *animationView;
 @property (weak, nonatomic) IBOutlet UIImageView *trackingView;
 

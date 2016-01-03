@@ -8,8 +8,11 @@
 
 #import "RegisterViewController.h"
 #import "RegistrationImageViewController.h"
+#import "User.h"
 
-@interface RegisterViewController ()
+@interface RegisterViewController () {
+    User *newUser;
+}
 
 @end
 
@@ -33,6 +36,8 @@ NSArray *fields;
     for (UITextField *field in fields) {
         field.inputAccessoryView = self.nextButton;
     }
+    
+    self.activityView.layer.cornerRadius = 10;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -65,18 +70,32 @@ NSArray *fields;
 }
 
 - (void) submit {
-    [self performSegueWithIdentifier:@"TakeImageSegue" sender:self];
+    
+    [self showSpinner];
+    newUser = [[User alloc] initWithName:self.nameField.text email:self.emailField.text username:self.usernameField.text];
+    newUser.password = self.passwordField.text;
+    
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"New user created");
+            [self performSegueWithIdentifier:@"TakeImageSegue" sender:self];
+        }
+        
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
+}
+
+- (void) showSpinner {
+    self.activityView.hidden = false;
+    [self.activityIndicator startAnimating];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.destinationViewController isMemberOfClass:[RegistrationImageViewController class]]) {
         RegistrationImageViewController *dest = (RegistrationImageViewController*)segue.destinationViewController;
-        
-        dest.userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                         self.nameField.text, @"name",
-                         self.emailField.text, @"email",
-                         self.usernameField.text, @"username",
-                         self.passwordField.text, @"password", nil];
+        dest.user = newUser;
     }
 }
 

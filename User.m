@@ -7,8 +7,11 @@
 //
 
 #import "User.h"
+#import <Parse/PFObject+Subclass.h>
 
 @implementation User
+
+@dynamic name, userFace;
 
 + (id) getCurrentUser {
     static User *currentUser = nil;
@@ -20,23 +23,29 @@
     return currentUser;
 }
 
-- (id)initWithName:(NSString *)name andFace:(Face *)face {
++ (void)load {
+    [self registerSubclass];
+}
+
+- (id) initWithName:(NSString*)name email:(NSString *)email username:(NSString *)username {
+    self = [User user];
     self.name = name;
-    self.userFace = face;
+    self.email = email;
+    self.username = username;
     
     return self;
 }
 
-- (void) encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.userFace forKey:@"face"];
-    [aCoder encodeObject:self.name forKey:@"name"];
-}
-
-- (id) initWithCoder:(NSCoder *)aDecoder {
-    self.userFace = [aDecoder decodeObjectForKey:@"face"];
-    self.name = [aDecoder decodeObjectForKey:@"name"];
-    return self;
-}
+//- (void) encodeWithCoder:(NSCoder *)aCoder {
+//    [aCoder encodeObject:self.userFace forKey:@"face"];
+//    [aCoder encodeObject:self.name forKey:@"name"];
+//}
+//
+//- (id) initWithCoder:(NSCoder *)aDecoder {
+//    self.userFace = [aDecoder decodeObjectForKey:@"face"];
+//    self.name = [aDecoder decodeObjectForKey:@"name"];
+//    return self;
+//}
 
 - (CAShapeLayer *) getImage {
     CAShapeLayer *layer = [CAShapeLayer new];
@@ -46,5 +55,9 @@
     
     return layer;
 }
+
+//+ (NSString *)parseClassName {
+//    return @"User";
+//}
 
 @end

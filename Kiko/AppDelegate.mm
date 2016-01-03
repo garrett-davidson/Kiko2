@@ -21,13 +21,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [self setupTracking];
+    [self setupParse];
+    
+    return YES;
+}
+
+- (void) setupParse {
+    [Parse enableLocalDatastore];
+    [Parse setApplicationId:@"ftnLt0eateNi2Cl1SNPeKiIjBJlGrPVFqbCIJLAT" clientKey:@"iZoYKBjyqkrqSDq1sS8VPrvooeAWxktTvRmzGKok"];
+}
+
+- (void) setupTracking {
     KikoAnimator *animator = [KikoAnimator sharedAnimator];
     KikoFaceTracker *tracker = [KikoFaceTracker sharedTracker];
     tracker.animator = animator;
-    
-    [Parse setApplicationId:@"ftnLt0eateNi2Cl1SNPeKiIjBJlGrPVFqbCIJLAT" clientKey:@"iZoYKBjyqkrqSDq1sS8VPrvooeAWxktTvRmzGKok"];
-    
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

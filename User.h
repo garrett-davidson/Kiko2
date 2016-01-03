@@ -9,18 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Face.h"
+#import <Parse/Parse.h>
 
-@interface User : NSObject<NSCoding>
+@interface User : PFUser<PFSubclassing>
 
 @property (nonatomic) Face *userFace;
 @property (nonatomic) NSString *name;
 
-- (id) initWithName:(NSString*)name andFace: (Face *)face;
+- (id) initWithName:(NSString*)name email:(NSString *)email username:(NSString *)username;
 + (id)getCurrentUser;
 
 - (CAShapeLayer *) getImage;
 
-- (id) initWithCoder:(NSCoder *)aDecoder;
-- (void) encodeWithCoder:(NSCoder *)aCoder;
+//- (id) initWithCoder:(NSCoder *)aDecoder;
+//- (void) encodeWithCoder:(NSCoder *)aCoder;
+
+//+ (NSString *)parseClassName;
 
 @end

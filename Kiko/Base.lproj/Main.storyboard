@@ -415,10 +415,27 @@
                                     <action selector="validateInputField:" destination="thy-Y2-Y2I" eventType="editingDidEnd" id="tCT-Zy-e7a"/>
                                 </connections>
                             </textField>
+                            <view hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3g-cM-FBF">
+                                <rect key="frame" x="112" y="259" width="150" height="150"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="21w-W6-Z7B">
+                                        <rect key="frame" x="56" y="56" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="GEJ-Gg-Ztm"/>
+                                    <constraint firstAttribute="width" constant="150" id="fLC-fU-a9N"/>
+                                    <constraint firstItem="21w-W6-Z7B" firstAttribute="centerY" secondItem="F3g-cM-FBF" secondAttribute="centerY" id="phQ-W2-0m9"/>
+                                    <constraint firstItem="21w-W6-Z7B" firstAttribute="centerX" secondItem="F3g-cM-FBF" secondAttribute="centerX" id="qGo-AY-kDI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="F3g-cM-FBF" firstAttribute="centerX" secondItem="z31-D4-w9n" secondAttribute="centerX" id="6Gk-wM-pn4"/>
                             <constraint firstItem="DFh-BU-Bgp" firstAttribute="top" secondItem="5xU-Sf-Okm" secondAttribute="bottom" constant="8" id="8Nc-xZ-Xyj"/>
+                            <constraint firstItem="F3g-cM-FBF" firstAttribute="centerY" secondItem="z31-D4-w9n" secondAttribute="centerY" id="8rI-Wc-DOf"/>
                             <constraint firstItem="DFh-BU-Bgp" firstAttribute="centerX" secondItem="z31-D4-w9n" secondAttribute="centerX" id="Fce-zh-iQ9"/>
                             <constraint firstItem="5xU-Sf-Okm" firstAttribute="top" secondItem="l4D-gB-RT4" secondAttribute="bottom" constant="8" id="Fov-Kr-l9c"/>
                             <constraint firstItem="5xU-Sf-Okm" firstAttribute="centerX" secondItem="z31-D4-w9n" secondAttribute="centerX" id="Jby-bc-NK2"/>
@@ -436,6 +453,8 @@
                     <navigationItem key="navigationItem" title="Register" id="kdu-0J-mEI"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="21w-W6-Z7B" id="5tg-CQ-ULN"/>
+                        <outlet property="activityView" destination="F3g-cM-FBF" id="s1u-bj-Ob5"/>
                         <outlet property="emailField" destination="l4D-gB-RT4" id="TRC-lI-wcR"/>
                         <outlet property="nameField" destination="zqO-EM-bfd" id="fhl-E7-YbN"/>
                         <outlet property="nextButton" destination="B1O-Ja-n6R" id="ISj-T2-ojL"/>
@@ -656,7 +675,7 @@
         <!--Face Customization-->
         <scene sceneID="gVi-y3-CNT">
             <objects>
-                <viewController title="Face Customization" id="RKc-vf-uOU" sceneMemberID="viewController">
+                <viewController title="Face Customization" id="RKc-vf-uOU" customClass="FaceCustomizationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qHl-Bu-53z"/>
                         <viewControllerLayoutGuide type="bottom" id="gwj-3e-5Pe"/>

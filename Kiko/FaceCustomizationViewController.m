@@ -1,34 +1,22 @@
 //
-//  LoginViewController.m
+//  FaceCustomizationViewController.m
 //  Kiko
 //
-//  Created by Garrett Davidson on 12/29/15.
-//  Copyright © 2015 G&R. All rights reserved.
+//  Created by Garrett Davidson on 1/3/16.
+//  Copyright © 2016 G&R. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "FaceCustomizationViewController.h"
 
-@interface LoginViewController ()
+@interface FaceCustomizationViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation FaceCustomizationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-}
-
-- (BOOL) isLoggedIn {
-    return false;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    if ([self isLoggedIn]) {
-        [self performSegueWithIdentifier:@"isLoggedInSegue" sender:self];
-    }
 }
 
 - (void)didReceiveMemoryWarning {

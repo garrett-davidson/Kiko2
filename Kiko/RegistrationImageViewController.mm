@@ -9,6 +9,7 @@
 #import "RegistrationImageViewController.h"
 #import "KikoAnimator.h"
 #import "KikoFaceTracker.h"
+#import "FaceCustomizationViewController.h"
 
 //#define DEBUGGING
 
@@ -80,6 +81,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    FaceCustomizationViewController *dest = segue.destinationViewController;
+    
+    dest.user = self.user;
 }
 
 
@@ -89,7 +93,9 @@
 }
 
 - (IBAction)savePhoto:(id)sender {
-    [self.userInfo setObject:[animator getCurrentPath] forKey:@"userFacePath"];
+//    [self.userInfo setObject:[animator getCurrentPath] forKey:@"userFacePath"];
+    Face *newFace = [[Face alloc] initWithPath:[animator getCurrentPath]];
+    self.user.userFace = newFace;
     [self performSegueWithIdentifier:@"CustomizeFaceSegue" sender:self];
     
 #ifdef DEBUGGING
