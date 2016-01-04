@@ -1,38 +1,22 @@
 //
-//  LoginViewController.m
+//  FriendDetailsViewController.m
 //  Kiko
 //
-//  Created by Garrett Davidson on 12/29/15.
-//  Copyright © 2015 G&R. All rights reserved.
+//  Created by Garrett Davidson on 1/4/16.
+//  Copyright © 2016 G&R. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "User.h"
+#import "FriendDetailsViewController.h"
 
-@interface LoginViewController ()
+@interface FriendDetailsViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation FriendDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-}
-
-- (BOOL) isLoggedIn {
-    if ([User currentUser]) {
-        return true;
-    }
-    return false;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    if ([self isLoggedIn]) {
-        [self performSegueWithIdentifier:@"isLoggedInSegue" sender:self];
-    }
 }
 
 - (void)didReceiveMemoryWarning {

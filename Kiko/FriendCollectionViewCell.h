@@ -12,7 +12,6 @@
 @interface FriendCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic) CAShapeLayer *faceLayer;
-@property (nonatomic) CAShapeLayer *circleLayer;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 

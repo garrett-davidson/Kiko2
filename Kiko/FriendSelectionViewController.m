@@ -8,7 +8,7 @@
 
 #import "FriendSelectionViewController.h"
 #import "ChatViewController.h"
-#import "FriendCollectionViewCell.h"
+#import "SelectableFriendCollectionViewCell.h"
 #import "User.h"
 
 #define kDefaultCellSize 120
@@ -68,7 +68,7 @@
 
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    FriendCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    SelectableFriendCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
 
     User *friend = userFriends[indexPath.row];
     

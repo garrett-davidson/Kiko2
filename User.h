@@ -15,10 +15,11 @@
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSArray *friends;
+@property (nonatomic) NSNumber *totalKikoMinutes;
 
 + (id)getCurrentUser;
 
-- (CAShapeLayer *) getImage;
+- (CAShapeLayer *) getImageScaledForRect:(CGRect)bounds;
 
 - (Face*) getFace;
 - (void) setFace:(Face *) face;

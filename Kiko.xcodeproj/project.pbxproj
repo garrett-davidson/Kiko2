@@ -45,6 +45,11 @@
 		68B8CB3F1C32F74D000E7913 /* Hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B8CB3E1C32F74D000E7913 /* Hamburger.png */; };
 		68B8CB451C32FFE9000E7913 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB441C32FFE9000E7913 /* User.m */; };
 		68B8CB481C3305CC000E7913 /* FriendSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */; };
+		68EEFBBB1C3ACB2500B99FE3 /* MessagesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBBA1C3ACB2500B99FE3 /* MessagesViewController.mm */; };
+		68EEFBBE1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBBD1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m */; };
+		68EEFBC11C3ACE6400B99FE3 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBC01C3ACE6400B99FE3 /* FriendsViewController.m */; };
+		68EEFBC41C3AD2DB00B99FE3 /* FriendDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBC31C3AD2DB00B99FE3 /* FriendDetailsViewController.m */; };
+		68EEFBC71C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBC61C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.m */; };
 		68F63AF71C3580B600A10C40 /* FriendCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */; };
 		68F63AFA1C3591FA00A10C40 /* KikoMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF91C3591FA00A10C40 /* KikoMessage.m */; };
 		68F63AFD1C35954000A10C40 /* KikoChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AFC1C35954000A10C40 /* KikoChat.m */; };
@@ -131,6 +136,16 @@
 		68B8CB441C32FFE9000E7913 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
 		68B8CB461C3305CC000E7913 /* FriendSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendSelectionViewController.h; sourceTree = "<group>"; };
 		68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendSelectionViewController.m; sourceTree = "<group>"; };
+		68EEFBB91C3ACB2500B99FE3 /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		68EEFBBA1C3ACB2500B99FE3 /* MessagesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MessagesViewController.mm; sourceTree = "<group>"; };
+		68EEFBBC1C3ACC6300B99FE3 /* SuggestedFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestedFriendsViewController.h; sourceTree = "<group>"; };
+		68EEFBBD1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestedFriendsViewController.m; sourceTree = "<group>"; };
+		68EEFBBF1C3ACE6400B99FE3 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		68EEFBC01C3ACE6400B99FE3 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		68EEFBC21C3AD2DB00B99FE3 /* FriendDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailsViewController.h; sourceTree = "<group>"; };
+		68EEFBC31C3AD2DB00B99FE3 /* FriendDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailsViewController.m; sourceTree = "<group>"; };
+		68EEFBC51C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectableFriendCollectionViewCell.h; sourceTree = "<group>"; };
+		68EEFBC61C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectableFriendCollectionViewCell.m; sourceTree = "<group>"; };
 		68F63AF51C3580B600A10C40 /* FriendCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCollectionViewCell.h; sourceTree = "<group>"; };
 		68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCollectionViewCell.m; sourceTree = "<group>"; };
 		68F63AF81C3591FA00A10C40 /* KikoMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KikoMessage.h; sourceTree = "<group>"; };
@@ -264,8 +279,12 @@
 				68ACA10A1C39970A0038FD9F /* FaceCustomizationViewController.m */,
 				68F63AF51C3580B600A10C40 /* FriendCollectionViewCell.h */,
 				68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */,
+				68EEFBC21C3AD2DB00B99FE3 /* FriendDetailsViewController.h */,
+				68EEFBC31C3AD2DB00B99FE3 /* FriendDetailsViewController.m */,
 				68B8CB461C3305CC000E7913 /* FriendSelectionViewController.h */,
 				68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */,
+				68EEFBBF1C3ACE6400B99FE3 /* FriendsViewController.h */,
+				68EEFBC01C3ACE6400B99FE3 /* FriendsViewController.m */,
 				688E0D8E1C15ECBE008DB6AA /* Info.plist */,
 				687D185E1C1F749E00CD31D0 /* KikoAnimator.h */,
 				687D185F1C1F749E00CD31D0 /* KikoAnimator.mm */,
@@ -279,6 +298,8 @@
 				685D88031C32107F002A3608 /* LoginViewController.h */,
 				685D88041C32107F002A3608 /* LoginViewController.m */,
 				688E0D861C15ECBE008DB6AA /* Main.storyboard */,
+				68EEFBB91C3ACB2500B99FE3 /* MessagesViewController.h */,
+				68EEFBBA1C3ACB2500B99FE3 /* MessagesViewController.mm */,
 				684F116E1C394F970039AD12 /* MessageTableViewCell.h */,
 				684F116F1C394F970039AD12 /* MessageTableViewCell.m */,
 				688698F41C1A4D9000FFA7D8 /* PlaygroundViewController.h */,
@@ -287,6 +308,10 @@
 				685D88071C3214B0002A3608 /* RegisterViewController.m */,
 				685D88091C32B464002A3608 /* RegistrationImageViewController.h */,
 				685D880A1C32B464002A3608 /* RegistrationImageViewController.mm */,
+				68EEFBC51C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.h */,
+				68EEFBC61C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.m */,
+				68EEFBBC1C3ACC6300B99FE3 /* SuggestedFriendsViewController.h */,
+				68EEFBBD1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m */,
 				688E0D7D1C15ECBE008DB6AA /* Supporting Files */,
 				687D18641C1F814A00CD31D0 /* UIBezierPath+Interpolation.h */,
 				687D18651C1F814A00CD31D0 /* UIBezierPath+Interpolation.m */,
@@ -610,7 +635,9 @@
 				685D88081C3214B0002A3608 /* RegisterViewController.m in Sources */,
 				68B8CB481C3305CC000E7913 /* FriendSelectionViewController.m in Sources */,
 				68B8CB3B1C32DD52000E7913 /* ChatViewController.mm in Sources */,
+				68EEFBC41C3AD2DB00B99FE3 /* FriendDetailsViewController.m in Sources */,
 				688698F61C1A4D9000FFA7D8 /* PlaygroundViewController.mm in Sources */,
+				68EEFBBE1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m in Sources */,
 				685D880B1C32B464002A3608 /* RegistrationImageViewController.mm in Sources */,
 				687D18601C1F749E00CD31D0 /* KikoAnimator.mm in Sources */,
 				685D88051C32107F002A3608 /* LoginViewController.m in Sources */,
@@ -620,11 +647,14 @@
 				68F63AF71C3580B600A10C40 /* FriendCollectionViewCell.m in Sources */,
 				68ACA10B1C39970A0038FD9F /* FaceCustomizationViewController.m in Sources */,
 				687D18691C1F816600CD31D0 /* CGPointExtension.m in Sources */,
+				68EEFBC11C3ACE6400B99FE3 /* FriendsViewController.m in Sources */,
 				6886991B1C1B5B2F00FFA7D8 /* BRFTracker.mm in Sources */,
 				688E0D821C15ECBE008DB6AA /* AppDelegate.mm in Sources */,
 				68B8CB381C32CF11000E7913 /* Face.m in Sources */,
 				688E0D7F1C15ECBE008DB6AA /* main.m in Sources */,
 				68F63AFD1C35954000A10C40 /* KikoChat.m in Sources */,
+				68EEFBC71C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.m in Sources */,
+				68EEFBBB1C3ACB2500B99FE3 /* MessagesViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

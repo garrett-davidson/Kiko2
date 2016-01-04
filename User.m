@@ -20,7 +20,7 @@
 
 @implementation User
 
-@dynamic name, faceData, friends;
+@dynamic name, faceData, friends, totalKikoMinutes;
 
 + (id) getCurrentUser {
     PFUser *currentUser = [PFUser currentUser];
@@ -37,11 +37,19 @@
     [self enableAutomaticUser];
 }
 
-- (CAShapeLayer *) getImage {
+- (CAShapeLayer *) getImageScaledForRect:(CGRect)bounds {
     CAShapeLayer *layer = [CAShapeLayer new];
-    [layer setPath:userFace.path.CGPath];
+    [layer setPath:[self getFace].path.CGPath];
     [layer setFillColor:[[UIColor clearColor] CGColor]];
     [layer setStrokeColor:[[UIColor blackColor] CGColor]];
+    
+    
+    CGRect imageBounds = CGPathGetBoundingBox(layer.path);
+
+    float widthScale = bounds.size.width/imageBounds.size.width;
+    float heightScale = bounds.size.height/imageBounds.size.height;
+    layer.transform = CATransform3DMakeScale(widthScale, heightScale, 1);
+    layer.position = CGPointMake(-imageBounds.origin.x * widthScale + bounds.origin.x, -imageBounds.origin.y * heightScale + bounds.origin.y);
     
     return layer;
 }
