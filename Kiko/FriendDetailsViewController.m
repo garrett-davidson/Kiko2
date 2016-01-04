@@ -97,7 +97,7 @@
             break;
             
         case NotFriends:
-            [currentUser addObject:_friend forKey:@"friends"];
+            [self sendFriendRequest];
             break;
     }
     
@@ -109,6 +109,19 @@
         if (error) {
             NSLog(@"%@", error);
         }
+    }];
+}
+
+- (void) sendFriendRequest {
+    [PFCloud callFunctionInBackground:@"addFriend" withParameters:@{@"recipientId": _friend.objectId} block:
+     
+     ^(NSString *success, NSError *error) {
+        if (!error) {
+            // Push sent successfully
+            NSLog(@"Sent friend request");
+        }
+         
+         NSLog(@"%@", success);
     }];
 }
 

@@ -79,6 +79,9 @@ NSArray *fields;
     newUser.email = self.emailField.text;
     newUser.username = self.usernameField.text;
     newUser.password = self.passwordField.text;
+    newUser.friends = [NSArray array];
+    [PFInstallation currentInstallation][@"user"] = newUser.objectId;
+    [[PFInstallation currentInstallation] saveInBackground];
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
