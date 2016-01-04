@@ -9,6 +9,7 @@
 #import "FriendsViewController.h"
 #import "FriendCollectionViewCell.h"
 #import "User.h"
+#import "FriendDetailsViewController.h"
 
 @interface FriendsViewController ()<UICollectionViewDataSource, UICollectionViewDelegate> {
     NSArray *friendsToShow;
@@ -67,6 +68,27 @@
     [cell setupForFriend:friend withInset:inset];
     
     return cell;
+}
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"FriendDetailsSegue" sender:friendsToShow[indexPath.row]];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    FriendDetailsViewController *dest = (FriendDetailsViewController*) ((UINavigationController*)segue.destinationViewController).topViewController;
+    
+    dest.friend = sender;
+    dest.status = [self statusForFriend:sender];
+}
+
+- (FriendStatus) statusForFriend:(User *)friend {
+    if ([[User currentUser].friends containsObject:friend]) {
+        return Friends;
+    }
+    
+    else {
+        return NotFriends;
+    }
 }
 
 /*

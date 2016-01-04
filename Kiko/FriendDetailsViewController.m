@@ -7,8 +7,15 @@
 //
 
 #import "FriendDetailsViewController.h"
+#import "FriendCollectionViewCell.h"
 
-@interface FriendDetailsViewController ()
+@interface FriendDetailsViewController () {
+//    User *_friend;
+//    FriendStatus _status;
+    
+    NSArray *friendsToShow;
+    PFQuery *friendQuery;
+}
 
 @end
 
@@ -17,12 +24,110 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    friendQuery = [PFQuery queryWithClassName:@"_User"];
+    [friendQuery whereKey:@"username" notEqualTo:_friend.username];
+    [friendQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (!error) {
+            friendsToShow = objects;
+            [self.collectionView reloadData];
+            NSLog(@"Retrieved %ld friends", objects.count);
+        }
+        
+        else {
+            NSLog(@"%@", error);
+        }
+    }];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    self.kikoMinutesLabel.text = [NSString stringWithFormat:@"%ld Kiko Minutes", _friend.totalKikoMinutes.longValue];
+    self.friendCountLabel.text = [NSString stringWithFormat:@"%ld Friends", _friend.friends.count];
+    self.usernameLabel.text = _friend.name;
+    CGRect bounds = CGRectInset(self.userFaceView.bounds, 5, 5);
+    
+    [self.userFaceView.layer addSublayer:[_friend getImageScaledForRect:bounds]];
+    
+    [self setupButtonForStatus:_status];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void) setupButtonForStatus:(FriendStatus)status {
+    switch (status) {
+        case Friends:
+            _friendButton.backgroundColor = [UIColor redColor];
+            _friendLabel.text = @"Remove friend";
+            break;
+            
+        case SentRequest:
+            _friendButton.backgroundColor = [UIColor grayColor];
+            _friendLabel.text = @"Request sent";
+            break;
+            
+        case ReceivedRequest:
+            _friendButton.backgroundColor = [UIColor grayColor];
+            _friendLabel.text = @"Confirm friend";
+            break;
+            
+        case NotFriends:
+            _friendButton.backgroundColor = [UIColor greenColor];
+            _friendLabel.text = @"Add friend";
+            break;
+    }
+}
+
+- (IBAction)friendButtonPressed:(id)sender {
+    User *currentUser = [User currentUser];
+    
+    switch (_status) {
+        case Friends:
+            //TODO:
+            break;
+            
+        case SentRequest:
+            //Nothing
+            break;
+            
+        case ReceivedRequest:
+            //TODO:
+            break;
+            
+        case NotFriends:
+            [currentUser addObject:_friend forKey:@"friends"];
+            break;
+    }
+    
+    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Added friend");
+        }
+        
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return friendsToShow.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    FriendCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    User *friend = friendsToShow[indexPath.row];
+    float inset = cell.bounds.size.width * 0.20;
+    
+    
+    [cell setupForFriend:friend withInset:inset];
+    
+    return cell;
+}
+
 
 /*
 #pragma mark - Navigation
