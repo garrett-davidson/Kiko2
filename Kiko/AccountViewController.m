@@ -6,14 +6,14 @@
 //  Copyright © 2015 G&R. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "AccountViewController.h"
 #import "User.h"
 
-@interface LoginViewController ()
+@interface AccountViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation AccountViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
