@@ -23,9 +23,9 @@
 }
 
 - (BOOL) isLoggedIn {
-    if ([User currentUser]) {
-        return true;
-    }
+//    if ([User currentUser]) {
+//        return true;
+//    }
     return false;
 }
 

@@ -13,17 +13,13 @@
 
 @interface User : PFUser<PFSubclassing>
 
-@property (nonatomic) Face *userFace;
 @property (nonatomic) NSString *name;
+@property (nonatomic) NSArray *friends;
 
-- (id) initWithName:(NSString*)name email:(NSString *)email username:(NSString *)username;
 + (id)getCurrentUser;
 
 - (CAShapeLayer *) getImage;
 
-//- (id) initWithCoder:(NSCoder *)aDecoder;
-//- (void) encodeWithCoder:(NSCoder *)aCoder;
-
-//+ (NSString *)parseClassName;
-
+- (Face*) getFace;
+- (void) setFace:(Face *) face;
 @end

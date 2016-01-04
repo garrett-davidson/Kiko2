@@ -72,7 +72,12 @@ NSArray *fields;
 - (void) submit {
     
     [self showSpinner];
-    newUser = [[User alloc] initWithName:self.nameField.text email:self.emailField.text username:self.usernameField.text];
+    
+    newUser = [User object];
+    
+    newUser.name = self.nameField.text;
+    newUser.email = self.emailField.text;
+    newUser.username = self.usernameField.text;
     newUser.password = self.passwordField.text;
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
@@ -83,6 +88,8 @@ NSArray *fields;
         
         if (error) {
             NSLog(@"%@", error);
+            [self hideSpinner];
+            [self presentViewController:[UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert] animated:true completion:nil];
         }
     }];
 }
@@ -90,6 +97,11 @@ NSArray *fields;
 - (void) showSpinner {
     self.activityView.hidden = false;
     [self.activityIndicator startAnimating];
+}
+
+- (void) hideSpinner {
+    self.activityView.hidden = true;
+    [self.activityIndicator stopAnimating];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

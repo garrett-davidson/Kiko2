@@ -9,9 +9,18 @@
 #import "User.h"
 #import <Parse/PFObject+Subclass.h>
 
+@interface User() {
+    Face *userFace;
+}
+
+@property (nonatomic) NSData *faceData;
+
+
+@end
+
 @implementation User
 
-@dynamic name, userFace;
+@dynamic name, faceData, friends;
 
 + (id) getCurrentUser {
     PFUser *currentUser = [PFUser currentUser];
@@ -25,39 +34,28 @@
 
 + (void)load {
     [self registerSubclass];
+    [self enableAutomaticUser];
 }
-
-- (id) initWithName:(NSString*)name email:(NSString *)email username:(NSString *)username {
-    self = [User user];
-    self.name = name;
-    self.email = email;
-    self.username = username;
-    
-    return self;
-}
-
-//- (void) encodeWithCoder:(NSCoder *)aCoder {
-//    [aCoder encodeObject:self.userFace forKey:@"face"];
-//    [aCoder encodeObject:self.name forKey:@"name"];
-//}
-//
-//- (id) initWithCoder:(NSCoder *)aDecoder {
-//    self.userFace = [aDecoder decodeObjectForKey:@"face"];
-//    self.name = [aDecoder decodeObjectForKey:@"name"];
-//    return self;
-//}
 
 - (CAShapeLayer *) getImage {
     CAShapeLayer *layer = [CAShapeLayer new];
-    [layer setPath:self.userFace.path.CGPath];
+    [layer setPath:userFace.path.CGPath];
     [layer setFillColor:[[UIColor clearColor] CGColor]];
     [layer setStrokeColor:[[UIColor blackColor] CGColor]];
     
     return layer;
 }
 
-//+ (NSString *)parseClassName {
-//    return @"User";
-//}
+- (Face*) getFace {
+    if (!userFace) {
+        userFace = [NSKeyedUnarchiver unarchiveObjectWithData:self.faceData];
+    }
+    return userFace;
+}
+
+- (void) setFace:(Face *) face {
+    userFace = face;
+    self.faceData = [NSKeyedArchiver archivedDataWithRootObject:face];
+}
 
 @end

@@ -93,10 +93,19 @@
 }
 
 - (IBAction)savePhoto:(id)sender {
-//    [self.userInfo setObject:[animator getCurrentPath] forKey:@"userFacePath"];
     Face *newFace = [[Face alloc] initWithPath:[animator getCurrentPath]];
-    self.user.userFace = newFace;
-    [self performSegueWithIdentifier:@"CustomizeFaceSegue" sender:self];
+    [self.user setFace:newFace];
+    
+    [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Saved face");
+            [self performSegueWithIdentifier:@"CustomizeFaceSegue" sender:self];
+        }
+        
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
     
 #ifdef DEBUGGING
     [self savePersonAsFriend];
@@ -110,9 +119,6 @@
 
 - (void) showButtons {[UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
-//    [UIView setAnimationDelay:1.0];
-//    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    
     CGPoint oldCenter = self.buttonsView.center;
     self.buttonsView.center = CGPointMake(oldCenter.x + self.view.frame.size.width, oldCenter.y);
     
