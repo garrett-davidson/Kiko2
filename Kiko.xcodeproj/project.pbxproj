@@ -516,6 +516,11 @@
 					688E0D791C15ECBE008DB6AA = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = FL8523SFDK;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					688E0D921C15ECBE008DB6AA = {
 						CreatedOnToolsVersion = 7.2;
@@ -802,6 +807,8 @@
 			baseConfigurationReference = FA082C19EDA4D5D5DF8F854B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Kiko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -812,6 +819,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Kiko/include $(SRCROOT)/Kiko";
 				VALID_ARCHS = "armv7 arm64";
@@ -823,6 +831,8 @@
 			baseConfigurationReference = 61DC8CA716895474F46E1087 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Kiko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -833,6 +843,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Kiko/include $(SRCROOT)/Kiko";
 				VALID_ARCHS = "armv7 arm64";
