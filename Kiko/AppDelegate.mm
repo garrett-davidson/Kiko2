@@ -11,6 +11,7 @@
 #import "KikoFaceTracker.h"
 #import <Parse/Parse.h>
 
+#import "User.h"
 @interface AppDelegate ()
 
 @end
@@ -23,8 +24,17 @@
     
     [self setupTracking];
     [self setupParse];
+    [self setupNotificationsForApplication:application];
+    [self refreshData];
+    
     
     return YES;
+}
+
+- (void) refreshData {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[User currentUser] fetch];
+    });
 }
 
 - (void) setupParse {
@@ -36,6 +46,26 @@
     KikoAnimator *animator = [KikoAnimator sharedAnimator];
     KikoFaceTracker *tracker = [KikoFaceTracker sharedTracker];
     tracker.animator = animator;
+}
+
+- (void) setupNotificationsForApplication:(UIApplication *)application {
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    currentInstallation.channels = @[ @"global" ];
+    [currentInstallation saveInBackground];
+    NSLog(@"Registered for notificaitons");
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
