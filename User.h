@@ -14,8 +14,11 @@
 @interface User : PFUser<PFSubclassing>
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSArray *friends;
 @property (nonatomic) NSNumber *totalKikoMinutes;
+
+@property (nonatomic) NSArray *friends;
+@property (nonatomic) NSArray *sentFriendRequests;
+@property (nonatomic) NSArray *receivedFriendRequests;
 
 + (id)getCurrentUser;
 

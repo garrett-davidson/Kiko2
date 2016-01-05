@@ -79,7 +79,11 @@ NSArray *fields;
     newUser.email = self.emailField.text;
     newUser.username = self.usernameField.text;
     newUser.password = self.passwordField.text;
+    
     newUser.friends = [NSArray array];
+    newUser.sentFriendRequests = [NSArray array];
+    newUser.receivedFriendRequests = [NSArray array];
+    
     [PFInstallation currentInstallation][@"user"] = newUser.objectId;
     [[PFInstallation currentInstallation] saveInBackground];
     

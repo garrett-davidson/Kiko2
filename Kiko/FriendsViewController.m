@@ -82,8 +82,17 @@
 }
 
 - (FriendStatus) statusForFriend:(User *)friend {
-    if ([[User currentUser].friends containsObject:friend]) {
+    User *currentUser = [User currentUser];
+    if ([currentUser.friends containsObject:friend]) {
         return Friends;
+    }
+    
+    else if ([currentUser.sentFriendRequests containsObject:friend]) {
+        return SentRequest;
+    }
+    
+    else if ([currentUser.receivedFriendRequests containsObject:friend]) {
+        return ReceivedRequest;
     }
     
     else {

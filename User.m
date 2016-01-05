@@ -20,7 +20,7 @@
 
 @implementation User
 
-@dynamic name, faceData, friends, totalKikoMinutes;
+@dynamic name, faceData, friends, totalKikoMinutes, sentFriendRequests, receivedFriendRequests;
 
 + (id) getCurrentUser {
     PFUser *currentUser = [PFUser currentUser];

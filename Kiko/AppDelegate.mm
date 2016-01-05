@@ -11,6 +11,7 @@
 #import "KikoFaceTracker.h"
 #import <Parse/Parse.h>
 
+#import "User.h"
 @interface AppDelegate ()
 
 @end
@@ -24,8 +25,16 @@
     [self setupTracking];
     [self setupParse];
     [self setupNotificationsForApplication:application];
+    [self refreshData];
+    
     
     return YES;
+}
+
+- (void) refreshData {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[User currentUser] fetch];
+    });
 }
 
 - (void) setupParse {

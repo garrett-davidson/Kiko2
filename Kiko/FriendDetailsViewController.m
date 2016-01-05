@@ -38,6 +38,8 @@
             NSLog(@"%@", error);
         }
     }];
+    
+    _friendButton.layer.cornerRadius = 10;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -69,7 +71,7 @@
             break;
             
         case ReceivedRequest:
-            _friendButton.backgroundColor = [UIColor grayColor];
+            _friendButton.backgroundColor = [UIColor greenColor];
             _friendLabel.text = @"Confirm friend";
             break;
             
@@ -81,11 +83,9 @@
 }
 
 - (IBAction)friendButtonPressed:(id)sender {
-    User *currentUser = [User currentUser];
-    
     switch (_status) {
         case Friends:
-            //TODO:
+            [self deleteFriend];
             break;
             
         case SentRequest:
@@ -93,23 +93,13 @@
             break;
             
         case ReceivedRequest:
-            //TODO:
+            [self acceptFriendRequest];
             break;
             
         case NotFriends:
             [self sendFriendRequest];
             break;
     }
-    
-    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"Added friend");
-        }
-        
-        if (error) {
-            NSLog(@"%@", error);
-        }
-    }];
 }
 
 - (void) sendFriendRequest {
@@ -117,12 +107,39 @@
      
      ^(NSString *success, NSError *error) {
         if (!error) {
-            // Push sent successfully
-            NSLog(@"Sent friend request");
+            NSLog(@"Sent request");
+            [self setupButtonForStatus:SentRequest];
         }
          
-         NSLog(@"%@", success);
+        else {
+            NSLog(@"%@", error);
+        }
     }];
+}
+
+- (void) acceptFriendRequest {
+    [PFCloud callFunctionInBackground:@"acceptFriend" withParameters:@{@"recipientId": _friend.objectId} block:
+     
+     ^(NSString *success, NSError *error) {
+         if (!error) {
+             // Push sent successfully
+             NSLog(@"Accepted friend request");
+             NSLog(@"%@", success);
+             [self setupButtonForStatus:Friends];
+         }
+     }];
+}
+
+- (void) deleteFriend {
+    [PFCloud callFunctionInBackground:@"removeFriend" withParameters:@{@"recipientId": _friend.objectId} block:
+     
+     ^(NSString *success, NSError *error) {
+         if (!error) {
+             // Push sent successfully
+             NSLog(@"Removed friend");
+             [self setupButtonForStatus:NotFriends];
+         }
+     }];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
