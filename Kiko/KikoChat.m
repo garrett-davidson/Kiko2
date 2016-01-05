@@ -10,12 +10,22 @@
 
 @implementation KikoChat
 
+@dynamic name, users, messages;
+
 - (id) initWithName:(NSString *)name andFriends:(NSArray *)friends {
     self = [super init];
     self.name = name;
     self.users = friends;
     
     return self;
+}
+
++ (void) load {
+    [self registerSubclass];
+}
+
++ (NSString *)parseClassName {
+    return @"KikoChat";
 }
 
 @end

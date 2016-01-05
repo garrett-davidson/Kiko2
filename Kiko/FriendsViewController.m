@@ -30,7 +30,7 @@
         if (!error) {
             friendsToShow = objects;
             [self.collectionView reloadData];
-            NSLog(@"Retrieved %ld friends", objects.count);
+            NSLog(@"Retrieved %lu friends", (unsigned long) objects.count);
         }
         
         else {
@@ -42,7 +42,7 @@
 - (void) viewWillAppear:(BOOL)animated {
     User *currentUser = [User currentUser];
     self.kikoMinutesLabel.text = [NSString stringWithFormat:@"%ld Kiko Minutes", currentUser.totalKikoMinutes.longValue];
-    self.friendCountLabel.text = [NSString stringWithFormat:@"%ld Friends", currentUser.friends.count];
+    self.friendCountLabel.text = [NSString stringWithFormat:@"%lu Friends", (unsigned long) currentUser.friends.count];
     self.usernameLabel.text = currentUser.name;
     CGRect bounds = CGRectInset(self.userFaceView.bounds, 5, 5);
     

@@ -11,12 +11,14 @@
 #import "User.h"
 
 
-@interface KikoChat : NSObject
+@interface KikoChat : PFObject<PFSubclassing>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSArray *users;
 @property (nonatomic) NSArray *messages;
 
 - (id) initWithName: (NSString *)name andFriends: (NSArray *)friends;
+
++ (NSString *)parseClassName;
 
 @end

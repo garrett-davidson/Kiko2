@@ -34,7 +34,6 @@
 
 + (void)load {
     [self registerSubclass];
-    [self enableAutomaticUser];
 }
 
 - (CAShapeLayer *) getImageScaledForRect:(CGRect)bounds {

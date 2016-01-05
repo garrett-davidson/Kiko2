@@ -139,3 +139,7 @@ Parse.Cloud.define("removeFriend", function(request, response) {
 		}
 	});
 });
+
+Parse.Cloud.define("isLoggedIn", function(request, response) {
+	var senderUser = request.user;
+});
