@@ -20,6 +20,10 @@
 @property (nonatomic) NSArray *sentFriendRequests;
 @property (nonatomic) NSArray *receivedFriendRequests;
 
+@property (nonatomic) NSString *leftEyeAnimation;
+@property (nonatomic) NSString *rightEyeAnimation;
+@property (nonatomic) NSString *hairAnimation;
+
 + (id)getCurrentUser;
 
 - (CAShapeLayer *) getImageScaledForRect:(CGRect)bounds;

@@ -22,18 +22,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [self setupTracking];
     [self setupParse];
     [self setupNotificationsForApplication:application];
     [self refreshData];
-    
+    [self setupTracking];
+
     
     return YES;
 }
 
 - (void) refreshData {
+    
+    void (^updatedBlock)(PFObject * _Nullable object, NSError * _Nullable error) = ^(PFObject * _Nullable object, NSError * _Nullable error){
+        NSLog(@"%@ updated", object.objectId);
+    };
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[User currentUser] fetch];
+        [[User currentUser] fetchInBackgroundWithBlock:updatedBlock];
     });
 }
 
