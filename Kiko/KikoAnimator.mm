@@ -8,6 +8,7 @@
 
 #import "KikoAnimator.h"
 #import "UIBezierPath+Interpolation.h"
+#import "FaceView.h"
 
 #define kLeftEyeAnimationKey @"leftEyeAnimation"
 #define kRightEyeAnimationKey @"rightEyeAnimation"
@@ -16,17 +17,19 @@
 @interface KikoAnimator () {
     BOOL paused;
     BOOL isRecording;
-    CAShapeLayer *animationLayer;
+//    CAShapeLayer *animationLayer;
     NSMutableArray *recording;
     KikoMessage *currentMessage;
     
-    UIImageView *leftEyeImageView;
-    UIImageView *rightEyeImageView;
+//    UIImageView *leftEyeImageView;
+//    UIImageView *rightEyeImageView;
     
     UIBezierPath *facePath;
     UIBezierPath *leftEyePath;
     UIBezierPath *rightEyePath;
     UIBezierPath *drawingPath;
+    
+    FaceView *faceView;
 }
 
 @end
@@ -54,8 +57,8 @@
 
 static float _cameraWidth;
 static float _cameraHeight;
-static float _layerWidth;
-static float _layerHeight;
+static float _frameWidth;
+static float _frameHeight;
 
 + (id) sharedAnimator {
     static KikoAnimator *sharedAnimator = nil;
@@ -68,18 +71,18 @@ static float _layerHeight;
 }
 
 - (void) setAnimationView:(UIView *)animationView {
-    [animationLayer removeFromSuperlayer];
+    [faceView removeFromSuperview];
     
     _animationView = animationView;
-    [_animationView.layer addSublayer:animationLayer];
-    _layerHeight = _animationView.frame.size.height;
-    _layerWidth = _animationView.frame.size.width;
+    [_animationView addSubview:faceView];
     
-    animationLayer.frame = CGRectMake(0, 0, _layerWidth, _layerHeight);
+    CGRect newFrame = _animationView.bounds;
+    faceView.frame = newFrame;
+    _frameHeight = newFrame.size.height;
+    _frameWidth = newFrame.size.width;
     
-    [animationView addSubview:leftEyeImageView];
-    [animationView addSubview:rightEyeImageView];
-    
+    faceView.frame = _animationView.bounds;
+    faceView.face = [User currentUser].face;
     paused = false;
 }
 
@@ -89,18 +92,10 @@ static float _layerHeight;
     _cameraHeight = 640;
     _cameraWidth = 480;
     
-    animationLayer = [[CAShapeLayer alloc] init];
-    
-    animationLayer.frame = CGRectMake(0, 0, _layerWidth, _layerHeight);
-    [animationLayer setFillColor:[[UIColor clearColor] CGColor]];
-    [animationLayer setStrokeColor:[[UIColor blackColor] CGColor]];
+    faceView = [[FaceView alloc] init];
     
     paused = true;
     isRecording = false;
-    
-    int eyeSize = 20;
-    leftEyeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-100, -100, eyeSize, eyeSize)];
-    rightEyeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-100, -100, eyeSize, eyeSize)];
     
     User* currentUser = [User currentUser];
     [currentUser addObserver:self forKeyPath:kLeftEyeAnimationKey options:NSKeyValueObservingOptionNew context:nil];
@@ -113,17 +108,11 @@ static float _layerHeight;
 - (void) setCurrentEyes:(KikoEyes *)currentEyes {
     _currentEyes = currentEyes;
     if (_currentEyes) {
-        leftEyeImageView.image = [_currentEyes getLeftEyeImage];
-        rightEyeImageView.image = [_currentEyes getRightEyeImage];
-        leftEyeImageView.hidden = false;
-        rightEyeImageView.hidden = false;
+        faceView.face.eyes = _currentEyes;
     }
     
     else {
-        leftEyeImageView.image = nil;
-        rightEyeImageView.image = nil;
-        leftEyeImageView.hidden = true;
-        rightEyeImageView.hidden = true;
+        faceView.face.eyes = nil;
     }
 }
 
@@ -132,7 +121,7 @@ static float _layerHeight;
 }
 
 NSValue* getValue (std::shared_ptr<brf::Point> point) {
-    CGPoint p = CGPointMake(point->x * _layerWidth/_cameraWidth, point->y *_layerHeight/_cameraHeight);
+    CGPoint p = CGPointMake(point->x * _frameWidth/_cameraWidth, point->y *_frameHeight/_cameraHeight);
     
     return [NSValue valueWithBytes:&p objCType:@encode(CGPoint)];
 }
@@ -155,24 +144,12 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
         leftEyePath = [self getLeftEyePath:pointsArray];
         rightEyePath = [self getRightEyePath:pointsArray];
         
+        faceView.face.facePath = facePath;
+        faceView.face.leftEyePath = leftEyePath;
+        faceView.face.rightEyePath = rightEyePath;
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (leftEyeImageView.image) {
-                CGRect bounds = CGPathGetBoundingBox(leftEyePath.CGPath);
-                leftEyeImageView.frame = CGRectMake(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.width);
-            }
-            else {
-                [drawingPath appendPath:leftEyePath];
-            }
-            
-            if (rightEyeImageView.image) {
-                CGRect bounds = CGPathGetBoundingBox(rightEyePath.CGPath);
-                rightEyeImageView.frame = CGRectMake(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.width);
-            }
-            else {
-                [drawingPath appendPath:rightEyePath];
-            }
-            
-            [animationLayer setPath:drawingPath.CGPath];
+            [faceView redrawWithFaceFrame:CGPathGetBoundingBox(facePath.CGPath)];
         });
         
         if (isRecording) {
@@ -227,11 +204,11 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
 }
 
 - (void) playMessage:(KikoMessage*)message {
-    currentMessage = message;
-    [self pause];
-    animationLayer.hidden = true;
-    [self.animationView.layer addSublayer:[message getFaceLayer]];
-    [message play];
+//    currentMessage = message;
+//    [self pause];
+//    animationLayer.hidden = true;
+//    [self.animationView.layer addSublayer:[message getFaceLayer]];
+//    [message play];
 }
 
 - (void) stopPlayingMessage {
@@ -240,17 +217,17 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:kLeftEyeAnimationKey]) {
-        leftEyeImageView.image = [UIImage imageNamed:[change objectForKey:NSKeyValueChangeNewKey]];
-    }
-    
-    else if ([keyPath isEqualToString:kRightEyeAnimationKey]) {
-        rightEyeImageView.image = [UIImage imageNamed:[change objectForKey:NSKeyValueChangeNewKey]];
-    }
-    
-    else if ([keyPath isEqualToString:kHairAnimationKey]) {
-        
-    }
+//    if ([keyPath isEqualToString:kLeftEyeAnimationKey]) {
+//        leftEyeImageView.image = [UIImage imageNamed:[change objectForKey:NSKeyValueChangeNewKey]];
+//    }
+//    
+//    else if ([keyPath isEqualToString:kRightEyeAnimationKey]) {
+//        rightEyeImageView.image = [UIImage imageNamed:[change objectForKey:NSKeyValueChangeNewKey]];
+//    }
+//    
+//    else if ([keyPath isEqualToString:kHairAnimationKey]) {
+//
+//    }
 }
 
 @end

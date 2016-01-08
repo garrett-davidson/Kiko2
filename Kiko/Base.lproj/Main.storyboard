@@ -387,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4Q-65-Qr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2232.5" y="2457.5"/>
+            <point key="canvasLocation" x="2232.5" y="2463.5"/>
         </scene>
         <!--Friends View Controller-->
         <scene sceneID="MUC-2A-guj">
@@ -433,7 +433,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ofS-oj-2xc">
-                                <rect key="frame" x="16" y="330.5" width="343" height="336.5"/>
+                                <rect key="frame" x="16" y="330" width="343" height="336.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nQv-2T-7et">
                                     <size key="itemSize" width="100" height="100"/>
@@ -511,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKE-8S-tLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2819.5" y="2457.5"/>
+            <point key="canvasLocation" x="2819.5" y="2463.5"/>
         </scene>
         <!--Suggested Friends View Controller-->
         <scene sceneID="6fS-Zn-nFP">
@@ -529,7 +529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="800-bU-rBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2819.5" y="3321.5"/>
+            <point key="canvasLocation" x="2819.5" y="3375.5"/>
         </scene>
         <!--AddFriends-->
         <scene sceneID="ifs-li-SNz">
@@ -989,7 +989,7 @@
                                     <outletCollection property="gestureRecognizers" destination="9FV-kV-XkD" appends="YES" id="PE6-VW-3MQ"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qz-qi-e5O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qz-qi-e5O">
                                 <rect key="frame" x="16" y="415" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1019,7 +1019,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Kfj-Ug-nZr" appends="YES" id="oQU-4l-Uhj"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRN-Va-Y4a" customClass="FaceView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QRN-Va-Y4a" customClass="FaceView">
                                 <rect key="frame" x="16" y="64" width="343" height="343"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1129,11 +1129,11 @@
                         <viewControllerLayoutGuide type="bottom" id="zXX-O7-4y2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8KE-FK-HTw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISo-h0-RbF">
-                                <rect key="frame" x="20" y="72" width="150" height="150"/>
+                                <rect key="frame" x="16" y="72" width="150" height="150"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Mmf-hC-b8n"/>
@@ -1141,25 +1141,25 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Kiko Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNs-c9-gWK">
-                                <rect key="frame" x="178" y="107" width="402" height="20.5"/>
+                                <rect key="frame" x="174" y="107" width="185" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC3-vX-dGm">
-                                <rect key="frame" x="178" y="158" width="402" height="20.5"/>
+                                <rect key="frame" x="174" y="158" width="185" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mY5-2y-0lx">
-                                <rect key="frame" x="20" y="230" width="150" height="20.5"/>
+                                <rect key="frame" x="16" y="230" width="150" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2S3-dr-Cys">
-                                <rect key="frame" x="20" y="270" width="560" height="329.5"/>
+                                <rect key="frame" x="16" y="270" width="343" height="396.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ot9-3j-VH8">
                                     <size key="itemSize" width="100" height="100"/>
@@ -1201,10 +1201,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EF5-yy-fBP">
-                                <rect key="frame" x="178" y="186" width="402" height="36.5"/>
+                                <rect key="frame" x="174" y="186" width="185" height="36.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DF-mp-fBh">
-                                        <rect key="frame" x="8" y="8" width="386" height="20.5"/>
+                                        <rect key="frame" x="8" y="8" width="169" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1265,7 +1265,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3972.5" y="2457.5"/>
+            <point key="canvasLocation" x="3972.5" y="2463.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fye-8f-2Rp">
@@ -1308,6 +1308,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nbd-vn-f3v" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F64-M2-jUy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1319,13 +1320,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUg-Lp-FMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539.5" y="2457.5"/>
+            <point key="canvasLocation" x="1539.5" y="2463.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5qj-PX-WnC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Yf-wu-nBq" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DGa-Dd-az4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1337,7 +1339,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SVq-TQ-US5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3430.5" y="2457.5"/>
+            <point key="canvasLocation" x="3430.5" y="2463.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NS7-d3-gJc">
@@ -1365,8 +1367,8 @@
         <image name="kiko-opening-logo.png" width="1245" height="1245"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="39J-hl-Qe7"/>
         <segue reference="adX-RQ-FV4"/>
         <segue reference="dX2-ab-sdV"/>
-        <segue reference="vRA-AA-7ju"/>
     </inferredMetricsTieBreakers>
 </document>

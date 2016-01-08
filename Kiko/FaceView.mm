@@ -26,13 +26,23 @@
 
 @implementation FaceView
 
+- (id) initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    [self initialize];
+    return self;
+}
+
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    
+    [self initialize];
+    return self;
+}
+
+- (void) initialize {
     faceLayer = [[CAShapeLayer alloc] init];
     hairLayer = [[CAShapeLayer alloc] init];
-    leftEyeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    rightEyeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    leftEyeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-100, -100, 50, 50)];
+    rightEyeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-100, -100, 50, 50)];
     
     [self addSubview:leftEyeImageView];
     [self addSubview:rightEyeImageView];
@@ -52,29 +62,54 @@
     
     hairRect = CGRectInset(self.bounds, 0, self.bounds.size.height/4);
     hairRect = CGRectOffset(hairRect, 0, -self.bounds.size.height/4);
-    
-    return self;
 }
 
 - (void) setFace:(Face *)face {
     _face = face;
-    
     [self redraw];
+}
+
+- (void) setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    faceRect = CGRectInset(self.bounds, self.bounds.size.height/6, self.bounds.size.height/6);
+    faceRect = CGRectOffset(faceRect, 0, self.bounds.size.height/6);
+    
+    hairRect = CGRectInset(self.bounds, 0, self.bounds.size.height/4);
+    hairRect = CGRectOffset(hairRect, 0, -self.bounds.size.height/4);
 }
 
 - (void) redraw {
     [self drawFace:_face];
 }
 
+- (void) redrawWithFaceFrame:(CGRect)faceFrame {
+    [self drawFace:_face withFaceFrame:faceFrame];
+}
+
+- (void) redrawWithFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame {
+    [self drawFace:_face withFaceFrame:faceFrame hairFrame:hairFrame];
+}
+
 - (void) drawFace:(Face *)face {
+    [self drawFace:face withFaceFrame:faceRect hairFrame:hairRect];
+}
+
+- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame {
+    CGRect bounds = CGRectInset(faceFrame, -faceFrame.size.width*1/6, -faceFrame.size.height*1/6);
+    CGRect hairFrame = CGRectInset(bounds, 0, bounds.size.height/4);
+    hairFrame = CGRectOffset(hairFrame, 0, -faceFrame.size.height/2);
+    [self drawFace:face withFaceFrame:faceFrame hairFrame:hairFrame];
+}
+
+- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame {
     if (face) {
         facePath = [face.facePath copy];
         
         if (face.hair) {
             hairPath = face.hair.path;
-            [hairLayer setPath:hairPath.CGPath inRect:hairRect];
+            [hairLayer setPath:hairPath.CGPath inRect:hairFrame];
         }
-
+        
         if (!face.eyes.leftEyeFile) {
             leftEyeImageView.hidden = true;
             rightEyeImageView.hidden = true;
@@ -83,12 +118,12 @@
             [facePath appendPath:face.rightEyePath];
             
             //Must be at the end here because of append path
-            [faceLayer setPath:facePath.CGPath inRect:faceRect withXInset:0 yInset:0];
+            [faceLayer setPath:facePath.CGPath inRect:faceFrame withXInset:0 yInset:0];
         }
         
         else {
             //Must be at the beginning here to update the eye positions with the new scale
-            [faceLayer setPath:facePath.CGPath inRect:faceRect withXInset:0 yInset:0];
+            [faceLayer setPath:facePath.CGPath inRect:faceFrame withXInset:0 yInset:0];
             
             leftEyeImageView.hidden = false;
             rightEyeImageView.hidden = false;
@@ -99,8 +134,10 @@
             CGRect leftEyeBounds = CGPathGetBoundingBox(face.leftEyePath.CGPath);
             CGRect rightEyeBounds = CGPathGetBoundingBox(face.rightEyePath.CGPath);
             
-            leftEyeImageView.center = [self.layer convertPoint:CGPointMake(CGRectGetMidX(leftEyeBounds), CGRectGetMidY(leftEyeBounds)) fromLayer:faceLayer];
-            rightEyeImageView.center = [self.layer convertPoint:CGPointMake(CGRectGetMidX(rightEyeBounds), CGRectGetMidY(rightEyeBounds)) fromLayer:faceLayer];
+            if (!CGRectEqualToRect(leftEyeBounds, CGRectZero) && !CGRectEqualToRect(rightEyeBounds, CGRectZero)) {
+                leftEyeImageView.frame = [self.layer convertRect:CGRectMake(leftEyeBounds.origin.x, leftEyeBounds.origin.y, leftEyeBounds.size.width*1.2, leftEyeBounds.size.width*1.2) fromLayer:faceLayer];
+                rightEyeImageView.frame = [self.layer convertRect:CGRectMake(rightEyeBounds.origin.x, rightEyeBounds.origin.y, rightEyeBounds.size.width*1.2, rightEyeBounds.size.width*1.2) fromLayer:faceLayer];
+            }
         }
         
     }

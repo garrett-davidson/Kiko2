@@ -100,8 +100,11 @@ void (^updatedBlock)(PFObject * _Nullable object, NSError * _Nullable error) = ^
 }
 
 - (void) refreshCurrentUser {
-    [[User currentUser] fetchInBackgroundWithBlock:updatedBlock];
-    [[User currentUser] pinInBackground];
+    User *currentUser = [User currentUser];
+    [currentUser fetchInBackgroundWithBlock:updatedBlock];
+    [[currentUser.face fetchIfNeeded].eyes fetchIfNeeded];
+    [currentUser.face.hair fetchIfNeeded];
+    [currentUser pinInBackground];
 }
 
 - (void) refreshAvailableCustomizations {
