@@ -140,7 +140,6 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
 - (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point>>) points {
     
     if (!paused) {
-    
         std::vector<std::shared_ptr<brf::Point>>::iterator start = points.begin();
         std::vector<std::shared_ptr<brf::Point>>::iterator end = points.end();
         
