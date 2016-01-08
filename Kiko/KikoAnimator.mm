@@ -159,7 +159,7 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (leftEyeImageView.image) {
                 CGRect bounds = CGPathGetBoundingBox(leftEyePath.CGPath);
-                leftEyeImageView.center = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds) + 10);
+                leftEyeImageView.frame = CGRectMake(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.width);
             }
             else {
                 [drawingPath appendPath:leftEyePath];
@@ -167,7 +167,7 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
             
             if (rightEyeImageView.image) {
                 CGRect bounds = CGPathGetBoundingBox(rightEyePath.CGPath);
-                rightEyeImageView.center = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds) + 10);
+                rightEyeImageView.frame = CGRectMake(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.width);
             }
             else {
                 [drawingPath appendPath:rightEyePath];
