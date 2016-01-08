@@ -176,7 +176,6 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
             [animationLayer setPath:drawingPath.CGPath];
         });
         
-
         if (isRecording) {
             [recording addObject:facePath];
         }
