@@ -13,16 +13,20 @@
     int currentFrame;
     NSUInteger messageLength;
     NSTimer *playbackTimer;
+    
+    CAShapeLayer *_faceLayer;
 }
 
 @end
 
 @implementation KikoMessage
 
+@dynamic sender;
+
 - (id)initWithSender:(User *)sender andFrames:(NSArray *)frames {
     self = [super init];
     
-    _sender = sender;
+    self.sender = sender;
     faceFrames = frames;
     
     _faceLayer = [[CAShapeLayer alloc] init];
@@ -55,6 +59,18 @@
 - (void) stop {
     [playbackTimer invalidate];
     _faceLayer.path = ((UIBezierPath*)faceFrames[0]).CGPath;
+}
+
++ (NSString *)parseClassName {
+    return @"KikoMessage";
+}
+
++ (void)load {
+    [self registerSubclass];
+}
+
+- (CAShapeLayer *) getFaceLayer {
+    return _faceLayer;
 }
 
 @end

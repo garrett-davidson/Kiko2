@@ -9,21 +9,12 @@
 #import "User.h"
 #import <Parse/PFObject+Subclass.h>
 
-@interface User() {
-    Face *userFace;
-}
-
-@property (nonatomic) NSData *faceData;
-
-
-@end
-
 @implementation User
 
-@dynamic name, faceData, friends, totalKikoMinutes, sentFriendRequests, receivedFriendRequests;
+@dynamic name, friends, totalKikoMinutes, sentFriendRequests, receivedFriendRequests, face, allFaces;
 
 + (id) getCurrentUser {
-    PFUser *currentUser = [PFUser currentUser];
+    User *currentUser = [User currentUser];
     
     if ([currentUser isMemberOfClass:User.self]) {
         return currentUser;
@@ -32,14 +23,18 @@
     return nil;
 }
 
++ (id) currentUser {
+    return [super currentUser];
+}
+
 + (void)load {
     [self registerSubclass];
-    [self enableAutomaticUser];
 }
 
 - (CAShapeLayer *) getImageScaledForRect:(CGRect)bounds {
+    NSLog(@"TODO: Replace me with category");
     CAShapeLayer *layer = [CAShapeLayer new];
-    [layer setPath:[self getFace].path.CGPath];
+    [layer setPath:self.face.facePath.CGPath];
     [layer setFillColor:[[UIColor clearColor] CGColor]];
     [layer setStrokeColor:[[UIColor blackColor] CGColor]];
     
@@ -52,18 +47,6 @@
     layer.position = CGPointMake(-imageBounds.origin.x * widthScale + bounds.origin.x, -imageBounds.origin.y * heightScale + bounds.origin.y);
     
     return layer;
-}
-
-- (Face*) getFace {
-    if (!userFace) {
-        userFace = [NSKeyedUnarchiver unarchiveObjectWithData:self.faceData];
-    }
-    return userFace;
-}
-
-- (void) setFace:(Face *) face {
-    userFace = face;
-    self.faceData = [NSKeyedArchiver archivedDataWithRootObject:face];
 }
 
 @end

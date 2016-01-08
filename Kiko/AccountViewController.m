@@ -23,6 +23,8 @@
 }
 
 - (BOOL) isLoggedIn {
+    //TODO:
+    //Find a way to actually check if user's session is still valid
     if ([User currentUser]) {
         return true;
     }

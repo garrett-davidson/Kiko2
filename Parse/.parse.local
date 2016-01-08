@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Kiko": {
+      "applicationId": "ftnLt0eateNi2Cl1SNPeKiIjBJlGrPVFqbCIJLAT"
+    },
+    "_default": {
+      "link": "Kiko"
+    }
+  }
+}

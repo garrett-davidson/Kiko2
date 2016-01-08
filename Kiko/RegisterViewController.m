@@ -38,6 +38,7 @@ NSArray *fields;
     }
     
     self.activityView.layer.cornerRadius = 10;
+    [User logOut];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -83,13 +84,15 @@ NSArray *fields;
     newUser.friends = [NSArray array];
     newUser.sentFriendRequests = [NSArray array];
     newUser.receivedFriendRequests = [NSArray array];
-    
-    [PFInstallation currentInstallation][@"user"] = newUser.objectId;
-    [[PFInstallation currentInstallation] saveInBackground];
+    newUser.allFaces = [NSArray array];
+
+    newUser.totalKikoMinutes = @0;
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"New user created");
+            [PFInstallation currentInstallation][@"user"] = newUser.objectId;
+            [[PFInstallation currentInstallation] saveInBackground];
             [self performSegueWithIdentifier:@"TakeImageSegue" sender:self];
         }
         

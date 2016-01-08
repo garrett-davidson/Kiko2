@@ -10,15 +10,16 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
-@interface KikoMessage : NSObject
+@interface KikoMessage : PFObject<PFSubclassing>
 
-@property (nonatomic, readonly) CAShapeLayer *faceLayer;
-@property (nonatomic, readonly) User* sender;
+@property (nonatomic) User* sender;
 
 - (id) initWithSender:(User*)sender andFrames: (NSArray*)frames;
 
 - (void) play;
 - (void) pause;
 - (void) stop;
+
+- (CAShapeLayer *) getFaceLayer;
 
 @end

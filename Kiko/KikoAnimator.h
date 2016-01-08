@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "KikoMessage.h"
+#import "KikoEyes.h"
+#import "KikoHair.h"
+
 
 #ifndef __KikoAnimator
 #define __KikoAnimator
@@ -29,6 +32,8 @@
 
 //@property (nonatomic) CAShapeLayer *animationLayer;
 @property (nonatomic) UIView *animationView;
+@property (nonatomic) KikoEyes *currentEyes;
+@property (nonatomic) KikoHair *currentHair;
 
 + (id) sharedAnimator;
 
@@ -37,7 +42,7 @@
 - (void) pause;
 - (void) unpause;
 
-- (UIBezierPath *) getCurrentPath;
+- (Face *) getCurrentFace;
 
 - (void) startRecording;
 - (NSArray *)endRecording;
