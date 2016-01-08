@@ -36,6 +36,12 @@
     [tracker pause];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    User *currentUser = [User currentUser];
+    animator.currentEyes = [[currentUser.face fetchIfNeeded].eyes fetchIfNeeded];
+    animator.currentHair = [currentUser.face.hair fetchIfNeeded];
+}
+
 - (void) viewDidAppear:(BOOL)animated {
     [tracker unpause];
     [animator unpause];

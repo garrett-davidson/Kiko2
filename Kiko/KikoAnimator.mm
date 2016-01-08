@@ -8,8 +8,10 @@
 
 #import "KikoAnimator.h"
 #import "UIBezierPath+Interpolation.h"
-#import "User.h"
-#import "AnimationOptions.h"
+
+#define kLeftEyeAnimationKey @"leftEyeAnimation"
+#define kRightEyeAnimationKey @"rightEyeAnimation"
+#define kHairAnimationKey @"hairAnimation"
 
 @interface KikoAnimator () {
     BOOL paused;
@@ -20,6 +22,11 @@
     
     UIImageView *leftEyeImageView;
     UIImageView *rightEyeImageView;
+    
+    UIBezierPath *facePath;
+    UIBezierPath *leftEyePath;
+    UIBezierPath *rightEyePath;
+    UIBezierPath *drawingPath;
 }
 
 @end
@@ -100,21 +107,28 @@ static float _layerHeight;
     [currentUser addObserver:self forKeyPath:kRightEyeAnimationKey options:NSKeyValueObservingOptionNew context:nil];
     [currentUser addObserver:self forKeyPath:kHairAnimationKey options:NSKeyValueObservingOptionNew context:nil];
     
-    NSString *leftEyeImage = currentUser.leftEyeAnimation;
-    NSString *rightEyeImage = currentUser.rightEyeAnimation;
-    
-//    leftEyeImageView.hidden = true;
-//    rightEyeImageView.hidden = true;
-    
-    if (leftEyeImage) {
-        leftEyeImageView.image = [UIImage imageNamed:leftEyeImage];
-    }
-    
-    if (rightEyeImage) {
-        rightEyeImageView.image = [UIImage imageNamed:rightEyeImage];
-    }
-    
     return self;
+}
+
+- (void) setCurrentEyes:(KikoEyes *)currentEyes {
+    _currentEyes = currentEyes;
+    if (_currentEyes) {
+        leftEyeImageView.image = [_currentEyes getLeftEyeImage];
+        rightEyeImageView.image = [_currentEyes getRightEyeImage];
+        leftEyeImageView.hidden = false;
+        rightEyeImageView.hidden = false;
+    }
+    
+    else {
+        leftEyeImageView.image = nil;
+        rightEyeImageView.image = nil;
+        leftEyeImageView.hidden = true;
+        rightEyeImageView.hidden = true;
+    }
+}
+
+- (void) setCurrentHair:(KikoHair *)currentHair {
+    _currentHair = currentHair;
 }
 
 NSValue* getValue (std::shared_ptr<brf::Point> point) {
@@ -136,10 +150,11 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
         
         NSArray *pointsArray = [NSArray arrayWithObjects:&pointValues[0] count:points.size()];
         
-        UIBezierPath *facePath = [self createFacePath:pointsArray];
+        facePath = [self createFacePath:pointsArray];
+        drawingPath = [facePath copy];
         
-        UIBezierPath *leftEyePath = [self getLeftEyePath:pointsArray];
-        UIBezierPath *rightEyePath = [self getRightEyePath:pointsArray];
+        leftEyePath = [self getLeftEyePath:pointsArray];
+        rightEyePath = [self getRightEyePath:pointsArray];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (leftEyeImageView.image) {
@@ -147,7 +162,7 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
                 leftEyeImageView.center = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds) + 10);
             }
             else {
-                [facePath appendPath:leftEyePath];
+                [drawingPath appendPath:leftEyePath];
             }
             
             if (rightEyeImageView.image) {
@@ -155,10 +170,10 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
                 rightEyeImageView.center = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds) + 10);
             }
             else {
-                [facePath appendPath:rightEyePath];
+                [drawingPath appendPath:rightEyePath];
             }
             
-            [animationLayer setPath:facePath.CGPath];
+            [animationLayer setPath:drawingPath.CGPath];
         });
         
 
@@ -178,32 +193,15 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
 }
 
 - (UIBezierPath *) createFacePath:(NSArray *) points {
-    UIBezierPath *facePath = [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kFaceCurveStart, kFaceCurveLength)] closed:false];
-    [facePath appendPath: [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kOuterMouthStart, kOuterMouthLength)] closed:true]];
-    [facePath appendPath: [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kRightEyebrowStart, kRightEyebrowLength)] closed:true]];
-    [facePath appendPath: [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kLeftEyebrowStart, kLeftEyebrowLength)] closed:true]];
-
-//    UIBezierPath *leftEyePath = [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kLeftEyeStart, kLeftEyeLength)] closed:true];
-//    if (!leftEyeImageView.image)
-//        [facePath appendPath: leftEyePath];
-//    
-//    else {
-//        leftEyeImageView.frame = CGPathGetBoundingBox(leftEyePath.CGPath);
-//    }
-//
-//    UIBezierPath *rightEyePath = [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kRightEyeStart, kRightEyeLength)] closed:true];
-//    if (!rightEyeImageView.image)
-//        [facePath appendPath:rightEyePath];
-//    
-//    else {
-//        rightEyeImageView.frame = CGPathGetBoundingBox(rightEyePath.CGPath);
-//    }
-
+    UIBezierPath *newFacePath = [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kFaceCurveStart, kFaceCurveLength)] closed:false];
+    [newFacePath appendPath: [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kOuterMouthStart, kOuterMouthLength)] closed:true]];
+    [newFacePath appendPath: [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kRightEyebrowStart, kRightEyebrowLength)] closed:true]];
+    [newFacePath appendPath: [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kLeftEyebrowStart, kLeftEyebrowLength)] closed:true]];
     
     NSArray *noseArray = [[[points subarrayWithRange:NSMakeRange(kNose1Start, kNose1Length)] arrayByAddingObjectsFromArray:[points subarrayWithRange:NSMakeRange(kNose2Start, kNose2Length)]] arrayByAddingObjectsFromArray:[points subarrayWithRange:NSMakeRange(kNose3Start, kNose3Length)]];
-    [facePath appendPath:[UIBezierPath interpolateCGPointsWithHermite:noseArray closed:false]];
+    [newFacePath appendPath:[UIBezierPath interpolateCGPointsWithHermite:noseArray closed:false]];
     
-    return facePath;
+    return newFacePath;
 }
 
 - (void) pause {
@@ -214,8 +212,8 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
     paused = false;
 }
 
-- (UIBezierPath *) getCurrentPath {
-   return [UIBezierPath bezierPathWithCGPath: animationLayer.path];
+- (Face *) getCurrentFace {
+    return [[Face alloc] initWithFacePath:facePath leftEyePath:leftEyePath rightEyePath:rightEyePath eyes:_currentEyes hair:_currentHair];
 }
 
 - (void) startRecording {

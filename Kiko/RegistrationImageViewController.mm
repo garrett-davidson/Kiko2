@@ -11,42 +11,14 @@
 #import "KikoFaceTracker.h"
 #import "FaceCustomizationViewController.h"
 
-//#define DEBUGGING
-
-//If debugging
-#ifdef DEBUGGING
-#import "Face.h"
-#import "User.h"
-#endif
-
 @interface RegistrationImageViewController () {
     KikoAnimator *animator;
     KikoFaceTracker *tracker;
 }
 
-
-
 @end
 
 @implementation RegistrationImageViewController
-
-#ifdef DEBUGGING
-//For debugging only
-- (void) savePersonAsFriend {
-    Face *face = [[Face alloc] initWithPath:self.userInfo[@"userFacePath"]];
-    User *newFriend = [[User alloc] initWithName:self.userInfo[@"name"]  andFace:face];
-    
-    NSArray *oldFriends = [[NSUserDefaults standardUserDefaults] objectForKey:@"friends"];
-    
-    if (oldFriends == nil) {
-        oldFriends = [NSArray array];
-    }
-    
-    oldFriends = [oldFriends arrayByAddingObject:[NSKeyedArchiver archivedDataWithRootObject:newFriend]];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:oldFriends forKey:@"friends"];
-}
-#endif
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,6 +32,8 @@
     animator = [KikoAnimator sharedAnimator];
     animator.animationView = self.animationView;
     tracker.animator = animator;
+    
+    self.navigationItem.hidesBackButton = true;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -84,6 +58,7 @@
     FaceCustomizationViewController *dest = segue.destinationViewController;
     
     dest.user = self.user;
+    dest.isRegistering = true;
 }
 
 
@@ -93,23 +68,19 @@
 }
 
 - (IBAction)savePhoto:(id)sender {
-    Face *newFace = [[Face alloc] initWithPath:[animator getCurrentPath]];
-    [self.user setFace:newFace];
+    Face *newFace = [animator getCurrentFace];
+    [_user setFace:newFace];
     
-    [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    [_user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Saved face");
             [self performSegueWithIdentifier:@"CustomizeFaceSegue" sender:self];
         }
-        
+    
         if (error) {
             NSLog(@"%@", error);
         }
     }];
-    
-#ifdef DEBUGGING
-    [self savePersonAsFriend];
-#endif
 }
 
 - (IBAction)takePhoto:(id)sender {

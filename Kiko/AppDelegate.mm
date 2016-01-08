@@ -12,6 +12,10 @@
 #import <Parse/Parse.h>
 
 #import "User.h"
+#import "KikoCustomizations.h"
+
+//#define AddingNewCustomizations
+
 @interface AppDelegate ()
 
 @end
@@ -26,20 +30,102 @@
     [self setupNotificationsForApplication:application];
     [self refreshData];
     [self setupTracking];
-
     
     return YES;
 }
 
+void (^updatedBlock)(PFObject * _Nullable object, NSError * _Nullable error) = ^(PFObject * _Nullable object, NSError * _Nullable error){
+    NSLog(@"%@ updated", object.objectId);
+};
+
+#ifdef AddingNewCustomizations
+- (void) addNewEyes: (KikoCustomizations *)k {
+    KikoEyes *eyes = [[KikoEyes alloc] initWithName:@"BeerEyes" leftEyeFileName:@"BeerEye.png" rightEyeFileName:@"BeerEye.png"];
+    [k addObject:eyes forKey:@"eyes"];
+    
+    eyes = [[KikoEyes alloc] initWithName:@"FuckBoiiEyes" leftEyeFileName:@"FuckEye.png" rightEyeFileName:@"BoiiEye.png"];
+    [k addObject:eyes forKey:@"eyes"];
+}
+
+- (void) addNewHair: (KikoCustomizations *)k {
+    KikoHair *hair = [[KikoHair alloc] initWithName:@"Hair1" path:[self bezierPathWithFile: [[NSBundle mainBundle] pathForResource:@"Hair1" ofType:@"txt"]]];
+    [k addObject:hair forKey:@"hair"];
+    
+    hair = [[KikoHair alloc] initWithName:@"Hair2" path:[self bezierPathWithFile:[[NSBundle mainBundle] pathForResource:@"Hair2" ofType:@"txt"]]];
+    [k addObject:hair forKey:@"hair"];
+    
+    hair = [[KikoHair alloc] initWithName:@"Hair3" path:[self bezierPathWithFile:[[NSBundle mainBundle] pathForResource:@"Hair3" ofType:@"txt"]]];
+    [k addObject:hair forKey:@"hair"];
+    
+    hair = [[KikoHair alloc] initWithName:@"Hair4" path:[self bezierPathWithFile:[[NSBundle mainBundle] pathForResource:@"Hair4" ofType:@"txt"]]];
+    [k addObject:hair forKey:@"hair"];
+}
+
+#endif
+
+- (UIBezierPath *)bezierPathWithFile:(NSString *)file {
+    UIBezierPath *path = [UIBezierPath new];
+    NSError *error;
+    
+    NSString *fileText = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:&error];
+    if (error) NSLog(@"%@", error);
+    
+    NSRegularExpression *pointRegex = [NSRegularExpression regularExpressionWithPattern:@"\\d+.?\\d*,\\d+.?\\d*" options:0 error:&error];
+    if (error) NSLog(@"%@", error);
+    
+    NSArray *matches = [pointRegex matchesInString:fileText options:0 range:NSMakeRange(0, fileText.length)];
+    
+    for (int i = 0; i < matches.count; i++) {
+        
+        NSTextCheckingResult *match = matches[i];
+        
+        NSArray *components = [[fileText substringWithRange:match.range] componentsSeparatedByString:@","];
+        
+        float x = [components[0] floatValue];
+        float y = [components[1] floatValue];
+        
+        if (i == 0)
+            [path moveToPoint:CGPointMake(x, y)];
+        
+        else
+            [path addLineToPoint:CGPointMake(x, y)];
+    }
+     
+    return path;
+}
+
 - (void) refreshData {
-    
-    void (^updatedBlock)(PFObject * _Nullable object, NSError * _Nullable error) = ^(PFObject * _Nullable object, NSError * _Nullable error){
-        NSLog(@"%@ updated", object.objectId);
-    };
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[User currentUser] fetchInBackgroundWithBlock:updatedBlock];
-    });
+    [self refreshCurrentUser];
+    [self refreshAvailableCustomizations];
+}
+
+- (void) refreshCurrentUser {
+    [[User currentUser] fetchInBackgroundWithBlock:updatedBlock];
+    [[User currentUser] pinInBackground];
+}
+
+- (void) refreshAvailableCustomizations {
+    PFQuery *customizationsQuery = [PFQuery queryWithClassName:@"KikoCustomizations"];
+    [customizationsQuery includeKey:@"hair"];
+    [customizationsQuery includeKey:@"eyes"];
+    [customizationsQuery getObjectInBackgroundWithId:@"zaV9sxvDHn" block:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        KikoCustomizations *k = (KikoCustomizations *)object;
+        
+#ifdef AddingNewCustomizations
+        [self addNewEyes:k];
+        [self addNewHair:k];
+        [k save];
+#endif
+        [k pinInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                for (KikoEyes *eyes in k.eyes) {
+                    [eyes.leftEyeFile getDataInBackground];
+                    [eyes.rightEyeFile getDataInBackground];
+                }
+                NSLog(@"Customizations saved");
+            });
+        }];
+    }];
 }
 
 - (void) setupParse {
