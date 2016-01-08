@@ -352,6 +352,7 @@
                         <outlet property="animationView" destination="AQH-h6-UMt" id="8uf-lp-TAe"/>
                         <outlet property="customizeButton" destination="ewb-h5-3yh" id="O7v-ei-dUf"/>
                         <outlet property="trackingView" destination="h5M-rf-IIe" id="q47-jS-8k2"/>
+                        <segue destination="ZrX-bp-MsE" kind="presentation" identifier="CustomizeSegue" id="WpE-oF-YPN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4v1-YH-PgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -755,7 +756,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2488.5" y="728.5"/>
+            <point key="canvasLocation" x="2232.5" y="728.5"/>
         </scene>
         <!--Registration Image Capture-->
         <scene sceneID="V8x-yU-vJR">
@@ -831,7 +832,7 @@
                         <outlet property="animationView" destination="BCc-F1-YLc" id="AAd-kd-Q5g"/>
                         <outlet property="buttonsView" destination="kbg-ZG-U38" id="pZ8-Be-BHv"/>
                         <outlet property="trackingView" destination="vNT-NK-2gN" id="NVf-7T-G8g"/>
-                        <segue destination="RKc-vf-uOU" kind="show" identifier="CustomizeFaceSegue" id="oH6-Ls-7QR"/>
+                        <segue destination="RKc-vf-uOU" kind="show" identifier="CustomizeFaceSegue" id="b7B-fL-xHe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3RR-fS-uqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -931,7 +932,7 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="3231.5" y="728.5"/>
+            <point key="canvasLocation" x="2819.5" y="728.5"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="gVi-y3-CNT">
@@ -1081,7 +1082,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3990.5" y="728.5"/>
+            <point key="canvasLocation" x="3430.5" y="728.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iSL-UX-O0D">
@@ -1099,7 +1100,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRL-LC-lE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1677" y="729"/>
+            <point key="canvasLocation" x="1539.5" y="728.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sFd-ZK-nhO">
@@ -1128,11 +1129,11 @@
                         <viewControllerLayoutGuide type="bottom" id="zXX-O7-4y2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8KE-FK-HTw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISo-h0-RbF">
-                                <rect key="frame" x="16" y="72" width="150" height="150"/>
+                                <rect key="frame" x="20" y="72" width="150" height="150"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Mmf-hC-b8n"/>
@@ -1140,25 +1141,25 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Kiko Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNs-c9-gWK">
-                                <rect key="frame" x="174" y="107.5" width="185" height="20.5"/>
+                                <rect key="frame" x="178" y="107" width="402" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC3-vX-dGm">
-                                <rect key="frame" x="174" y="158" width="185" height="20.5"/>
+                                <rect key="frame" x="178" y="158" width="402" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mY5-2y-0lx">
-                                <rect key="frame" x="16" y="230" width="150" height="20.5"/>
+                                <rect key="frame" x="20" y="230" width="150" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2S3-dr-Cys">
-                                <rect key="frame" x="16" y="270" width="343" height="396.5"/>
+                                <rect key="frame" x="20" y="270" width="560" height="329.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ot9-3j-VH8">
                                     <size key="itemSize" width="100" height="100"/>
@@ -1200,10 +1201,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EF5-yy-fBP">
-                                <rect key="frame" x="174" y="186.5" width="185" height="36.5"/>
+                                <rect key="frame" x="178" y="186" width="402" height="36.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DF-mp-fBh">
-                                        <rect key="frame" x="8" y="8" width="169" height="20.5"/>
+                                        <rect key="frame" x="8" y="8" width="386" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1338,6 +1339,24 @@
             </objects>
             <point key="canvasLocation" x="3430.5" y="2457.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NS7-d3-gJc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZrX-bp-MsE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P91-pc-dHs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RKc-vf-uOU" kind="relationship" relationship="rootViewController" id="dX2-ab-sdV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ydT-qE-IV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4000.5" y="728.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Add.png" width="1090" height="986"/>
@@ -1347,6 +1366,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="adX-RQ-FV4"/>
+        <segue reference="dX2-ab-sdV"/>
         <segue reference="vRA-AA-7ju"/>
     </inferredMetricsTieBreakers>
 </document>

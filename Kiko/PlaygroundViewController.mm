@@ -9,6 +9,7 @@
 #import "PlaygroundViewController.h"
 #import "KikoAnimator.h"
 #import "KikoFaceTracker.h"
+#import "FaceCustomizationViewController.h"
 
 @interface PlaygroundViewController () {
     KikoAnimator *animator;
@@ -81,5 +82,12 @@
 */
 
 - (IBAction)customize:(id)sender {
+    [self performSegueWithIdentifier:@"CustomizeSegue" sender:self];
 }
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    FaceCustomizationViewController *dest = (FaceCustomizationViewController*) ((UINavigationController*)segue.destinationViewController).topViewController;
+    dest.user = [User currentUser];
+}
+
 @end
