@@ -31,22 +31,4 @@
     [self registerSubclass];
 }
 
-- (CAShapeLayer *) getImageScaledForRect:(CGRect)bounds {
-    NSLog(@"TODO: Replace me with category");
-    CAShapeLayer *layer = [CAShapeLayer new];
-    [layer setPath:self.face.facePath.CGPath];
-    [layer setFillColor:[[UIColor clearColor] CGColor]];
-    [layer setStrokeColor:[[UIColor blackColor] CGColor]];
-    
-    
-    CGRect imageBounds = CGPathGetBoundingBox(layer.path);
-
-    float widthScale = bounds.size.width/imageBounds.size.width;
-    float heightScale = bounds.size.height/imageBounds.size.height;
-    layer.transform = CATransform3DMakeScale(widthScale, heightScale, 1);
-    layer.position = CGPointMake(-imageBounds.origin.x * widthScale + bounds.origin.x, -imageBounds.origin.y * heightScale + bounds.origin.y);
-    
-    return layer;
-}
-
 @end

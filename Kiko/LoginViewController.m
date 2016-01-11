@@ -42,7 +42,7 @@
         }
         
         else {
-            [PFInstallation currentInstallation][@"userId"] = [User currentUser].objectId;
+            [PFInstallation currentInstallation][@"user"] = user;
             [[PFInstallation currentInstallation] saveInBackground];
             [self performSegueWithIdentifier:@"LoginSegue" sender:self];
         }

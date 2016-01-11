@@ -91,7 +91,7 @@ NSArray *fields;
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"New user created");
-            [PFInstallation currentInstallation][@"user"] = newUser.objectId;
+            [PFInstallation currentInstallation][@"user"] = newUser;
             [[PFInstallation currentInstallation] saveInBackground];
             [self performSegueWithIdentifier:@"TakeImageSegue" sender:self];
         }
