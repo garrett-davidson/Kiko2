@@ -647,7 +647,7 @@
                                     <constraint firstAttribute="height" constant="50" id="eOZ-6V-6AL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
                                     <action selector="updateButtonText:" destination="thy-Y2-Y2I" eventType="editingDidBegin" id="BIR-0U-bfM"/>
                                     <action selector="validateInputField:" destination="thy-Y2-Y2I" eventType="editingDidEnd" id="6q9-uG-NMg"/>
@@ -989,7 +989,7 @@
                                     <outletCollection property="gestureRecognizers" destination="9FV-kV-XkD" appends="YES" id="PE6-VW-3MQ"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qz-qi-e5O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qz-qi-e5O">
                                 <rect key="frame" x="16" y="415" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1019,7 +1019,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Kfj-Ug-nZr" appends="YES" id="oQU-4l-Uhj"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QRN-Va-Y4a" customClass="FaceView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRN-Va-Y4a" customClass="FaceView">
                                 <rect key="frame" x="16" y="64" width="343" height="343"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
