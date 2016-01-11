@@ -25,6 +25,4 @@
 
 + (id)getCurrentUser;
 
-- (CAShapeLayer *) getImageScaledForRect:(CGRect)bounds;
-
 @end

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "FaceView.h"
 
 @interface FriendCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic) CAShapeLayer *faceLayer;
+@property (nonatomic) FaceView *faceView;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 

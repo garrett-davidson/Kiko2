@@ -14,6 +14,8 @@
 @interface FriendsViewController ()<UICollectionViewDataSource, UICollectionViewDelegate> {
     NSArray *friendsToShow;
     PFQuery *friendQuery;
+    
+    FaceView *faceView;
 }
 
 @end
@@ -37,6 +39,9 @@
             NSLog(@"%@", error);
         }
     }];
+    
+    faceView = [[FaceView alloc] initWithFrame:_userFaceView.bounds];
+    [_userFaceView addSubview:faceView];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -44,9 +49,10 @@
     self.kikoMinutesLabel.text = [NSString stringWithFormat:@"%ld Kiko Minutes", currentUser.totalKikoMinutes.longValue];
     self.friendCountLabel.text = [NSString stringWithFormat:@"%lu Friends", (unsigned long) currentUser.friends.count];
     self.usernameLabel.text = currentUser.name;
-    CGRect bounds = CGRectInset(self.userFaceView.bounds, 5, 5);
+    CGRect bounds = CGRectInset(_userFaceView.bounds, 5, 5);
     
-    [self.userFaceView.layer addSublayer:[currentUser getImageScaledForRect:bounds]];
+    faceView.face = currentUser.face;
+    faceView.frame = bounds;
 }
 
 - (void)didReceiveMemoryWarning {

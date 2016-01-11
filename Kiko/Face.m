@@ -54,7 +54,7 @@
 }
 
 - (UIBezierPath *)facePath {
-    return [NSKeyedUnarchiver unarchiveObjectWithData:self.pathData];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:[self fetchIfNeeded].pathData];
 }
 
 - (void) setLeftEyePath:(UIBezierPath *)leftEyePath {

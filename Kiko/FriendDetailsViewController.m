@@ -8,6 +8,9 @@
 
 #import "FriendDetailsViewController.h"
 #import "FriendCollectionViewCell.h"
+#import "FaceView.h"
+
+//TODO: Merge this with FriendsViewController?
 
 @interface FriendDetailsViewController () {
 //    User *_friend;
@@ -15,6 +18,8 @@
     
     NSArray *friendsToShow;
     PFQuery *friendQuery;
+    
+    FaceView *faceView;
 }
 
 @end
@@ -39,6 +44,9 @@
         }
     }];
     
+    faceView = [[FaceView alloc] initWithFrame:_userFaceView.bounds];
+    [_userFaceView addSubview:faceView];
+    
     _friendButton.layer.cornerRadius = 10;
 }
 
@@ -48,7 +56,8 @@
     self.usernameLabel.text = _friend.name;
     CGRect bounds = CGRectInset(self.userFaceView.bounds, 5, 5);
     
-    [self.userFaceView.layer addSublayer:[_friend getImageScaledForRect:bounds]];
+    faceView.face = _friend.face;
+    faceView.frame = bounds;
     
     [self setupButtonForStatus:_status];
 }

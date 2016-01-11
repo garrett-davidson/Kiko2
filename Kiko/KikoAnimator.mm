@@ -83,6 +83,12 @@ static float _frameHeight;
     
     faceView.frame = _animationView.bounds;
     faceView.face = [User currentUser].face;
+    
+    if (!faceView.face) {
+        faceView.face = [Face object];
+    }
+    
+    
     paused = false;
 }
 

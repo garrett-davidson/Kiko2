@@ -76,6 +76,8 @@
     
     hairRect = CGRectInset(self.bounds, 0, self.bounds.size.height/4);
     hairRect = CGRectOffset(hairRect, 0, -self.bounds.size.height/4);
+    
+    [self redraw];
 }
 
 - (void) redraw {
@@ -102,6 +104,7 @@
 }
 
 - (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame {
+    _face = face;
     if (face) {
         facePath = [face.facePath copy];
         
@@ -110,7 +113,7 @@
             [hairLayer setPath:hairPath.CGPath inRect:hairFrame];
         }
         
-        if (!face.eyes.leftEyeFile) {
+        if (![face.eyes fetchIfNeeded].leftEyeFile) {
             leftEyeImageView.hidden = true;
             rightEyeImageView.hidden = true;
             

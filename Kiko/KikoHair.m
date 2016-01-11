@@ -33,7 +33,7 @@
 }
 
 - (UIBezierPath*)path {
-    return [NSKeyedUnarchiver unarchiveObjectWithData:self.pathData];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:[self fetchIfNeeded].pathData];
 }
 
 //- (NSString *)description {

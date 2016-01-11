@@ -11,20 +11,14 @@
 
 @implementation FriendCollectionViewCell
 
-- (void) setFaceLayer:(CAShapeLayer *)faceLayer {
-    [_faceLayer removeFromSuperlayer];
-    
-    _faceLayer = faceLayer;
-    
-    [self.layer addSublayer:_faceLayer];
-}
-
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
     if (self) {
         //Create rounded rect drop shadow
         [self setupRoundedRectDropShadow];
+        _faceView = [[FaceView alloc] initWithFrame:self.frame];
+        [self addSubview:_faceView];
     }
     return self;
 }
@@ -45,7 +39,7 @@
     
     CGRect cellBounds = CGRectMake(self.bounds.origin.x + inset, self.bounds.origin.y + inset, self.bounds.size.width - inset*2, self.bounds.size.height - (inset * 2 + stringHeight));
     
-    self.faceLayer = [friend getImageScaledForRect:cellBounds];
+    [_faceView drawFace:friend.face withFaceFrame:cellBounds];
 }
 
 @end
