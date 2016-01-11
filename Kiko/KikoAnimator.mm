@@ -17,17 +17,12 @@
 @interface KikoAnimator () {
     BOOL paused;
     BOOL isRecording;
-//    CAShapeLayer *animationLayer;
     NSMutableArray *recording;
     KikoMessage *currentMessage;
-    
-//    UIImageView *leftEyeImageView;
-//    UIImageView *rightEyeImageView;
     
     UIBezierPath *facePath;
     UIBezierPath *leftEyePath;
     UIBezierPath *rightEyePath;
-    UIBezierPath *drawingPath;
     
     FaceView *faceView;
 }
@@ -145,7 +140,6 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
         NSArray *pointsArray = [NSArray arrayWithObjects:&pointValues[0] count:points.size()];
         
         facePath = [self createFacePath:pointsArray];
-        drawingPath = [facePath copy];
         
         leftEyePath = [self getLeftEyePath:pointsArray];
         rightEyePath = [self getRightEyePath:pointsArray];

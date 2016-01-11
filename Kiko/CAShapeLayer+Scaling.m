@@ -22,12 +22,11 @@
     float widthScale = rectBounds.size.width/pathBounds.size.width;
     float heightScale = rectBounds.size.height/pathBounds.size.height;
     
-    CATransform3D transform = CATransform3DIdentity;
-    transform = CATransform3DScale(transform, widthScale, heightScale, 1);
-    transform = CATransform3DTranslate(transform, -pathBounds.origin.x, -pathBounds.origin.y, 0);
-    transform = CATransform3DTranslate(transform, rectBounds.origin.x/widthScale, rectBounds.origin.y/heightScale, 0);
-//    transform = CATransform3DTranslate(transform, (rect.size.width - pathBounds.size.width*widthScale)/(widthScale*2.0), (rect.size.height-pathBounds.size.height*heightScale)/(heightScale*2.0), 1);
-//    transform = CATransform3DTranslate(transform, (rect.origin.x - pathBounds.origin.x*widthScale)/(widthScale*2.0), (rect.origin.y-pathBounds.origin.y*heightScale)/(heightScale*2.0), 1);
-    self.transform = transform;
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformScale(transform, widthScale, heightScale);
+    transform = CGAffineTransformTranslate(transform, -pathBounds.origin.x, -pathBounds.origin.y);
+    transform = CGAffineTransformTranslate(transform, rectBounds.origin.x/widthScale, rectBounds.origin.y/heightScale);
+
+    self.affineTransform = transform;
 }
 @end
