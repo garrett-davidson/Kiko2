@@ -1367,8 +1367,8 @@
         <image name="kiko-opening-logo.png" width="1245" height="1245"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="39J-hl-Qe7"/>
         <segue reference="adX-RQ-FV4"/>
-        <segue reference="dX2-ab-sdV"/>
+        <segue reference="b7B-fL-xHe"/>
+        <segue reference="39J-hl-Qe7"/>
     </inferredMetricsTieBreakers>
 </document>

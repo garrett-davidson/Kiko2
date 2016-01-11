@@ -86,8 +86,10 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    FaceCustomizationViewController *dest = (FaceCustomizationViewController*) ((UINavigationController*)segue.destinationViewController).topViewController;
-    dest.user = [User currentUser];
+    if ([segue.identifier isEqualToString:@"CustomizeSegue"]) {
+        FaceCustomizationViewController *dest = (FaceCustomizationViewController*) ((UINavigationController*)segue.destinationViewController).topViewController;
+        dest.user = [User currentUser];
+    }
 }
 
 @end
