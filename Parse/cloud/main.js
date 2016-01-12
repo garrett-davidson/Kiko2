@@ -15,7 +15,7 @@ Parse.Cloud.define("addFriend", function(request, response) {
 					if (senderUser.get("sentFriendRequests").indexOf(recipientUserId) === -1) {
 
 					  	var pushQuery = new Parse.Query(Parse.Installation);
-					  	pushQuery.equalTo("userId", recipientUserId);
+					  	pushQuery.equalTo("user", recipientUser);
 
 					  	Parse.Push.send({ 
 					    	where: pushQuery,
@@ -25,7 +25,7 @@ Parse.Cloud.define("addFriend", function(request, response) {
 					  	}).then(function() {
 					    	// response.success("Push was sent successfully.")
 					  	}, function(error) {
-					      // response.error("Push failed to send with error: " + error.message);
+					      response.error("Push failed to send with error: " + error.message);
 					  	});
 
 					  	senderUser.add("sentFriendRequests", recipientUser);
@@ -33,7 +33,7 @@ Parse.Cloud.define("addFriend", function(request, response) {
 
 					  	senderUser.save();
 					  	recipientUser.save(null, { useMasterKey: true }).then(function() {
-							response.success();
+							response.success("Wrote changes successfully");
 						}, function(error) {
 							response.error(error);
 						});
@@ -72,8 +72,8 @@ Parse.Cloud.define("acceptFriend", function(request, response) {
 			// if (senderUser.get("receivedFriendRequests").indexOf(recipientUser) > -1) {
 
 			  	var pushQuery = new Parse.Query(Parse.Installation);
-			  	pushQuery.equalTo("userId", recipientUserId);
-			 
+			  	pushQuery.equalTo("user", recipientUser);
+		 
 			  	Parse.Push.send({
 			    	where: pushQuery,
 			    	data: {
@@ -82,7 +82,7 @@ Parse.Cloud.define("acceptFriend", function(request, response) {
 			  	}).then(function() {
 			    	// response.success("Push was sent successfully.")
 			  	}, function(error) {
-			      // response.error("Push failed to send with error: " + error.message);
+			      response.error("Push failed to send with error: " + error.message);
 			  	});
 
 			  	recipientUser.remove("sentFriendRequests", senderUser);

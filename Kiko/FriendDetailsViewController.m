@@ -13,9 +13,6 @@
 //TODO: Merge this with FriendsViewController?
 
 @interface FriendDetailsViewController () {
-//    User *_friend;
-//    FriendStatus _status;
-    
     NSArray *friendsToShow;
     PFQuery *friendQuery;
     
@@ -115,26 +112,38 @@
     [PFCloud callFunctionInBackground:@"addFriend" withParameters:@{@"recipientId": _friend.objectId} block:
      
      ^(NSString *success, NSError *error) {
-        if (!error) {
-            NSLog(@"Sent request");
-            [self setupButtonForStatus:SentRequest];
-        }
+         if (success) {
+             NSLog(@"Sent request");
+             [self setupButtonForStatus:SentRequest];
+         }
          
-        else {
-            NSLog(@"%@", error);
-        }
-    }];
+         if (error) {
+             NSLog(@"Friend request sending error: %@", error);
+         }
+         
+         if (!success && !error) {
+             NSLog(@"Something weird happened");
+         }
+     }];
 }
 
 - (void) acceptFriendRequest {
     [PFCloud callFunctionInBackground:@"acceptFriend" withParameters:@{@"recipientId": _friend.objectId} block:
      
      ^(NSString *success, NSError *error) {
-         if (!error) {
+         if (success) {
              // Push sent successfully
              NSLog(@"Accepted friend request");
              NSLog(@"%@", success);
              [self setupButtonForStatus:Friends];
+         }
+         
+         if (error) {
+             NSLog(@"Friend request accepting error: %@", error);
+         }
+         
+         if (!success && !error) {
+             NSLog(@"Something weird happened");
          }
      }];
 }
@@ -147,6 +156,14 @@
              // Push sent successfully
              NSLog(@"Removed friend");
              [self setupButtonForStatus:NotFriends];
+         }
+         
+         if (error) {
+             NSLog(@"Friend removing error: %@", error);
+         }
+         
+         if (!success && !error) {
+             NSLog(@"Something weird happened");
          }
      }];
 }
