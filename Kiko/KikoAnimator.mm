@@ -128,7 +128,6 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
 }
 
 - (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point>>) points {
-    
     if (!paused) {
         std::vector<std::shared_ptr<brf::Point>>::iterator start = points.begin();
         std::vector<std::shared_ptr<brf::Point>>::iterator end = points.end();
@@ -138,23 +137,31 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
         std::transform(start, end, pointValues.begin(), getValue);
         
         NSArray *pointsArray = [NSArray arrayWithObjects:&pointValues[0] count:points.size()];
-        
-        facePath = [self createFacePath:pointsArray];
-        
-        leftEyePath = [self getLeftEyePath:pointsArray];
-        rightEyePath = [self getRightEyePath:pointsArray];
-        
-        faceView.face.facePath = facePath;
-        faceView.face.leftEyePath = leftEyePath;
-        faceView.face.rightEyePath = rightEyePath;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [faceView redrawWithFaceFrame:CGPathGetBoundingBox(facePath.CGPath)];
-        });
-        
-        if (isRecording) {
-            [recording addObject:facePath];
-        }
+
+        [self updateAnimationWithFacePointsArray:pointsArray];
+    }
+}
+
+- (void) updateAnimationWithFacePointsArray:(NSArray *)pointsArray {
+    [self updateAnimationWithFacePointsArray:pointsArray inView:faceView];
+}
+
+- (void) updateAnimationWithFacePointsArray:(NSArray *)pointsArray inView: (FaceView*)view {
+    facePath = [self createFacePath:pointsArray];
+
+    leftEyePath = [self getLeftEyePath:pointsArray];
+    rightEyePath = [self getRightEyePath:pointsArray];
+
+    view.face.facePath = facePath;
+    view.face.leftEyePath = leftEyePath;
+    view.face.rightEyePath = rightEyePath;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view redrawWithFaceFrame:CGPathGetBoundingBox(facePath.CGPath)];
+    });
+
+    if (isRecording) {
+        [recording addObject:pointsArray];
     }
 }
 
@@ -204,19 +211,25 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
 }
 
 - (void) playMessage:(KikoMessage*)message {
-//    currentMessage = message;
-//    [self pause];
-//    animationLayer.hidden = true;
-//    [self.animationView.layer addSublayer:[message getFaceLayer]];
-//    [message play];
+    [self playMessage:message inCurrentView:false];
+}
+
+- (void) playMessage:(KikoMessage *)message inCurrentView:(BOOL) inCurrentView {
+    if (inCurrentView) {
+        message.view = faceView;
+    }
+
+    currentMessage = message;
+    [self pause];
+    faceView.face = message.face;
+    [message play];
 }
 
 - (void) stopPlayingMessage {
     [currentMessage stop];
-    [[currentMessage getFaceLayer] removeFromSuperlayer];
 }
 
-- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+//- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
 //    if ([keyPath isEqualToString:kLeftEyeAnimationKey]) {
 //        leftEyeImageView.image = [UIImage imageNamed:[change objectForKey:NSKeyValueChangeNewKey]];
 //    }
@@ -228,6 +241,6 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
 //    else if ([keyPath isEqualToString:kHairAnimationKey]) {
 //
 //    }
-}
+//}
 
 @end

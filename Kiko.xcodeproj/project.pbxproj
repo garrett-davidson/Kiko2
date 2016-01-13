@@ -57,7 +57,7 @@
 		68EEFBC71C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBC61C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.m */; };
 		68EEFBCA1C3AEF5D00B99FE3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBC91C3AEF5D00B99FE3 /* LoginViewController.m */; };
 		68F63AF71C3580B600A10C40 /* FriendCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */; };
-		68F63AFA1C3591FA00A10C40 /* KikoMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF91C3591FA00A10C40 /* KikoMessage.m */; };
+		68F63AFA1C3591FA00A10C40 /* KikoMessage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF91C3591FA00A10C40 /* KikoMessage.mm */; };
 		68F63AFD1C35954000A10C40 /* KikoChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AFC1C35954000A10C40 /* KikoChat.m */; };
 		68F63B531C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F63B521C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */; };
 /* End PBXBuildFile section */
@@ -167,7 +167,7 @@
 		68F63AF51C3580B600A10C40 /* FriendCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCollectionViewCell.h; sourceTree = "<group>"; };
 		68F63AF61C3580B600A10C40 /* FriendCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCollectionViewCell.m; sourceTree = "<group>"; };
 		68F63AF81C3591FA00A10C40 /* KikoMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KikoMessage.h; sourceTree = "<group>"; };
-		68F63AF91C3591FA00A10C40 /* KikoMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KikoMessage.m; sourceTree = "<group>"; };
+		68F63AF91C3591FA00A10C40 /* KikoMessage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KikoMessage.mm; sourceTree = "<group>"; };
 		68F63AFB1C35954000A10C40 /* KikoChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KikoChat.h; sourceTree = "<group>"; };
 		68F63AFC1C35954000A10C40 /* KikoChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KikoChat.m; sourceTree = "<group>"; };
 		68F63B431C370D2600A10C40 /* BRFFaceShape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BRFFaceShape.hpp; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 				6899E5381C3DA22700F9F055 /* KikoHair.h */,
 				6899E5391C3DA22700F9F055 /* KikoHair.m */,
 				68F63AF81C3591FA00A10C40 /* KikoMessage.h */,
-				68F63AF91C3591FA00A10C40 /* KikoMessage.m */,
+				68F63AF91C3591FA00A10C40 /* KikoMessage.mm */,
 				688E0D8B1C15ECBE008DB6AA /* LaunchScreen.storyboard */,
 				68EEFBC81C3AEF5D00B99FE3 /* LoginViewController.h */,
 				68EEFBC91C3AEF5D00B99FE3 /* LoginViewController.m */,
@@ -680,7 +680,7 @@
 				685D88051C32107F002A3608 /* AccountViewController.m in Sources */,
 				687D18661C1F814A00CD31D0 /* UIBezierPath+Interpolation.m in Sources */,
 				685D880E1C32B65F002A3608 /* KikoFaceTracker.mm in Sources */,
-				68F63AFA1C3591FA00A10C40 /* KikoMessage.m in Sources */,
+				68F63AFA1C3591FA00A10C40 /* KikoMessage.mm in Sources */,
 				68F63AF71C3580B600A10C40 /* FriendCollectionViewCell.m in Sources */,
 				683B737B1C3F31FF00B93B05 /* CAShapeLayer+Scaling.m in Sources */,
 				68ACA10B1C39970A0038FD9F /* FaceCustomizationViewController.m in Sources */,

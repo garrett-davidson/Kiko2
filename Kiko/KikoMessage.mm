@@ -8,38 +8,33 @@
 
 #import "KikoMessage.h"
 
+#import "KikoAnimator.h"
+
 @interface KikoMessage () {
-    NSArray *faceFrames;
-    int currentFrame;
-    NSUInteger messageLength;
+    NSUInteger currentFrame;
     NSTimer *playbackTimer;
-    
-    CAShapeLayer *_faceLayer;
+
+    KikoAnimator *animator;
 }
 
 @end
 
 @implementation KikoMessage
 
-@dynamic sender;
+@dynamic sender, face, faceFrames, messageLength;
+@synthesize view = _view;
 
 - (id)initWithSender:(User *)sender andFrames:(NSArray *)frames {
-    self = [super init];
+    self = [KikoMessage object];
     
     self.sender = sender;
-    faceFrames = frames;
-    
-    _faceLayer = [[CAShapeLayer alloc] init];
-    
-    _faceLayer.frame = CGRectMake(0, 0, 480, 640);
-    [_faceLayer setFillColor:[[UIColor clearColor] CGColor]];
-    [_faceLayer setStrokeColor:[[UIColor blackColor] CGColor]];
-    
-    _faceLayer.path = ((UIBezierPath*)frames[0]).CGPath;
+    self.faceFrames = frames;
     
     currentFrame = 0;
-    messageLength = frames.count;
-    
+    self.messageLength = frames.count;
+
+    animator = [KikoAnimator sharedAnimator];
+    self.face = [animator getCurrentFace];
     
     return self;
 }
@@ -49,7 +44,7 @@
 }
 
 - (void) advanceFrame {
-    _faceLayer.path = ((UIBezierPath*)faceFrames[currentFrame++ % messageLength]).CGPath;
+    [animator updateAnimationWithFacePointsArray:self.faceFrames[currentFrame++ % self.messageLength] inView:_view];
 }
 
 - (void) pause {
@@ -58,7 +53,7 @@
 
 - (void) stop {
     [playbackTimer invalidate];
-    _faceLayer.path = ((UIBezierPath*)faceFrames[0]).CGPath;
+    [animator updateAnimationWithFacePointsArray:self.faceFrames[0]];
 }
 
 + (NSString *)parseClassName {
@@ -67,10 +62,6 @@
 
 + (void)load {
     [self registerSubclass];
-}
-
-- (CAShapeLayer *) getFaceLayer {
-    return _faceLayer;
 }
 
 @end

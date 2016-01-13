@@ -25,13 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSArray *encodedFriends = [[NSUserDefaults standardUserDefaults] objectForKey:@"friends"];
-    userFriends = [NSMutableArray arrayWithCapacity:encodedFriends.count];
-    
-    for (int i = 0; i < encodedFriends.count; i++) {
-        ((NSMutableArray*) userFriends)[i] = [NSKeyedUnarchiver unarchiveObjectWithData:encodedFriends[i]];
-    }
+
+    userFriends = [User currentUser].friends;
     
     self.collectionView.allowsMultipleSelection = true;
 }
@@ -70,7 +65,7 @@
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SelectableFriendCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
 
-    User *friend = userFriends[indexPath.row];
+    User *friend = [userFriends[indexPath.row] fetchIfNeeded];
     
     float inset = cell.bounds.size.width * 0.20;
     

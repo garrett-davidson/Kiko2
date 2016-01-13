@@ -38,6 +38,8 @@
 + (id) sharedAnimator;
 
 - (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point>>) points;
+- (void) updateAnimationWithFacePointsArray:(NSArray *)pointsArray;
+- (void) updateAnimationWithFacePointsArray:(NSArray *)pointsArray inView: (FaceView*)view;
 
 - (void) pause;
 - (void) unpause;
@@ -48,6 +50,7 @@
 - (NSArray *)endRecording;
 
 - (void)playMessage: (KikoMessage*)message;
+- (void) playMessage:(KikoMessage *)message inCurrentView:(BOOL) inCurrentView;
 - (void)stopPlayingMessage;
 
 @end

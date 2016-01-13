@@ -9,17 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "FaceView.h"
 
 @interface KikoMessage : PFObject<PFSubclassing>
 
 @property (nonatomic) User* sender;
+@property (nonatomic) Face* face;
+
+@property (nonatomic) NSArray *faceFrames;
+@property (nonatomic) NSUInteger messageLength;
+@property (nonatomic) FaceView *view;
 
 - (id) initWithSender:(User*)sender andFrames: (NSArray*)frames;
 
 - (void) play;
 - (void) pause;
 - (void) stop;
-
-- (CAShapeLayer *) getFaceLayer;
 
 @end

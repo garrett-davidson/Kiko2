@@ -108,8 +108,8 @@
     NSArray *recording = [animator endRecording];
     
     KikoMessage *newMessage = [[KikoMessage alloc] initWithSender:[User getCurrentUser] andFrames:recording];
-    
-    [animator playMessage:newMessage];
+
+    [animator playMessage:newMessage inCurrentView:true];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
