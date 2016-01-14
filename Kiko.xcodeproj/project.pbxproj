@@ -540,7 +540,7 @@
 				TargetAttributes = {
 					688E0D791C15ECBE008DB6AA = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = FL8523SFDK;
+						DevelopmentTeam = 848JC7C22W;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -847,7 +847,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -871,7 +871,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

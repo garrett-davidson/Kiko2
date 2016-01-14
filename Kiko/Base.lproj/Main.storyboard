@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D13b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dL5-Xc-Opd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dL5-Xc-Opd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -860,6 +860,7 @@
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="8" verticalHuggingPriority="251" image="Retake-photo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZhS-9O-G3X">
                                     <rect key="frame" x="70" y="8" width="45" height="45"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="resetbutton"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="ZhS-9O-G3X" secondAttribute="height" multiplier="1:1" id="a5x-a1-0I1"/>
                                         <constraint firstAttribute="width" secondItem="ZhS-9O-G3X" secondAttribute="height" multiplier="1:1" id="q5v-aA-8a7"/>
@@ -893,6 +894,7 @@
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Next.png" translatesAutoresizingMaskIntoConstraints="NO" id="LCK-n3-Zdk">
                                     <rect key="frame" x="71" y="8" width="45" height="45"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="nextbutton"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="LCK-n3-Zdk" secondAttribute="height" multiplier="1:1" id="pt9-CD-ICZ"/>
                                         <constraint firstAttribute="width" secondItem="LCK-n3-Zdk" secondAttribute="height" multiplier="1:1" id="vhI-k4-sgS"/>
@@ -915,6 +917,7 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.17254901959999999" green="0.7725490196" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <accessibility key="accessibilityConfiguration" identifier="buttonview"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="LKT-Eb-exu" secondAttribute="bottom" id="33M-ws-2Fe"/>
@@ -949,6 +952,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uu4-3p-VCq" customClass="iCarousel">
                                 <rect key="frame" x="0.0" y="517" width="375" height="150"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="carousel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="R23-qO-9iX"/>
                                 </constraints>
@@ -976,6 +980,9 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1647058824" green="0.74117647060000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="eyes">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="0sh-9h-P0C"/>
@@ -998,6 +1005,9 @@
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dy6-61-4CM">
                                 <rect key="frame" x="16" y="449" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.1647058824" green="0.74117647060000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="hair">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="kmH-ds-13y"/>
