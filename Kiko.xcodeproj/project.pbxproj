@@ -50,6 +50,8 @@
 		68B8CB3F1C32F74D000E7913 /* Hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B8CB3E1C32F74D000E7913 /* Hamburger.png */; };
 		68B8CB451C32FFE9000E7913 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB441C32FFE9000E7913 /* User.m */; };
 		68B8CB481C3305CC000E7913 /* FriendSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */; };
+		68E3069B1C4698FF006A4193 /* Send-Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E3069A1C4698FF006A4193 /* Send-Button.png */; };
+		68E3069D1C46996A006A4193 /* Cancel-Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E3069C1C46996A006A4193 /* Cancel-Button.png */; };
 		68EEFBBB1C3ACB2500B99FE3 /* MessagesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBBA1C3ACB2500B99FE3 /* MessagesViewController.mm */; };
 		68EEFBBE1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBBD1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m */; };
 		68EEFBC11C3ACE6400B99FE3 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EEFBC01C3ACE6400B99FE3 /* FriendsViewController.m */; };
@@ -152,6 +154,8 @@
 		68B8CB441C32FFE9000E7913 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
 		68B8CB461C3305CC000E7913 /* FriendSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendSelectionViewController.h; sourceTree = "<group>"; };
 		68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendSelectionViewController.m; sourceTree = "<group>"; };
+		68E3069A1C4698FF006A4193 /* Send-Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Send-Button.png"; sourceTree = "<group>"; };
+		68E3069C1C46996A006A4193 /* Cancel-Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cancel-Button.png"; sourceTree = "<group>"; };
 		68EEFBB91C3ACB2500B99FE3 /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
 		68EEFBBA1C3ACB2500B99FE3 /* MessagesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MessagesViewController.mm; sourceTree = "<group>"; };
 		68EEFBBC1C3ACC6300B99FE3 /* SuggestedFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestedFriendsViewController.h; sourceTree = "<group>"; };
@@ -236,11 +240,13 @@
 			isa = PBXGroup;
 			children = (
 				68B8CB3C1C32E36C000E7913 /* Add.png */,
+				68E3069C1C46996A006A4193 /* Cancel-Button.png */,
 				68B8CB3E1C32F74D000E7913 /* Hamburger.png */,
 				688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */,
 				684F11711C3955930039AD12 /* LeftPinch.png */,
 				68B8CB341C32C9B0000E7913 /* Next.png */,
 				68B8CB321C32C927000E7913 /* Retake-photo.png */,
+				68E3069A1C4698FF006A4193 /* Send-Button.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -589,8 +595,10 @@
 				688E0D8D1C15ECBE008DB6AA /* LaunchScreen.storyboard in Resources */,
 				68B8CB3F1C32F74D000E7913 /* Hamburger.png in Resources */,
 				688698F31C192C5100FFA7D8 /* kiko-opening-logo.png in Resources */,
+				68E3069B1C4698FF006A4193 /* Send-Button.png in Resources */,
 				684F11721C3955930039AD12 /* LeftPinch.png in Resources */,
 				688E0D8A1C15ECBE008DB6AA /* Assets.xcassets in Resources */,
+				68E3069D1C46996A006A4193 /* Cancel-Button.png in Resources */,
 				68B8CB351C32C9B0000E7913 /* Next.png in Resources */,
 				688E0D881C15ECBE008DB6AA /* Main.storyboard in Resources */,
 			);

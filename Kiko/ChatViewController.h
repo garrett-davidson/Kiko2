@@ -14,10 +14,13 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *trackingView;
 @property (weak, nonatomic) IBOutlet UIView *animationView;
+@property (weak, nonatomic) IBOutlet UIView *sendOptionsView;
 
 @property (nonatomic) KikoChat *currentChat;
 
 - (void) createNewChatWithFriends:(NSArray *)friends;
 - (IBAction)beginRecording:(id)sender;
+- (IBAction)sendCurrentMessage:(id)sender;
+- (IBAction)cancelCurrentMessage:(id)sender;
 
 @end

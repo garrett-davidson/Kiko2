@@ -71,12 +71,6 @@
 
 - (void) setFrame:(CGRect)frame {
     [super setFrame:frame];
-    faceRect = CGRectInset(self.bounds, self.bounds.size.height/6, self.bounds.size.height/6);
-    faceRect = CGRectOffset(faceRect, 0, self.bounds.size.height/6);
-    
-    hairRect = CGRectInset(self.bounds, 0, self.bounds.size.height/4);
-    hairRect = CGRectOffset(hairRect, 0, -self.bounds.size.height/4);
-    
     [self redraw];
 }
 
@@ -93,6 +87,11 @@
 }
 
 - (void) drawFace:(Face *)face {
+    faceRect = CGRectInset(self.bounds, self.bounds.size.height/6, self.bounds.size.height/6);
+    faceRect = CGRectOffset(faceRect, 0, self.bounds.size.height/6);
+
+    hairRect = CGRectInset(self.bounds, 0, self.bounds.size.height/4);
+    hairRect = CGRectOffset(hairRect, 0, -self.bounds.size.height/4);
     [self drawFace:face withFaceFrame:faceRect hairFrame:hairRect];
 }
 

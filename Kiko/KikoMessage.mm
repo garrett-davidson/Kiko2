@@ -22,7 +22,7 @@
 @implementation KikoMessage
 
 @dynamic sender, face, faceFrames, messageLength;
-@synthesize view = _view;
+@synthesize view = _view, isPlaying = _isPlaying;
 
 - (id)initWithSender:(User *)sender andFrames:(NSArray *)frames {
     self = [KikoMessage object];
@@ -40,6 +40,7 @@
 }
 
 - (void) play {
+    _isPlaying = true;
     playbackTimer = [NSTimer scheduledTimerWithTimeInterval:0.033 target:self selector:@selector(advanceFrame) userInfo:nil repeats:true];
 }
 
@@ -48,10 +49,12 @@
 }
 
 - (void) pause {
+    _isPlaying = false;
     [playbackTimer invalidate];
 }
 
 - (void) stop {
+    _isPlaying = false;
     [playbackTimer invalidate];
     [animator updateAnimationWithFacePointsArray:self.faceFrames[0]];
 }

@@ -15,7 +15,8 @@
 - (id) initWithName:(NSString *)name andFriends:(NSArray *)friends {
     self = [super init];
     self.name = name;
-    self.users = friends;
+    self.users = [friends arrayByAddingObject:[User currentUser]];
+    self.messages = [NSArray new];
     
     return self;
 }
@@ -26,6 +27,10 @@
 
 + (NSString *)parseClassName {
     return @"KikoChat";
+}
+
+- (void) addMessage:(KikoMessage *)newMessage {
+    [self addObject:newMessage forKey:@"messages"];
 }
 
 @end

@@ -20,6 +20,8 @@
 @property (nonatomic) NSUInteger messageLength;
 @property (nonatomic) FaceView *view;
 
+@property (nonatomic) BOOL isPlaying;
+
 - (id) initWithSender:(User*)sender andFrames: (NSArray*)frames;
 
 - (void) play;

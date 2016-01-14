@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FaceView.h"
 
 @interface MessageTableViewCell : UITableViewCell
 
 @property (nonatomic) UIImageView *backgroundImageView;
-@property (nonatomic) UIView *faceView;
+@property (nonatomic) FaceView *faceView;
 
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andWidth: (CGFloat) width;
 

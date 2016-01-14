@@ -25,7 +25,7 @@
     _backgroundImageView = [UIImageView new];
     [self addSubview:_backgroundImageView];
     
-    _faceView = [UIView new];
+    _faceView = [[FaceView alloc] init];
     _faceView.layer.cornerRadius = 10;
 
     switch (style) {

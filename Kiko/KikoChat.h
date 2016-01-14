@@ -19,6 +19,8 @@
 
 - (id) initWithName: (NSString *)name andFriends: (NSArray *)friends;
 
+- (void) addMessage:(KikoMessage *)newMessage;
+
 + (NSString *)parseClassName;
 
 @end

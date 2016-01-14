@@ -14,6 +14,7 @@
 @interface ChatViewController ()< UITableViewDelegate, UITableViewDataSource> {
     KikoAnimator *animator;
     KikoFaceTracker *tracker;
+    KikoMessage *currentMessage;
 }
 
 @end
@@ -98,18 +99,54 @@
         case UIGestureRecognizerStateEnded:
             NSLog(@"Saved recording");
             [self saveMessage];
+            [self showSendOptions];
             break;
         default:
             break;
     }
 }
 
+- (void) showSendOptions {
+    [UIView setAnimationDuration:0.5];
+    _sendOptionsView.frame = CGRectOffset(_sendOptionsView.frame, _sendOptionsView.frame.size.width, 0);
+    [UIView commitAnimations];
+}
+
+- (void) hideSendOptions {
+    [UIView setAnimationDuration:0.5];
+    _sendOptionsView.frame = CGRectOffset(_sendOptionsView.frame, -_sendOptionsView.frame.size.width, 0);
+    [UIView commitAnimations];
+}
+
+- (IBAction)sendCurrentMessage:(id)sender {
+    [_currentChat addMessage:currentMessage];
+    [self cancelCurrentMessage:nil];
+    [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_currentChat.messages.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+}
+
+- (IBAction)cancelCurrentMessage:(id)sender {
+    [currentMessage stop];
+    currentMessage = nil;
+    [animator unpause];
+    [self hideSendOptions];
+}
+
 - (void) saveMessage {
     NSArray *recording = [animator endRecording];
     
-    KikoMessage *newMessage = [[KikoMessage alloc] initWithSender:[User getCurrentUser] andFrames:recording];
+    currentMessage = [[KikoMessage alloc] initWithSender:[User getCurrentUser] andFrames:recording];
 
-    [animator playMessage:newMessage inCurrentView:true];
+    [animator playMessage:currentMessage inCurrentView:true];
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    KikoMessage *selectedMessage = _currentChat.messages[indexPath.row];
+    if (selectedMessage.isPlaying) {
+        [animator stopPlayingMessage];
+    }
+    else {
+        [animator playMessage:selectedMessage];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -140,8 +177,8 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
-//    return self.currentChat.messages.count;
+//    return 5;
+    return self.currentChat.messages.count;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

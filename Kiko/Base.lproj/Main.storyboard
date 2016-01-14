@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-AY-b3v">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-AY-b3v">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="353"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -60,12 +60,50 @@
                                     <outletCollection property="gestureRecognizers" destination="RuC-Rr-BKL" appends="YES" id="Trj-25-Pwr"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXA-kn-pao">
+                                <rect key="frame" x="-188" y="353" width="188" height="250"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Send-Button.png" translatesAutoresizingMaskIntoConstraints="NO" id="vLn-c8-N8D">
+                                        <rect key="frame" x="64" y="32" width="60" height="60"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="D7s-Cx-Uvd"/>
+                                            <constraint firstAttribute="width" secondItem="vLn-c8-N8D" secondAttribute="height" multiplier="1:1" id="aDX-7U-XKx"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9CU-Do-Ppk" appends="YES" id="oHJ-PA-7UQ"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cancel-Button.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tdi-dp-bn3">
+                                        <rect key="frame" x="64" y="157" width="60" height="60"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="XrA-Lx-sEo"/>
+                                            <constraint firstAttribute="width" secondItem="Tdi-dp-bn3" secondAttribute="height" multiplier="1:1" id="eEc-7A-j3c"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="iSn-yE-ZkR" appends="YES" id="kcv-Qk-yI5"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="vLn-c8-N8D" firstAttribute="centerX" secondItem="fXA-kn-pao" secondAttribute="centerX" id="7fz-uY-X9k"/>
+                                    <constraint firstItem="vLn-c8-N8D" firstAttribute="centerY" secondItem="fXA-kn-pao" secondAttribute="centerY" multiplier="0.5" id="NwZ-Mn-8xB"/>
+                                    <constraint firstItem="Tdi-dp-bn3" firstAttribute="centerX" secondItem="fXA-kn-pao" secondAttribute="centerX" id="PoC-pg-AuI"/>
+                                    <constraint firstItem="Tdi-dp-bn3" firstAttribute="centerY" secondItem="fXA-kn-pao" secondAttribute="centerY" multiplier="1.5" id="dcK-gb-J1i"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="fXA-kn-pao" firstAttribute="width" secondItem="dBW-RE-qvV" secondAttribute="width" id="6BF-tf-NgW"/>
+                            <constraint firstItem="fXA-kn-pao" firstAttribute="top" secondItem="dBW-RE-qvV" secondAttribute="top" id="Cv2-6Y-zOH"/>
                             <constraint firstItem="DqT-J9-AGc" firstAttribute="width" secondItem="cj0-vY-OQZ" secondAttribute="width" id="EbD-py-RHe"/>
                             <constraint firstAttribute="trailing" secondItem="DqT-J9-AGc" secondAttribute="trailing" id="Es8-bW-WGF"/>
                             <constraint firstItem="1wp-AY-b3v" firstAttribute="leading" secondItem="cj0-vY-OQZ" secondAttribute="leading" id="XDo-Vn-Me9"/>
+                            <constraint firstItem="fXA-kn-pao" firstAttribute="height" secondItem="dBW-RE-qvV" secondAttribute="height" id="XQu-cN-Quu"/>
+                            <constraint firstItem="fXA-kn-pao" firstAttribute="trailing" secondItem="dBW-RE-qvV" secondAttribute="leading" id="XjU-TR-Vas"/>
                             <constraint firstItem="1wp-AY-b3v" firstAttribute="top" secondItem="pHa-Yd-heF" secondAttribute="bottom" id="bb7-AU-sF4"/>
                             <constraint firstAttribute="trailing" secondItem="1wp-AY-b3v" secondAttribute="trailing" id="hdA-6R-jfW"/>
                             <constraint firstAttribute="bottom" secondItem="DqT-J9-AGc" secondAttribute="bottom" id="ji5-jC-NzI"/>
@@ -80,6 +118,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="animationView" destination="0BV-WW-guA" id="gVT-OO-2A4"/>
+                        <outlet property="sendOptionsView" destination="fXA-kn-pao" id="9X7-jb-237"/>
                         <outlet property="tableView" destination="1wp-AY-b3v" id="XlZ-dw-NiI"/>
                         <outlet property="trackingView" destination="dBW-RE-qvV" id="lOc-9I-M21"/>
                     </connections>
@@ -90,6 +129,16 @@
                         <action selector="beginRecording:" destination="2HL-w7-0BQ" id="nBf-CP-lHH"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="9CU-Do-Ppk">
+                    <connections>
+                        <action selector="sendCurrentMessage:" destination="2HL-w7-0BQ" id="7yx-i9-eTS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="iSn-yE-ZkR">
+                    <connections>
+                        <action selector="cancelCurrentMessage:" destination="2HL-w7-0BQ" id="ApT-jv-2AY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3972.5" y="1629.5"/>
         </scene>
@@ -1362,8 +1411,10 @@
     </scenes>
     <resources>
         <image name="Add.png" width="1090" height="986"/>
+        <image name="Cancel-Button.png" width="464" height="451"/>
         <image name="Next.png" width="609" height="612"/>
         <image name="Retake-photo.png" width="1399" height="1194"/>
+        <image name="Send-Button.png" width="425" height="607"/>
         <image name="kiko-opening-logo.png" width="1245" height="1245"/>
     </resources>
     <inferredMetricsTieBreakers>
