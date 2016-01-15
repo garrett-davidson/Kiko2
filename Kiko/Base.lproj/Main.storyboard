@@ -1046,11 +1046,20 @@
                             </label>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dy6-61-4CM">
                                 <rect key="frame" x="16" y="449" width="60" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amt-JN-45z">
+                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.1647058824" green="0.74117647060000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="amt-JN-45z" firstAttribute="trailing" secondItem="dy6-61-4CM" secondAttribute="trailingMargin" id="SSD-dm-eu5"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="amt-JN-45z" secondAttribute="bottom" id="hRI-l7-e3T"/>
                                     <constraint firstAttribute="height" constant="60" id="kmH-ds-13y"/>
                                     <constraint firstAttribute="width" secondItem="dy6-61-4CM" secondAttribute="height" multiplier="1:1" id="lNi-2z-ePP"/>
+                                    <constraint firstItem="amt-JN-45z" firstAttribute="leading" secondItem="dy6-61-4CM" secondAttribute="leadingMargin" id="mlL-R4-arG"/>
+                                    <constraint firstItem="amt-JN-45z" firstAttribute="top" secondItem="dy6-61-4CM" secondAttribute="topMargin" id="yCw-M1-TS8"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="8FN-pY-9qc" appends="YES" id="JhU-Mt-sgK"/>
@@ -1109,6 +1118,7 @@
                         <outlet property="eyesButton" destination="n73-0K-lTp" id="rpW-5p-db2"/>
                         <outlet property="faceView" destination="QRN-Va-Y4a" id="0rd-9Q-mlg"/>
                         <outlet property="hairButton" destination="dy6-61-4CM" id="XSa-za-Qyr"/>
+                        <outlet property="hairImagePreview" destination="amt-JN-45z" id="fsy-Un-wpd"/>
                         <outlet property="leftEyeImagePreview" destination="a7B-XR-2Gd" id="3Db-un-QMJ"/>
                         <outlet property="rightEyeImagePreview" destination="5SE-Eh-YBR" id="aKX-Fi-sVX"/>
                         <segue destination="5fg-bS-BVd" kind="showDetail" identifier="PlaygroundSegue" id="adX-RQ-FV4"/>
@@ -1418,7 +1428,7 @@
         <image name="kiko-opening-logo.png" width="1245" height="1245"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="H3W-c6-Iuk"/>
+        <segue reference="adX-RQ-FV4"/>
         <segue reference="b7B-fL-xHe"/>
         <segue reference="39J-hl-Qe7"/>
     </inferredMetricsTieBreakers>

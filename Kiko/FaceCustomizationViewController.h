@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *customizationNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *leftEyeImagePreview;
 @property (weak, nonatomic) IBOutlet UIImageView *rightEyeImagePreview;
+@property (weak, nonatomic) IBOutlet UIImageView *hairImagePreview;
 
 - (IBAction)switchCustomizationType:(id)sender;
 - (IBAction)saveFace:(id)sender;

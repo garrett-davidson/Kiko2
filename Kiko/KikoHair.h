@@ -11,9 +11,11 @@
 @interface KikoHair : PFObject<PFSubclassing>
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) UIBezierPath *path;
-@property (nonatomic) NSData *pathData;
+@property (nonatomic) PFFile *imageFile;
+@property (nonatomic) UIImage *image;
+@property (nonatomic) NSNumber *mountingX;
+@property (nonatomic) NSNumber *mountingY;
 
-- (id) initWithName:(NSString *)_name path:(UIBezierPath *)_path;
+- (id) initWithName:(NSString *)name fileName:(NSString *)fileName;
 
 @end

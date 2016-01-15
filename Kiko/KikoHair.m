@@ -10,7 +10,9 @@
 
 @implementation KikoHair
 
-@dynamic name, pathData;
+@dynamic name, imageFile, mountingX, mountingY;
+
+@synthesize image = _image;
 
 + (void) load {
     [self registerSubclass];
@@ -20,24 +22,21 @@
     return @"KikoHair";
 }
 
-- (id) initWithName:(NSString *)_name path:(UIBezierPath *)_path {
+- (id) initWithName:(NSString *)name fileName:(NSString *)fileName {
     self = [KikoHair object];
-    self.name = _name;
-    self.path = _path;
+    self.name = name;
+
+    self.imageFile = [PFFile fileWithData:UIImagePNGRepresentation([UIImage imageNamed:fileName])];
     
     return self;
 }
 
-- (void) setPath:(UIBezierPath *)path {
-    self.pathData = [NSKeyedArchiver archivedDataWithRootObject:path];
-}
+- (UIImage *)image {
+    if (!_image) {
+        _image = [UIImage imageWithData:[self fetchIfNeeded].imageFile.getData];
+    }
 
-- (UIBezierPath*)path {
-    return [NSKeyedUnarchiver unarchiveObjectWithData:[self fetchIfNeeded].pathData];
+    return _image;
 }
-
-//- (NSString *)description {
-//    return [NSString stringWithFormat:@"Hair named %@ with path %@", self.name, self.path];
-//}
 
 @end

@@ -37,9 +37,10 @@
     
     float stringHeight = self.nameLabel.bounds.size.height;
     
-    CGRect cellBounds = CGRectMake(self.bounds.origin.x + inset, self.bounds.origin.y + inset, self.bounds.size.width - inset*2, self.bounds.size.height - (inset * 2 + stringHeight));
-    
-    [_faceView drawFace:friend.face withFaceFrame:cellBounds];
+//    CGRect cellBounds = CGRectMake(inset, inset, self.bounds.size.width - inset*2, self.bounds.size.height - (inset * 2 + stringHeight));
+    CGRect cellBounds = self.bounds;
+
+    [_faceView drawFace:[[friend fetchIfNeeded].face fetchIfNeeded] withFaceFrameNew:cellBounds];
 }
 
 @end

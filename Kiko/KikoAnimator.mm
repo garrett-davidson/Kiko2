@@ -157,7 +157,8 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
     view.face.rightEyePath = rightEyePath;
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [view redrawWithFaceFrame:CGPathGetBoundingBox(facePath.CGPath)];
+//        [view redrawWithFaceFrame:CGPathGetBoundingBox(facePath.CGPath)];
+        view.frame = CGPathGetBoundingBox(facePath.CGPath);
     });
 
     if (isRecording) {

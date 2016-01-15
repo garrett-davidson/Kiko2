@@ -14,12 +14,17 @@
 @property (nonatomic) Face *face;
 @property (nonatomic) UIColor *faceStrokeColor;
 
-- (void) redraw;
-- (void) redrawWithFaceFrame:(CGRect)faceFrame;
-- (void) redrawWithFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame;
+//- (void) redraw;
+//- (void) redrawWithFaceFrame:(CGRect)faceFrame;
+//- (void) redrawWithFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame;
 
-- (void) drawFace:(Face *)face;
-- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame;
+//- (void) drawFace:(Face *)face;
+//- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame;
 - (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame;
+
+- (void) redrawNew;
+- (void) drawFaceNew:(Face *)face;
+
+- (void) drawFace:(Face *)face withFaceFrameNew:(CGRect)faceFrame;
 
 @end

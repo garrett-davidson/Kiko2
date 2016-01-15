@@ -18,8 +18,6 @@ typedef enum : NSUInteger {
 @interface FaceCustomizationViewController ()<iCarouselDataSource, iCarouselDelegate> {
     KikoCustomizationType currentCustomization;
     KikoCustomizations *customizations;
-    
-    CAShapeLayer *hairPreviewLayer;
 }
 @end
 
@@ -47,9 +45,6 @@ typedef enum : NSUInteger {
     _carouselView.type = iCarouselTypeRotary;
     
     _faceView.face = _user.face;
-    
-    hairPreviewLayer = [[CAShapeLayer alloc] init];
-    [_hairButton.layer addSublayer:hairPreviewLayer];
     
     self.navigationItem.hidesBackButton = true;
 }
@@ -86,18 +81,19 @@ typedef enum : NSUInteger {
         case KikoCustomizationTypeHair: {
             cell.backgroundColor = [UIColor blueColor];
             KikoHair *hair = customizations.hair[index];
-            CAShapeLayer *hairLayer;
+            UIImageView *hairImageView;
+
             if (cell.layer.sublayers.count == 0) {
-                hairLayer = [CAShapeLayer new];
-                hairLayer.strokeColor = [UIColor blackColor].CGColor;
-                hairLayer.fillColor = [UIColor blackColor].CGColor;
-                [cell.layer addSublayer:hairLayer];
+                hairImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 30, 80, 80)];
+
+                hairImageView.tag = 1;
+                [cell addSubview:hairImageView];
             }
             else {
-                hairLayer = (CAShapeLayer*) cell.layer.sublayers[0];
+                hairImageView = [cell viewWithTag:1];
             }
             
-            [hairLayer setPath:hair.path.CGPath inRect:cell.frame];
+            hairImageView.image = [hair image];
             
             break;
         }
@@ -178,8 +174,9 @@ typedef enum : NSUInteger {
 - (void) displayHair: (KikoHair *) hair {
     _user.face.hair = hair;
     _customizationNameLabel.text = hair.name;
-    [hairPreviewLayer setPath:hair.path.CGPath inRect:_hairButton.bounds];
-    [_faceView redraw];
+
+    _hairImagePreview.image = hair.image;
+    [_faceView drawFace:_user.face withFaceFrameNew:_faceView.bounds];
 }
 
 - (void) displayEyes: (KikoEyes *) eyes {
@@ -188,7 +185,7 @@ typedef enum : NSUInteger {
     
     _leftEyeImagePreview.image = [eyes getLeftEyeImage];
     _rightEyeImagePreview.image = [eyes getRightEyeImage];
-    [_faceView redraw];
+    [_faceView drawFace:_user.face withFaceFrameNew:_faceView.bounds];
 }
 
 /*

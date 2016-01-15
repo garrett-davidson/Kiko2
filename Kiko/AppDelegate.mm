@@ -48,16 +48,13 @@ void (^updatedBlock)(PFObject * _Nullable object, NSError * _Nullable error) = ^
 }
 
 - (void) addNewHair: (KikoCustomizations *)k {
-    KikoHair *hair = [[KikoHair alloc] initWithName:@"Hair1" path:[self bezierPathWithFile: [[NSBundle mainBundle] pathForResource:@"Hair1" ofType:@"txt"]]];
+    KikoHair *hair = [[KikoHair alloc] initWithName:@"Hair-1" fileName:@"Hair-1.png"];
     [k addObject:hair forKey:@"hair"];
-    
-    hair = [[KikoHair alloc] initWithName:@"Hair2" path:[self bezierPathWithFile:[[NSBundle mainBundle] pathForResource:@"Hair2" ofType:@"txt"]]];
+
+    hair = [[KikoHair alloc] initWithName:@"Hair-2" fileName:@"Hair-2.png"];
     [k addObject:hair forKey:@"hair"];
-    
-    hair = [[KikoHair alloc] initWithName:@"Hair3" path:[self bezierPathWithFile:[[NSBundle mainBundle] pathForResource:@"Hair3" ofType:@"txt"]]];
-    [k addObject:hair forKey:@"hair"];
-    
-    hair = [[KikoHair alloc] initWithName:@"Hair4" path:[self bezierPathWithFile:[[NSBundle mainBundle] pathForResource:@"Hair4" ofType:@"txt"]]];
+
+    hair = [[KikoHair alloc] initWithName:@"Hair-3" fileName:@"Hair-3.png"];
     [k addObject:hair forKey:@"hair"];
 }
 
@@ -115,7 +112,7 @@ void (^updatedBlock)(PFObject * _Nullable object, NSError * _Nullable error) = ^
         KikoCustomizations *k = (KikoCustomizations *)object;
         
 #ifdef AddingNewCustomizations
-        [self addNewEyes:k];
+//        [self addNewEyes:k];
         [self addNewHair:k];
         [k save];
 #endif
