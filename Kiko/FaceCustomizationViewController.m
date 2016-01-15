@@ -176,7 +176,7 @@ typedef enum : NSUInteger {
     _customizationNameLabel.text = hair.name;
 
     _hairImagePreview.image = hair.image;
-    [_faceView drawFace:_user.face withFaceFrameNew:_faceView.bounds];
+    [_faceView drawFace:_user.face withFaceFrame:_faceView.bounds];
 }
 
 - (void) displayEyes: (KikoEyes *) eyes {
@@ -185,7 +185,7 @@ typedef enum : NSUInteger {
     
     _leftEyeImagePreview.image = [eyes getLeftEyeImage];
     _rightEyeImagePreview.image = [eyes getRightEyeImage];
-    [_faceView drawFace:_user.face withFaceFrameNew:_faceView.bounds];
+    [_faceView drawFace:_user.face withFaceFrame:_faceView.bounds];
 }
 
 /*

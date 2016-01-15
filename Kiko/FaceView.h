@@ -20,11 +20,11 @@
 
 //- (void) drawFace:(Face *)face;
 //- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame;
-- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame;
+//- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame;
 
-- (void) redrawNew;
-- (void) drawFaceNew:(Face *)face;
+- (void) redraw;
+- (void) drawFace:(Face *)face;
 
-- (void) drawFace:(Face *)face withFaceFrameNew:(CGRect)faceFrame;
+- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame;
 
 @end

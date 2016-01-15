@@ -34,13 +34,10 @@
 
 - (void) setupForFriend: (User *)friend withInset:(float) inset{
     self.nameLabel.text = friend.name;
-    
-    float stringHeight = self.nameLabel.bounds.size.height;
-    
-//    CGRect cellBounds = CGRectMake(inset, inset, self.bounds.size.width - inset*2, self.bounds.size.height - (inset * 2 + stringHeight));
-    CGRect cellBounds = self.bounds;
 
-    [_faceView drawFace:[[friend fetchIfNeeded].face fetchIfNeeded] withFaceFrameNew:cellBounds];
+    CGRect cellBounds = CGRectMake(0, 0, self.bounds.size.width, _nameLabel.frame.origin.y);
+
+    [_faceView drawFace:[[friend fetchIfNeeded].face fetchIfNeeded] withFaceFrame:cellBounds];
 }
 
 @end

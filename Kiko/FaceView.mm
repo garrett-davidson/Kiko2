@@ -67,90 +67,20 @@
 
 - (void) setFace:(Face *)face {
     _face = face;
-    [self redrawNew];
+    [self redraw];
 }
 
 - (void) setFrame:(CGRect)frame {
     [super setFrame:frame];
-    [self redrawNew];
+    [self redraw];
 }
+
 
 - (void) redraw {
     [self drawFace:_face];
 }
 
-- (void) redrawWithFaceFrame:(CGRect)faceFrame {
-    [self drawFace:_face withFaceFrame:faceFrame];
-}
-
-- (void) redrawWithFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame {
-    [self drawFace:_face withFaceFrame:faceFrame hairFrame:hairFrame];
-}
-
 - (void) drawFace:(Face *)face {
-    faceRect = CGRectInset(self.bounds, self.bounds.size.height/6, self.bounds.size.height/6);
-    faceRect = CGRectOffset(faceRect, 0, self.bounds.size.height/6);
-
-    hairRect = CGRectInset(self.bounds, 0, self.bounds.size.height/4);
-    hairRect = CGRectOffset(hairRect, 0, -self.bounds.size.height/4);
-    [self drawFace:face withFaceFrame:faceRect hairFrame:hairRect];
-}
-
-- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame {
-    CGRect bounds = CGRectInset(faceFrame, -faceFrame.size.width*1/6, -faceFrame.size.height*1/6);
-    CGRect hairFrame = CGRectInset(bounds, 0, bounds.size.height/4);
-    hairFrame = CGRectOffset(hairFrame, 0, -faceFrame.size.height/2);
-    [self drawFace:face withFaceFrame:faceFrame hairFrame:hairFrame];
-}
-
-- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame {
-    _face = face;
-    if (face) {
-        facePath = [face.facePath copy];
-        
-        if (face.hair) {
-//            hairPath = face.hair.path;
-//            [hairLayer setPath:hairPath.CGPath inRect:hairFrame];
-        }
-        
-        if (![face.eyes fetchIfNeeded].leftEyeFile) {
-            leftEyeImageView.hidden = true;
-            rightEyeImageView.hidden = true;
-            
-            [facePath appendPath:face.leftEyePath];
-            [facePath appendPath:face.rightEyePath];
-            
-            //Must be at the end here because of append path
-            [faceLayer setPath:facePath.CGPath inRect:faceFrame withXInset:0 yInset:0];
-        }
-        
-        else {
-            //Must be at the beginning here to update the eye positions with the new scale
-            [faceLayer setPath:facePath.CGPath inRect:faceFrame withXInset:0 yInset:0];
-            
-            leftEyeImageView.hidden = false;
-            rightEyeImageView.hidden = false;
-            
-            leftEyeImageView.image = [face.eyes getLeftEyeImage];
-            rightEyeImageView.image = [face.eyes getRightEyeImage];
-            
-            CGRect leftEyeBounds = CGPathGetBoundingBox(face.leftEyePath.CGPath);
-            CGRect rightEyeBounds = CGPathGetBoundingBox(face.rightEyePath.CGPath);
-            
-            if (!CGRectEqualToRect(leftEyeBounds, CGRectZero) && !CGRectEqualToRect(rightEyeBounds, CGRectZero)) {
-                leftEyeImageView.frame = [self.layer convertRect:CGRectMake(leftEyeBounds.origin.x, leftEyeBounds.origin.y, leftEyeBounds.size.width*1.2, leftEyeBounds.size.width*1.2) fromLayer:faceLayer];
-                rightEyeImageView.frame = [self.layer convertRect:CGRectMake(rightEyeBounds.origin.x, rightEyeBounds.origin.y, rightEyeBounds.size.width*1.2, rightEyeBounds.size.width*1.2) fromLayer:faceLayer];
-            }
-        }
-        
-    }
-}
-
-- (void) redrawNew {
-    [self drawFaceNew:_face];
-}
-
-- (void) drawFaceNew:(Face *)face {
 //    float hairScale = self.bounds.size.height > self.bounds.size.width ? self.bounds.size.width/face.hair.image.size.width : self.bounds.size.height/face.hair.image.size.height;
     float hairScale = face.hair.image ? self.bounds.size.width/face.hair.image.size.width : 1;
     hairRect = CGRectMake(self.bounds.origin.x - (face.hair.mountingX.floatValue * hairScale), self.bounds.origin.y - (face.hair.mountingY.floatValue * hairScale), (face.hair.image.size.width + (face.hair.mountingX.floatValue * 2)) * hairScale, (face.hair.image.size.height + (face.hair.mountingX.floatValue*2)) * hairScale);
@@ -159,26 +89,25 @@
 
     _face = face;
 
-    [self drawFaceNew2:face];
+    [self draw];
 }
 
-- (void) drawFaceNew2:(Face *)face {
-    _face = face;
-    if (face) {
-        facePath = [face.facePath copy];
+- (void) draw {
+    if (_face) {
+        facePath = [_face.facePath copy];
 
-        if (face.hair) {
+        if (_face.hair) {
             hairImageView.hidden = false;
-            hairImageView.image = face.hair.image;
+            hairImageView.image = _face.hair.image;
             hairImageView.frame = hairRect;
         }
 
-        if (![face.eyes fetchIfNeeded].leftEyeFile) {
+        if (![_face.eyes fetchIfNeeded].leftEyeFile) {
             leftEyeImageView.hidden = true;
             rightEyeImageView.hidden = true;
 
-            [facePath appendPath:face.leftEyePath];
-            [facePath appendPath:face.rightEyePath];
+            [facePath appendPath:_face.leftEyePath];
+            [facePath appendPath:_face.rightEyePath];
 
             //Must be at the end here because of append path
             [faceLayer setPath:facePath.CGPath inRect:faceRect withXInset:0 yInset:0];
@@ -191,11 +120,11 @@
             leftEyeImageView.hidden = false;
             rightEyeImageView.hidden = false;
 
-            leftEyeImageView.image = [face.eyes getLeftEyeImage];
-            rightEyeImageView.image = [face.eyes getRightEyeImage];
+            leftEyeImageView.image = [_face.eyes getLeftEyeImage];
+            rightEyeImageView.image = [_face.eyes getRightEyeImage];
 
-            CGRect leftEyeBounds = CGPathGetBoundingBox(face.leftEyePath.CGPath);
-            CGRect rightEyeBounds = CGPathGetBoundingBox(face.rightEyePath.CGPath);
+            CGRect leftEyeBounds = CGPathGetBoundingBox(_face.leftEyePath.CGPath);
+            CGRect rightEyeBounds = CGPathGetBoundingBox(_face.rightEyePath.CGPath);
 
             if (!CGRectEqualToRect(leftEyeBounds, CGRectZero) && !CGRectEqualToRect(rightEyeBounds, CGRectZero)) {
                 leftEyeImageView.frame = [self.layer convertRect:CGRectMake(leftEyeBounds.origin.x, leftEyeBounds.origin.y, leftEyeBounds.size.width*1.2, leftEyeBounds.size.width*1.2) fromLayer:faceLayer];
@@ -206,17 +135,25 @@
     }
 }
 
-- (void) drawFace:(Face *)face withFaceFrameNew:(CGRect)faceFrame {
+- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame {
+    _face = face;
     CGRect faceBounds = CGPathGetBoundingBox(face.facePath.CGPath);
 
-    float faceScale = face.hair.image ? faceFrame.size.width / (face.hair.image.size.width - (face.hair.mountingX.floatValue * 2)) : 1;
     float hairScale = face.hair.image ? faceFrame.size.width / face.hair.image.size.width : 1;
-    float aspectRatio = faceBounds.size.width / faceBounds.size.height;
+    float faceScale = face.hair.image ? faceFrame.size.width / (hairScale * (face.hair.image.size.width - (face.hair.mountingX.floatValue * 2))) : 1;
+
+    float aspectRatio = faceBounds.size.height / faceBounds.size.width;
 
     faceScale = faceScale > 1 ? 1 / faceScale : faceScale;
 
-    faceRect = CGRectMake([face.hair fetchIfNeeded].mountingX.floatValue * faceScale * hairScale, [face.hair fetchIfNeeded].mountingY.floatValue * faceScale * aspectRatio * hairScale, faceScale * faceFrame.size.width, faceFrame.size.height * faceScale * aspectRatio);
-    hairRect = CGRectMake(0, 0, face.hair.image.size.width * hairScale, face.hair.image.size.height * hairScale);
+    faceRect = CGRectMake([face.hair fetchIfNeeded].mountingX.floatValue * faceScale * hairScale,
+                          [face.hair fetchIfNeeded].mountingY.floatValue * faceScale * aspectRatio * hairScale,
+                          faceScale * faceFrame.size.width,
+                          faceFrame.size.height * faceScale * aspectRatio);
+    hairRect = CGRectMake(0,
+                          0,
+                          face.hair.image.size.width * hairScale,
+                          face.hair.image.size.height * hairScale);
 
     if (face.hair.image) {
         float scale2 = faceFrame.size.height / (faceRect.origin.y + faceRect.size.height);
@@ -230,7 +167,7 @@
     faceRect = CGRectOffset(faceRect, CGRectGetMidX(faceFrame) - CGRectGetMidX(faceRect), 0);
     hairRect = CGRectOffset(hairRect, CGRectGetMidX(faceFrame) - CGRectGetMidX(hairRect), 0);
 
-    [self drawFaceNew2:face];
+    [self draw];
 }
 
 @end
