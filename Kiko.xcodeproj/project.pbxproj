@@ -116,7 +116,7 @@
 		688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kiko-opening-logo.png"; sourceTree = "<group>"; };
 		688698F41C1A4D9000FFA7D8 /* PlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
 		688698F51C1A4D9000FFA7D8 /* PlaygroundViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlaygroundViewController.mm; sourceTree = "<group>"; };
-		688699171C1B58A600FFA7D8 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		688699171C1B58A600FFA7D8 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
 		688699191C1B5B2F00FFA7D8 /* BRFTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRFTracker.h; path = ../BRFTracker.h; sourceTree = "<group>"; };
 		6886991A1C1B5B2F00FFA7D8 /* BRFTracker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BRFTracker.mm; path = ../BRFTracker.mm; sourceTree = "<group>"; };
 		688E0D7A1C15ECBE008DB6AA /* Kiko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,16 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				68F63B3D1C370D2600A10C40 /* include */,
-				68F63B521C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */,
-				687D18541C1F6E5500CD31D0 /* CoreGraphics.framework */,
-				687D18551C1F6E5500CD31D0 /* CoreMedia.framework */,
-				687D18561C1F6E5500CD31D0 /* Foundation.framework */,
-				687D18571C1F6E5500CD31D0 /* Security.framework */,
-				687D18581C1F6E5500CD31D0 /* UIKit.framework */,
-				687D18521C1F6E1900CD31D0 /* CFNetwork.framework */,
-				687D18501C1F6E0100CD31D0 /* CoreVideo.framework */,
-				687D184E1C1F6DF000CD31D0 /* AVFoundation.framework */,
-				688699171C1B58A600FFA7D8 /* libz.1.dylib */,
 				688698F11C192B6600FFA7D8 /* Images */,
 				688E0D7C1C15ECBE008DB6AA /* Kiko */,
 				688E0D961C15ECBE008DB6AA /* KikoTests */,
@@ -470,6 +460,16 @@
 		F06FB8896A883D7FD164A361 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68F63B521C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */,
+				687D18541C1F6E5500CD31D0 /* CoreGraphics.framework */,
+				687D18551C1F6E5500CD31D0 /* CoreMedia.framework */,
+				687D18561C1F6E5500CD31D0 /* Foundation.framework */,
+				687D18571C1F6E5500CD31D0 /* Security.framework */,
+				687D18581C1F6E5500CD31D0 /* UIKit.framework */,
+				687D18521C1F6E1900CD31D0 /* CFNetwork.framework */,
+				687D18501C1F6E0100CD31D0 /* CoreVideo.framework */,
+				687D184E1C1F6DF000CD31D0 /* AVFoundation.framework */,
+				688699171C1B58A600FFA7D8 /* libz.1.dylib */,
 				68ACA1071C39765F0038FD9F /* libsqlite3.tbd */,
 				6881D76281E05559DF1E165C /* libPods.a */,
 			);

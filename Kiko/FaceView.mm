@@ -96,7 +96,7 @@
     if (_face) {
         facePath = [_face.facePath copy];
 
-        if (_face.hair) {
+        if (_face.hair.image) {
             hairImageView.hidden = false;
             hairImageView.image = _face.hair.image;
             hairImageView.frame = hairRect;
@@ -136,38 +136,41 @@
 }
 
 - (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame {
-    _face = face;
-    CGRect faceBounds = CGPathGetBoundingBox(face.facePath.CGPath);
 
-    float hairScale = face.hair.image ? faceFrame.size.width / face.hair.image.size.width : 1;
-    float faceScale = face.hair.image ? faceFrame.size.width / (hairScale * (face.hair.image.size.width - (face.hair.mountingX.floatValue * 2))) : 1;
+    if (face.facePath) {
+        _face = face;
+        CGRect faceBounds = CGPathGetBoundingBox(face.facePath.CGPath);
 
-    float aspectRatio = faceBounds.size.height / faceBounds.size.width;
+        float hairScale = face.hair.image ? faceFrame.size.width / face.hair.image.size.width : 1;
+        float faceScale = face.hair.image ? faceFrame.size.width / (hairScale * (face.hair.image.size.width - (face.hair.mountingX.floatValue * 2))) : 1;
 
-    faceScale = faceScale > 1 ? 1 / faceScale : faceScale;
+        float aspectRatio = faceBounds.size.height / faceBounds.size.width;
 
-    faceRect = CGRectMake([face.hair fetchIfNeeded].mountingX.floatValue * faceScale * hairScale,
-                          [face.hair fetchIfNeeded].mountingY.floatValue * faceScale * aspectRatio * hairScale,
-                          faceScale * faceFrame.size.width,
-                          faceFrame.size.height * faceScale * aspectRatio);
-    hairRect = CGRectMake(0,
-                          0,
-                          face.hair.image.size.width * hairScale,
-                          face.hair.image.size.height * hairScale);
+        faceScale = faceScale > 1 ? 1 / faceScale : faceScale;
 
-    if (face.hair.image) {
+        faceRect = CGRectMake([face.hair fetchIfNeeded].mountingX.floatValue * faceScale * hairScale,
+                              [face.hair fetchIfNeeded].mountingY.floatValue * faceScale * aspectRatio * hairScale,
+                              faceScale * faceFrame.size.width,
+                              faceFrame.size.height * faceScale * aspectRatio);
+        hairRect = CGRectMake(0,
+                              0,
+                              face.hair.image.size.width * hairScale,
+                              face.hair.image.size.height * hairScale);
+
         float scale2 = faceFrame.size.height / (faceRect.origin.y + faceRect.size.height);
         scale2 = scale2 > 1 ? 1 / scale2 : scale2;
         CGAffineTransform t = CGAffineTransformMakeScale(scale2, scale2);
 
         faceRect = CGRectApplyAffineTransform(faceRect, t);
-        hairRect = CGRectApplyAffineTransform(hairRect, t);
+        if (face.hair.image) {
+            hairRect = CGRectApplyAffineTransform(hairRect, t);
+        }
+
+        faceRect = CGRectOffset(faceRect, CGRectGetMidX(faceFrame) - CGRectGetMidX(faceRect), 0);
+        hairRect = CGRectOffset(hairRect, CGRectGetMidX(faceFrame) - CGRectGetMidX(hairRect), 0);
+
+        [self draw];
     }
-
-    faceRect = CGRectOffset(faceRect, CGRectGetMidX(faceFrame) - CGRectGetMidX(faceRect), 0);
-    hairRect = CGRectOffset(hairRect, CGRectGetMidX(faceFrame) - CGRectGetMidX(hairRect), 0);
-
-    [self draw];
 }
 
 @end
