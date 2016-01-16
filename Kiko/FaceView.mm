@@ -45,12 +45,13 @@
     hairImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-100, -100, 50, 50)];
     leftEyeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-100, -100, 50, 50)];
     rightEyeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-100, -100, 50, 50)];
-    
+
+    [self.layer addSublayer:faceLayer];
+
     [self addSubview:leftEyeImageView];
     [self addSubview:rightEyeImageView];
     [self addSubview:hairImageView];
-    [self.layer addSublayer:faceLayer];
-    
+
     leftEyeImageView.hidden = true;
     rightEyeImageView.hidden = true;
     hairImageView.hidden = true;
