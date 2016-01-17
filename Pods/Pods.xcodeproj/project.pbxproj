@@ -38,14 +38,13 @@
 		0ECE019B9ABC75EAD44F14D395C03D05 /* PFMultiProcessFileLockController.h in Headers */ = {isa = PBXBuildFile; fileRef = EC85E2587C10DD958F580E2705A72A38 /* PFMultiProcessFileLockController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1042456D2078443A24ADCE5040D1E957 /* PFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AC8748C607BDB2AF3FE89754BC8D04 /* PFFileManager.m */; };
 		1098DC9ADFC2D0F87995F1B91C01E04A /* iCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AC397CB2C338214394165D5FF758AB6 /* iCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		124DAFBBD0BC0BED3A84A8BCDDE99EAA /* BFCancellationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A52219B93B526ABE84661E8CE3152426 /* BFCancellationToken.m */; };
 		12D316CA0D8FCE9519ECD8326C75EC74 /* PFMulticastDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B215CA56EA0E0A009FD8ECFC7FE26D9 /* PFMulticastDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1317EBB13AD72FFD7B25B6701A0544BB /* PFCloudCodeController.h in Headers */ = {isa = PBXBuildFile; fileRef = 352AF032AA134BCF6BA881E7E84617FC /* PFCloudCodeController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		14501F36C3999638864E3925416B9608 /* PFURLSessionDataTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 014BA75AA26E6D8A1A7280B9882190AC /* PFURLSessionDataTaskDelegate.m */; };
 		1562B455AAE439016BF6A1CB680EFC84 /* PFCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AE94079840277D543F5F51A08DF463E /* PFCloud.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		15B84D9DC29C600B893F6B0E7638C77A /* BFExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = E61C8D932C5141558E2115CAA0D0F4BA /* BFExecutor.m */; };
 		16271D65D4DB9100167FE156D83DB43A /* PFEventuallyQueue_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 66D69E81150179018562921760C253D9 /* PFEventuallyQueue_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		16700F6E8E7A2A97BAAEEAEF5ED25222 /* PFSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F539A56769D5F3BF45DFF772D5BDB67A /* PFSession.m */; };
+		174469D9701FA13F29071D1330C19214 /* BFTaskCompletionSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D71A3AB4EC179989BF4634C9B157CC1A /* BFTaskCompletionSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1781F266965B83CE73DEDABD10676075 /* PFThreadsafety.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE0ACF16C8E92C57D3EED2260D716A /* PFThreadsafety.m */; };
 		1862B6E987E16B45A275AA82E5CCEE4F /* PFRESTObjectCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = A5951C64EE30E05DDB942C2686A6F46C /* PFRESTObjectCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		190084F8FCF704AB23232C56E095EB1D /* PFRelationState_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A8F5CFFB640E73CD3A0DF65C5CFBFE /* PFRelationState_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -67,6 +66,7 @@
 		21D5BE9A64267D1ADA4F9AE9DF4B8C3C /* PFCommandRunning.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94EDB9DE846FFCB5D837F35563F1B2 /* PFCommandRunning.m */; };
 		225795B0A33094B9CE81336CDDCB63A9 /* PFRESTCloudCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 130C56442CE9B6849EFA65B28892533C /* PFRESTCloudCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		23186E8B250CB5FD68A113ED88D4CD88 /* PFFile_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D88707B9069B2AA9D9347275AD81AB8D /* PFFile_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2526D24966F0C7690740348125464638 /* BoltsVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 68F7385EC8F6B7A6732C70C05AA9DCE6 /* BoltsVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		254A4A8D12EB36FFED45F05D0BEB8097 /* PFRelationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD5EE41CE242F192E716EB58E27019F /* PFRelationState.m */; };
 		26456122F09E395CD6D74E7D1D94045F /* PFPushUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 079109F4E7899FF0EA022BF4FEE4CA70 /* PFPushUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		26ACC1CC4D6493297B8832B49C3EB303 /* PFFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA77E7F9373D2E7C8AF927842EA91FD /* PFFile.m */; };
@@ -80,8 +80,6 @@
 		2EABECF5F65F2F6A4BC197590527EE47 /* PFSQLiteDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 999C1F2369C8070208BCE9C5DB719627 /* PFSQLiteDatabase.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2F5B85726A8457A3F2ECF104FD38E8E3 /* PFSubclassing.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CFEE21F7B4E0F4A08397E09454FE84C /* PFSubclassing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3042D79585661A4F6D3E39C55F5AAE2A /* PFURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 8769574057D6E65F70F25C3000BF53D7 /* PFURLSession.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		30C5834D63F7306117A1AABDD346E4A3 /* BoltsVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9CCFFCB12A540D4F389694EF548301 /* BoltsVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		30F2C86135C9CD07155D145D5DBA6A09 /* Bolts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAD449B67EF2647ECD40410FF67B7C6 /* Bolts-dummy.m */; };
 		31E86D9AE9A5FED08286CB87D3098184 /* PFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B29D4250EF01B6897E60023B03BFC5DC /* PFUser.m */; };
 		3216A277F1CE6B659374EC3BD3945764 /* PFCommandResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CADDD5405D0E840B96DCF4CCB3345072 /* PFCommandResult.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3229515E07B46F3828C0554FF402E2AF /* PFSessionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB3785364FBDB8843896A93EBA4F88 /* PFSessionUtilities.m */; };
@@ -93,6 +91,7 @@
 		34651AC17D80F70E9E8F7809FFD68751 /* PFObjectState_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B4F9A8B66E7A1104A5E94B01C5718F /* PFObjectState_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		34B5DCF98553BF9927574E236E6C5311 /* PFEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0E7F16E93EBE707D7AA9A96A219CA /* PFEncoder.m */; };
 		359E09945B8AB418292CCE423B5418F6 /* PFURLSessionFileDownloadTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A304F07277D1993C890A1E1D1349D0 /* PFURLSessionFileDownloadTaskDelegate.m */; };
+		35B7134D9A084CC992F119BFD8DDA729 /* BFTask.h in Headers */ = {isa = PBXBuildFile; fileRef = A1850BCF81B5B81F969FB802E6DBF9C1 /* BFTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		366FF419652979F844BEDBFCA3CB2EC4 /* PFOfflineObjectController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8753F65A3E0ABF07B4B55B7053A8F68A /* PFOfflineObjectController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		36798072FD3C5845C071106F0C93444A /* PFFileController.h in Headers */ = {isa = PBXBuildFile; fileRef = 422A7411253FEC6BD22D1839E498ACD0 /* PFFileController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3705AC519AA7FF8E870DE520A527A653 /* PFQueryState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7615FA05CE9CD947D1A791A4286E9916 /* PFQueryState.m */; };
@@ -122,6 +121,7 @@
 		46666CBA1FFB2DD5E68B7DBA4DA4BD29 /* PFAnalyticsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E81E5B7D0D87BAE24EB910580D9475F /* PFAnalyticsUtilities.m */; };
 		46AD502A77536D8630D0451526620406 /* PFAnonymousUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1386DFB655FDC08B2311B566DCF01380 /* PFAnonymousUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47624E5C1501043A4772D405645AA6C5 /* PFUserDefaultsPersistenceGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = EA26DEA5092EDDAD736F8583F8EF2EB8 /* PFUserDefaultsPersistenceGroup.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4818361AB73D5C94B7CFDA08AB5790B3 /* BFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0164B64234191B5C7F60D1A95C1955AA /* BFTask.m */; };
 		48B54C69A05AFD8585641D670FC66B05 /* PFFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 056B79DE5E1EF81B3597D245CF1B88D1 /* PFFileManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		48DA9529D54415517CE0E414093B3AE9 /* PFObject+Deprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = 787D4DCE00FCD331D3F92CFE6C9F238A /* PFObject+Deprecated.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		493A0449B7968E9883D5DBB8E785C764 /* PFObjectBatchController.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DDD2733A378337D2F3B500B7B3BFD5 /* PFObjectBatchController.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -146,7 +146,6 @@
 		53D937AA0677A9A058E33010CDB65665 /* PFBase64Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A49DDD62B7D3B94DF89B746C980F85B5 /* PFBase64Encoder.m */; };
 		5492A19BAFE8EE93DB38F4FC8DA0F6A5 /* PFProductsRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 340A5045DFA9E2D3CD53CAF8C84DA3BE /* PFProductsRequestHandler.m */; };
 		54E46E6505ACA66B7ECDFFE9FDE56BA8 /* PFMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B89697A644245D9547930051E9063 /* PFMulticastDelegate.m */; };
-		566A7AC6D79333623B7F77A4501CFE63 /* BFCancellationTokenSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 90299D5C6E2EB17FE8802DC9050F2CE3 /* BFCancellationTokenSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		580ECA7DD37819AE9AE26972A02F9371 /* PFDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D85E8321E4E9EE5A9288D9CF72D11BC4 /* PFDecoder.m */; };
 		581617C472FC3DE4E23DE44DAD23FF78 /* PFUserAuthenticationController.h in Headers */ = {isa = PBXBuildFile; fileRef = E90444FF6BC5A690EFE72909C6BFE6C5 /* PFUserAuthenticationController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5890D9634709C4D489B07A113B1130EE /* PFOfflineStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A6E5E15BFCDA274D86C161FDA24CBBE /* PFOfflineStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -165,6 +164,7 @@
 		6027464D7F34DC836F4FE1F14E0243DD /* PFGeoPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F32521C10A821D1D402009D718A24A /* PFGeoPoint.m */; };
 		618CA49495A30E0A7A43A66C176245D5 /* PFHTTPURLRequestConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 803940454D78D152D58473BDB17A5647 /* PFHTTPURLRequestConstructor.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		61CED6C977D1D1989B593CF962261756 /* PFPropertyInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A08859034DD9395C87A4303E6861929 /* PFPropertyInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		62827169346CF49F1DC42B506B78C335 /* Bolts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18B8BDC9BC7B118A0FD8EE9B27D6CA /* Bolts-dummy.m */; };
 		643607E0AAD0F47AA01977B128B438D8 /* PFHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AE68C311920C81DF2209F4C4C4FB8 /* PFHash.m */; };
 		6459B9A26F207E4714FC1BB380B2A5FB /* PFObjectController_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = AE8110F179369FF78F98689C2A766AA1 /* PFObjectController_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		65674A8C8CA4087A78292A9455C53F91 /* PFDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6ADBCFF4E12825D0BD6F91E999469FB7 /* PFDateFormatter.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -179,17 +179,16 @@
 		6C2BC1CB9E1563ACE719B072CAF0F037 /* PFAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4F3F9864B8DF6B8EC3CB3E7B967204 /* PFAnalytics.m */; };
 		6CF68BFF0F5ECA4BDE28C75E82282A52 /* PFCurrentConfigController.h in Headers */ = {isa = PBXBuildFile; fileRef = 381C78CF99E63F8B04E9918AB2E27EE3 /* PFCurrentConfigController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6D839532B06A6BD9F70700860727BEA3 /* PFHTTPURLRequestConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 597FBBA96FE275245BDF98FC03E02DA4 /* PFHTTPURLRequestConstructor.m */; };
+		6DA34A69B8E055768BB3805267EEBD91 /* BFCancellationTokenSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DB1BBA202540CF9B9C8BC92EADE707E /* BFCancellationTokenSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6DC12E6B1FA322EFD0C2FF7728B4F368 /* PFObjectState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D1134AFFCC811F26468E4086486A46B /* PFObjectState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6EA433A1BFD471F58D81E8B8F0B5E55A /* PFDefaultACLController.h in Headers */ = {isa = PBXBuildFile; fileRef = 32E18868775A66AA9254318BB21FFB6D /* PFDefaultACLController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6ECFD337CAC028E32F18A6A18F2DC3E7 /* PFInstallationIdentifierStore_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 27C9ED218CA2476B92857EDEF4F6A8D5 /* PFInstallationIdentifierStore_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6EFF70229F1E116955D71E8A582F2870 /* PFConfig_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 82E131AFD4309D02C6FC127BB7BD8FAE /* PFConfig_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		6F2BD02BE2A70F04A0E14F74FCF951E7 /* BFCancellationTokenRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F7EF7F3383313CD44BE9A33429C1B /* BFCancellationTokenRegistration.m */; };
 		6F47B45ED1A06E8C6655A1D1B1C75E82 /* PFObjectFileCodingLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A69CBBCD83F6EC2F81D3BFFC2AE0D7 /* PFObjectFileCodingLogic.m */; };
 		6F4DDAF2D0E1060982DD7430C9E23C19 /* PFUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC74F781DFA497D7E6231F615F2C60 /* PFUserController.m */; };
 		702479D8839D7C1530352F1A31DBB0CC /* PFObjectController.h in Headers */ = {isa = PBXBuildFile; fileRef = C01B6956A4C6324433A460A1704CFDAC /* PFObjectController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7076BAE84BD1AB35763917C5CBC93064 /* PFURLSessionUploadTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E1D5397B359FD666887E274B16B487 /* PFURLSessionUploadTaskDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		70A13A5EE2667584DC016ACBF00C23EA /* PFPropertyInfo_Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CF230259D16215449E50706428CF1C /* PFPropertyInfo_Runtime.m */; };
-		75042006A0F95C76E1B185CCEE6658DA /* BFTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B5B625637B8E9E690E412FBD75BFEF9 /* BFTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7519346CE358AB0509AB5F1E217A3D4E /* PFLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 999F0AAD810B5AFFD0DA187571F93158 /* PFLogging.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		757D8F61FB5B99F7ED1217F8619765F8 /* PFAnalyticsUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FAD962F3D6370E5DED0EFBD5688897 /* PFAnalyticsUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		763094B2C36B301A322153371CB4AD4E /* PFInstallationController.h in Headers */ = {isa = PBXBuildFile; fileRef = D461D34CB4D92C141BDDAA809D42ED23 /* PFInstallationController.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -213,8 +212,6 @@
 		8029E3AE4B4531AF5EBCA8A38D5531A8 /* PFRESTPushCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3130F07324BB6C2C7F53BC57AAE632 /* PFRESTPushCommand.m */; };
 		803B9575FBA221974DF985FCE22A00D1 /* PFPushState.m in Sources */ = {isa = PBXBuildFile; fileRef = 114AE0E20ECCCA0B94F97781A76C140A /* PFPushState.m */; };
 		814DE2C9CEE52E991A14D1EE7E5DB7DC /* PFEventuallyQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 7731EE1E633D4E83F7545E9E91A91524 /* PFEventuallyQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8171D90C762985147762FEF042529624 /* BFCancellationToken.h in Headers */ = {isa = PBXBuildFile; fileRef = B5AED4468B6B24C7186EF6F12C623C89 /* BFCancellationToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		827C558B15971ED44576C761940FC539 /* BFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C12071F46C74F5E56C8DEAF22E76DCA /* BFTask.m */; };
 		82B5B16F3E7C16A3DDCF65D5AECF0238 /* PFCategoryLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEAB1F40F66C0003011E03BE44E4CC0 /* PFCategoryLoader.m */; };
 		84CC7E62A8047F16D32A52800CA05C88 /* PFSQLiteStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F5F4809ACE3B22B064A3A4FD81DD05A /* PFSQLiteStatement.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		84E5C63A138FDE07CABF5DD8C3C816E9 /* PFFileDataStream.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB1B56261B7AEBD0C59B47B868F11B /* PFFileDataStream.m */; };
@@ -227,7 +224,6 @@
 		87912D0D3D0374058DFE061BE340ED19 /* PFRESTSessionCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = A9A5EBC09C14705150549798C135A54D /* PFRESTSessionCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8908E56D56525523DD978D3C6316CFBA /* PFMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 7870FA4D6545FD18079068E84337A5C5 /* PFMacros.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		892FF74FCD75709F0FFBCAACA871238F /* PFInternalUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A09FF7098BF32E90AE253F6BBEB12403 /* PFInternalUtils.m */; };
-		899B962A9C38D5A4D25EFDF457C0F480 /* BFTaskCompletionSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 31E789B9606A6F9AD6EEE06A8C6A7FC1 /* BFTaskCompletionSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89A8AA518668422F1C2340EEF2DF83F4 /* PFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 91951F37F9931A5709FF2DFF9C5CACBA /* PFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89E1923E0CAE129DCA0D1664181CFEFC /* PFRole.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5FD7EF1ABA1AA0DE7C9DA996BB4B50 /* PFRole.m */; };
 		8A24E2F1BE45FD3D1231842C57100C7B /* PFSessionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6990B5F4A1574F88056B3EB284A80ED5 /* PFSessionController.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -250,8 +246,10 @@
 		9505BC929370AA96B28BBF408F73E190 /* ParseManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 851838239CA3262C73545E888DAECEA6 /* ParseManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		965A8C76408706EEB005FDE0C8AC9946 /* PFRelation.h in Headers */ = {isa = PBXBuildFile; fileRef = 83DAD6D02E7EE3284DE714AFE11848BB /* PFRelation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		967224052C9CED37BE1C80BEBC6E7B12 /* PFSession_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 96BC72D552E57850761F04C89B9EC0EA /* PFSession_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9749C33ECDF2FC21A231D2330864A63B /* BFCancellationTokenSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC304D29F3EB9279DE413B460A72196 /* BFCancellationTokenSource.m */; };
 		985AC5862058517C4B214BBE977B42D0 /* PFInstallationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59E12AE2397774D678B45CF57C9F738 /* PFInstallationController.m */; };
 		988679FBD9FD01CCE543FB7F6564CB27 /* PFPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF466B3F5A99DBBE2185D7747617377 /* PFPurchase.m */; };
+		98914FAB67F86D60E103D31B8745076D /* Bolts.m in Sources */ = {isa = PBXBuildFile; fileRef = A906B432E995830E2153F470C6CEDECE /* Bolts.m */; };
 		99604D3B59C34B559E6B180C757B79A2 /* PFInstallationPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = EAE916EDCCE772103BC6C472B374AAA2 /* PFInstallationPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9BE1D1A75D360349CC87A8C2BD27EFA7 /* PFMutablePushState.h in Headers */ = {isa = PBXBuildFile; fileRef = 365D6EC3DC8F326D2AF39F8E5D0A5DBB /* PFMutablePushState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9C19B266992694C6ABC99DC27F816037 /* PFAnonymousUtils+Deprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DB6B8E1EA408DF21ABE3A92B5CC526F /* PFAnonymousUtils+Deprecated.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -265,7 +263,6 @@
 		A29E08A3D2517F5464CC780C1A21C638 /* PFSQLiteDatabase_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A9DD96F00D4E8400FB39F277B7DEEBEE /* PFSQLiteDatabase_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A2B2609872E7C471DB44F8BAC4306CBD /* PFErrorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 26ECE05EE087403033158735E2195431 /* PFErrorUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A2D02688AF40D6E235BB46A7FACA8F69 /* PFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D73C1EFC539D040A033D063FA27198 /* PFQuery.m */; };
-		A3760DED8C87382D3907D94384F2EE4C /* Bolts.m in Sources */ = {isa = PBXBuildFile; fileRef = 6216C92AFCCC73B237D521223C06EA05 /* Bolts.m */; };
 		A38124E61A98CBEBA5F3E9C0DD60E9B2 /* PFMutableObjectState.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8538A6C5AE09E2FE75EAE2B879F812 /* PFMutableObjectState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A3DA773EA26FC2D1DDE41C17E2A2334D /* PFMultiProcessFileLockController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5F98A9BF8080EFB2236B70A647C9BA /* PFMultiProcessFileLockController.m */; };
 		A555C686C65C2C3F93BDACF3DCBEE2E7 /* PFRESTQueryCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 703CE43EDC8947ED23AD970AAB3FAFC6 /* PFRESTQueryCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -275,14 +272,14 @@
 		A798ACF18F0BB5448F1AD540F42979CB /* PFMutableQueryState.m in Sources */ = {isa = PBXBuildFile; fileRef = 17394542CBF985CF35FC4474EDA41DEA /* PFMutableQueryState.m */; };
 		A82BB4E694FB922D7B768F4D01D64291 /* PFKeyValueCache_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = F0CB5929861A91CC8B112D407D27C135 /* PFKeyValueCache_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A82FF70CC6E0F9F6FE2840797DDB634D /* PFUserDefaultsPersistenceGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA520FCF49761DB5C14E86C3C5B4851 /* PFUserDefaultsPersistenceGroup.m */; };
+		A8681AFE9DE7CAE359376B3F0C93A187 /* BFCancellationTokenRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = ACA1B7339753A9753C811911383F9663 /* BFCancellationTokenRegistration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8784FD6F9FDFF63FC9805697A7E4189 /* PFUserAuthenticationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AB13A5289FF5BE1D4627C09C856C2857 /* PFUserAuthenticationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A971EB671E454E64E7FB71F30D690F33 /* PFLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 6023ABB06DC0D1461E6A285ED3C5FF63 /* PFLogger.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A9793B08738CED7C0AEDB24BB07A673B /* BFCancellationTokenRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = DE822044560C51D11C0DA1E75BAFD037 /* BFCancellationTokenRegistration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9E85C347AA1E298D534042D28870F69 /* PFProductsRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = F9793E2F030CCC18BFD6ECB851E4B503 /* PFProductsRequestHandler.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		AAF6965E99519B609D6CDDD07DEFD5CF /* BFCancellationTokenSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F21FB5B8CBB83C04A75719408C722534 /* BFCancellationTokenSource.m */; };
+		AB19E0E1A405022C9716581696DE7822 /* BFCancellationTokenRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = A0018CD64EBFF2CF64501DBAAA3531FD /* BFCancellationTokenRegistration.m */; };
 		AB1A84340B1579C46CF72ACE160E289E /* PFObjectPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7EAC890C9F43E1AEE3681D27D446FF /* PFObjectPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ACA412AEDD0EF432EA2738E097573EFA /* BFExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 196729CD0ACC5E4EC12C163A50E3DB82 /* BFExecutor.m */; };
 		ACBC962215E6453168024CB756423A8F /* PFAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = BA42D4BCBEE3D076C451119E5B4434D2 /* PFAssert.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		AD630158ED169506C49AF462830839C2 /* BFTaskCompletionSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F12F6540596724EE15E21AC87E8E4A /* BFTaskCompletionSource.m */; };
 		ADCC53B1FBFFBFFCB10B1B87E14B2239 /* Parse-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 503282CC76774E946F3ED5ABE7BC8818 /* Parse-dummy.m */; };
 		AF193239A897599F0432792910177F16 /* PFObjectConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = F547B9B73B91B9CDD4B98E547116FEAF /* PFObjectConstants.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		AF5A9E0ACCACD173386F6E34A65E9FDB /* PFRESTObjectBatchCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = EB0AFAAC5FEFE305D153DEAEA4F19280 /* PFRESTObjectBatchCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -307,11 +304,13 @@
 		B9E83855F69F807034A9143F15113221 /* PFPushChannelsController.h in Headers */ = {isa = PBXBuildFile; fileRef = C096E37908850D8389BA50EFCC830DE2 /* PFPushChannelsController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BA8FA339AC0B28D6F5669568FA9641BA /* PFUser+Synchronous.h in Headers */ = {isa = PBXBuildFile; fileRef = 9604BD79147E8C47252EA14E63FF4725 /* PFUser+Synchronous.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BBD655EA3E7FE2F69EB50ED6F11D98F3 /* PFQueryState.h in Headers */ = {isa = PBXBuildFile; fileRef = 7706467FEF0FF55C1571AFC2395EC4D4 /* PFQueryState.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BDC079A4D5766FA1137C3F80F31361AE /* BFCancellationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 723586D65726B0EA6783ECB2F0EEBD02 /* BFCancellationToken.m */; };
 		BE8CC3CFFABD8395DEF1C76B8BA7E2AB /* PFWeakValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 037B1E6236B8F5769EBFA19EAAD1246A /* PFWeakValue.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C18EDD835003B6D9FAD0DF1222748F8F /* PFCategoryLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 994FE2879F27BE6E2BF429B8D420A814 /* PFCategoryLoader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C1E9173C7CB82CFE7B842EA649DE6CD6 /* PFBaseState.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F965130A63414F16BCB733BA82AB73 /* PFBaseState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C26E5A62548C000322753B5681E047A6 /* ParseModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9570A44D9E77804CBA58553B7E60E411 /* ParseModule.m */; };
 		C306B04F1180B810DD67B049D26627A3 /* PFACLState_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 535C199E58857C2982D1C9CDAFE963A6 /* PFACLState_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C31AB490A461B251776377999CD66EA1 /* BFCancellationToken.h in Headers */ = {isa = PBXBuildFile; fileRef = B9336CE4BDA9CC8DA0449711992F23FE /* BFCancellationToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C31D4A915C51D26BF330FD01FF59A9FB /* PFObjectSubclassingController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B1EE63EE1FCF355715387E817D5D23F /* PFObjectSubclassingController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C32F082B6DCFE45EFEA4ACDEAF0D22DD /* PFCommandURLRequestConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = F94E515C14A836687E025752CFE9CED5 /* PFCommandURLRequestConstructor.m */; };
 		C44FFFD62986D63F64EF182D829CAD6A /* PFObjectFilePersistenceController.h in Headers */ = {isa = PBXBuildFile; fileRef = AE028DB1DE32F5FDEFC7E735CAC92B87 /* PFObjectFilePersistenceController.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -321,13 +320,13 @@
 		C5FBE606A11B514628910761573821E8 /* PFEventuallyPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC5FC3EBF309C93860F5F70212C6401 /* PFEventuallyPin.m */; };
 		C66A2EED1FCC1E11C155CEA9A1D1DA1E /* PFInstallationConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 9934742798C106761285139822E49125 /* PFInstallationConstants.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C7B8C4C7EE632BED0045E40A26D95FD1 /* PFOfflineQueryLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB445F05A38FDDF836CD18F963944DD /* PFOfflineQueryLogic.m */; };
-		C8CB5CE84CB537AE5FBA144414F3DD66 /* BFExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 30B77A6AFB269D34BF83CC190AA47B38 /* BFExecutor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C946D1325D4E77911910DCB29FEE4F36 /* PFQuery+Synchronous.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B4D4B44CBBC0DC31A8DB2AF762C2340 /* PFQuery+Synchronous.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9B59D999720B400B015EDDBD3AA539F /* PFRESTAnalyticsCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 02A786B23524405FA85147B73301E89C /* PFRESTAnalyticsCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C9FA83E1F5A151B31765C3B12E1719AC /* PFPaymentTransactionObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FFC06A9080A2C452E32DA5847660AD2 /* PFPaymentTransactionObserver.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CA2D2154672EE2EF4097C63731022962 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35A7CA45EF9CC7CEFD910EC42852794 /* AudioToolbox.framework */; };
 		CAFD45ACC1416DDB64D029CF263D40BF /* PFRESTSessionCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = F26509A9496BE51B32318240C96EEA40 /* PFRESTSessionCommand.m */; };
 		CD4BEB56D215D512468F54073E750DB7 /* PFFieldOperationDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BC22991D9FFCDF7A22A793255D31D0D1 /* PFFieldOperationDecoder.m */; };
+		CE5A577C8D8C456FF8D119A9675712E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837BEE84B7320C08E548F6CDD79D0D7 /* Foundation.framework */; };
 		CEAEDE97297746675F167303C66E417D /* PFObjectBatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CFAC639677713331EC4D5ED41B1A02 /* PFObjectBatchController.m */; };
 		CF9661367546D89A710DDE8D1351C8B5 /* PFURLSessionDataTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5634A5CF0E61890A7DC9E753766DB14C /* PFURLSessionDataTaskDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CFECDA7ED0AF3DA8B4889D00073E9903 /* PFUserState_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 916AE2AF690CBD1C00BE367787657A2D /* PFUserState_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -350,7 +349,6 @@
 		DE5153A0D0E16EE2FF2A940F0C9658CC /* PFRelationPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6149ADA471C15A761F81AFB09F6FBAE0 /* PFRelationPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DECD2537EB9B0276CC5561EF940D25D3 /* PFPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C951760A5188EDAD44144A8ABD2496A /* PFPin.m */; };
 		DF054968C2E35F05496F421FC814E95F /* PFObjectSubclassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A291A733BCDA15F39799F9100108B3D /* PFObjectSubclassInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		DF0E3839D3C353CC17F3CC651ED4897F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837BEE84B7320C08E548F6CDD79D0D7 /* Foundation.framework */; };
 		DF9C60E4D8E06CF720928D587F3DE5C6 /* PFRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCDD9AA100E696A354FD387994C202D /* PFRelation.m */; };
 		DFD5BCEAAC850EC9F9E383B47EB46FC7 /* PFURLSessionDataTaskDelegate_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = DA878CA907E675B6AE427006B67C025A /* PFURLSessionDataTaskDelegate_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E048BA1B42298FFE6AB3F5DE25ACFE85 /* PFUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1807F247EA44FD0C4BF0EBE560ECD156 /* PFUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -368,10 +366,11 @@
 		E70A7A51B6A88584FECAFA230846D1E6 /* PFURLConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = D9202702674995FF57BC7C9B784BE591 /* PFURLConstructor.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E75B215753CEBABE24A23F795CB30922 /* PFRelationState.h in Headers */ = {isa = PBXBuildFile; fileRef = 050D46F10A0399BB431709407F70134A /* PFRelationState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E7CE7F1B2394878E704C17188542C983 /* PFQueryUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B830DD8EB830E182521FE191E40241A0 /* PFQueryUtilities.m */; };
-		E8367E4D6348EA80B58A3038BCD10B17 /* Bolts.h in Headers */ = {isa = PBXBuildFile; fileRef = A80AEEDCF22A4EC364E813E9E155EAC3 /* Bolts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8649849DA1E3442D368C9A8401FE808 /* PFDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6EDB7937ECFD1C1B30EEDF0062470 /* PFDateFormatter.m */; };
+		E8DECE2DA4E0B4D54B288927FEE66848 /* BFExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = F246097BBD47FC626AD7AA4CEB146AF3 /* BFExecutor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9DE4DD1153EFF04EFAC6F39E4B1ECD2 /* PFCommandRunningConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = EA78448BE0EDB8DA00E1244116247019 /* PFCommandRunningConstants.m */; };
 		EAEB1E0169808AC9A77A51FA9880F2FE /* PFCommandURLRequestConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = DDFD295A7BF9F6367D3DC5956AF7B885 /* PFCommandURLRequestConstructor.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EB31881D9530A17948FA7CA696AC2414 /* Bolts.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DCE31590670C9EC894BD2936171F2E5 /* Bolts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB5D7BF932417D7D6B30266E165DD3BE /* PFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F85B3864721920EE20A6148C2C28F95E /* PFAlertView.m */; };
 		EBBB7255E6F167BE8AF4EDBDE4A92AFB /* PFCachedQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4BFD046B66F883A1D4D10119690E6E /* PFCachedQueryController.m */; };
 		EBC493AA3A023EF23B0DAD09398092FA /* PFThreadsafety.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D6EF997A4091738B97E0DF480656392 /* PFThreadsafety.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -381,7 +380,6 @@
 		ED1B2E229CFD7A14E58CA91D8899B765 /* PFCloudCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61392089F0C801F237E7B0722D5D38 /* PFCloudCodeController.m */; };
 		EE88181D7262F0A317F4B1533C3A78B7 /* PFUser+Deprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = FEB194E7918196AEF6C12CA071096FEC /* PFUser+Deprecated.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EEAEFA1FEB327A97028F9A41B39E0D64 /* PFKeychainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = EF4B2E421A527123426BDAB32BDF0DCE /* PFKeychainStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		EF05F0601D2BBE75531DE4325AD62EDE /* BFDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0B0B382495F0BB4E295A97D8B3E1A2 /* BFDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0250297EB24CD76DB7702F4286954A0 /* PFKeychainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E4FBA5C162EBA4B0247059FBED273 /* PFKeychainStore.m */; };
 		F1F36196249E7845545DB693605CBB64 /* PFMutableQueryState.h in Headers */ = {isa = PBXBuildFile; fileRef = 40C54D6F2D8A1532CF1A088CD8FD3A73 /* PFMutableQueryState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F2001073AAD3A995A4DA8640E5F646FA /* PFInternalUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = E4A08ABB6748A80ABA9DA6BCB3984DE2 /* PFInternalUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -398,6 +396,7 @@
 		F742990FD6B8A1245A589440E7A7169D /* PFRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FD118D019FC937B17BADEE00ABDFBFA /* PFRole.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F79D0D3DE6577D6D9D33079DA2B0AB5E /* PFAnonymousAuthenticationProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B4EAEA68AC1E2BA39400E8BE0F865676 /* PFAnonymousAuthenticationProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F7B4831F81CAFE6AB4970E4497633E5A /* PFPushController.h in Headers */ = {isa = PBXBuildFile; fileRef = D93CECDAC6521711915B122F15E5ECE4 /* PFPushController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FA441B36123D094FEF9B0FA982495F3D /* BFTaskCompletionSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A79BA607A2F0580C097D218DCE32D81 /* BFTaskCompletionSource.m */; };
 		FA664863BEB6C549611B754D826A56C0 /* PFObjectFilePersistenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB2D42CF69F741547D4894A0F922F4 /* PFObjectFilePersistenceController.m */; };
 		FAAC98DE3292DE3F7B22C0F0ED27F9B8 /* PFQuery+Deprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = DC329F4461FF1D89EB4DE2DA34B3A45C /* PFQuery+Deprecated.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB798CA4244EAECBABFA27FE7B93E1BA /* PFRESTFileCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A65B5F937E23DBAEFFD3CE61D726163 /* PFRESTFileCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -423,7 +422,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3C40AD938D23DF5F8345D23B4D3E1644;
+			remoteGlobalIDString = 4CD92797A96766670A60AE5197C5FB82;
 			remoteInfo = Bolts;
 		};
 		A0C71373CC864D6449EC041163B8B4FC /* PBXContainerItemProxy */ = {
@@ -437,7 +436,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3C40AD938D23DF5F8345D23B4D3E1644;
+			remoteGlobalIDString = 4CD92797A96766670A60AE5197C5FB82;
 			remoteInfo = Bolts;
 		};
 /* End PBXContainerItemProxy section */
@@ -445,6 +444,7 @@
 /* Begin PBXFileReference section */
 		00C5A31168F14619FC7B529F3B60D25B /* PFRESTObjectCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTObjectCommand.m; path = Parse/Internal/Commands/PFRESTObjectCommand.m; sourceTree = "<group>"; };
 		014BA75AA26E6D8A1A7280B9882190AC /* PFURLSessionDataTaskDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLSessionDataTaskDelegate.m; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionDataTaskDelegate.m; sourceTree = "<group>"; };
+		0164B64234191B5C7F60D1A95C1955AA /* BFTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTask.m; path = Bolts/Common/BFTask.m; sourceTree = "<group>"; };
 		02A786B23524405FA85147B73301E89C /* PFRESTAnalyticsCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTAnalyticsCommand.h; path = Parse/Internal/Commands/PFRESTAnalyticsCommand.h; sourceTree = "<group>"; };
 		037B1E6236B8F5769EBFA19EAAD1246A /* PFWeakValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFWeakValue.h; path = Parse/Internal/PFWeakValue.h; sourceTree = "<group>"; };
 		0456965F984B4282CD6AB9F5541B1B70 /* PFTaskQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFTaskQueue.m; path = Parse/Internal/PFTaskQueue.m; sourceTree = "<group>"; };
@@ -462,7 +462,6 @@
 		0AD6EDB7937ECFD1C1B30EEDF0062470 /* PFDateFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFDateFormatter.m; path = Parse/Internal/PFDateFormatter.m; sourceTree = "<group>"; };
 		0B58989060EAD72798B34B2976F70D00 /* PFPush+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFPush+Deprecated.h"; path = "Parse/PFPush+Deprecated.h"; sourceTree = "<group>"; };
 		0BFEC8859A07ECF1FDBDFCC23AFC1AFF /* iCarousel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iCarousel-dummy.m"; sourceTree = "<group>"; };
-		0C12071F46C74F5E56C8DEAF22E76DCA /* BFTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTask.m; path = Bolts/Common/BFTask.m; sourceTree = "<group>"; };
 		0C8538A6C5AE09E2FE75EAE2B879F812 /* PFMutableObjectState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMutableObjectState.h; path = Parse/Internal/Object/State/PFMutableObjectState.h; sourceTree = "<group>"; };
 		0C951760A5188EDAD44144A8ABD2496A /* PFPin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPin.m; path = Parse/Internal/LocalDataStore/Pin/PFPin.m; sourceTree = "<group>"; };
 		0CDEA4D361976AC14EB97319BE79B6F4 /* PFJSONSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFJSONSerialization.m; path = Parse/Internal/PFJSONSerialization.m; sourceTree = "<group>"; };
@@ -484,6 +483,7 @@
 		17394542CBF985CF35FC4474EDA41DEA /* PFMutableQueryState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableQueryState.m; path = Parse/Internal/Query/State/PFMutableQueryState.m; sourceTree = "<group>"; };
 		1807F247EA44FD0C4BF0EBE560ECD156 /* PFUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUser.h; path = Parse/PFUser.h; sourceTree = "<group>"; };
 		181D4908F38F301A3444E5A9AD9410D6 /* PFOperationSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFOperationSet.m; path = Parse/Internal/Object/OperationSet/PFOperationSet.m; sourceTree = "<group>"; };
+		196729CD0ACC5E4EC12C163A50E3DB82 /* BFExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFExecutor.m; path = Bolts/Common/BFExecutor.m; sourceTree = "<group>"; };
 		19E5BAD4D28E4654C7A9FC8EB4CFB7CC /* PFPaymentTransactionObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPaymentTransactionObserver.m; path = Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver.m; sourceTree = "<group>"; };
 		19E62F05F0BF1C5E1AD1AA8EC69B5BB0 /* PFDataProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDataProvider.h; path = Parse/Internal/PFDataProvider.h; sourceTree = "<group>"; };
 		1A28AB39AA7D573DBB7BD40BD274B0F6 /* PFAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAlertView.h; path = Parse/Internal/PFAlertView.h; sourceTree = "<group>"; };
@@ -526,15 +526,14 @@
 		2D17604377B2F32BEF474DADDF5D806A /* PFMutableUserState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMutableUserState.h; path = Parse/Internal/User/State/PFMutableUserState.h; sourceTree = "<group>"; };
 		2D3696A629640D6EAE9F9328478D50B0 /* PFProduct+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFProduct+Private.h"; path = "Parse/Internal/Product/PFProduct+Private.h"; sourceTree = "<group>"; };
 		2D99BA93D78FDFE54BE100C7FB9E582C /* BFTask+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BFTask+Private.h"; path = "Parse/Internal/BFTask+Private.h"; sourceTree = "<group>"; };
+		2DB1BBA202540CF9B9C8BC92EADE707E /* BFCancellationTokenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationTokenSource.h; path = Bolts/Common/BFCancellationTokenSource.h; sourceTree = "<group>"; };
 		2DE8B14389324EAD819F3F17DCFF7135 /* PFSQLiteStatement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSQLiteStatement.m; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteStatement.m; sourceTree = "<group>"; };
 		2E39DA23E62CB84148658E3E55C79C51 /* PFGeoPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFGeoPoint.h; path = Parse/PFGeoPoint.h; sourceTree = "<group>"; };
 		2F936C042A0B4A4E5AD6D3DF2878349B /* PFPushController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPushController.m; path = Parse/Internal/Push/Controller/PFPushController.m; sourceTree = "<group>"; };
 		2FD118D019FC937B17BADEE00ABDFBFA /* PFRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRole.h; path = Parse/PFRole.h; sourceTree = "<group>"; };
 		2FEE0ACF16C8E92C57D3EED2260D716A /* PFThreadsafety.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFThreadsafety.m; path = Parse/Internal/ThreadSafety/PFThreadsafety.m; sourceTree = "<group>"; };
-		30B77A6AFB269D34BF83CC190AA47B38 /* BFExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFExecutor.h; path = Bolts/Common/BFExecutor.h; sourceTree = "<group>"; };
+		30036C159DF985FC4F2558D9971970D1 /* Bolts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-prefix.pch"; sourceTree = "<group>"; };
 		30FF54D3ECE7E739B4B29ECFAAA671F5 /* PFMultiProcessFileLock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMultiProcessFileLock.h; path = Parse/Internal/MultiProcessLock/PFMultiProcessFileLock.h; sourceTree = "<group>"; };
-		315EB2DAAA4C51782EEE5BCACAC1A874 /* Bolts.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Bolts.xcconfig; sourceTree = "<group>"; };
-		31E789B9606A6F9AD6EEE06A8C6A7FC1 /* BFTaskCompletionSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTaskCompletionSource.h; path = Bolts/Common/BFTaskCompletionSource.h; sourceTree = "<group>"; };
 		31F1178B1D80EFB300E65C77EECBC47E /* ParseClientConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParseClientConfiguration.m; path = Parse/ParseClientConfiguration.m; sourceTree = "<group>"; };
 		32E18868775A66AA9254318BB21FFB6D /* PFDefaultACLController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDefaultACLController.h; path = Parse/Internal/ACL/DefaultACLController/PFDefaultACLController.h; sourceTree = "<group>"; };
 		340A5045DFA9E2D3CD53CAF8C84DA3BE /* PFProductsRequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFProductsRequestHandler.m; path = Parse/Internal/Product/ProductsRequestHandler/PFProductsRequestHandler.m; sourceTree = "<group>"; };
@@ -551,8 +550,8 @@
 		3AABE550146AD8654909CD19CC41B88E /* PFPurchaseController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPurchaseController.m; path = Parse/Internal/Purchase/Controller/PFPurchaseController.m; sourceTree = "<group>"; };
 		3B2595CAD7062540A28C2EBC0B363277 /* PFObjectController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectController.m; path = Parse/Internal/Object/Controller/PFObjectController.m; sourceTree = "<group>"; };
 		3B7875B1C9CA6B7C4BED2EAE13D2AB3B /* PFQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQuery.h; path = Parse/PFQuery.h; sourceTree = "<group>"; };
+		3DCE31590670C9EC894BD2936171F2E5 /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = Bolts/Common/Bolts.h; sourceTree = "<group>"; };
 		3E190AA045EAAF272EBC2C0D3143881B /* PFMultiProcessFileLock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMultiProcessFileLock.m; path = Parse/Internal/MultiProcessLock/PFMultiProcessFileLock.m; sourceTree = "<group>"; };
-		3F0B0B382495F0BB4E295A97D8B3E1A2 /* BFDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFDefines.h; path = Bolts/Common/BFDefines.h; sourceTree = "<group>"; };
 		3F20220E44893E92D203B30DC4682DD2 /* PFAnalyticsController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnalyticsController.h; path = Parse/Internal/Analytics/Controller/PFAnalyticsController.h; sourceTree = "<group>"; };
 		3F31D26392B8F57A9DF3DFE86A96B001 /* PFACL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACL.h; path = Parse/PFACL.h; sourceTree = "<group>"; };
 		40C54D6F2D8A1532CF1A088CD8FD3A73 /* PFMutableQueryState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMutableQueryState.h; path = Parse/Internal/Query/State/PFMutableQueryState.h; sourceTree = "<group>"; };
@@ -567,7 +566,6 @@
 		4A291A733BCDA15F39799F9100108B3D /* PFObjectSubclassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectSubclassInfo.h; path = Parse/Internal/Object/Subclassing/PFObjectSubclassInfo.h; sourceTree = "<group>"; };
 		4ABB2D42CF69F741547D4894A0F922F4 /* PFObjectFilePersistenceController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectFilePersistenceController.m; path = Parse/Internal/Object/FilePersistence/PFObjectFilePersistenceController.m; sourceTree = "<group>"; };
 		4B4D4B44CBBC0DC31A8DB2AF762C2340 /* PFQuery+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFQuery+Synchronous.h"; path = "Parse/PFQuery+Synchronous.h"; sourceTree = "<group>"; };
-		4B5B625637B8E9E690E412FBD75BFEF9 /* BFTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTask.h; path = Bolts/Common/BFTask.h; sourceTree = "<group>"; };
 		4B8BDD4A091C094B60E7445C495E894D /* PFAsyncTaskQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAsyncTaskQueue.h; path = Parse/Internal/PFAsyncTaskQueue.h; sourceTree = "<group>"; };
 		4BCDBDBC6ADF729C8C02439BB1B0EF5C /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNetworkActivityIndicatorManager.h; path = Parse/PFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		4C3EA3DDCA3423BF44FF89B084FBFAA4 /* PFCloud.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCloud.m; path = Parse/PFCloud.m; sourceTree = "<group>"; };
@@ -585,7 +583,6 @@
 		53263DF955AE9A5EEB409B83E50D4565 /* PFURLSessionJSONDataTaskDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSessionJSONDataTaskDelegate.h; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionJSONDataTaskDelegate.h; sourceTree = "<group>"; };
 		535C199E58857C2982D1C9CDAFE963A6 /* PFACLState_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACLState_Private.h; path = Parse/Internal/ACL/State/PFACLState_Private.h; sourceTree = "<group>"; };
 		53969AE56A1DC72D6255A3F8A1EF1B28 /* ParseClientConfiguration_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseClientConfiguration_Private.h; path = Parse/Internal/ParseClientConfiguration_Private.h; sourceTree = "<group>"; };
-		54AC4C9F51001BC201729772A7458CD6 /* Bolts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-prefix.pch"; sourceTree = "<group>"; };
 		54AE4DFF15A81B92DE4CE3E1C667B337 /* PFRESTCommand_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTCommand_Private.h; path = Parse/Internal/Commands/PFRESTCommand_Private.h; sourceTree = "<group>"; };
 		55A738CFFDBDA21EA5C52DEC64833F9B /* PFURLSessionUploadTaskDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLSessionUploadTaskDelegate.m; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionUploadTaskDelegate.m; sourceTree = "<group>"; };
 		5634A5CF0E61890A7DC9E753766DB14C /* PFURLSessionDataTaskDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSessionDataTaskDelegate.h; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionDataTaskDelegate.h; sourceTree = "<group>"; };
@@ -597,15 +594,16 @@
 		597FBBA96FE275245BDF98FC03E02DA4 /* PFHTTPURLRequestConstructor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFHTTPURLRequestConstructor.m; path = Parse/Internal/HTTPRequest/PFHTTPURLRequestConstructor.m; sourceTree = "<group>"; };
 		5A0B2347134DDEF54C94926936BE0F22 /* PFFileController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileController.m; path = Parse/Internal/File/Controller/PFFileController.m; sourceTree = "<group>"; };
 		5A0D5A7418D7966434DFDF773EAD700E /* PFObjectControlling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectControlling.h; path = Parse/Internal/Object/Controller/PFObjectControlling.h; sourceTree = "<group>"; };
+		5A79BA607A2F0580C097D218DCE32D81 /* BFTaskCompletionSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTaskCompletionSource.m; path = Bolts/Common/BFTaskCompletionSource.m; sourceTree = "<group>"; };
 		5AC3A8B9002509DE359BAA70098B659A /* PFPinningEventuallyQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPinningEventuallyQueue.m; path = Parse/Internal/PFPinningEventuallyQueue.m; sourceTree = "<group>"; };
 		5B1EE63EE1FCF355715387E817D5D23F /* PFObjectSubclassingController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectSubclassingController.h; path = Parse/Internal/Object/Subclassing/PFObjectSubclassingController.h; sourceTree = "<group>"; };
 		5B215CA56EA0E0A009FD8ECFC7FE26D9 /* PFMulticastDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMulticastDelegate.h; path = Parse/Internal/PFMulticastDelegate.h; sourceTree = "<group>"; };
 		5B7573BA26E72CF248DBC509FF051337 /* PFPush+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFPush+Synchronous.h"; path = "Parse/PFPush+Synchronous.h"; sourceTree = "<group>"; };
 		5E81E5B7D0D87BAE24EB910580D9475F /* PFAnalyticsUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnalyticsUtilities.m; path = Parse/Internal/Analytics/Utilities/PFAnalyticsUtilities.m; sourceTree = "<group>"; };
 		5EC11D6B082A0EA09587979CD2658D4C /* PFQueryController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryController.m; path = Parse/Internal/Query/Controller/PFQueryController.m; sourceTree = "<group>"; };
+		5EC304D29F3EB9279DE413B460A72196 /* BFCancellationTokenSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenSource.m; path = Bolts/Common/BFCancellationTokenSource.m; sourceTree = "<group>"; };
 		6023ABB06DC0D1461E6A285ED3C5FF63 /* PFLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLogger.h; path = Parse/Internal/PFLogger.h; sourceTree = "<group>"; };
 		6149ADA471C15A761F81AFB09F6FBAE0 /* PFRelationPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRelationPrivate.h; path = Parse/Internal/Relation/PFRelationPrivate.h; sourceTree = "<group>"; };
-		6216C92AFCCC73B237D521223C06EA05 /* Bolts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Bolts.m; path = Bolts/Common/Bolts.m; sourceTree = "<group>"; };
 		622F82A273BB35D9EC858D6680D72450 /* PFMutableObjectState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableObjectState.m; path = Parse/Internal/Object/State/PFMutableObjectState.m; sourceTree = "<group>"; };
 		62A7476B211E5948321C71DE9922455E /* PFPropertyInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPropertyInfo.m; path = Parse/Internal/PropertyInfo/PFPropertyInfo.m; sourceTree = "<group>"; };
 		64587DF40E1F62ABA550ECEF097B7881 /* PFOfflineObjectController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFOfflineObjectController.m; path = Parse/Internal/Object/Controller/OfflineController/PFOfflineObjectController.m; sourceTree = "<group>"; };
@@ -613,6 +611,7 @@
 		66D69E81150179018562921760C253D9 /* PFEventuallyQueue_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFEventuallyQueue_Private.h; path = Parse/Internal/PFEventuallyQueue_Private.h; sourceTree = "<group>"; };
 		66FB94C71CF57AA64ACFF8043339F644 /* PFErrorUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFErrorUtilities.m; path = Parse/Internal/PFErrorUtilities.m; sourceTree = "<group>"; };
 		6817AFBC92D9E1DF69D409BB71B263E0 /* Parse.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Parse.xcconfig; sourceTree = "<group>"; };
+		68F7385EC8F6B7A6732C70C05AA9DCE6 /* BoltsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BoltsVersion.h; path = Bolts/Common/BoltsVersion.h; sourceTree = "<group>"; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		6990B5F4A1574F88056B3EB284A80ED5 /* PFSessionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSessionController.h; path = Parse/Internal/Session/Controller/PFSessionController.h; sourceTree = "<group>"; };
 		6A790B53DD8DB24220C34C9FEA080598 /* Parse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Parse.h; path = Parse/Parse.h; sourceTree = "<group>"; };
@@ -623,11 +622,11 @@
 		6D7EAC890C9F43E1AEE3681D27D446FF /* PFObjectPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectPrivate.h; path = Parse/Internal/Object/PFObjectPrivate.h; sourceTree = "<group>"; };
 		6DF18D8DC2EEA40A904CA2173CCE5A52 /* PFPin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPin.h; path = Parse/Internal/LocalDataStore/Pin/PFPin.h; sourceTree = "<group>"; };
 		6F3593D8424E220B2A072BFCC17E49A9 /* PFPinningObjectStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPinningObjectStore.m; path = Parse/Internal/Object/PinningStore/PFPinningObjectStore.m; sourceTree = "<group>"; };
-		6F9CCFFCB12A540D4F389694EF548301 /* BoltsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BoltsVersion.h; path = Bolts/Common/BoltsVersion.h; sourceTree = "<group>"; };
 		703CE43EDC8947ED23AD970AAB3FAFC6 /* PFRESTQueryCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTQueryCommand.h; path = Parse/Internal/Commands/PFRESTQueryCommand.h; sourceTree = "<group>"; };
 		70A822EE2152EEF8064DB3A3082E3AA6 /* PFMutableACLState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMutableACLState.h; path = Parse/Internal/ACL/State/PFMutableACLState.h; sourceTree = "<group>"; };
 		7189809FFCC4444FA3C2D5A6F3C4277E /* PFObject+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse/PFObject+Subclass.h"; sourceTree = "<group>"; };
 		71C171EE3F44A188B6D276B4E25C034C /* PFReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFReachability.h; path = Parse/Internal/PFReachability.h; sourceTree = "<group>"; };
+		723586D65726B0EA6783ECB2F0EEBD02 /* BFCancellationToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationToken.m; path = Bolts/Common/BFCancellationToken.m; sourceTree = "<group>"; };
 		73A08A86B5BB1A71B9CC204E1B440888 /* PFAnonymousUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnonymousUtils.m; path = Parse/PFAnonymousUtils.m; sourceTree = "<group>"; };
 		74F74207D2535A298B57DC6737B4EEEC /* PFCommandRunning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandRunning.h; path = Parse/Internal/Commands/CommandRunner/PFCommandRunning.h; sourceTree = "<group>"; };
 		75E11340FB4467451690BA090384E08B /* PFObjectState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectState.m; path = Parse/Internal/Object/State/PFObjectState.m; sourceTree = "<group>"; };
@@ -678,10 +677,8 @@
 		8D156387AF2267724125DD9A016A4813 /* PFObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObject.m; path = Parse/PFObject.m; sourceTree = "<group>"; };
 		8D45FC3E378B0107E5B8C9F1B3F7D114 /* PFHash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFHash.h; path = Parse/Internal/PFHash.h; sourceTree = "<group>"; };
 		8DDC74F781DFA497D7E6231F615F2C60 /* PFUserController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFUserController.m; path = Parse/Internal/User/Controller/PFUserController.m; sourceTree = "<group>"; };
-		8E4F7EF7F3383313CD44BE9A33429C1B /* BFCancellationTokenRegistration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenRegistration.m; path = Bolts/Common/BFCancellationTokenRegistration.m; sourceTree = "<group>"; };
 		8E7A042DDE4FCF6E511DB2CF5C7C9641 /* PFRESTCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTCommand.h; path = Parse/Internal/Commands/PFRESTCommand.h; sourceTree = "<group>"; };
 		8F9EE9E14067098205F1637A3A57D7DA /* Parse-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Parse-prefix.pch"; sourceTree = "<group>"; };
-		90299D5C6E2EB17FE8802DC9050F2CE3 /* BFCancellationTokenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationTokenSource.h; path = Bolts/Common/BFCancellationTokenSource.h; sourceTree = "<group>"; };
 		9055FC5BDBB777D7D9CFE2FEBED2F2D8 /* PFPurchaseController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPurchaseController.h; path = Parse/Internal/Purchase/Controller/PFPurchaseController.h; sourceTree = "<group>"; };
 		90EEC796422C89C982AC0A7FE84F448C /* PFCachedQueryController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCachedQueryController.h; path = Parse/Internal/Query/Controller/PFCachedQueryController.h; sourceTree = "<group>"; };
 		90F0F3385C6E5FB28C1C314FD1DD9172 /* PFUserState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFUserState.m; path = Parse/Internal/User/State/PFUserState.m; sourceTree = "<group>"; };
@@ -711,26 +708,29 @@
 		9DC0E7F16E93EBE707D7AA9A96A219CA /* PFEncoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFEncoder.m; path = Parse/Internal/PFEncoder.m; sourceTree = "<group>"; };
 		9E28ECB8D9758AAE4E2F724261DE42CD /* PFSQLiteDatabaseController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSQLiteDatabaseController.h; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseController.h; sourceTree = "<group>"; };
 		9E4243A06CF96AB2D88F513EA457C207 /* PFPropertyInfo_Runtime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPropertyInfo_Runtime.h; path = Parse/Internal/PropertyInfo/PFPropertyInfo_Runtime.h; sourceTree = "<group>"; };
+		A0018CD64EBFF2CF64501DBAAA3531FD /* BFCancellationTokenRegistration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenRegistration.m; path = Bolts/Common/BFCancellationTokenRegistration.m; sourceTree = "<group>"; };
 		A09C88F6500F06E41E1AF59B9770EBDE /* PFMutableACLState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableACLState.m; path = Parse/Internal/ACL/State/PFMutableACLState.m; sourceTree = "<group>"; };
 		A09FF7098BF32E90AE253F6BBEB12403 /* PFInternalUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInternalUtils.m; path = Parse/Internal/PFInternalUtils.m; sourceTree = "<group>"; };
 		A11E58B7474F8F47350B4A429513D68E /* PFCurrentObjectControlling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCurrentObjectControlling.h; path = Parse/Internal/Object/CurrentController/PFCurrentObjectControlling.h; sourceTree = "<group>"; };
+		A1850BCF81B5B81F969FB802E6DBF9C1 /* BFTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTask.h; path = Bolts/Common/BFTask.h; sourceTree = "<group>"; };
 		A195E6F751F124A3373FE5CA9B0F5B27 /* libiCarousel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiCarousel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		A35A7CA45EF9CC7CEFD910EC42852794 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		A3CD326840FC7416DE9ACC85CA2CCF86 /* PFMutableUserState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableUserState.m; path = Parse/Internal/User/State/PFMutableUserState.m; sourceTree = "<group>"; };
 		A49DDD62B7D3B94DF89B746C980F85B5 /* PFBase64Encoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFBase64Encoder.m; path = Parse/Internal/PFBase64Encoder.m; sourceTree = "<group>"; };
-		A52219B93B526ABE84661E8CE3152426 /* BFCancellationToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationToken.m; path = Bolts/Common/BFCancellationToken.m; sourceTree = "<group>"; };
 		A5951C64EE30E05DDB942C2686A6F46C /* PFRESTObjectCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTObjectCommand.h; path = Parse/Internal/Commands/PFRESTObjectCommand.h; sourceTree = "<group>"; };
 		A778AA34E520A62C0E7F13336524B9AE /* PFCurrentConfigController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCurrentConfigController.m; path = Parse/Internal/Config/Controller/PFCurrentConfigController.m; sourceTree = "<group>"; };
-		A80AEEDCF22A4EC364E813E9E155EAC3 /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = Bolts/Common/Bolts.h; sourceTree = "<group>"; };
 		A8BB1B56261B7AEBD0C59B47B868F11B /* PFFileDataStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileDataStream.m; path = Parse/Internal/File/FileDataStream/PFFileDataStream.m; sourceTree = "<group>"; };
+		A906B432E995830E2153F470C6CEDECE /* Bolts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Bolts.m; path = Bolts/Common/Bolts.m; sourceTree = "<group>"; };
 		A9A5EBC09C14705150549798C135A54D /* PFRESTSessionCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTSessionCommand.h; path = Parse/Internal/Commands/PFRESTSessionCommand.h; sourceTree = "<group>"; };
 		A9DD96F00D4E8400FB39F277B7DEEBEE /* PFSQLiteDatabase_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSQLiteDatabase_Private.h; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabase_Private.h; sourceTree = "<group>"; };
 		AA94EDB9DE846FFCB5D837F35563F1B2 /* PFCommandRunning.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCommandRunning.m; path = Parse/Internal/Commands/CommandRunner/PFCommandRunning.m; sourceTree = "<group>"; };
 		AB13A5289FF5BE1D4627C09C856C2857 /* PFUserAuthenticationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserAuthenticationDelegate.h; path = Parse/PFUserAuthenticationDelegate.h; sourceTree = "<group>"; };
 		AC0ECF7E85612D1C910629C1C1CC4FC3 /* PFPush.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPush.h; path = Parse/PFPush.h; sourceTree = "<group>"; };
 		AC1F1353E88FE14E8928DABC1BC86C90 /* PFInstallation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallation.h; path = Parse/PFInstallation.h; sourceTree = "<group>"; };
+		ACA1B7339753A9753C811911383F9663 /* BFCancellationTokenRegistration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationTokenRegistration.h; path = Bolts/Common/BFCancellationTokenRegistration.h; sourceTree = "<group>"; };
 		ACEE6F2D67E3F7ABA5F8DBD515E5FC04 /* ParseInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseInternal.h; path = Parse/Internal/ParseInternal.h; sourceTree = "<group>"; };
+		AD18B8BDC9BC7B118A0FD8EE9B27D6CA /* Bolts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Bolts-dummy.m"; sourceTree = "<group>"; };
 		ADB445F05A38FDDF836CD18F963944DD /* PFOfflineQueryLogic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFOfflineQueryLogic.m; path = Parse/Internal/LocalDataStore/OfflineQueryLogic/PFOfflineQueryLogic.m; sourceTree = "<group>"; };
 		ADB5731E11348577DFDB85D3F36FD615 /* PFLocationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFLocationManager.m; path = Parse/Internal/PFLocationManager.m; sourceTree = "<group>"; };
 		AE028DB1DE32F5FDEFC7E735CAC92B87 /* PFObjectFilePersistenceController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectFilePersistenceController.h; path = Parse/Internal/Object/FilePersistence/PFObjectFilePersistenceController.h; sourceTree = "<group>"; };
@@ -746,12 +746,12 @@
 		B410D19BAA1900F9DF6ABCF7D966D5B6 /* PFObjectLocalIdStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectLocalIdStore.m; path = Parse/Internal/Object/LocalIdStore/PFObjectLocalIdStore.m; sourceTree = "<group>"; };
 		B4217D696AD958B3F098A81BCD17A0C3 /* BFTask+Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BFTask+Private.m"; path = "Parse/Internal/BFTask+Private.m"; sourceTree = "<group>"; };
 		B4EAEA68AC1E2BA39400E8BE0F865676 /* PFAnonymousAuthenticationProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousAuthenticationProvider.h; path = Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousAuthenticationProvider.h; sourceTree = "<group>"; };
-		B5AED4468B6B24C7186EF6F12C623C89 /* BFCancellationToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationToken.h; path = Bolts/Common/BFCancellationToken.h; sourceTree = "<group>"; };
 		B6BEC14F1B23AD2FD4D238D356BCCA29 /* PFConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFConstants.m; path = Parse/PFConstants.m; sourceTree = "<group>"; };
 		B6F8A7C38271A417022CF1BE5C12570A /* PFKeyValueCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFKeyValueCache.h; path = Parse/Internal/KeyValueCache/PFKeyValueCache.h; sourceTree = "<group>"; };
 		B71938B21717229140ED1CA56221E089 /* PFReachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFReachability.m; path = Parse/Internal/PFReachability.m; sourceTree = "<group>"; };
 		B830DD8EB830E182521FE191E40241A0 /* PFQueryUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryUtilities.m; path = Parse/Internal/Query/Utilities/PFQueryUtilities.m; sourceTree = "<group>"; };
 		B83E291AE523D88A7B796EA66DADD686 /* PFFileStagingController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileStagingController.h; path = Parse/Internal/File/Controller/PFFileStagingController.h; sourceTree = "<group>"; };
+		B9336CE4BDA9CC8DA0449711992F23FE /* BFCancellationToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationToken.h; path = Bolts/Common/BFCancellationToken.h; sourceTree = "<group>"; };
 		B9634D31612648B659364A3A0447E5CE /* PFObjectSubclassingController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectSubclassingController.m; path = Parse/Internal/Object/Subclassing/PFObjectSubclassingController.m; sourceTree = "<group>"; };
 		B9DC3EFB5971C24B3249EB49BA4B9CB0 /* PFInstallationIdentifierStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallationIdentifierStore.m; path = Parse/Internal/Installation/InstallationIdentifierStore/PFInstallationIdentifierStore.m; sourceTree = "<group>"; };
 		BA42D4BCBEE3D076C451119E5B4434D2 /* PFAssert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAssert.h; path = Parse/Internal/PFAssert.h; sourceTree = "<group>"; };
@@ -771,7 +771,6 @@
 		C0E8EE2820237925F7A8CDC6EB984560 /* PFPushManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPushManager.h; path = Parse/Internal/Push/Manager/PFPushManager.h; sourceTree = "<group>"; };
 		C1D914FADAF29D06E4B743584383565A /* PFJSONSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFJSONSerialization.h; path = Parse/Internal/PFJSONSerialization.h; sourceTree = "<group>"; };
 		C2C467952D9470A2F0E472B9E0C5F659 /* PFACLState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACLState.h; path = Parse/Internal/ACL/State/PFACLState.h; sourceTree = "<group>"; };
-		C2F12F6540596724EE15E21AC87E8E4A /* BFTaskCompletionSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTaskCompletionSource.m; path = Bolts/Common/BFTaskCompletionSource.m; sourceTree = "<group>"; };
 		C47D218382EDFDFAEE52CA68D09CD790 /* PFObjectUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectUtilities.h; path = Parse/Internal/Object/Utilities/PFObjectUtilities.h; sourceTree = "<group>"; };
 		C4E1D274E77AD9E0A9C94523EEFEC742 /* PFURLSessionCommandRunner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSessionCommandRunner.h; path = Parse/Internal/Commands/CommandRunner/URLSession/PFURLSessionCommandRunner.h; sourceTree = "<group>"; };
 		C76F6AB1DFC1E85410CACBAC17DC70A0 /* PFCloud+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFCloud+Synchronous.h"; path = "Parse/PFCloud+Synchronous.h"; sourceTree = "<group>"; };
@@ -792,6 +791,7 @@
 		D55F3EAA17F91AB3159A6640CFA4DAE9 /* PFFilePersistenceGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFilePersistenceGroup.h; path = Parse/Internal/Persistence/Group/PFFilePersistenceGroup.h; sourceTree = "<group>"; };
 		D63F445809CF60E0E8599B2877965A34 /* libBolts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBolts.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67750AA65668D1B61B434FC65CEE2F0 /* PFFieldOperationDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFieldOperationDecoder.h; path = Parse/Internal/FieldOperation/PFFieldOperationDecoder.h; sourceTree = "<group>"; };
+		D71A3AB4EC179989BF4634C9B157CC1A /* BFTaskCompletionSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTaskCompletionSource.h; path = Bolts/Common/BFTaskCompletionSource.h; sourceTree = "<group>"; };
 		D7DDD2733A378337D2F3B500B7B3BFD5 /* PFObjectBatchController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectBatchController.h; path = Parse/Internal/Object/BatchController/PFObjectBatchController.h; sourceTree = "<group>"; };
 		D85E8321E4E9EE5A9288D9CF72D11BC4 /* PFDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFDecoder.m; path = Parse/Internal/PFDecoder.m; sourceTree = "<group>"; };
 		D88707B9069B2AA9D9347275AD81AB8D /* PFFile_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFile_Private.h; path = Parse/Internal/File/PFFile_Private.h; sourceTree = "<group>"; };
@@ -806,7 +806,6 @@
 		DC329F4461FF1D89EB4DE2DA34B3A45C /* PFQuery+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFQuery+Deprecated.h"; path = "Parse/PFQuery+Deprecated.h"; sourceTree = "<group>"; };
 		DC3E4DFE31D0FC6633131ED1DB3DCE0F /* PFObjectFileCodingLogic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectFileCodingLogic.h; path = Parse/Internal/Object/Coder/File/PFObjectFileCodingLogic.h; sourceTree = "<group>"; };
 		DDFD295A7BF9F6367D3DC5956AF7B885 /* PFCommandURLRequestConstructor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandURLRequestConstructor.h; path = Parse/Internal/Commands/CommandRunner/URLRequestConstructor/PFCommandURLRequestConstructor.h; sourceTree = "<group>"; };
-		DE822044560C51D11C0DA1E75BAFD037 /* BFCancellationTokenRegistration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationTokenRegistration.h; path = Bolts/Common/BFCancellationTokenRegistration.h; sourceTree = "<group>"; };
 		DEC1E4D5F3712CCCED1C2C50E7DD7475 /* PFAnalyticsController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnalyticsController.m; path = Parse/Internal/Analytics/Controller/PFAnalyticsController.m; sourceTree = "<group>"; };
 		DF4F3F9864B8DF6B8EC3CB3E7B967204 /* PFAnalytics.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnalytics.m; path = Parse/PFAnalytics.m; sourceTree = "<group>"; };
 		E029057780FF1A724458601223A3E983 /* PFCommandRunningConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandRunningConstants.h; path = Parse/Internal/Commands/CommandRunner/PFCommandRunningConstants.h; sourceTree = "<group>"; };
@@ -814,7 +813,6 @@
 		E49315A5662D5AB713861BAC26F5FCEE /* PFLocationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLocationManager.h; path = Parse/Internal/PFLocationManager.h; sourceTree = "<group>"; };
 		E4A08ABB6748A80ABA9DA6BCB3984DE2 /* PFInternalUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInternalUtils.h; path = Parse/Internal/PFInternalUtils.h; sourceTree = "<group>"; };
 		E59E12AE2397774D678B45CF57C9F738 /* PFInstallationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallationController.m; path = Parse/Internal/Installation/Controller/PFInstallationController.m; sourceTree = "<group>"; };
-		E61C8D932C5141558E2115CAA0D0F4BA /* BFExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFExecutor.m; path = Bolts/Common/BFExecutor.m; sourceTree = "<group>"; };
 		E655C694A5F7F423B67032ADF88D7423 /* PFMutableFileState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMutableFileState.h; path = Parse/Internal/File/State/PFMutableFileState.h; sourceTree = "<group>"; };
 		E69E12A14994A8E6A312BF1B3A42F503 /* PFCommandCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandCache.h; path = Parse/Internal/PFCommandCache.h; sourceTree = "<group>"; };
 		E7143F7B6827F48EF3F0E03968844CA7 /* PFURLSessionCommandRunner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLSessionCommandRunner.m; path = Parse/Internal/Commands/CommandRunner/URLSession/PFURLSessionCommandRunner.m; sourceTree = "<group>"; };
@@ -831,9 +829,8 @@
 		ED7E40402C973822D8DBE3130D9E519C /* PFOfflineQueryController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFOfflineQueryController.h; path = Parse/Internal/Query/Controller/PFOfflineQueryController.h; sourceTree = "<group>"; };
 		EDBD82E8DD4656458D91F1A5B190B1A7 /* PFObjectSubclassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectSubclassInfo.m; path = Parse/Internal/Object/Subclassing/PFObjectSubclassInfo.m; sourceTree = "<group>"; };
 		EF4B2E421A527123426BDAB32BDF0DCE /* PFKeychainStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFKeychainStore.h; path = Parse/Internal/PFKeychainStore.h; sourceTree = "<group>"; };
-		EFAD449B67EF2647ECD40410FF67B7C6 /* Bolts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Bolts-dummy.m"; sourceTree = "<group>"; };
 		F0CB5929861A91CC8B112D407D27C135 /* PFKeyValueCache_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFKeyValueCache_Private.h; path = Parse/Internal/KeyValueCache/PFKeyValueCache_Private.h; sourceTree = "<group>"; };
-		F21FB5B8CBB83C04A75719408C722534 /* BFCancellationTokenSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenSource.m; path = Bolts/Common/BFCancellationTokenSource.m; sourceTree = "<group>"; };
+		F246097BBD47FC626AD7AA4CEB146AF3 /* BFExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFExecutor.h; path = Bolts/Common/BFExecutor.h; sourceTree = "<group>"; };
 		F26509A9496BE51B32318240C96EEA40 /* PFRESTSessionCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTSessionCommand.m; path = Parse/Internal/Commands/PFRESTSessionCommand.m; sourceTree = "<group>"; };
 		F30714964B97050C7AC0BA7F07064719 /* PFFilePersistenceGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFilePersistenceGroup.m; path = Parse/Internal/Persistence/Group/PFFilePersistenceGroup.m; sourceTree = "<group>"; };
 		F3CE2128854468387D56FD9CD0D6FE22 /* PFURLConstructor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLConstructor.m; path = Parse/Internal/HTTPRequest/PFURLConstructor.m; sourceTree = "<group>"; };
@@ -850,6 +847,7 @@
 		F94E515C14A836687E025752CFE9CED5 /* PFCommandURLRequestConstructor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCommandURLRequestConstructor.m; path = Parse/Internal/Commands/CommandRunner/URLRequestConstructor/PFCommandURLRequestConstructor.m; sourceTree = "<group>"; };
 		F9793E2F030CCC18BFD6ECB851E4B503 /* PFProductsRequestHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFProductsRequestHandler.h; path = Parse/Internal/Product/ProductsRequestHandler/PFProductsRequestHandler.h; sourceTree = "<group>"; };
 		F9A69CBBCD83F6EC2F81D3BFFC2AE0D7 /* PFObjectFileCodingLogic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectFileCodingLogic.m; path = Parse/Internal/Object/Coder/File/PFObjectFileCodingLogic.m; sourceTree = "<group>"; };
+		F9BE57FAF9942F6D9BDBBBFEC2C894A6 /* Bolts.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Bolts.xcconfig; sourceTree = "<group>"; };
 		FABD84AA074592B3C7122548157789F9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		FB674D43D164C19EC99020D71A5E435D /* PFPushState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPushState.h; path = Parse/Internal/Push/State/PFPushState.h; sourceTree = "<group>"; };
 		FBB733A4F1E95EF15EF40916EED713E0 /* PFURLSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLSession.m; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/PFURLSession.m; sourceTree = "<group>"; };
@@ -878,20 +876,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		486D5ED32E1909A70ABDA24EFDB695CF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DF0E3839D3C353CC17F3CC651ED4897F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4A91BD5D9F219640D4FCC273086A0AC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F5D25E9EE3DFFE3D9F4A4C192C623E4C /* Foundation.framework in Frameworks */,
 				06D5B441AB7AD2E400E4972F575C6045 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D72BED16FAEF5EC74CE9655CBD309715 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE5A577C8D8C456FF8D119A9675712E1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,21 +1288,21 @@
 			path = Parse;
 			sourceTree = "<group>";
 		};
+		207249BA4DC6436196EAE25CE077F603 /* Bolts */ = {
+			isa = PBXGroup;
+			children = (
+				6E67D11DF05A03B9CDB2FCE04305593B /* Support Files */,
+				C7D5382EFB880DFFBC2A0AD9023F20A4 /* Tasks */,
+			);
+			path = Bolts;
+			sourceTree = "<group>";
+		};
 		24002A6670E6882ECD6250D3E60F9CB2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				6820B61CC210646480372BCF36BF6DC8 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		37C6A1817835147FA46DB140DD33A77D /* Bolts */ = {
-			isa = PBXGroup;
-			children = (
-				DC67FEBC3C4D7352BFD2CBD3A8129F80 /* Support Files */,
-				AD0206A3A45D75D502A10B7B4B0CE7AF /* Tasks */,
-			);
-			path = Bolts;
 			sourceTree = "<group>";
 		};
 		3E284DAAFBAE8ED13D0B1CB723AA23D5 /* iCarousel */ = {
@@ -1344,6 +1342,17 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		6E67D11DF05A03B9CDB2FCE04305593B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9BE57FAF9942F6D9BDBBBFEC2C894A6 /* Bolts.xcconfig */,
+				AD18B8BDC9BC7B118A0FD8EE9B27D6CA /* Bolts-dummy.m */,
+				30036C159DF985FC4F2558D9971970D1 /* Bolts-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Bolts";
+			sourceTree = "<group>";
+		};
 		7190F90AF260D31222814DAD9370318B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1366,34 +1375,11 @@
 		A348A88DE6F24C1C6685D2A41860AE59 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				37C6A1817835147FA46DB140DD33A77D /* Bolts */,
+				207249BA4DC6436196EAE25CE077F603 /* Bolts */,
 				3E284DAAFBAE8ED13D0B1CB723AA23D5 /* iCarousel */,
 				178BC9BF5243E6E61ADC0B01EE5E8776 /* Parse */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		AD0206A3A45D75D502A10B7B4B0CE7AF /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				B5AED4468B6B24C7186EF6F12C623C89 /* BFCancellationToken.h */,
-				A52219B93B526ABE84661E8CE3152426 /* BFCancellationToken.m */,
-				DE822044560C51D11C0DA1E75BAFD037 /* BFCancellationTokenRegistration.h */,
-				8E4F7EF7F3383313CD44BE9A33429C1B /* BFCancellationTokenRegistration.m */,
-				90299D5C6E2EB17FE8802DC9050F2CE3 /* BFCancellationTokenSource.h */,
-				F21FB5B8CBB83C04A75719408C722534 /* BFCancellationTokenSource.m */,
-				3F0B0B382495F0BB4E295A97D8B3E1A2 /* BFDefines.h */,
-				30B77A6AFB269D34BF83CC190AA47B38 /* BFExecutor.h */,
-				E61C8D932C5141558E2115CAA0D0F4BA /* BFExecutor.m */,
-				4B5B625637B8E9E690E412FBD75BFEF9 /* BFTask.h */,
-				0C12071F46C74F5E56C8DEAF22E76DCA /* BFTask.m */,
-				31E789B9606A6F9AD6EEE06A8C6A7FC1 /* BFTaskCompletionSource.h */,
-				C2F12F6540596724EE15E21AC87E8E4A /* BFTaskCompletionSource.m */,
-				A80AEEDCF22A4EC364E813E9E155EAC3 /* Bolts.h */,
-				6216C92AFCCC73B237D521223C06EA05 /* Bolts.m */,
-				6F9CCFFCB12A540D4F389694EF548301 /* BoltsVersion.h */,
-			);
-			name = Tasks;
 			sourceTree = "<group>";
 		};
 		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
@@ -1411,15 +1397,26 @@
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		DC67FEBC3C4D7352BFD2CBD3A8129F80 /* Support Files */ = {
+		C7D5382EFB880DFFBC2A0AD9023F20A4 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				315EB2DAAA4C51782EEE5BCACAC1A874 /* Bolts.xcconfig */,
-				EFAD449B67EF2647ECD40410FF67B7C6 /* Bolts-dummy.m */,
-				54AC4C9F51001BC201729772A7458CD6 /* Bolts-prefix.pch */,
+				B9336CE4BDA9CC8DA0449711992F23FE /* BFCancellationToken.h */,
+				723586D65726B0EA6783ECB2F0EEBD02 /* BFCancellationToken.m */,
+				ACA1B7339753A9753C811911383F9663 /* BFCancellationTokenRegistration.h */,
+				A0018CD64EBFF2CF64501DBAAA3531FD /* BFCancellationTokenRegistration.m */,
+				2DB1BBA202540CF9B9C8BC92EADE707E /* BFCancellationTokenSource.h */,
+				5EC304D29F3EB9279DE413B460A72196 /* BFCancellationTokenSource.m */,
+				F246097BBD47FC626AD7AA4CEB146AF3 /* BFExecutor.h */,
+				196729CD0ACC5E4EC12C163A50E3DB82 /* BFExecutor.m */,
+				A1850BCF81B5B81F969FB802E6DBF9C1 /* BFTask.h */,
+				0164B64234191B5C7F60D1A95C1955AA /* BFTask.m */,
+				D71A3AB4EC179989BF4634C9B157CC1A /* BFTaskCompletionSource.h */,
+				5A79BA607A2F0580C097D218DCE32D81 /* BFTaskCompletionSource.m */,
+				3DCE31590670C9EC894BD2936171F2E5 /* Bolts.h */,
+				A906B432E995830E2153F470C6CEDECE /* Bolts.m */,
+				68F7385EC8F6B7A6732C70C05AA9DCE6 /* BoltsVersion.h */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Bolts";
+			name = Tasks;
 			sourceTree = "<group>";
 		};
 		DD7B58D36A18531DE835C0CCD407C019 /* Support Files */ = {
@@ -1447,6 +1444,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		6F544C7F2CEDFDEBE5425EB12F6D8BED /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C31AB490A461B251776377999CD66EA1 /* BFCancellationToken.h in Headers */,
+				A8681AFE9DE7CAE359376B3F0C93A187 /* BFCancellationTokenRegistration.h in Headers */,
+				6DA34A69B8E055768BB3805267EEBD91 /* BFCancellationTokenSource.h in Headers */,
+				E8DECE2DA4E0B4D54B288927FEE66848 /* BFExecutor.h in Headers */,
+				35B7134D9A084CC992F119BFD8DDA729 /* BFTask.h in Headers */,
+				174469D9701FA13F29071D1330C19214 /* BFTaskCompletionSource.h in Headers */,
+				EB31881D9530A17948FA7CA696AC2414 /* Bolts.h in Headers */,
+				2526D24966F0C7690740348125464638 /* BoltsVersion.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FD3D4D510170DB635D93F1C6106F3F9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1677,32 +1689,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDE5FEB125BB9CC60CC02F1559AFFED4 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8171D90C762985147762FEF042529624 /* BFCancellationToken.h in Headers */,
-				A9793B08738CED7C0AEDB24BB07A673B /* BFCancellationTokenRegistration.h in Headers */,
-				566A7AC6D79333623B7F77A4501CFE63 /* BFCancellationTokenSource.h in Headers */,
-				EF05F0601D2BBE75531DE4325AD62EDE /* BFDefines.h in Headers */,
-				C8CB5CE84CB537AE5FBA144414F3DD66 /* BFExecutor.h in Headers */,
-				75042006A0F95C76E1B185CCEE6658DA /* BFTask.h in Headers */,
-				899B962A9C38D5A4D25EFDF457C0F480 /* BFTaskCompletionSource.h in Headers */,
-				E8367E4D6348EA80B58A3038BCD10B17 /* Bolts.h in Headers */,
-				30C5834D63F7306117A1AABDD346E4A3 /* BoltsVersion.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3C40AD938D23DF5F8345D23B4D3E1644 /* Bolts */ = {
+		4CD92797A96766670A60AE5197C5FB82 /* Bolts */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E39D1E69C3A2A3EC3798BFAB2385F0C /* Build configuration list for PBXNativeTarget "Bolts" */;
+			buildConfigurationList = 2FB9C92389C24C4C7443938E8C58FE9F /* Build configuration list for PBXNativeTarget "Bolts" */;
 			buildPhases = (
-				E8EDC76BDBA305229FA7966652B4B078 /* Sources */,
-				486D5ED32E1909A70ABDA24EFDB695CF /* Frameworks */,
-				DDE5FEB125BB9CC60CC02F1559AFFED4 /* Headers */,
+				48B174A9A620E44AC4616ACC3B8FF893 /* Sources */,
+				D72BED16FAEF5EC74CE9655CBD309715 /* Frameworks */,
+				6F544C7F2CEDFDEBE5425EB12F6D8BED /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1788,7 +1784,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3C40AD938D23DF5F8345D23B4D3E1644 /* Bolts */,
+				4CD92797A96766670A60AE5197C5FB82 /* Bolts */,
 				9494390523250106847516AB47E5F9FF /* iCarousel */,
 				9B916844F33E8D3CF7BC18CE424E9721 /* Parse */,
 				BB0538CEB8564C00BAD102F51B054B4D /* Pods */,
@@ -1802,6 +1798,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E68674AA42E6CDC9BFCF44A37568E05 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48B174A9A620E44AC4616ACC3B8FF893 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDC079A4D5766FA1137C3F80F31361AE /* BFCancellationToken.m in Sources */,
+				AB19E0E1A405022C9716581696DE7822 /* BFCancellationTokenRegistration.m in Sources */,
+				9749C33ECDF2FC21A231D2330864A63B /* BFCancellationTokenSource.m in Sources */,
+				ACA412AEDD0EF432EA2738E097573EFA /* BFExecutor.m in Sources */,
+				4818361AB73D5C94B7CFDA08AB5790B3 /* BFTask.m in Sources */,
+				FA441B36123D094FEF9B0FA982495F3D /* BFTaskCompletionSource.m in Sources */,
+				62827169346CF49F1DC42B506B78C335 /* Bolts-dummy.m in Sources */,
+				98914FAB67F86D60E103D31B8745076D /* Bolts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1974,28 +1985,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E8EDC76BDBA305229FA7966652B4B078 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				124DAFBBD0BC0BED3A84A8BCDDE99EAA /* BFCancellationToken.m in Sources */,
-				6F2BD02BE2A70F04A0E14F74FCF951E7 /* BFCancellationTokenRegistration.m in Sources */,
-				AAF6965E99519B609D6CDDD07DEFD5CF /* BFCancellationTokenSource.m in Sources */,
-				15B84D9DC29C600B893F6B0E7638C77A /* BFExecutor.m in Sources */,
-				827C558B15971ED44576C761940FC539 /* BFTask.m in Sources */,
-				AD630158ED169506C49AF462830839C2 /* BFTaskCompletionSource.m in Sources */,
-				30F2C86135C9CD07155D145D5DBA6A09 /* Bolts-dummy.m in Sources */,
-				A3760DED8C87382D3907D94384F2EE4C /* Bolts.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		32E16AF9490B3486FCB8DEC8AC970CFD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Bolts;
-			target = 3C40AD938D23DF5F8345D23B4D3E1644 /* Bolts */;
+			target = 4CD92797A96766670A60AE5197C5FB82 /* Bolts */;
 			targetProxy = 3EFAA2D3637F71AE7143B4FE9AE05EDF /* PBXContainerItemProxy */;
 		};
 		3F10A272ED4C14B19CD32634F3869B11 /* PBXTargetDependency */ = {
@@ -2013,7 +2009,7 @@
 		5F51C8F3676F1B48C16BC7AE5E281F4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Bolts;
-			target = 3C40AD938D23DF5F8345D23B4D3E1644 /* Bolts */;
+			target = 4CD92797A96766670A60AE5197C5FB82 /* Bolts */;
 			targetProxy = D08C29B9CF5733F2624E87FA52B62D52 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2128,30 +2124,12 @@
 			};
 			name = Release;
 		};
-		54CCEE3308C83644CF0B8B7BFB7C0C4F /* Release */ = {
+		5ABE502231C7BDA2536E78D0A975D58A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 315EB2DAAA4C51782EEE5BCACAC1A874 /* Bolts.xcconfig */;
+			baseConfigurationReference = F9BE57FAF9942F6D9BDBBBFEC2C894A6 /* Bolts.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Bolts/Bolts-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		5C6B63389993BA59B55381ACC21B53ED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77EEC4215CA523E18F70257ADF5261DC /* iCarousel.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/iCarousel/iCarousel-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -2164,12 +2142,12 @@
 			};
 			name = Debug;
 		};
-		6F52AE00D7C8F8EA5A6454BE708A2A95 /* Debug */ = {
+		5C6B63389993BA59B55381ACC21B53ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 315EB2DAAA4C51782EEE5BCACAC1A874 /* Bolts.xcconfig */;
+			baseConfigurationReference = 77EEC4215CA523E18F70257ADF5261DC /* iCarousel.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Bolts/Bolts-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/iCarousel/iCarousel-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -2199,6 +2177,24 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
+		};
+		C42FF3B3AA533C99350FE2D56CDE78FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9BE57FAF9942F6D9BDBBBFEC2C894A6 /* Bolts.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Bolts/Bolts-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 		E566E77D47D6FE64D72715744595707F /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2246,6 +2242,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		2FB9C92389C24C4C7443938E8C58FE9F /* Build configuration list for PBXNativeTarget "Bolts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5ABE502231C7BDA2536E78D0A975D58A /* Debug */,
+				C42FF3B3AA533C99350FE2D56CDE78FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4CBEFCEEE7162F9A8774D9BD334236CB /* Build configuration list for PBXNativeTarget "iCarousel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2269,15 +2274,6 @@
 			buildConfigurations = (
 				F2BCCA2C01CE4461EB5311AFA7344591 /* Debug */,
 				E566E77D47D6FE64D72715744595707F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9E39D1E69C3A2A3EC3798BFAB2385F0C /* Build configuration list for PBXNativeTarget "Bolts" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6F52AE00D7C8F8EA5A6454BE708A2A95 /* Debug */,
-				54CCEE3308C83644CF0B8B7BFB7C0C4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
