@@ -158,7 +158,14 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
 
     dispatch_async(dispatch_get_main_queue(), ^{
 //        [view redrawWithFaceFrame:CGPathGetBoundingBox(facePath.CGPath)];
-        view.frame = CGPathGetBoundingBox(facePath.CGPath);
+        if (view == faceView)
+            view.frame = CGPathGetBoundingBox(facePath.CGPath);
+//            [view redraw2];
+
+        else {
+            view.frame.size = CGPathGetBoundingBox(facePath.CGPath).size;
+            [view redraw];
+        }
     });
 
     if (isRecording) {

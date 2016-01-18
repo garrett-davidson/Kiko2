@@ -22,7 +22,7 @@
 //- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame;
 //- (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame hairFrame:(CGRect)hairFrame;
 
-//- (void) redraw;
+- (void) redraw;
 //- (void) drawFace:(Face *)face;
 
 - (void) drawFace:(Face *)face withFaceFrame:(CGRect)faceFrame;

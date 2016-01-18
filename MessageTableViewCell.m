@@ -8,11 +8,6 @@
 
 #import "MessageTableViewCell.h"
 
-#define kTailWidth 67
-#define kTailHeight 20
-#define kFaceViewWidth 100
-#define kFaceViewHeight 100
-
 @implementation MessageTableViewCell
 
 - (void)awakeFromNib {
@@ -51,10 +46,10 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+//    [super setSelected:selected animated:animated];
+//
+//    // Configure the view for the selected state
+//}
 
 @end

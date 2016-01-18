@@ -32,9 +32,8 @@
 }
 
 - (void) setCurrentChat:(KikoChat *)currentChat {
-    [self.tableView reloadData];
-    
     _currentChat = currentChat;
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -150,8 +149,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    bool isLeftCell = indexPath.row % 2;
+
+    KikoMessage *message = _currentChat.messages[indexPath.row];
+
+    bool isLeftCell = message.sender != [User currentUser];
     NSString *identifier;
     
     UIImage *backgroundImage = [UIImage imageNamed:@"LeftPinch.png"];
@@ -172,6 +173,9 @@
     }
     
     cell.backgroundImageView.image = backgroundImage;
+
+    cell.faceView.face = message.face;
+    message.view = cell.faceView;
     
     return cell;
 }
@@ -182,7 +186,7 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120;
+    return kFaceViewHeight + kTailHeight;
 }
 
 /*

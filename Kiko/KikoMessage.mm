@@ -39,6 +39,11 @@
     return self;
 }
 
+- (void) setView:(FaceView *)view {
+    _view = view;
+    [animator updateAnimationWithFacePointsArray:self.faceFrames[0] inView:_view];
+}
+
 - (void) play {
     _isPlaying = true;
     playbackTimer = [NSTimer scheduledTimerWithTimeInterval:0.033 target:self selector:@selector(advanceFrame) userInfo:nil repeats:true];
