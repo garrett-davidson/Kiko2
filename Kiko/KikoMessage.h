@@ -19,6 +19,8 @@
 @property (nonatomic) NSArray *faceFrames;
 @property (nonatomic) NSUInteger messageLength;
 @property (nonatomic) FaceView *view;
+@property (nonatomic) NSArray *xValues;
+@property (nonatomic) NSArray *yValues;
 
 @property (nonatomic) BOOL isPlaying;
 

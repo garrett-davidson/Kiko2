@@ -121,6 +121,15 @@
     [_currentChat addMessage:currentMessage];
     [self cancelCurrentMessage:nil];
     [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_currentChat.messages.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+    [_currentChat saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Saved conversation");
+        }
+
+        if (error) {
+            NSLog(@"Conversation saving error: %@", error);
+        }
+    }];
 }
 
 - (IBAction)cancelCurrentMessage:(id)sender {

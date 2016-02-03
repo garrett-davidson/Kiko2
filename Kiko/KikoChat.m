@@ -33,4 +33,24 @@
     [self addObject:newMessage forKey:@"messages"];
 }
 
+- (BOOL) save {
+    return [super save];
+}
+
+- (void) saveInBackgroundWithBlock:(PFBooleanResultBlock)block {
+    [super saveInBackgroundWithBlock:block];
+}
+
+- (id)saveInBackground {
+    return [super saveInBackground];
+}
+
+- (void)saveEventually:(nullable PFBooleanResultBlock)callback {
+    [super saveEventually:callback];
+}
+
+- (id)saveEventually {
+    return [super saveEventually];
+}
+
 @end
