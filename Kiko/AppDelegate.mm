@@ -27,10 +27,10 @@
     // Override point for customization after application launch.
     
     [self setupParse];
-    [self setupNotificationsForApplication:application];
-    [self refreshData];
-    [self setupTracking];
-    
+//    [self setupNotificationsForApplication:application];
+//    [self refreshData];
+//    [self setupTracking];
+
     return YES;
 }
 

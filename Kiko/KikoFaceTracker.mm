@@ -31,9 +31,11 @@ AVCaptureSession *session;
 dispatch_queue_t videoQueue;
 
 BRFTracker *tracker = [[BRFTracker alloc] initWithWidth:_cameraWidth height:_cameraHeight];
-const std::function< void() > brf::BRFManager::READY = []{ [tracker onReadyBRF]; };
-double DrawingUtils::CANVAS_WIDTH = (double)_cameraWidth;
-double DrawingUtils::CANVAS_HEIGHT = (double)_cameraHeight;
+//const std::function< void() > brf::BRFManager::READY = []{ [tracker onReadyBRF]; };
+//double DrawingUtils::CANVAS_WIDTH = (double)_cameraWidth;
+//double DrawingUtils::CANVAS_HEIGHT = (double)_cameraHeight;
+//TODO: Uncomment after finished adopting new drawing style
+
 
 + (id) sharedTracker {
     static KikoFaceTracker *sharedTracker = nil;

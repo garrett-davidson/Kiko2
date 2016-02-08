@@ -16,6 +16,11 @@
 		685D88081C3214B0002A3608 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685D88071C3214B0002A3608 /* RegisterViewController.m */; };
 		685D880B1C32B464002A3608 /* RegistrationImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 685D880A1C32B464002A3608 /* RegistrationImageViewController.mm */; };
 		685D880E1C32B65F002A3608 /* KikoFaceTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 685D880D1C32B65F002A3608 /* KikoFaceTracker.mm */; };
+		6863E2051C68515000ACBC5C /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6863E2041C68515000ACBC5C /* ViewController.mm */; };
+		6863E2081C68517900ACBC5C /* FacesArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 6863E2071C68517900ACBC5C /* FacesArray.m */; };
+		6863E20B1C68519100ACBC5C /* FaceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6863E20A1C68519100ACBC5C /* FaceLayer.m */; };
+		6863E20E1C6851A900ACBC5C /* NSMutableArray+MessageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6863E20D1C6851A900ACBC5C /* NSMutableArray+MessageList.m */; };
+		6863E2111C6851D200ACBC5C /* Face2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6863E2101C6851D200ACBC5C /* Face2.mm */; };
 		687D184D1C1F5F1600CD31D0 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 688699171C1B58A600FFA7D8 /* libz.1.dylib */; };
 		687D184F1C1F6DF000CD31D0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687D184E1C1F6DF000CD31D0 /* AVFoundation.framework */; };
 		687D18511C1F6E0100CD31D0 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687D18501C1F6E0100CD31D0 /* CoreVideo.framework */; };
@@ -98,6 +103,16 @@
 		685D880A1C32B464002A3608 /* RegistrationImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RegistrationImageViewController.mm; sourceTree = "<group>"; };
 		685D880C1C32B65F002A3608 /* KikoFaceTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KikoFaceTracker.h; sourceTree = "<group>"; };
 		685D880D1C32B65F002A3608 /* KikoFaceTracker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KikoFaceTracker.mm; sourceTree = "<group>"; };
+		6863E2031C68515000ACBC5C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6863E2041C68515000ACBC5C /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		6863E2061C68517900ACBC5C /* FacesArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacesArray.h; sourceTree = "<group>"; };
+		6863E2071C68517900ACBC5C /* FacesArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacesArray.m; sourceTree = "<group>"; };
+		6863E2091C68519100ACBC5C /* FaceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceLayer.h; sourceTree = "<group>"; };
+		6863E20A1C68519100ACBC5C /* FaceLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceLayer.m; sourceTree = "<group>"; };
+		6863E20C1C6851A900ACBC5C /* NSMutableArray+MessageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MessageList.h"; sourceTree = "<group>"; };
+		6863E20D1C6851A900ACBC5C /* NSMutableArray+MessageList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MessageList.m"; sourceTree = "<group>"; };
+		6863E20F1C6851D200ACBC5C /* Face2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Face2.h; sourceTree = "<group>"; };
+		6863E2101C6851D200ACBC5C /* Face2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Face2.mm; sourceTree = "<group>"; };
 		687D184E1C1F6DF000CD31D0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		687D18501C1F6E0100CD31D0 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		687D18521C1F6E1900CD31D0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -236,6 +251,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6863E2021C68512C00ACBC5C /* NewDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				6863E20F1C6851D200ACBC5C /* Face2.h */,
+				6863E2101C6851D200ACBC5C /* Face2.mm */,
+				6863E20C1C6851A900ACBC5C /* NSMutableArray+MessageList.h */,
+				6863E20D1C6851A900ACBC5C /* NSMutableArray+MessageList.m */,
+				6863E2091C68519100ACBC5C /* FaceLayer.h */,
+				6863E20A1C68519100ACBC5C /* FaceLayer.m */,
+				6863E2061C68517900ACBC5C /* FacesArray.h */,
+				6863E2071C68517900ACBC5C /* FacesArray.m */,
+				6863E2031C68515000ACBC5C /* ViewController.h */,
+				6863E2041C68515000ACBC5C /* ViewController.mm */,
+			);
+			name = NewDrawing;
+			path = KikoTests;
+			sourceTree = SOURCE_ROOT;
+		};
 		688698F11C192B6600FFA7D8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +311,7 @@
 		688E0D7C1C15ECBE008DB6AA /* Kiko */ = {
 			isa = PBXGroup;
 			children = (
+				6863E2021C68512C00ACBC5C /* NewDrawing */,
 				685D88031C32107F002A3608 /* AccountViewController.h */,
 				685D88041C32107F002A3608 /* AccountViewController.m */,
 				688E0D801C15ECBE008DB6AA /* AppDelegate.h */,
@@ -677,6 +711,9 @@
 				684F11701C394F970039AD12 /* MessageTableViewCell.m in Sources */,
 				68EEFBCA1C3AEF5D00B99FE3 /* LoginViewController.m in Sources */,
 				685D88081C3214B0002A3608 /* RegisterViewController.m in Sources */,
+				6863E2081C68517900ACBC5C /* FacesArray.m in Sources */,
+				6863E20E1C6851A900ACBC5C /* NSMutableArray+MessageList.m in Sources */,
+				6863E2111C6851D200ACBC5C /* Face2.mm in Sources */,
 				68B8CB481C3305CC000E7913 /* FriendSelectionViewController.m in Sources */,
 				68B8CB3B1C32DD52000E7913 /* ChatViewController.mm in Sources */,
 				68EEFBC41C3AD2DB00B99FE3 /* FriendDetailsViewController.m in Sources */,
@@ -684,6 +721,7 @@
 				68EEFBBE1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m in Sources */,
 				685D880B1C32B464002A3608 /* RegistrationImageViewController.mm in Sources */,
 				687D18601C1F749E00CD31D0 /* KikoAnimator.mm in Sources */,
+				6863E20B1C68519100ACBC5C /* FaceLayer.m in Sources */,
 				6899E53D1C3DA76400F9F055 /* KikoCustomizations.m in Sources */,
 				685D88051C32107F002A3608 /* AccountViewController.m in Sources */,
 				687D18661C1F814A00CD31D0 /* UIBezierPath+Interpolation.m in Sources */,
@@ -697,6 +735,7 @@
 				6886991B1C1B5B2F00FFA7D8 /* BRFTracker.mm in Sources */,
 				688E0D821C15ECBE008DB6AA /* AppDelegate.mm in Sources */,
 				68B8CB381C32CF11000E7913 /* Face.m in Sources */,
+				6863E2051C68515000ACBC5C /* ViewController.mm in Sources */,
 				688E0D7F1C15ECBE008DB6AA /* main.m in Sources */,
 				683B737E1C3F45D800B93B05 /* FaceView.mm in Sources */,
 				6899E53A1C3DA22700F9F055 /* KikoHair.m in Sources */,
