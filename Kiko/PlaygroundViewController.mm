@@ -7,13 +7,13 @@
 //
 
 #import "PlaygroundViewController.h"
-#import "NewKikoAnimator.h"
-#import "NewKikoFaceTracker.h"
+#import "KikoAnimator.h"
+#import "KikoFaceTracker.h"
 #import "FaceCustomizationViewController.h"
 
 @interface PlaygroundViewController () {
-    NewKikoAnimator *animator;
-    NewKikoFaceTracker *tracker;
+    KikoAnimator *animator;
+    KikoFaceTracker *tracker;
 }
 
 @end
@@ -24,9 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    tracker = [NewKikoFaceTracker sharedTracker];
+    tracker = [KikoFaceTracker sharedTracker];
     [tracker setTrackingImageView:self.trackingView];
-    animator = [NewKikoAnimator sharedAnimator];
+    animator = [KikoAnimator sharedAnimator];
     animator.animationView = self.animationView;
     
     [self drawCustomizeButton];

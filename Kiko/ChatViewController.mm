@@ -7,13 +7,13 @@
 //
 
 #import "ChatViewController.h"
-#import "NewKikoAnimator.h"
-#import "NewKikoFaceTracker.h"
+#import "KikoAnimator.h"
+#import "KikoFaceTracker.h"
 #import "MessageTableViewCell.h"
 
 @interface ChatViewController ()< UITableViewDelegate, UITableViewDataSource> {
-    NewKikoAnimator *animator;
-    NewKikoFaceTracker *tracker;
+    KikoAnimator *animator;
+    KikoFaceTracker *tracker;
     KikoMessage *currentMessage;
 }
 
@@ -25,9 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    tracker = [NewKikoFaceTracker sharedTracker];
+    tracker = [KikoFaceTracker sharedTracker];
     [tracker setTrackingImageView:self.trackingView];
-    animator = [NewKikoAnimator sharedAnimator];
+    animator = [KikoAnimator sharedAnimator];
     [animator setAnimationView:self.animationView];
 }
 

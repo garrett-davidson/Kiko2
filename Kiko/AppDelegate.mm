@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "KikoAnimator.h"
-#import "KikoFaceTracker.h"
+//#import "KikoAnimator.h" //TODO: Update with new drawing
+//#import "KikoFaceTracker.h"
 #import <Parse/Parse.h>
 
 #import "User.h"
@@ -134,9 +134,10 @@ void (^updatedBlock)(PFObject * _Nullable object, NSError * _Nullable error) = ^
 }
 
 - (void) setupTracking {
-    KikoAnimator *animator = [KikoAnimator sharedAnimator];
-    KikoFaceTracker *tracker = [KikoFaceTracker sharedTracker];
-    tracker.animator = animator;
+    //TODO: Update with new drawing
+//    KikoAnimator *animator = [KikoAnimator sharedAnimator];
+//    KikoFaceTracker *tracker = [KikoFaceTracker sharedTracker];
+//    tracker.animator = animator;
 }
 
 - (void) setupNotificationsForApplication:(UIApplication *)application {

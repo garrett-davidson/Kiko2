@@ -1,17 +1,12 @@
 //
-//  KikoAnimator.h
+//  NewKikoAnimator.h
 //  Kiko
 //
-//  Created by Garrett Davidson on 12/14/15.
-//  Copyright © 2015 G&R. All rights reserved.
+//  Created by Garrett Davidson on 2/8/16.
+//  Copyright © 2016 G&R. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "KikoMessage.h"
-#import "KikoEyes.h"
-#import "KikoHair.h"
-
 
 #ifndef __KikoAnimator
 #define __KikoAnimator
@@ -28,29 +23,19 @@
 
 #endif
 
+#import "Face2.h"
+
 @interface KikoAnimator : NSObject
 
-//@property (nonatomic) CAShapeLayer *animationLayer;
-@property (nonatomic) UIView *animationView;
-@property (nonatomic) KikoEyes *currentEyes;
-@property (nonatomic) KikoHair *currentHair;
-
-+ (id) sharedAnimator;
-
 - (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point>>) points;
-- (void) updateAnimationWithFacePointsArray:(NSArray *)pointsArray;
-- (void) updateAnimationWithFacePointsArray:(NSArray *)pointsArray inView: (FaceView*)view;
++ (KikoAnimator*) sharedAnimator;
 
 - (void) pause;
 - (void) unpause;
-
-- (Face *) getCurrentFace;
-
 - (void) startRecording;
-- (NSArray *)endRecording;
+- (NSArray *) stopRecording;
 
-- (void)playMessage: (KikoMessage*)message;
-- (void) playMessage:(KikoMessage *)message inCurrentView:(BOOL) inCurrentView;
-- (void)stopPlayingMessage;
+@property (nonatomic) UIView *animationView;
+@property (nonatomic) Face2 *currentFace;
 
 @end

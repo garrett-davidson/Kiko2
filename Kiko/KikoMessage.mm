@@ -8,13 +8,14 @@
 
 #import "KikoMessage.h"
 
-#import "KikoAnimator.h"
+//#import "KikoAnimator.h" //TODO: Update with new drawing
 
 @interface KikoMessage () {
     NSUInteger currentFrame;
     NSTimer *playbackTimer;
 
-    KikoAnimator *animator;
+    //TODO: Update with new drawing
+//    KikoAnimator *animator;
 }
 
 @end
@@ -33,15 +34,17 @@
     currentFrame = 0;
     self.messageLength = frames.count;
 
-    animator = [KikoAnimator sharedAnimator];
-    self.face = [animator getCurrentFace];
-    
+    //TODO: Update with new drawing
+//    animator = [KikoAnimator sharedAnimator];
+//    self.face = [animator getCurrentFace];
+
     return self;
 }
 
 - (void) setView:(FaceView *)view {
     _view = view;
-    [animator updateAnimationWithFacePointsArray:self.faceFrames[0] inView:_view];
+    //TODO: Update with new drawing
+//    [animator updateAnimationWithFacePointsArray:self.faceFrames[0] inView:_view];
 }
 
 - (void) play {
@@ -50,7 +53,8 @@
 }
 
 - (void) advanceFrame {
-    [animator updateAnimationWithFacePointsArray:_faceFrames[currentFrame++ % self.messageLength] inView:_view];
+    //TODO: Implement playback
+//    [animator updateAnimationWithFacePointsArray:_faceFrames[currentFrame++ % self.messageLength] inView:_view];
 }
 
 - (void) pause {
@@ -61,7 +65,8 @@
 - (void) stop {
     _isPlaying = false;
     [playbackTimer invalidate];
-    [animator updateAnimationWithFacePointsArray:self.faceFrames[0]];
+    //TODO: Implement playback
+//    [animator updateAnimationWithFacePointsArray:self.faceFrames[0]];
 }
 
 + (NSString *)parseClassName {

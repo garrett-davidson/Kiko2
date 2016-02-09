@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "KikoAnimator.h"
+#import "OldKikoAnimator.h"
 
-@interface KikoFaceTracker : NSObject<AVCaptureVideoDataOutputSampleBufferDelegate>
+@interface OldKikoFaceTracker : NSObject<AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @property (nonatomic) double cameraHeight;
 @property (nonatomic) double cameraWidth;
 
-@property (nonatomic) KikoAnimator *animator;
+@property (nonatomic) OldKikoAnimator *animator;
 
 @property(nonatomic) AVCaptureVideoDataOutput *videoOutput;
 

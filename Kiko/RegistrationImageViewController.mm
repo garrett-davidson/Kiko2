@@ -7,13 +7,13 @@
 //
 
 #import "RegistrationImageViewController.h"
-#import "NewKikoAnimator.h"
-#import "NewKikoFaceTracker.h"
+#import "KikoAnimator.h"
+#import "KikoFaceTracker.h"
 #import "FaceCustomizationViewController.h"
 
 @interface RegistrationImageViewController () {
-    NewKikoAnimator *animator;
-    NewKikoFaceTracker *tracker;
+    KikoAnimator *animator;
+    KikoFaceTracker *tracker;
 }
 
 @end
@@ -27,9 +27,9 @@
     self.buttonsView.center = CGPointMake(-self.view.frame.size.width / 2, self.view.frame.size.height - self.buttonsView.frame.size.height/2);
     [self.view addSubview:self.buttonsView];
     
-    tracker = [NewKikoFaceTracker sharedTracker];
+    tracker = [KikoFaceTracker sharedTracker];
     tracker.trackingImageView = _trackingView;
-    animator = [NewKikoAnimator sharedAnimator];
+    animator = [KikoAnimator sharedAnimator];
     animator.animationView = self.animationView;
     
     self.navigationItem.hidesBackButton = true;

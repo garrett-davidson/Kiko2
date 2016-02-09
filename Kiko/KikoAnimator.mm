@@ -1,254 +1,149 @@
 //
-//  KikoAnimator.m
+//  NewKikoAnimator.m
 //  Kiko
 //
-//  Created by Garrett Davidson on 12/14/15.
-//  Copyright © 2015 G&R. All rights reserved.
+//  Created by Garrett Davidson on 2/8/16.
+//  Copyright © 2016 G&R. All rights reserved.
 //
 
 #import "KikoAnimator.h"
-#import "UIBezierPath+Interpolation.h"
-#import "FaceView.h"
+#import "FaceLayer.h"
+#import <Parse/Parse.h>
+#import "KikoFaceTracker.h"
 
-#define kLeftEyeAnimationKey @"leftEyeAnimation"
-#define kRightEyeAnimationKey @"rightEyeAnimation"
-#define kHairAnimationKey @"hairAnimation"
-
-@interface KikoAnimator () {
-    BOOL paused;
-    BOOL isRecording;
-    NSMutableArray *recording;
-    KikoMessage *currentMessage;
-    
-    UIBezierPath *facePath;
-    UIBezierPath *leftEyePath;
-    UIBezierPath *rightEyePath;
-    
-    FaceView *faceView;
+@interface KikoAnimator() {
+    Face2 *currentFace;
+    NSMutableArray *hairArray;
+    bool isAnimating;
+    bool isRecording;
+    KikoFaceTracker *KikoFaceTracker;
 }
 
 @end
 
 @implementation KikoAnimator
 
-#define kFaceCurveStart 0
-#define kFaceCurveLength 15
-#define kRightEyebrowStart 15
-#define kRightEyebrowLength 6
-#define kLeftEyebrowStart 21
-#define kLeftEyebrowLength 6
-#define kOuterMouthStart 48
-#define kOuterMouthLength 12
-#define kRightEyeStart 32
-#define kRightEyeLength 4
-#define kLeftEyeStart 27
-#define kLeftEyeLength 4
-#define kNose1Start 37
-#define kNose1Length 3
-#define kNose2Start 46
-#define kNose2Length 2
-#define kNose3Start 43
-#define kNose3Length 3
+-(void) populateCSV: (NSMutableArray *)csvArr :(NSURL *) url {
+    NSString *string = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
+    NSString *newString = [string stringByReplacingOccurrencesOfString:@",,," withString:@""];
 
-static float _cameraWidth;
-static float _cameraHeight;
-static float _frameWidth;
-static float _frameHeight;
+    NSString *stringWithoutSpaces = [newString stringByReplacingOccurrencesOfString:@",," withString:@""];
 
-+ (id) sharedAnimator {
+    NSArray* lines = [stringWithoutSpaces componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+    hairArray = [[NSMutableArray alloc] init];
+
+    for (int i = 0; i < [lines count]; i++) {
+        NSString *string = [lines objectAtIndex:i];
+        NSArray *array = [string componentsSeparatedByString:@","];
+        for (int j = 0; j < [array count]; j++) {
+            [hairArray addObject:[array objectAtIndex:j]];
+        }
+    }
+}
+
+- (void)viewDidLoad {
+    PFQuery *query = [PFQuery queryWithClassName:@"Hair_Test"];
+    [query whereKey:@"objectId" equalTo:@"vvBNXlXKj2"];
+
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!error) {
+            PFFile *file = [object objectForKey:@"hair_1"];
+            NSURL *url = [NSURL URLWithString:file.url];
+            [self populateCSV:nil :url];
+        }
+        else {
+            NSLog(@"Parse error: %@", error);
+        }
+    }];
+}
+
+- (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point> >)points {
+    currentFace = [[Face2 alloc] initWithData:points :hairArray];
+    UIBezierPath *path = [currentFace createSingleBezierPath];
+    //UIBezierPath *hairPath = [self.]
+    UIBezierPath *hairPath = [currentFace getHairPath];
+    NSMutableArray *hairPaths = [currentFace getBezierPathArray];
+
+    CAShapeLayer *faceLayer = [[CAShapeLayer alloc] init];
+    faceLayer.frame = CGRectMake(0, 0, 480.0, 640.0);
+    [faceLayer setFillColor:[[UIColor clearColor] CGColor]];
+    [faceLayer setStrokeColor:[[UIColor blackColor] CGColor]];
+    [faceLayer setPath: path.CGPath];
+
+    FaceLayer *realtimeFaceLayer = [[FaceLayer alloc] init];
+    realtimeFaceLayer.name = @"Layer";
+    [realtimeFaceLayer addSublayer:faceLayer];
+
+    for (int i = 0; i < [hairPaths count]; i++) {
+        UIBezierPath *hairBezier = [hairPaths objectAtIndex:i];
+        CAShapeLayer *hair = [[CAShapeLayer alloc] init];
+        hair.frame = CGRectMake(0, 0, 480.0, 640.0);
+        NSString *string = [currentFace getColorAtIndex:i];
+        if ([string isEqualToString:@"DARK"]) {
+            [hair setFillColor:[UIColor yellowColor].CGColor];
+
+        } else {
+            [hair setFillColor:[UIColor yellowColor].CGColor];
+        }
+        [hair setStrokeColor:[[UIColor blackColor] CGColor]];
+        [hair setPath: hairBezier.CGPath];
+        [realtimeFaceLayer addSublayer:hair];
+
+    }
+
+    CAShapeLayer *hairLayer = [[CAShapeLayer alloc] init];
+    hairLayer.frame = CGRectMake(0, 0, 480.0, 640.0);
+    [hairLayer setFillColor:[[UIColor yellowColor] CGColor]];
+    [hairLayer setStrokeColor:[[UIColor blackColor] CGColor]];
+    [hairLayer setPath: hairPath.CGPath];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (CAShapeLayer *layer in _animationView.layer.sublayers) {
+            if (isAnimating) {
+                [layer removeFromSuperlayer];
+            }
+        }
+
+        realtimeFaceLayer.frame = _animationView.bounds;
+
+        if (isAnimating) {
+            [[_animationView layer] addSublayer:realtimeFaceLayer];
+        }
+
+        [currentFace initializeArrays];
+    });
+
+}
+
++ (KikoAnimator*) sharedAnimator {
     static KikoAnimator *sharedAnimator = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedAnimator = [[KikoAnimator alloc] init];
+        [sharedAnimator viewDidLoad];
     });
-    
+
     return sharedAnimator;
 }
 
-- (void) setAnimationView:(UIView *)animationView {
-    [faceView removeFromSuperview];
-    
-    _animationView = animationView;
-    [_animationView addSubview:faceView];
-    
-    CGRect newFrame = _animationView.bounds;
-    faceView.frame = newFrame;
-    _frameHeight = newFrame.size.height;
-    _frameWidth = newFrame.size.width;
-    
-    faceView.frame = _animationView.bounds;
-    faceView.face = [User currentUser].face;
-    
-    if (!faceView.face) {
-        faceView.face = [Face object];
-    }
-    
-    
-    paused = false;
-}
-
-- (id) init {
-    self = [super init];
-    
-    _cameraHeight = 640;
-    _cameraWidth = 480;
-    
-    faceView = [[FaceView alloc] init];
-    
-    paused = true;
-    isRecording = false;
-    
-    User* currentUser = [User currentUser];
-    [currentUser addObserver:self forKeyPath:kLeftEyeAnimationKey options:NSKeyValueObservingOptionNew context:nil];
-    [currentUser addObserver:self forKeyPath:kRightEyeAnimationKey options:NSKeyValueObservingOptionNew context:nil];
-    [currentUser addObserver:self forKeyPath:kHairAnimationKey options:NSKeyValueObservingOptionNew context:nil];
-    
-    return self;
-}
-
-- (void) setCurrentEyes:(KikoEyes *)currentEyes {
-    _currentEyes = currentEyes;
-    if (_currentEyes) {
-        faceView.face.eyes = _currentEyes;
-    }
-    
-    else {
-        faceView.face.eyes = nil;
-    }
-}
-
-- (void) setCurrentHair:(KikoHair *)currentHair {
-    _currentHair = currentHair;
-}
-
-NSValue* getValue (std::shared_ptr<brf::Point> point) {
-    CGPoint p = CGPointMake(point->x * _frameWidth/_cameraWidth, point->y *_frameHeight/_cameraHeight);
-    
-    return [NSValue valueWithBytes:&p objCType:@encode(CGPoint)];
-}
-
-- (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point>>) points {
-    if (!paused) {
-        std::vector<std::shared_ptr<brf::Point>>::iterator start = points.begin();
-        std::vector<std::shared_ptr<brf::Point>>::iterator end = points.end();
-        
-        std::vector<NSValue*> pointValues(points.size());
-        
-        std::transform(start, end, pointValues.begin(), getValue);
-        
-        NSArray *pointsArray = [NSArray arrayWithObjects:&pointValues[0] count:points.size()];
-
-        [self updateAnimationWithFacePointsArray:pointsArray];
-    }
-}
-
-- (void) updateAnimationWithFacePointsArray:(NSArray *)pointsArray {
-    [self updateAnimationWithFacePointsArray:pointsArray inView:faceView];
-}
-
-- (void) updateAnimationWithFacePointsArray:(NSArray *)pointsArray inView: (FaceView*)view {
-    facePath = [self createFacePath:pointsArray];
-
-    leftEyePath = [self getLeftEyePath:pointsArray];
-    rightEyePath = [self getRightEyePath:pointsArray];
-
-    view.face.facePath = facePath;
-    view.face.leftEyePath = leftEyePath;
-    view.face.rightEyePath = rightEyePath;
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-//        [view redrawWithFaceFrame:CGPathGetBoundingBox(facePath.CGPath)];
-        if (view == faceView)
-            view.frame = CGPathGetBoundingBox(facePath.CGPath);
-//            [view redraw2];
-
-        else {
-            view.frame.size = CGPathGetBoundingBox(facePath.CGPath).size;
-            [view redraw];
-        }
-    });
-
-    if (isRecording) {
-        [recording addObject:pointsArray];
-    }
-}
-
-
-- (UIBezierPath *) getLeftEyePath:(NSArray *) points {
-    return [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kLeftEyeStart, kLeftEyeLength)] closed:true];
-}
-
-- (UIBezierPath *) getRightEyePath:(NSArray *) points {
-    return [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kRightEyeStart, kRightEyeLength)] closed:true];
-}
-
-- (UIBezierPath *) createFacePath:(NSArray *) points {
-    UIBezierPath *newFacePath = [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kFaceCurveStart, kFaceCurveLength)] closed:false];
-    [newFacePath appendPath: [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kOuterMouthStart, kOuterMouthLength)] closed:true]];
-    [newFacePath appendPath: [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kRightEyebrowStart, kRightEyebrowLength)] closed:true]];
-    [newFacePath appendPath: [UIBezierPath interpolateCGPointsWithHermite:[points subarrayWithRange:NSMakeRange(kLeftEyebrowStart, kLeftEyebrowLength)] closed:true]];
-    
-    NSArray *noseArray = [[[points subarrayWithRange:NSMakeRange(kNose1Start, kNose1Length)] arrayByAddingObjectsFromArray:[points subarrayWithRange:NSMakeRange(kNose2Start, kNose2Length)]] arrayByAddingObjectsFromArray:[points subarrayWithRange:NSMakeRange(kNose3Start, kNose3Length)]];
-    [newFacePath appendPath:[UIBezierPath interpolateCGPointsWithHermite:noseArray closed:false]];
-    
-    return newFacePath;
-}
-
 - (void) pause {
-    paused = true;
+    isAnimating = false;
+    isRecording = false;
 }
 
 - (void) unpause {
-    paused = false;
-}
-
-- (Face *) getCurrentFace {
-    return [[Face alloc] initWithFacePath:facePath leftEyePath:leftEyePath rightEyePath:rightEyePath eyes:_currentEyes hair:_currentHair];
+    isAnimating = true;
 }
 
 - (void) startRecording {
-    recording = [NSMutableArray new];
     isRecording = true;
 }
 
-- (NSArray *)endRecording {
+- (NSArray *) stopRecording {
     isRecording = false;
-    NSArray *savedRecording = recording;
-    recording = nil;
-    return savedRecording;
+
+    //TODO: Return array with recorded frames
+    return nil;
 }
-
-- (void) playMessage:(KikoMessage*)message {
-    [self playMessage:message inCurrentView:false];
-}
-
-- (void) playMessage:(KikoMessage *)message inCurrentView:(BOOL) inCurrentView {
-    if (inCurrentView) {
-        message.view = faceView;
-    }
-
-    currentMessage = message;
-    [self pause];
-    faceView.face = message.face;
-    [message play];
-}
-
-- (void) stopPlayingMessage {
-    [currentMessage stop];
-}
-
-//- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-//    if ([keyPath isEqualToString:kLeftEyeAnimationKey]) {
-//        leftEyeImageView.image = [UIImage imageNamed:[change objectForKey:NSKeyValueChangeNewKey]];
-//    }
-//    
-//    else if ([keyPath isEqualToString:kRightEyeAnimationKey]) {
-//        rightEyeImageView.image = [UIImage imageNamed:[change objectForKey:NSKeyValueChangeNewKey]];
-//    }
-//    
-//    else if ([keyPath isEqualToString:kHairAnimationKey]) {
-//
-//    }
-//}
 
 @end

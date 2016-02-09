@@ -6,9 +6,9 @@
 //  Copyright © 2016 G&R. All rights reserved.
 //
 
-#import "NewKikoFaceTracker.h"
+#import "KikoFaceTracker.h"
 #import "BRFTracker.h"
-#import "NewKikoAnimator.h"
+#import "KikoAnimator.h"
 
 #define kDefaultAVCaptureSessionPreset AVCaptureSessionPreset640x480
 #define kDefaultAVCaptureVideoOrientation AVCaptureVideoOrientationPortrait
@@ -16,9 +16,9 @@
 #define kCameraWidth 480
 #define kCameraHeight 640
 
-@interface NewKikoFaceTracker() {
+@interface KikoFaceTracker() {
     AVCaptureVideoDataOutput *videoOutput;
-    NewKikoAnimator *animator;
+    KikoAnimator *animator;
     int discardFrames;
     AVCaptureSession *session;
     dispatch_queue_t videoQueue;
@@ -28,7 +28,7 @@
 
 @end
 
-@implementation NewKikoFaceTracker
+@implementation KikoFaceTracker
 
 
 
@@ -39,10 +39,10 @@ double DrawingUtils::CANVAS_HEIGHT = (double)kCameraHeight;
 
 
 + (id) sharedTracker {
-    static NewKikoFaceTracker *sharedTracker = nil;
+    static KikoFaceTracker *sharedTracker = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedTracker = [[NewKikoFaceTracker alloc] init];
+        sharedTracker = [[KikoFaceTracker alloc] init];
     });
 
     return sharedTracker;
@@ -57,7 +57,7 @@ double DrawingUtils::CANVAS_HEIGHT = (double)kCameraHeight;
     });
 
     discardFrames = 0;
-    animator = [NewKikoAnimator sharedAnimator];
+    animator = [KikoAnimator sharedAnimator];
     isAnimating = true;
 
     return self;

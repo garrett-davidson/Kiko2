@@ -6,7 +6,7 @@
 //  Copyright © 2015 G&R. All rights reserved.
 //
 
-#import "KikoFaceTracker.h"
+#import "OldKikoFaceTracker.h"
 #include <cstdlib>
 #import "BRFTracker.h"
 
@@ -18,14 +18,14 @@
 #define _cameraWidth 480
 #define _cameraHeight 640
 
-@interface KikoFaceTracker () {
+@interface OldKikoFaceTracker () {
     AVCaptureVideoPreviewLayer *captureLayer;
     int discardFrames;
 }
 
 @end
 
-@implementation KikoFaceTracker
+@implementation OldKikoFaceTracker
 
 AVCaptureSession *session;
 dispatch_queue_t videoQueue;
@@ -38,10 +38,10 @@ BRFTracker *tracker = [[BRFTracker alloc] initWithWidth:_cameraWidth height:_cam
 
 
 + (id) sharedTracker {
-    static KikoFaceTracker *sharedTracker = nil;
+    static OldKikoFaceTracker *sharedTracker = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedTracker = [[KikoFaceTracker alloc] init];
+        sharedTracker = [[OldKikoFaceTracker alloc] init];
     });
     
     return sharedTracker;
