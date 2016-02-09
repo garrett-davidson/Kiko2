@@ -26,6 +26,8 @@
 @interface NewKikoAnimator : NSObject
 
 - (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point>>) points;
-+ (id) sharedAnimator;
++ (NewKikoAnimator*) sharedAnimator;
+
+@property (nonatomic) UIView *animationView;
 
 @end

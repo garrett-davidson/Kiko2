@@ -126,8 +126,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
                 CGImageRef quartzImage = CGBitmapContextCreateImage(context);
                 CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
 
-                CGContextRelease(context);
-                CGColorSpaceRelease(colorSpace);
 
 
 
@@ -141,9 +139,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
                     }
                     dispatch_async(pointParsingQueue, ^{
                         [animator updateAnimationWithFacePoints:pointsVector];
-
-                        //TODO: Remove me
-                        [_temp passingXYCoordinates:pointsVector :nil :nil];
                     });
                 }
 
@@ -153,6 +148,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
                     }
                 });
             }
+
+            CGColorSpaceRelease(colorSpace);
+            CGContextRelease(context);
         }
     }
     
@@ -169,7 +167,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
     NSArray *devices = [AVCaptureDevice devices];
     AVCaptureDevice *frontCamera;
-    AVCaptureDevice *backCamera;
 
     for (AVCaptureDevice *device in devices) {
 
@@ -177,13 +174,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
         if ([device hasMediaType:AVMediaTypeVideo]) {
 
-            if ([device position] == AVCaptureDevicePositionBack) {
-                NSLog(@"Device position : back");
-                backCamera = device;
-            }
-            else {
-                NSLog(@"Device position : front");
+            if ([device position] == AVCaptureDevicePositionFront) {
                 frontCamera = device;
+                break;
             }
         }
     }

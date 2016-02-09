@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15E33e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="g13-us-SCU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15E39c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="g13-us-SCU">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
@@ -1445,47 +1445,45 @@
                         <viewControllerLayoutGuide type="bottom" id="PeE-o0-KKA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="U6z-1i-PDw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xx-5H-B91">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1c-RG-xfz">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="417" width="187.5" height="250"/>
                                 <color key="backgroundColor" red="1" green="0.75408778099999996" blue="0.2609864965" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brf_next_logo_READY.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qgs-VE-HVi">
-                                <rect key="frame" x="0.0" y="6" width="176" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="176" id="L4z-Rb-WcU"/>
-                                    <constraint firstAttribute="height" constant="128" id="Rg6-0n-aRp"/>
+                                    <constraint firstAttribute="width" secondItem="I1c-RG-xfz" secondAttribute="height" multiplier="3:4" id="wug-vL-XPf"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brf_next_logo_READY.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qgs-VE-HVi">
+                                <rect key="frame" x="0.0" y="0.0" width="210" height="164"/>
+                            </imageView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ks8-cL-1hk">
+                                <rect key="frame" x="187.5" y="417" width="187.5" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="I1c-RG-xfz" firstAttribute="top" secondItem="U6z-1i-PDw" secondAttribute="top" id="PQ7-3d-Ptw"/>
-                            <constraint firstItem="5Xx-5H-B91" firstAttribute="leading" secondItem="I1c-RG-xfz" secondAttribute="leading" id="Pb2-gB-jgU"/>
-                            <constraint firstItem="I1c-RG-xfz" firstAttribute="top" secondItem="5Xx-5H-B91" secondAttribute="top" id="R91-Vi-Ysf"/>
-                            <constraint firstAttribute="bottom" secondItem="I1c-RG-xfz" secondAttribute="bottom" id="Vae-c7-ne0"/>
-                            <constraint firstAttribute="trailing" secondItem="I1c-RG-xfz" secondAttribute="trailing" id="WNx-fp-GOc"/>
-                            <constraint firstItem="Qgs-VE-HVi" firstAttribute="top" secondItem="U6z-1i-PDw" secondAttribute="top" constant="6" id="e0u-LU-Iy4"/>
-                            <constraint firstItem="Qgs-VE-HVi" firstAttribute="leading" secondItem="5Xx-5H-B91" secondAttribute="leading" id="gTc-7S-oFs"/>
-                            <constraint firstItem="I1c-RG-xfz" firstAttribute="trailing" secondItem="5Xx-5H-B91" secondAttribute="trailing" id="hGm-Vv-4LL"/>
-                            <constraint firstItem="5Xx-5H-B91" firstAttribute="bottom" secondItem="I1c-RG-xfz" secondAttribute="bottom" id="jKK-Z8-YuJ"/>
-                            <constraint firstItem="Qgs-VE-HVi" firstAttribute="leading" secondItem="U6z-1i-PDw" secondAttribute="leading" id="nwc-H7-dp2"/>
+                            <constraint firstAttribute="trailing" secondItem="ks8-cL-1hk" secondAttribute="trailing" id="BAZ-ju-gSg"/>
+                            <constraint firstAttribute="bottom" secondItem="ks8-cL-1hk" secondAttribute="bottom" id="MT3-Ey-IYH"/>
+                            <constraint firstItem="I1c-RG-xfz" firstAttribute="height" secondItem="ks8-cL-1hk" secondAttribute="height" id="QDR-uR-lFw"/>
+                            <constraint firstItem="PeE-o0-KKA" firstAttribute="top" secondItem="I1c-RG-xfz" secondAttribute="bottom" id="aw4-83-itJ"/>
+                            <constraint firstItem="I1c-RG-xfz" firstAttribute="width" secondItem="ks8-cL-1hk" secondAttribute="width" id="b03-SD-Y9T"/>
+                            <constraint firstItem="I1c-RG-xfz" firstAttribute="leading" secondItem="U6z-1i-PDw" secondAttribute="leading" id="uQN-jc-suS"/>
+                            <constraint firstItem="I1c-RG-xfz" firstAttribute="width" secondItem="U6z-1i-PDw" secondAttribute="width" multiplier="0.5" id="xA5-eD-jBA"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="captureImage" destination="I1c-RG-xfz" id="PMd-Xg-VmV"/>
-                        <outlet property="imagePreview" destination="5Xx-5H-B91" id="xz7-A6-CKl"/>
+                        <outlet property="realtimeAnimationView" destination="ks8-cL-1hk" id="c3T-WK-jST"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yA7-pr-siF" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="357.5" y="337.5"/>
         </scene>
     </scenes>
     <resources>
