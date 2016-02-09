@@ -23,11 +23,17 @@
 
 #endif
 
+#import "Face2.h"
+
 @interface NewKikoAnimator : NSObject
 
 - (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point>>) points;
 + (NewKikoAnimator*) sharedAnimator;
 
+- (void) pause;
+- (void) unpause;
+
 @property (nonatomic) UIView *animationView;
+@property (nonatomic) Face2 *currentFace;
 
 @end

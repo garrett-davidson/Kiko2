@@ -7,13 +7,13 @@
 //
 
 #import "RegistrationImageViewController.h"
-#import "KikoAnimator.h"
-#import "KikoFaceTracker.h"
+#import "NewKikoAnimator.h"
+#import "NewKikoFaceTracker.h"
 #import "FaceCustomizationViewController.h"
 
 @interface RegistrationImageViewController () {
-    KikoAnimator *animator;
-    KikoFaceTracker *tracker;
+    NewKikoAnimator *animator;
+    NewKikoFaceTracker *tracker;
 }
 
 @end
@@ -27,11 +27,10 @@
     self.buttonsView.center = CGPointMake(-self.view.frame.size.width / 2, self.view.frame.size.height - self.buttonsView.frame.size.height/2);
     [self.view addSubview:self.buttonsView];
     
-    tracker = [KikoFaceTracker sharedTracker];
-    [tracker setTrackingImageView:self.trackingView];
-    animator = [KikoAnimator sharedAnimator];
+    tracker = [NewKikoFaceTracker sharedTracker];
+    tracker.trackingImageView = _trackingView;
+    animator = [NewKikoAnimator sharedAnimator];
     animator.animationView = self.animationView;
-    tracker.animator = animator;
     
     self.navigationItem.hidesBackButton = true;
 }
@@ -68,9 +67,11 @@
 }
 
 - (IBAction)savePhoto:(id)sender {
-    Face *newFace = [animator getCurrentFace];
-    [_user setFace:newFace];
-    
+    Face2 *newFace = animator.currentFace;
+
+    //TODO: Update for face2
+//    [_user setFace:newFace];
+
     [_user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"Saved face");

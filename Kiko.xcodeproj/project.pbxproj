@@ -55,7 +55,7 @@
 		68B8CB3B1C32DD52000E7913 /* ChatViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB3A1C32DD52000E7913 /* ChatViewController.mm */; };
 		68B8CB3D1C32E36C000E7913 /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B8CB3C1C32E36C000E7913 /* Add.png */; };
 		68B8CB3F1C32F74D000E7913 /* Hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = 68B8CB3E1C32F74D000E7913 /* Hamburger.png */; };
-		68B8CB451C32FFE9000E7913 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB441C32FFE9000E7913 /* User.m */; };
+		68B8CB451C32FFE9000E7913 /* User.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB441C32FFE9000E7913 /* User.mm */; };
 		68B8CB481C3305CC000E7913 /* FriendSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */; };
 		68E3069B1C4698FF006A4193 /* Send-Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E3069A1C4698FF006A4193 /* Send-Button.png */; };
 		68E3069D1C46996A006A4193 /* Cancel-Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E3069C1C46996A006A4193 /* Cancel-Button.png */; };
@@ -172,7 +172,7 @@
 		68B8CB3C1C32E36C000E7913 /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Add.png; sourceTree = "<group>"; };
 		68B8CB3E1C32F74D000E7913 /* Hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hamburger.png; sourceTree = "<group>"; };
 		68B8CB431C32FFE9000E7913 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
-		68B8CB441C32FFE9000E7913 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		68B8CB441C32FFE9000E7913 /* User.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = User.mm; path = ../User.mm; sourceTree = "<group>"; };
 		68B8CB461C3305CC000E7913 /* FriendSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendSelectionViewController.h; sourceTree = "<group>"; };
 		68B8CB471C3305CC000E7913 /* FriendSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendSelectionViewController.m; sourceTree = "<group>"; };
 		68E3069A1C4698FF006A4193 /* Send-Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Send-Button.png"; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 				687D18641C1F814A00CD31D0 /* UIBezierPath+Interpolation.h */,
 				687D18651C1F814A00CD31D0 /* UIBezierPath+Interpolation.m */,
 				68B8CB431C32FFE9000E7913 /* User.h */,
-				68B8CB441C32FFE9000E7913 /* User.m */,
+				68B8CB441C32FFE9000E7913 /* User.mm */,
 			);
 			path = Kiko;
 			sourceTree = "<group>";
@@ -717,7 +717,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68B8CB451C32FFE9000E7913 /* User.m in Sources */,
+				68B8CB451C32FFE9000E7913 /* User.mm in Sources */,
 				684F11701C394F970039AD12 /* MessageTableViewCell.m in Sources */,
 				68EEFBCA1C3AEF5D00B99FE3 /* LoginViewController.m in Sources */,
 				685D88081C3214B0002A3608 /* RegisterViewController.m in Sources */,

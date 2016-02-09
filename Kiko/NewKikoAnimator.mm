@@ -8,7 +8,6 @@
 
 #import "NewKikoAnimator.h"
 #import "FaceLayer.h"
-#import "Face2.h"
 #import <Parse/Parse.h>
 #import "NewKikoFaceTracker.h"
 
@@ -100,14 +99,14 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         for (CAShapeLayer *layer in _animationView.layer.sublayers) {
-            if (!isAnimating) {
+            if (isAnimating) {
                 [layer removeFromSuperlayer];
             }
         }
 
         realtimeFaceLayer.frame = _animationView.bounds;
 
-        if (!isAnimating) {
+        if (isAnimating) {
             [[_animationView layer] addSublayer:realtimeFaceLayer];
         }
 
@@ -125,6 +124,15 @@
     });
 
     return sharedAnimator;
+}
+
+- (void) pause {
+    isAnimating = false;
+    isRecording = false;
+}
+
+- (void) unpause {
+    isAnimating = true;
 }
 
 @end
