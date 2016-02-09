@@ -7,13 +7,13 @@
 //
 
 #import "PlaygroundViewController.h"
-#import "KikoAnimator.h"
-#import "KikoFaceTracker.h"
+#import "NewKikoAnimator.h"
+#import "NewKikoFaceTracker.h"
 #import "FaceCustomizationViewController.h"
 
 @interface PlaygroundViewController () {
-    KikoAnimator *animator;
-    KikoFaceTracker *tracker;
+    NewKikoAnimator *animator;
+    NewKikoFaceTracker *tracker;
 }
 
 @end
@@ -24,9 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    tracker = [KikoFaceTracker sharedTracker];
+    tracker = [NewKikoFaceTracker sharedTracker];
     [tracker setTrackingImageView:self.trackingView];
-    animator = [KikoAnimator sharedAnimator];
+    animator = [NewKikoAnimator sharedAnimator];
     animator.animationView = self.animationView;
     
     [self drawCustomizeButton];
@@ -39,8 +39,10 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     User *currentUser = [User currentUser];
-    animator.currentEyes = [[currentUser.face fetchIfNeeded].eyes fetchIfNeeded];
-    animator.currentHair = [currentUser.face.hair fetchIfNeeded];
+
+    //TODO: Implement eyes and hair for new faces
+//    animator.currentEyes = [[currentUser.face fetchIfNeeded].eyes fetchIfNeeded];
+//    animator.currentHair = [currentUser.face.hair fetchIfNeeded];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
