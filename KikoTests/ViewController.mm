@@ -1,27 +1,23 @@
 #import "ViewController.h"
 
-// Import of the 3 example classes. Choose one example below.
-
-//#include "com/tastenkunst/cpp/brf/nxt/ios/examples/ExampleFaceTrackingIOS.hpp"
-
 #import <Parse/Parse.h>
 #import "BRFTracker.h"
 
 #define kRealtimeCameraViewWidth2 self.view.bounds.size.width/2.5
 #define kRealtimeCameraViewHeight2 self.view.bounds.size.height/2.5
 
-
+#import "NewKikoFaceTracker.h"
 
 
 @interface ViewController () {
-    dispatch_queue_t secondQueue;
+    NewKikoFaceTracker *newKikoFaceTracker;
 }
 
 @end
 
 @implementation ViewController
 
-@synthesize imagePreview, captureImage, videoOutput, isRecording, recordingLayerArray, timeStampRecordArray, diffTimeArray, isAnimating, displayLink, loopingCounter, recordingCount, timeStampRecordArray2, diffTimeArray2, playBackSize, displayAnimationPlaybackTest, faceBeingRecorded, listOfMessages, animatingCellIndexPath, errorTimeStampArray, faceBeingPlayed, hasUpdated, heightNavBar, counterAvoidCrash, csvArray;
+@synthesize captureImage, isRecording, recordingLayerArray, timeStampRecordArray, diffTimeArray, isAnimating, displayLink, loopingCounter, recordingCount, timeStampRecordArray2, diffTimeArray2, playBackSize, displayAnimationPlaybackTest, faceBeingRecorded, errorTimeStampArray, csvArray;
 
 
 int _cameraWidth  = 480;
@@ -32,16 +28,6 @@ AVCaptureSession *session2;
 AVCaptureVideoOrientation _defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
 dispatch_queue_t videoQueue2;
 UIView *realTimeAnimationView;
-
-
-BRFTracker *_example = [[BRFTracker alloc] initWithWidth:_cameraWidth height:_cameraHeight];
-
-
-const std::function< void() > brf::BRFManager::READY = []{ [_example onReadyBRF]; };
-double DrawingUtils::CANVAS_WIDTH = (double)_cameraWidth;
-double DrawingUtils::CANVAS_HEIGHT = (double)_cameraHeight;
-
-
 
 bool _mirrored = true;
 
@@ -66,6 +52,12 @@ bool _useFrontCam = true;
             NSLog(@"Parse error: %@", error);
         }
     }];
+
+    newKikoFaceTracker = [[NewKikoFaceTracker alloc] init];
+    newKikoFaceTracker.trackingImageView = captureImage;
+
+    //TODO: Remove me
+    newKikoFaceTracker.temp = self;
 }
 
 -(void) populateCSV: (NSMutableArray *)csvArr :(NSURL *) url {
@@ -84,12 +76,6 @@ bool _useFrontCam = true;
             [self.csvFinal addObject:[array objectAtIndex:j]];
         }
     }
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    counterAvoidCrash = 0;
-    [self initializeCamera];
-    [_example initialize:true];
 }
 
 
@@ -158,189 +144,18 @@ bool _useFrontCam = true;
     
     isRecording = NO;
     isAnimating = NO;
-    hasUpdated = NO;
     recordingLayerArray = [[NSMutableArray alloc] init];
     timeStampRecordArray = [[NSMutableArray alloc] init];
     diffTimeArray = [[NSMutableArray alloc] init];
     timeStampRecordArray2 = [[NSMutableArray alloc] init];
     faceBeingRecorded = [[FacesArray alloc] init];
-    faceBeingPlayed = [[FacesArray alloc] init];
-    listOfMessages = [[NSMutableArray alloc]init];
     errorTimeStampArray = [[NSMutableArray alloc]init];
-}
-
-#pragma mark - RealTimeImageProcessingMethods
-
-// Delegate routine that is called when a sample buffer was written
-- (void)captureOutput:(AVCaptureOutput *)captureOutput
-         didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
-         fromConnection:(AVCaptureConnection *)connection
-{
-
-// Create autorelease pool because we are not in the main_queue
-    @autoreleasepool {
-
-        counterAvoidCrash++;
-        // Get a CMSampleBuffer's Core Video image buffer for the media data
-        //CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-        CVPixelBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-        
-        CVPixelBufferLockBaseAddress(imageBuffer, 0);
-        
-        // Get the pixel buffer width and height
-        int width = (int)CVPixelBufferGetWidth(imageBuffer);
-        int height = (int)CVPixelBufferGetHeight(imageBuffer);
-        
-        if(width != _cameraWidth || height != _cameraHeight) {
-            
-            brf::trace("Error: wrong video input size: width: " + brf::to_string(width) +
-                    " height: " + brf::to_string(height));
-            brf::trace("... changing videoOrientation ...");
-            
-            [connection setVideoOrientation: 	_defaultAVCaptureVideoOrientation];
-            [connection setVideoMirrored: 		_mirrored];
-            
-            //We unlock the  image buffer
-            CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
-            
-        } else {
-        
-            // Get the number of bytes per row for the pixel buffer
-            uint8_t* baseAddress = (uint8_t*) CVPixelBufferGetBaseAddress(imageBuffer);
-            
-            // Create a device-dependent RGB color space
-            CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-            
-            // Create a bitmap graphics context with the sample buffer data
-            CGContextRef context = CGBitmapContextCreate(
-                baseAddress, width, height, 8, CVPixelBufferGetBytesPerRow(imageBuffer),
-                colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
-            
-            CGImageRef originalImageRef = CGBitmapContextCreateImage(context);
-            UIImage *originalImage = [UIImage imageWithCGImage:originalImageRef];
-            CGImageRelease(originalImageRef);
-            if (counterAvoidCrash > 10) {
-                [_example update:baseAddress];
-
-
-                std::vector< std::shared_ptr<brf::Point>> pointsVector = [_example updateGUI:context];
-                [_example updateGUI:context];
-                
-                
-            
-                CGImageRef quartzImage = CGBitmapContextCreateImage(context);
-                CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
-                
-                CGContextRelease(context);
-                CGColorSpaceRelease(colorSpace);
-                
-                
-             
-                UIImage *modifiedImage = [UIImage imageWithCGImage:quartzImage];
-                CGImageRelease(quartzImage);
-                
-                
-                if (!pointsVector.empty()) {
-                    if (!secondQueue) {
-                        secondQueue =dispatch_queue_create("secondQueue", NULL);
-                    }
-                    dispatch_async(secondQueue, ^{
-                        [self passingXYCoordinates:pointsVector: originalImage: modifiedImage];
-                        
-                    });
-                    
-                
-                }
-                
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (!isAnimating) {
-                        [captureImage setImage:modifiedImage];
-                    }
-                   
-                });
-            }
-        }
-    }
-
-}
-
-- (void) initializeCamera {
-    
-    session2 = [[AVCaptureSession alloc] init];
-    session2.sessionPreset = _defaultAVCaptureSessionPreset;
-    
-    
-    UIView *view = [self imagePreview];
-    CALayer *viewLayer = [view layer];
-    [viewLayer setMasksToBounds:YES];
-    
-    
-    NSArray *devices = [AVCaptureDevice devices];
-    AVCaptureDevice *frontCamera;
-    AVCaptureDevice *backCamera;
-    
-    for (AVCaptureDevice *device in devices) {
-        
-        NSLog(@"Device name: %@", [device localizedName]);
-        
-        if ([device hasMediaType:AVMediaTypeVideo]) {
-            
-            if ([device position] == AVCaptureDevicePositionBack) {
-                NSLog(@"Device position : back");
-                backCamera = device;
-            }
-            else {
-                NSLog(@"Device position : front");
-                frontCamera = device;
-            }
-        }
-    }
-    
-    if (!_useFrontCam) {
-        NSError *error = nil;
-        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:backCamera error:&error];
-        if (!input) {
-            NSLog(@"ERROR: trying to open camera: %@", error);
-        }
-        [session2 addInput:input];
-    }
-    
-    if (_useFrontCam) {
-        NSError *error = nil;
-        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:frontCamera error:&error];
-        if (!input) {
-            NSLog(@"ERROR: trying to open camera: %@", error);
-        }
-        [session2 addInput:input];
-    }
-    
-    // Create a VideoDataOutput and add it to the session
-    videoOutput = [[AVCaptureVideoDataOutput alloc] init];
-    
-    NSDictionary *rgbOutputSettings =
-    [NSDictionary dictionaryWithObject:
-     [NSNumber numberWithInt:kCMPixelFormat_32BGRA]
-                                forKey:(id)kCVPixelBufferPixelFormatTypeKey];
-    
-    [videoOutput setVideoSettings:rgbOutputSettings];
-    [videoOutput setAlwaysDiscardsLateVideoFrames:YES]; // discard if the data output queue is blocked (as we process the still image)
-    
-    // Configure your output.
-    videoQueue2 = dispatch_queue_create("myQueue", DISPATCH_QUEUE_SERIAL);
-    [videoOutput setSampleBufferDelegate:self queue:videoQueue2];
-    //dispatch_release(videoQueue2);
-    
-    [session2 addOutput:videoOutput];
-    
-    // Start the session running to start the flow of data
-    [session2 startRunning];
 }
 
 #pragma mark - RealTimeAnimationProcessingMethods
 
--(void)passingXYCoordinates:(std::vector< std::shared_ptr<brf::Point>>) pointsVector : (UIImage *) originalImage : (UIImage *) modifiedImage{
-        self.realTimeFace = [[Face2 alloc] initWithData:(pointsVector) :self.csvFinal];
+-(void)passingXYCoordinates:(std::vector< std::shared_ptr<brf::Point>>) pointsVector : (UIImage *) originalImage2 : (UIImage *) modifiedImage2{
+        self.realTimeFace = [[Face2 alloc] initWithData:pointsVector :self.csvFinal];
         NSMutableArray *faceDataPoints = [self.realTimeFace getDataPointArray];
         UIBezierPath *path = [self.realTimeFace createSingleBezierPath];
         //UIBezierPath *hairPath = [self.]

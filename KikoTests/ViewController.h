@@ -64,7 +64,7 @@
 //Timer Variables
 @property (strong, nonatomic) CADisplayLink * displayLink;
 
-
+-(void)passingXYCoordinates:(std::vector< std::shared_ptr<brf::Point>>) pointsVector : (UIImage *) originalImage2 : (UIImage *) modifiedImage2;
 
 
 
