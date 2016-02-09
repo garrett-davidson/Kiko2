@@ -7,13 +7,13 @@
 //
 
 #import "ChatViewController.h"
-#import "KikoAnimator.h"
-#import "KikoFaceTracker.h"
+#import "NewKikoAnimator.h"
+#import "NewKikoFaceTracker.h"
 #import "MessageTableViewCell.h"
 
 @interface ChatViewController ()< UITableViewDelegate, UITableViewDataSource> {
-    KikoAnimator *animator;
-    KikoFaceTracker *tracker;
+    NewKikoAnimator *animator;
+    NewKikoFaceTracker *tracker;
     KikoMessage *currentMessage;
 }
 
@@ -25,9 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    tracker = [KikoFaceTracker sharedTracker];
+    tracker = [NewKikoFaceTracker sharedTracker];
     [tracker setTrackingImageView:self.trackingView];
-    animator = [KikoAnimator sharedAnimator];
+    animator = [NewKikoAnimator sharedAnimator];
     [animator setAnimationView:self.animationView];
 }
 
@@ -140,20 +140,23 @@
 }
 
 - (void) saveMessage {
-    NSArray *recording = [animator endRecording];
+    NSArray *recording = [animator stopRecording];
     
     currentMessage = [[KikoMessage alloc] initWithSender:[User getCurrentUser] andFrames:recording];
 
-    [animator playMessage:currentMessage inCurrentView:true];
+    //TODO: Implement playback
+//    [animator playMessage:currentMessage inCurrentView:true];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     KikoMessage *selectedMessage = _currentChat.messages[indexPath.row];
     if (selectedMessage.isPlaying) {
-        [animator stopPlayingMessage];
+        //TODO: Implement playback
+//        [animator stopPlayingMessage];
     }
     else {
-        [animator playMessage:selectedMessage];
+        //TODO: Implement playback
+//        [animator playMessage:selectedMessage];
     }
 }
 

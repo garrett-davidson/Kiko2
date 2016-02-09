@@ -135,4 +135,15 @@
     isAnimating = true;
 }
 
+- (void) startRecording {
+    isRecording = true;
+}
+
+- (NSArray *) stopRecording {
+    isRecording = false;
+
+    //TODO: Return array with recorded frames
+    return nil;
+}
+
 @end

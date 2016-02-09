@@ -32,6 +32,8 @@
 
 - (void) pause;
 - (void) unpause;
+- (void) startRecording;
+- (NSArray *) stopRecording;
 
 @property (nonatomic) UIView *animationView;
 @property (nonatomic) Face2 *currentFace;
