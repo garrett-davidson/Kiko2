@@ -24,6 +24,8 @@
 #endif
 
 #import "Face2.h"
+#import "FacesArray.h"
+#import "KikoMessage.h"
 
 @interface KikoAnimator : NSObject
 
@@ -33,7 +35,12 @@
 - (void) pause;
 - (void) unpause;
 - (void) startRecording;
-- (NSArray *) stopRecording;
+- (FacesArray *) stopRecording;
+
+- (void) playMessage: (KikoMessage *)message;
+- (void) playMessage: (KikoMessage *)message inView:(UIView*) view;
+- (void) playFrameWithLayer:(FaceLayer *) frameLayer inView:(UIView *)playbackView;
+- (void) stopPlayingMessage;
 
 @property (nonatomic) UIView *animationView;
 @property (nonatomic) Face2 *currentFace;

@@ -12,11 +12,14 @@
 #import "KikoFaceTracker.h"
 
 @interface KikoAnimator() {
-    Face2 *currentFace;
     NSMutableArray *hairArray;
     bool isAnimating;
     bool isRecording;
     KikoFaceTracker *KikoFaceTracker;
+
+    FacesArray *recordedFace;
+
+    KikoMessage *currentMessage;
 }
 
 @end
@@ -55,14 +58,16 @@
             NSLog(@"Parse error: %@", error);
         }
     }];
+
+    recordedFace = [[FacesArray alloc] init];
 }
 
 - (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point> >)points {
-    currentFace = [[Face2 alloc] initWithData:points :hairArray];
-    UIBezierPath *path = [currentFace createSingleBezierPath];
+    _currentFace = [[Face2 alloc] initWithData:points :hairArray];
+    UIBezierPath *path = [_currentFace createSingleBezierPath];
     //UIBezierPath *hairPath = [self.]
-    UIBezierPath *hairPath = [currentFace getHairPath];
-    NSMutableArray *hairPaths = [currentFace getBezierPathArray];
+    UIBezierPath *hairPath = [_currentFace getHairPath];
+    NSMutableArray *hairPaths = [_currentFace getBezierPathArray];
 
     CAShapeLayer *faceLayer = [[CAShapeLayer alloc] init];
     faceLayer.frame = CGRectMake(0, 0, 480.0, 640.0);
@@ -78,7 +83,7 @@
         UIBezierPath *hairBezier = [hairPaths objectAtIndex:i];
         CAShapeLayer *hair = [[CAShapeLayer alloc] init];
         hair.frame = CGRectMake(0, 0, 480.0, 640.0);
-        NSString *string = [currentFace getColorAtIndex:i];
+        NSString *string = [_currentFace getColorAtIndex:i];
         if ([string isEqualToString:@"DARK"]) {
             [hair setFillColor:[UIColor yellowColor].CGColor];
 
@@ -97,22 +102,28 @@
     [hairLayer setStrokeColor:[[UIColor blackColor] CGColor]];
     [hairLayer setPath: hairPath.CGPath];
 
+    if (isAnimating) {
+        [self playFrameWithLayer:realtimeFaceLayer inView:_animationView];
+
+        if (isRecording) {
+            [recordedFace addLayer:realtimeFaceLayer :[NSDate dateWithTimeIntervalSinceNow:0]];
+        }
+
+    }
+}
+
+- (void) playFrameWithLayer:(FaceLayer *) frameLayer inView:(UIView *)playbackView {
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (CAShapeLayer *layer in _animationView.layer.sublayers) {
-            if (isAnimating) {
-                [layer removeFromSuperlayer];
-            }
+        for (CAShapeLayer *layer in playbackView.layer.sublayers) {
+            [layer removeFromSuperlayer];
         }
 
-        realtimeFaceLayer.frame = _animationView.bounds;
+        frameLayer.frame = _animationView.bounds;
+        [[playbackView layer] addSublayer:frameLayer];
 
-        if (isAnimating) {
-            [[_animationView layer] addSublayer:realtimeFaceLayer];
-        }
 
-        [currentFace initializeArrays];
+        [_currentFace initializeArrays];
     });
-
 }
 
 + (KikoAnimator*) sharedAnimator {
@@ -139,11 +150,29 @@
     isRecording = true;
 }
 
-- (NSArray *) stopRecording {
+- (FacesArray *) stopRecording {
     isRecording = false;
 
-    //TODO: Return array with recorded frames
-    return nil;
+    FacesArray *finishedRecording = recordedFace;
+
+    recordedFace = [[FacesArray alloc] init];
+
+    return finishedRecording;
+}
+
+- (void) playMessage:(KikoMessage *)message {
+    [self playMessage:message inView:_animationView];
+}
+
+- (void) playMessage: (KikoMessage *)message inView:(UIView *)view {
+    currentMessage = message;
+    [self pause];
+    [message playInView:view];
+}
+
+- (void) stopPlayingMessage {
+    [self unpause];
+    [currentMessage stop];
 }
 
 @end

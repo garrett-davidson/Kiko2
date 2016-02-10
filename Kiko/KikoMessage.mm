@@ -8,14 +8,14 @@
 
 #import "KikoMessage.h"
 
-//#import "KikoAnimator.h" //TODO: Update with new drawing
+#import "KikoAnimator.h"
 
 @interface KikoMessage () {
     NSUInteger currentFrame;
     NSTimer *playbackTimer;
 
-    //TODO: Update with new drawing
-//    KikoAnimator *animator;
+    KikoAnimator *animator;
+    UIView *playbackView;
 }
 
 @end
@@ -25,18 +25,18 @@
 @dynamic sender, face, messageLength, xValues, yValues;
 @synthesize view = _view, isPlaying = _isPlaying, faceFrames = _faceFrames;
 
-- (id)initWithSender:(User *)sender andFrames:(NSArray *)frames {
+- (id) initWithSender:(User *)sender andFrames:(FacesArray *)frames {
     self = [KikoMessage object];
-    
+
     self.sender = sender;
     self.faceFrames = frames;
-    
+
     currentFrame = 0;
     self.messageLength = frames.count;
 
     //TODO: Update with new drawing
-//    animator = [KikoAnimator sharedAnimator];
-//    self.face = [animator getCurrentFace];
+        animator = [KikoAnimator sharedAnimator];
+//        self.face = animator.currentFace;
 
     return self;
 }
@@ -47,13 +47,15 @@
 //    [animator updateAnimationWithFacePointsArray:self.faceFrames[0] inView:_view];
 }
 
-- (void) play {
+- (void) playInView:(UIView *)view {
+    playbackView = view;
     _isPlaying = true;
     playbackTimer = [NSTimer scheduledTimerWithTimeInterval:0.033 target:self selector:@selector(advanceFrame) userInfo:nil repeats:true];
 }
 
 - (void) advanceFrame {
     //TODO: Implement playback
+    [animator playFrameWithLayer:_faceFrames.layerArray[currentFrame++ % self.messageLength] inView:playbackView];
 //    [animator updateAnimationWithFacePointsArray:_faceFrames[currentFrame++ % self.messageLength] inView:_view];
 }
 
@@ -128,7 +130,8 @@
 - (id) fetch {
     KikoMessage *me = [super fetch];
 
-    _faceFrames = [NSMutableArray arrayWithCapacity:me.xValues.count];
+    //TODO: Implement for actual messaging
+//    _faceFrames = [NSMutableArray arrayWithCapacity:me.xValues.count];
 
     for (int i = 0; i < _faceFrames.count; i++) {
         NSMutableArray *frame = [NSMutableArray arrayWithCapacity:((NSArray *)me.xValues[i]).count];

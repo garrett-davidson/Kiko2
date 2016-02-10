@@ -10,13 +10,14 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 #import "FaceView.h"
+#import "FacesArray.h"
 
 @interface KikoMessage : PFObject<PFSubclassing>
 
 @property (nonatomic) User* sender;
 @property (nonatomic) Face* face;
 
-@property (nonatomic) NSArray *faceFrames;
+@property (nonatomic) FacesArray *faceFrames;
 @property (nonatomic) NSUInteger messageLength;
 @property (nonatomic) FaceView *view;
 @property (nonatomic) NSArray *xValues;
@@ -24,9 +25,9 @@
 
 @property (nonatomic) BOOL isPlaying;
 
-- (id) initWithSender:(User*)sender andFrames: (NSArray*)frames;
+- (id) initWithSender:(User*)sender andFrames: (FacesArray*)frames;
 
-- (void) play;
+- (void) playInView:(UIView *)view;
 - (void) pause;
 - (void) stop;
 

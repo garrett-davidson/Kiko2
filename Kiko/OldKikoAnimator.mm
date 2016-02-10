@@ -230,7 +230,7 @@ NSValue* getValue (std::shared_ptr<brf::Point> point) {
     currentMessage = message;
     [self pause];
     faceView.face = message.face;
-    [message play];
+//    [message play];
 }
 
 - (void) stopPlayingMessage {

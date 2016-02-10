@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FaceView.h"
+#import "FaceLayer.h"
 
 #define kTailWidth 67
 #define kTailHeight 20
@@ -17,7 +18,8 @@
 @interface MessageTableViewCell : UITableViewCell
 
 @property (nonatomic) UIImageView *backgroundImageView;
-@property (nonatomic) FaceView *faceView;
+@property (nonatomic) UIView *messageView;
+@property (nonatomic) FaceLayer *faceLayer;
 
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andWidth: (CGFloat) width;
 

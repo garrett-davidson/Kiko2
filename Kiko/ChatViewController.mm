@@ -140,23 +140,22 @@
 }
 
 - (void) saveMessage {
-    NSArray *recording = [animator stopRecording];
-    
+    FacesArray *recording = [animator stopRecording];
+
+    //TODO: Implement actal messaging
     currentMessage = [[KikoMessage alloc] initWithSender:[User getCurrentUser] andFrames:recording];
 
     //TODO: Implement playback
-//    [animator playMessage:currentMessage inCurrentView:true];
+    [animator playMessage:currentMessage];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     KikoMessage *selectedMessage = _currentChat.messages[indexPath.row];
     if (selectedMessage.isPlaying) {
-        //TODO: Implement playback
-//        [animator stopPlayingMessage];
+        [animator stopPlayingMessage];
     }
     else {
-        //TODO: Implement playback
-//        [animator playMessage:selectedMessage];
+        [animator playMessage:selectedMessage inView:((MessageTableViewCell*)[tableView cellForRowAtIndexPath:indexPath]).messageView];
     }
 }
 
@@ -186,9 +185,10 @@
     
     cell.backgroundImageView.image = backgroundImage;
 
-    cell.faceView.face = message.face;
-    message.view = cell.faceView;
-    
+    cell.faceLayer = message.faceFrames.layerArray[0];
+//    cell.faceView.face = message.face;
+//    message.view = cell.faceView;
+
     return cell;
 }
 
