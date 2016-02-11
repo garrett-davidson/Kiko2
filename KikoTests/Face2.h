@@ -15,7 +15,7 @@
 #import "Point.hpp"
 #import <fstream>
 
-
+#import "KikoEyes.h"
 
 @interface Face2 : NSObject
 
@@ -36,24 +36,25 @@
 @property (strong, nonatomic) NSMutableArray *outerMouth;
 
 @property (strong, nonatomic) NSMutableArray *dataPoints;
-@property (strong, nonatomic) NSMutableArray *bezierPathArray;
+@property (strong, nonatomic) NSMutableArray *hairPathArray;
 @property (strong, nonatomic) NSMutableArray *colorArray;
 
 
 @property (strong, nonatomic) NSArray *hairInfo;
 
+@property (nonatomic) KikoEyes *eyes;
+@property (nonatomic) UIBezierPath *leftEyePath;
+@property (nonatomic) UIBezierPath *rightEyePath;
 
 @property (nonatomic) BOOL is1;
 @property (nonatomic) BOOL is14;
 
 
--(id) initWithData:(std::vector< std::shared_ptr<brf::Point>>)pointsVector :(NSMutableArray *)hairInfo;
--(id) initWithFrame: (NSArray *)pointsArray;
+- (void) setData:(std::vector< std::shared_ptr<brf::Point>>)pointsVector hairInfo:(NSMutableArray *)hairInfo;
 -(UIBezierPath *)createSingleBezierPath;
 -(UIBezierPath *) getHairPath;
 -(void) initializeArrays;
 -(NSMutableArray *) getDataPointArray;
--(NSMutableArray *) getBezierPathArray;
 -(NSString *)getColorAtIndex : (int) index;
 
 

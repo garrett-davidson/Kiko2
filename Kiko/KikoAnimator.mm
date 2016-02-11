@@ -10,6 +10,7 @@
 #import "FaceLayer.h"
 #import <Parse/Parse.h>
 #import "KikoFaceTracker.h"
+#import "KikoCustomizations.h"
 
 @interface KikoAnimator() {
     NSMutableArray *hairArray;
@@ -20,6 +21,12 @@
     FacesArray *recordedFace;
 
     KikoMessage *currentMessage;
+
+    CAShapeLayer *currentLayer;
+    CALayer *leftEyeLayer;
+    CALayer *rightEyeLayer;
+    CGImageRef leftEyeImageRef;
+    CGImageRef rightEyeImageRef;
 }
 
 @end
@@ -60,14 +67,45 @@
     }];
 
     recordedFace = [[FacesArray alloc] init];
+
+    //TODO: Remove me
+    Face2 *newFace = [[Face2 alloc] init];
+//    newFace.eyes = [KikoCustomizations sharedCustomizations].eyes[0];
+    self.currentFace = newFace;
+}
+
+- (void) setCurrentFace:(Face2 *)currentFace {
+    _currentFace = currentFace;
+
+    [self updateEyes];
+}
+
+- (void) setAnimationView:(UIView *)animationView {
+    _animationView = animationView;
+    [self updateEyes];
+}
+
+- (void) updateEyes {
+    if (_currentFace.eyes) {
+        leftEyeImageRef = [_currentFace.eyes getLeftEyeImage].CGImage;
+        rightEyeImageRef = [_currentFace.eyes getRightEyeImage].CGImage;
+
+        if (!leftEyeLayer)
+            leftEyeLayer = [[CALayer alloc] init];
+        if (!rightEyeLayer)
+            rightEyeLayer = [[CALayer alloc] init];
+
+        leftEyeLayer.contents = (__bridge id)leftEyeImageRef;
+        rightEyeLayer.contents = (__bridge id)rightEyeImageRef;
+    }
 }
 
 - (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point> >)points {
-    _currentFace = [[Face2 alloc] initWithData:points :hairArray];
+    [_currentFace setData:points hairInfo:hairArray];
     UIBezierPath *path = [_currentFace createSingleBezierPath];
     //UIBezierPath *hairPath = [self.]
     UIBezierPath *hairPath = [_currentFace getHairPath];
-    NSMutableArray *hairPaths = [_currentFace getBezierPathArray];
+    NSMutableArray *hairPaths = _currentFace.hairPathArray;
 
     CAShapeLayer *faceLayer = [[CAShapeLayer alloc] init];
     faceLayer.frame = CGRectMake(0, 0, 480.0, 640.0);
@@ -114,8 +152,37 @@
 
 - (void) playFrameWithLayer:(FaceLayer *) frameLayer inView:(UIView *)playbackView {
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (CAShapeLayer *layer in playbackView.layer.sublayers) {
-            [layer removeFromSuperlayer];
+        [currentLayer removeFromSuperlayer];
+        currentLayer = frameLayer;
+
+        if (leftEyeImageRef) {
+            //Note: This code does not account for the aspect ratio of the eye bezier paths.
+            //This may cause an issue in the future. 👍
+            
+            CGRect leftEyeRect = CGPathGetBoundingBox(_currentFace.leftEyePath.CGPath);
+            float leftAspectRatio = (float) CGImageGetWidth(leftEyeImageRef) / CGImageGetHeight(leftEyeImageRef);
+            if (leftAspectRatio > 1) {
+                leftEyeRect = CGRectMake(leftEyeRect.origin.x, leftEyeRect.origin.y, leftEyeRect.size.width, leftEyeRect.size.width / leftAspectRatio);
+            }
+            else {
+                leftEyeRect = CGRectMake(leftEyeRect.origin.x, leftEyeRect.origin.y, leftEyeRect.size.height * leftAspectRatio, leftEyeRect.size.height);
+            }
+            leftEyeLayer.frame = leftEyeRect;
+            [frameLayer addSublayer:leftEyeLayer];
+
+        }
+
+        if (rightEyeImageRef) {
+            CGRect rightEyeRect = CGPathGetBoundingBox(_currentFace.rightEyePath.CGPath);
+            float rightAspectRatio = (float) CGImageGetWidth(rightEyeImageRef) / CGImageGetHeight(rightEyeImageRef);
+            if (rightAspectRatio > 1) {
+                rightEyeRect = CGRectMake(rightEyeRect.origin.x, rightEyeRect.origin.y, rightEyeRect.size.width, rightEyeRect.size.width / rightAspectRatio);
+            }
+            else {
+                rightEyeRect = CGRectMake(rightEyeRect.origin.x, rightEyeRect.origin.y, rightEyeRect.size.height * rightAspectRatio, rightEyeRect.size.height);
+            }
+            rightEyeLayer.frame = rightEyeRect;
+            [frameLayer addSublayer:rightEyeLayer];
         }
 
         frameLayer.frame = _animationView.bounds;

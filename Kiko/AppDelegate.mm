@@ -28,7 +28,7 @@
     
     [self setupParse];
 //    [self setupNotificationsForApplication:application];
-//    [self refreshData];
+    [self refreshData];
 //    [self setupTracking];
 
     return YES;

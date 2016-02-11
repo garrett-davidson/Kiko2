@@ -20,4 +20,19 @@
     return @"KikoCustomizations";
 }
 
++ (KikoCustomizations *) sharedCustomizations {
+    static KikoCustomizations *sharedCustomizations;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        PFQuery *customizationsQuery = [PFQuery queryWithClassName:@"KikoCustomizations"];
+        [customizationsQuery fromLocalDatastore];
+        [customizationsQuery includeKey:@"hair"];
+        [customizationsQuery includeKey:@"eyes"];
+        sharedCustomizations = [customizationsQuery getObjectWithId:@"zaV9sxvDHn"];
+     });
+
+    return sharedCustomizations;
+}
+
 @end

@@ -28,17 +28,10 @@ typedef enum : NSUInteger {
     // Do any additional setup after loading the view.
     
     currentCustomization = KikoCustomizationTypeHair;
-    customizations = nil;
-    
-    PFQuery *customizationsQuery = [PFQuery queryWithClassName:@"KikoCustomizations"];
-    [customizationsQuery fromLocalDatastore];
-    [customizationsQuery includeKey:@"hair"];
-    [customizationsQuery includeKey:@"eyes"];
-    [customizationsQuery getObjectInBackgroundWithId:@"zaV9sxvDHn" block:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        customizations = (KikoCustomizations *) object;
-        [_carouselView reloadData];
-    }];
-    
+    customizations = [KikoCustomizations sharedCustomizations];
+    [_carouselView reloadData];
+
+
     _hairButton.layer.cornerRadius = 10;
     _eyesButton.layer.cornerRadius = 10;
     

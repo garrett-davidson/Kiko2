@@ -15,9 +15,9 @@
     // resize your layers based on the view's new frame
     
     int counter = 0;
-    for (CAShapeLayer *subLayer in (CAShapeLayer *)self.sublayers) {
+    for (CALayer *subLayer in self.sublayers) {
         counter++;
-        subLayer.frame = self.bounds;
+//        subLayer.frame = self.bounds;
        // NSLog(@"Sublayer Box : %f %f", subLayer.frame.size.width, subLayer.frame.size.height);
         //NSLog(@"Self Box : %f %f", self.bounds.size.width, self.bounds.size.height);
 
@@ -32,24 +32,33 @@
         CGFloat screenHeight = screenRect.size.height;
         //NSLog(@"%f %f", screenHeight, screenWidth);
         
-        CGRect boundingBox2 = CGPathGetBoundingBox(subLayer.path);
+        CGRect boundingBox2;
+
+        if ([subLayer isMemberOfClass:[CAShapeLayer class]]) {
+//            subLayer.frame = self.bounds;
+            boundingBox2 = CGPathGetBoundingBox(((CAShapeLayer*)subLayer).path);
+        }
+        else {
+            boundingBox2 = subLayer.frame;
+        }
         
        // NSLog(@"Bounding Box 2: %f %f", boundingBox2.size.width, boundingBox2.size.height);
-        
+
+        //TODO: Check if this can be replaced with self.frame or bounds
         CGRect boundingBox = CGRectMake(0, 0, 480.0, 640.0);
         
       
         
-        if (!CGRectContainsRect(subLayer.frame, boundingBox2)) {
+//        if (!CGRectContainsRect(subLayer.frame, boundingBox2)) {
             CGFloat boundingBoxAspectRatio = CGRectGetWidth(boundingBox)/CGRectGetHeight(boundingBox);
-            CGFloat viewAspectRatio = CGRectGetWidth(subLayer.frame)/CGRectGetHeight(subLayer.frame);
+            CGFloat viewAspectRatio = CGRectGetWidth(self.bounds)/CGRectGetHeight(self.bounds);
             CGFloat scaleFactor = 1.0;
             if (boundingBoxAspectRatio > viewAspectRatio) {
                 // Width is limiting factor
-                scaleFactor = CGRectGetWidth(subLayer.frame)/CGRectGetWidth(boundingBox);
+                scaleFactor = CGRectGetWidth(self.bounds)/CGRectGetWidth(boundingBox);
             } else {
                 // Height is limiting factor
-                scaleFactor = CGRectGetHeight(subLayer.frame)/CGRectGetHeight(boundingBox);
+                scaleFactor = CGRectGetHeight(self.bounds)/CGRectGetHeight(boundingBox);
             }
         
             CGAffineTransform scaleTransform = CGAffineTransformIdentity;
@@ -57,33 +66,30 @@
             scaleTransform = CGAffineTransformTranslate(scaleTransform, -CGRectGetMinX(boundingBox), -CGRectGetMinY(boundingBox));
             CGSize scaledSize = CGSizeApplyAffineTransform(boundingBox.size, CGAffineTransformMakeScale(scaleFactor, scaleFactor));
             //NSLog(@"Scaled Size %f %f", scaledSize.width, scaledSize.height);
-            CGSize centerOffset = CGSizeMake((CGRectGetWidth(subLayer.frame)-scaledSize.width)/(scaleFactor*2.0),(CGRectGetHeight(subLayer.frame)-scaledSize.height)/(scaleFactor*2.0));
+            CGSize centerOffset = CGSizeMake((CGRectGetWidth(self.bounds)-scaledSize.width)/(scaleFactor*2.0),(CGRectGetHeight(self.bounds)-scaledSize.height)/(scaleFactor*2.0));
             scaleTransform = CGAffineTransformTranslate(scaleTransform, centerOffset.width, centerOffset.height);
             //NSLog(@"Center Offset Size %f %f", centerOffset.width, centerOffset.height);
         
-            CGPathRef scaledPath = CGPathCreateCopyByTransformingPath(subLayer.path,
-                                                                  &scaleTransform);
+
         
-            CGRect finalBoundingBox = CGPathGetBoundingBox(scaledPath);
             //NSLog(@"Scale Factor %f", scaleFactor);
             //NSLog(@"Bounding Box : %f %f", finalBoundingBox.size.width, finalBoundingBox.size.height);
-            if (finalBoundingBox.origin.y >= 0.0 && (finalBoundingBox.origin.y + finalBoundingBox.size. height <= self.bounds.size.height)) {
-                [subLayer setPath:scaledPath];
-            } else {
-                [subLayer setPath:nil];
-            } 
-            
-        }
-        
-        
-        
-        
-        
+            if ([subLayer isMemberOfClass:[CAShapeLayer class]]) {
+                CAShapeLayer *shapeSubLayer = (CAShapeLayer*) subLayer;
+                CGPathRef scaledPath = CGPathCreateCopyByTransformingPath(shapeSubLayer.path, &scaleTransform);
+                [shapeSubLayer setPath:scaledPath];
+            }
+            else {
+                CGRect finalBoundingBox = CGRectApplyAffineTransform(boundingBox2, scaleTransform);
+                finalBoundingBox = CGRectMake(CGRectGetMidX(finalBoundingBox),  CGRectGetMidY(finalBoundingBox) - finalBoundingBox.size.height, finalBoundingBox.size.width * 2, finalBoundingBox.size.height * 2);
 
-
-
+                [CATransaction begin];
+                [CATransaction setAnimationDuration:0.0];
+                subLayer.frame = finalBoundingBox;
+                [CATransaction commit];
+            }
+//        }
     }
-    
 }
 
 -(id)copyWithZone:(NSZone *)zone {

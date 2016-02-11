@@ -29,67 +29,54 @@
 
 @synthesize is1, is14;
 
+- (void) setData:(std::vector< std::shared_ptr<brf::Point>>)pointsVector hairInfo:(NSMutableArray *)hairInfo {
+    [self initializeArrays];
 
--(id) initWithData:(std::vector< std::shared_ptr<brf::Point>>)pointsVector :(NSMutableArray *)hairInfo{
-    self = [super init];
-    if (self) {
+    self.hairInfo = hairInfo;
 
-        [self initializeArrays];
+    NSString *stringX = [hairInfo objectAtIndex:0];
+    NSString *stringY = [hairInfo objectAtIndex:1];
 
-        self.hairInfo = hairInfo;
+    preXDimensions = [stringX doubleValue];
+    preYDimensions = [stringY doubleValue];
 
-        NSString *stringX = [hairInfo objectAtIndex:0];
-        NSString *stringY = [hairInfo objectAtIndex:1];
+    if ([[hairInfo objectAtIndex:2] intValue] == 1) {
+        is1 = YES;
+    } else {
+        is1 = NO;
 
-        preXDimensions = [stringX doubleValue];
-        preYDimensions = [stringY doubleValue];
-
-        if ([[hairInfo objectAtIndex:2] intValue] == 1) {
-            is1 = YES;
-        } else {
-            is1 = NO;
-
-        }
-
-        if ([[hairInfo objectAtIndex:4] intValue] == 14) {
-            is14 = YES;
-        } else {
-            is14 = NO;
-
-        }
-
-        std::vector<std::shared_ptr<brf::Point>>::iterator iter;
-        int counter = 0;
-        for (iter = pointsVector.begin(); iter < pointsVector.end(); iter++) {
-            counter ++;
-            std::shared_ptr<brf::Point> point = *iter;
-            CGFloat x = point->x;
-            CGFloat y = point->y;
-            NSNumber *xValue = [NSNumber numberWithFloat:x];
-            NSNumber *yValue = [NSNumber numberWithFloat:y];
-            [self storeDataPoints:xValue :yValue];
-            [self addToArray:x :y :counter];
-            if (counter == 18 || counter == 24) {
-                CGPoint point24;
-                CGPoint point18;
-                if (counter == 24) {
-                    point24 = CGPointMake(x,y);
-                    topMidPoint = [self getMidpoint:point24 :point18];
-                } else {
-                    point18 = CGPointMake(x,y);
-                }
-
-
-            }
-
-        }
     }
 
-    return self;
+    if ([[hairInfo objectAtIndex:4] intValue] == 14) {
+        is14 = YES;
+    } else {
+        is14 = NO;
+
+    }
+
+    std::vector<std::shared_ptr<brf::Point>>::iterator iter;
+    int counter = 0;
+    for (iter = pointsVector.begin(); iter < pointsVector.end(); iter++) {
+        counter ++;
+        std::shared_ptr<brf::Point> point = *iter;
+        CGFloat x = point->x;
+        CGFloat y = point->y;
+        NSNumber *xValue = [NSNumber numberWithFloat:x];
+        NSNumber *yValue = [NSNumber numberWithFloat:y];
+        [self storeDataPoints:xValue :yValue];
+        [self addToArray:x :y :counter];
+        if (counter == 18 || counter == 24) {
+            CGPoint point24;
+            CGPoint point18;
+            if (counter == 24) {
+                point24 = CGPointMake(x,y);
+                topMidPoint = [self getMidpoint:point24 :point18];
+            } else {
+                point18 = CGPointMake(x,y);
+            }
+        }
+    }
 }
-
-
-
 
 -(CGPoint)getPoint:(CGFloat)x :(CGFloat)y :(CGFloat)widthScalar :(CGFloat)heightScalar :(CGPoint)initializingP{
     CGFloat scaledX = x*widthScalar;
@@ -273,8 +260,8 @@
 
 
 -(UIBezierPath *)createSingleBezierPath {
-    UIBezierPath *rightEyePath = [UIBezierPath interpolateCGPointsWithHermite:self.rightEye closed:YES];
     UIBezierPath *faceCurvePath = [UIBezierPath interpolateCGPointsWithHermite:self.faceCurve closed:NO];
+    UIBezierPath *rightEyePath = [UIBezierPath interpolateCGPointsWithHermite:self.rightEye closed:YES];
 
 
 
@@ -284,12 +271,18 @@
     UIBezierPath *leftEyePath = [UIBezierPath interpolateCGPointsWithHermite:self.leftEye closed:YES];
     UIBezierPath *nosePath = [UIBezierPath interpolateCGPointsWithHermite:self.nose closed:NO];
 
-    [rightEyePath appendPath:faceCurvePath];
-    [rightEyePath appendPath:outerMouthPath];
-    [rightEyePath appendPath:rightEyebrowPath];
-    [rightEyePath appendPath:leftEyebrowPath];
-    [rightEyePath appendPath:leftEyePath];
-    [rightEyePath appendPath:nosePath];
+    _leftEyePath = leftEyePath;
+    _rightEyePath = rightEyePath;
+
+    if (!_eyes) {
+        [faceCurvePath appendPath:rightEyePath];
+        [faceCurvePath appendPath:leftEyePath];
+    }
+
+    [faceCurvePath appendPath:outerMouthPath];
+    [faceCurvePath appendPath:rightEyebrowPath];
+    [faceCurvePath appendPath:leftEyebrowPath];
+    [faceCurvePath appendPath:nosePath];
 
     CGFloat height = [self getDistance:bottomPoint :topMidPoint ];
 
@@ -307,10 +300,10 @@
     for (int k = 0; k < [array count]; k++) {
         NSMutableArray *innerArray = [array objectAtIndex:k];
         UIBezierPath *hair = [UIBezierPath interpolateCGPointsWithHermite:innerArray closed:YES];
-        [self.bezierPathArray addObject:hair];
+        [self.hairPathArray addObject:hair];
 
     }
-    return rightEyePath;
+    return faceCurvePath;
 }
 
 -(double)getSlope :(CGPoint) p1 : (CGPoint) p2 {
@@ -332,8 +325,8 @@
     return self.hairBezierPath;
 }
 
--(NSMutableArray *) getBezierPathArray {
-    return self.bezierPathArray;
+-(NSMutableArray *) gethairPathArray {
+    return self.hairPathArray;
 }
 
 -(void) initializeArrays {
@@ -349,7 +342,7 @@
     self.nose = [NSMutableArray new];
     self.tempNose = [NSMutableArray new];
     self.dataPoints = [NSMutableArray new];
-    self.bezierPathArray = [NSMutableArray new];
+    self.hairPathArray = [NSMutableArray new];
     self.colorArray = [NSMutableArray new];
 
 }

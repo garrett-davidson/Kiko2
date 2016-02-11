@@ -14,4 +14,6 @@
 @property (nonatomic) NSArray *eyes;
 @property (nonatomic) NSArray *hair;
 
++ (KikoCustomizations *) sharedCustomizations;
+
 @end
