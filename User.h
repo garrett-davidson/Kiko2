@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Face.h"
+#import "Face2.h"
 #import <Parse/Parse.h>
 
 @interface User : PFUser<PFSubclassing>
@@ -21,6 +22,7 @@
 @property (nonatomic) NSArray *receivedFriendRequests;
 
 @property (nonatomic) Face *face;
+@property (nonatomic) Face2 *face2;
 @property (nonatomic) NSArray *allFaces;
 
 + (id)getCurrentUser;

@@ -192,7 +192,7 @@ typedef enum : NSUInteger {
 */
 
 - (IBAction)switchCustomizationType:(id)sender {
-    currentCustomization = ((UITapGestureRecognizer*)sender).view.tag;
+    currentCustomization = (KikoCustomizationType) ((UITapGestureRecognizer*)sender).view.tag;
     [_carouselView reloadData];
 }
 

@@ -26,7 +26,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIView *friendButton;
 @property (weak, nonatomic) IBOutlet UILabel *friendLabel;
 
-@property (nonatomic) User *friend;
+@property (nonatomic) User *userFriend;
 @property (nonatomic) FriendStatus status;
 
 - (IBAction)friendButtonPressed:(id)sender;

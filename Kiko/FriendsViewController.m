@@ -67,11 +67,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FriendCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    User *friend = friendsToShow[indexPath.row];
+    User *userFriend = friendsToShow[indexPath.row];
     
     float inset = cell.bounds.size.width * 0.20;
     
-    [cell setupForFriend:friend withInset:inset];
+    [cell setupForFriend:userFriend withInset:inset];
     
     return cell;
 }
@@ -83,21 +83,21 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     FriendDetailsViewController *dest = (FriendDetailsViewController*) ((UINavigationController*)segue.destinationViewController).topViewController;
     
-    dest.friend = sender;
+    dest.userFriend = sender;
     dest.status = [self statusForFriend:sender];
 }
 
-- (FriendStatus) statusForFriend:(User *)friend {
+- (FriendStatus) statusForFriend:(User *)userFriend {
     User *currentUser = [User currentUser];
-    if ([currentUser.friends containsObject:friend]) {
+    if ([currentUser.friends containsObject:userFriend]) {
         return Friends;
     }
     
-    else if ([currentUser.sentFriendRequests containsObject:friend]) {
+    else if ([currentUser.sentFriendRequests containsObject:userFriend]) {
         return SentRequest;
     }
     
-    else if ([currentUser.receivedFriendRequests containsObject:friend]) {
+    else if ([currentUser.receivedFriendRequests containsObject:userFriend]) {
         return ReceivedRequest;
     }
     

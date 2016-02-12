@@ -16,6 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
-- (void) setupForFriend: (User *)friend withInset:(float) inset;
+- (void) setupForFriend: (User *)userFriend withInset:(float) inset;
 
 @end

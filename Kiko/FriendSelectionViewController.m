@@ -65,11 +65,11 @@
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SelectableFriendCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
 
-    User *friend = [userFriends[indexPath.row] fetchIfNeeded];
+    User *userFriend = [userFriends[indexPath.row] fetchIfNeeded];
     
     float inset = cell.bounds.size.width * 0.20;
     
-    [cell setupForFriend:friend withInset:inset];
+    [cell setupForFriend:userFriend withInset:inset];
     
     return cell;
 }

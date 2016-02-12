@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view.
     
     friendQuery = [PFQuery queryWithClassName:@"_User"];
-    [friendQuery whereKey:@"username" notEqualTo:_friend.username];
+    [friendQuery whereKey:@"username" notEqualTo:_userFriend.username];
     [friendQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             friendsToShow = objects;
@@ -48,12 +48,12 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    self.kikoMinutesLabel.text = [NSString stringWithFormat:@"%ld Kiko Minutes", _friend.totalKikoMinutes.longValue];
-    self.friendCountLabel.text = [NSString stringWithFormat:@"%lu Friends", (unsigned long) _friend.friends.count];
-    self.usernameLabel.text = _friend.name;
+    self.kikoMinutesLabel.text = [NSString stringWithFormat:@"%ld Kiko Minutes", _userFriend.totalKikoMinutes.longValue];
+    self.friendCountLabel.text = [NSString stringWithFormat:@"%lu Friends", (unsigned long) _userFriend.friends.count];
+    self.usernameLabel.text = _userFriend.name;
     CGRect bounds = CGRectInset(self.userFaceView.bounds, 5, 5);
     
-    faceView.face = _friend.face;
+    faceView.face = _userFriend.face;
     faceView.frame = bounds;
     
     [self setupButtonForStatus:_status];
@@ -109,7 +109,7 @@
 }
 
 - (void) sendFriendRequest {
-    [PFCloud callFunctionInBackground:@"addFriend" withParameters:@{@"recipientId": _friend.objectId} block:
+    [PFCloud callFunctionInBackground:@"addFriend" withParameters:@{@"recipientId": _userFriend.objectId} block:
      
      ^(NSString *success, NSError *error) {
          if (success) {
@@ -128,7 +128,7 @@
 }
 
 - (void) acceptFriendRequest {
-    [PFCloud callFunctionInBackground:@"acceptFriend" withParameters:@{@"recipientId": _friend.objectId} block:
+    [PFCloud callFunctionInBackground:@"acceptFriend" withParameters:@{@"recipientId": _userFriend.objectId} block:
      
      ^(NSString *success, NSError *error) {
          if (success) {
@@ -149,7 +149,7 @@
 }
 
 - (void) deleteFriend {
-    [PFCloud callFunctionInBackground:@"removeFriend" withParameters:@{@"recipientId": _friend.objectId} block:
+    [PFCloud callFunctionInBackground:@"removeFriend" withParameters:@{@"recipientId": _userFriend.objectId} block:
      
      ^(NSString *success, NSError *error) {
          if (!error) {
@@ -175,11 +175,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FriendCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    User *friend = friendsToShow[indexPath.row];
+    User *userFriend = friendsToShow[indexPath.row];
     float inset = cell.bounds.size.width * 0.20;
     
     
-    [cell setupForFriend:friend withInset:inset];
+    [cell setupForFriend:userFriend withInset:inset];
     
     return cell;
 }

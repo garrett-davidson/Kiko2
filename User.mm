@@ -11,7 +11,7 @@
 
 @implementation User
 
-@dynamic name, friends, totalKikoMinutes, sentFriendRequests, receivedFriendRequests, face, allFaces;
+@dynamic name, friends, totalKikoMinutes, sentFriendRequests, receivedFriendRequests, face, allFaces, face2;
 
 + (id) getCurrentUser {
     User *currentUser = [User currentUser];

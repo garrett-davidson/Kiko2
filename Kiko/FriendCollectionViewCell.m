@@ -32,12 +32,12 @@
     self.layer.masksToBounds = NO;
 }
 
-- (void) setupForFriend: (User *)friend withInset:(float) inset{
-    self.nameLabel.text = friend.name;
+- (void) setupForFriend: (User *)userFriend withInset:(float) inset{
+    self.nameLabel.text = userFriend.name;
 
     CGRect cellBounds = CGRectMake(0, 0, self.bounds.size.width, _nameLabel.frame.origin.y);
 
-    [_faceView drawFace:[[friend fetchIfNeeded].face fetchIfNeeded] withFaceFrame:cellBounds];
+    [_faceView drawFace:[[userFriend fetchIfNeeded].face fetchIfNeeded] withFaceFrame:cellBounds];
 }
 
 @end
