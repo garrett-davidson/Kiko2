@@ -16,8 +16,9 @@
 #import <fstream>
 
 #import "KikoEyes.h"
+#import "Hair_Test.h"
 
-@interface Face2 : NSObject
+@interface Face2 : PFObject<PFSubclassing>
 
 @property (strong, nonatomic) NSMutableArray *faceCurve;
 @property (strong, nonatomic) NSMutableArray *hairCurve;
@@ -45,6 +46,8 @@
 @property (nonatomic) KikoEyes *eyes;
 @property (nonatomic) UIBezierPath *leftEyePath;
 @property (nonatomic) UIBezierPath *rightEyePath;
+
+@property (nonatomic) Hair_Test *hair;
 
 @property (nonatomic) BOOL is1;
 @property (nonatomic) BOOL is14;

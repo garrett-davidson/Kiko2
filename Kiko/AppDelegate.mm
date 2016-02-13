@@ -106,8 +106,9 @@ void (^updatedBlock)(PFObject * _Nullable object, NSError * _Nullable error) = ^
 
 - (void) refreshAvailableCustomizations {
     PFQuery *customizationsQuery = [PFQuery queryWithClassName:@"KikoCustomizations"];
-    [customizationsQuery includeKey:@"hair"];
+//    [customizationsQuery includeKey:@"hair"];
     [customizationsQuery includeKey:@"eyes"];
+    [customizationsQuery includeKey:@"hair_test"];
     [customizationsQuery getObjectInBackgroundWithId:@"zaV9sxvDHn" block:^(PFObject * _Nullable object, NSError * _Nullable error) {
         KikoCustomizations *k = (KikoCustomizations *)object;
         
@@ -121,6 +122,10 @@ void (^updatedBlock)(PFObject * _Nullable object, NSError * _Nullable error) = ^
                 for (KikoEyes *eyes in k.eyes) {
                     [eyes.leftEyeFile getDataInBackground];
                     [eyes.rightEyeFile getDataInBackground];
+                }
+
+                for (Hair_Test *hair in k.hair_test) {
+                    [hair.csv getDataInBackground];
                 }
                 NSLog(@"Customizations saved");
             });

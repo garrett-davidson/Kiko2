@@ -68,8 +68,6 @@
 
 - (IBAction)savePhoto:(id)sender {
     Face2 *newFace = animator.currentFace;
-
-    //TODO: Update for face2
     [_user setFace2:newFace];
 
     [_user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {

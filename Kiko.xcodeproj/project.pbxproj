@@ -10,6 +10,7 @@
 		3DCAA5635C1C45228DE403B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6881D76281E05559DF1E165C /* libPods.a */; };
 		683B737B1C3F31FF00B93B05 /* CAShapeLayer+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B737A1C3F31FF00B93B05 /* CAShapeLayer+Scaling.m */; };
 		683B737E1C3F45D800B93B05 /* FaceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 683B737D1C3F45D800B93B05 /* FaceView.mm */; };
+		6843835B1C6EE79200B35DD7 /* Hair_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 6843835A1C6EE79200B35DD7 /* Hair_Test.m */; };
 		684F11701C394F970039AD12 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684F116F1C394F970039AD12 /* MessageTableViewCell.m */; };
 		684F11721C3955930039AD12 /* LeftPinch.png in Resources */ = {isa = PBXBuildFile; fileRef = 684F11711C3955930039AD12 /* LeftPinch.png */; };
 		685D88051C32107F002A3608 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685D88041C32107F002A3608 /* AccountViewController.m */; };
@@ -34,6 +35,7 @@
 		687D18601C1F749E00CD31D0 /* OldKikoAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 687D185F1C1F749E00CD31D0 /* OldKikoAnimator.mm */; };
 		687D18661C1F814A00CD31D0 /* UIBezierPath+Interpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 687D18651C1F814A00CD31D0 /* UIBezierPath+Interpolation.m */; };
 		687D18691C1F816600CD31D0 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 687D18681C1F816600CD31D0 /* CGPointExtension.m */; };
+		68820B981C6D6CAB004D9649 /* KikoHair2.m in Sources */ = {isa = PBXBuildFile; fileRef = 68820B971C6D6CAB004D9649 /* KikoHair2.m */; };
 		688698F31C192C5100FFA7D8 /* kiko-opening-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */; };
 		688698F61C1A4D9000FFA7D8 /* PlaygroundViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 688698F51C1A4D9000FFA7D8 /* PlaygroundViewController.mm */; };
 		6886991B1C1B5B2F00FFA7D8 /* BRFTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6886991A1C1B5B2F00FFA7D8 /* BRFTracker.mm */; };
@@ -93,6 +95,8 @@
 		683B737A1C3F31FF00B93B05 /* CAShapeLayer+Scaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+Scaling.m"; sourceTree = "<group>"; };
 		683B737C1C3F45D800B93B05 /* FaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceView.h; sourceTree = "<group>"; };
 		683B737D1C3F45D800B93B05 /* FaceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FaceView.mm; sourceTree = "<group>"; };
+		684383591C6EE79200B35DD7 /* Hair_Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hair_Test.h; sourceTree = SOURCE_ROOT; };
+		6843835A1C6EE79200B35DD7 /* Hair_Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hair_Test.m; sourceTree = SOURCE_ROOT; };
 		684F116E1C394F970039AD12 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageTableViewCell.h; path = ../MessageTableViewCell.h; sourceTree = "<group>"; };
 		684F116F1C394F970039AD12 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageTableViewCell.m; path = ../MessageTableViewCell.m; sourceTree = "<group>"; };
 		684F11711C3955930039AD12 /* LeftPinch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftPinch.png; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		687D18671C1F816600CD31D0 /* CGPointExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointExtension.h; sourceTree = "<group>"; };
 		687D18681C1F816600CD31D0 /* CGPointExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPointExtension.m; sourceTree = "<group>"; };
 		6881D76281E05559DF1E165C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		68820B961C6D6CAB004D9649 /* KikoHair2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KikoHair2.h; sourceTree = "<group>"; };
+		68820B971C6D6CAB004D9649 /* KikoHair2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KikoHair2.m; sourceTree = "<group>"; };
 		688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kiko-opening-logo.png"; sourceTree = "<group>"; };
 		688698F41C1A4D9000FFA7D8 /* PlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
 		688698F51C1A4D9000FFA7D8 /* PlaygroundViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlaygroundViewController.mm; sourceTree = "<group>"; };
@@ -257,6 +263,10 @@
 		6863E2021C68512C00ACBC5C /* NewDrawing */ = {
 			isa = PBXGroup;
 			children = (
+				68820B961C6D6CAB004D9649 /* KikoHair2.h */,
+				68820B971C6D6CAB004D9649 /* KikoHair2.m */,
+				684383591C6EE79200B35DD7 /* Hair_Test.h */,
+				6843835A1C6EE79200B35DD7 /* Hair_Test.m */,
 				6863E20F1C6851D200ACBC5C /* Face2.h */,
 				6863E2101C6851D200ACBC5C /* Face2.mm */,
 				6863E20C1C6851A900ACBC5C /* NSMutableArray+MessageList.h */,
@@ -719,6 +729,7 @@
 				6863E2081C68517900ACBC5C /* FacesArray.m in Sources */,
 				6863E20E1C6851A900ACBC5C /* NSMutableArray+MessageList.m in Sources */,
 				6863E2111C6851D200ACBC5C /* Face2.mm in Sources */,
+				6843835B1C6EE79200B35DD7 /* Hair_Test.m in Sources */,
 				68B8CB481C3305CC000E7913 /* FriendSelectionViewController.m in Sources */,
 				68B8CB3B1C32DD52000E7913 /* ChatViewController.mm in Sources */,
 				68EEFBC41C3AD2DB00B99FE3 /* FriendDetailsViewController.m in Sources */,
@@ -726,6 +737,7 @@
 				68EEFBBE1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m in Sources */,
 				685D880B1C32B464002A3608 /* RegistrationImageViewController.mm in Sources */,
 				687D18601C1F749E00CD31D0 /* OldKikoAnimator.mm in Sources */,
+				68820B981C6D6CAB004D9649 /* KikoHair2.m in Sources */,
 				6863E20B1C68519100ACBC5C /* FaceLayer.m in Sources */,
 				6899E53D1C3DA76400F9F055 /* KikoCustomizations.m in Sources */,
 				685D88051C32107F002A3608 /* AccountViewController.m in Sources */,

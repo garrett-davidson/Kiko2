@@ -52,12 +52,18 @@
 }
 
 - (void)viewDidLoad {
+    //TODO: Remove me
     PFQuery *query = [PFQuery queryWithClassName:@"Hair_Test"];
     [query whereKey:@"objectId" equalTo:@"vvBNXlXKj2"];
+    Face2 *newFace = [[Face2 alloc] init];
+    newFace.eyes = [KikoCustomizations sharedCustomizations].eyes[0];
+    self.currentFace = newFace;
 
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!error) {
-            PFFile *file = [object objectForKey:@"hair_1"];
+            PFFile *file = [object objectForKey:@"csv"];
+            [User currentUser].face2.hair = (Hair_Test*) object;
+            [[User currentUser] save];
             NSURL *url = [NSURL URLWithString:file.url];
             [self populateCSV:nil :url];
         }
@@ -67,11 +73,6 @@
     }];
 
     recordedFace = [[FacesArray alloc] init];
-
-    //TODO: Remove me
-    Face2 *newFace = [[Face2 alloc] init];
-//    newFace.eyes = [KikoCustomizations sharedCustomizations].eyes[0];
-    self.currentFace = newFace;
 }
 
 - (void) setCurrentFace:(Face2 *)currentFace {

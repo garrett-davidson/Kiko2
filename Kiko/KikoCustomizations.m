@@ -10,7 +10,7 @@
 
 @implementation KikoCustomizations
 
-@dynamic eyes, hair;
+@dynamic eyes, hair, hair_test;
 
 + (void) load {
     [self registerSubclass];
@@ -27,8 +27,9 @@
     dispatch_once(&onceToken, ^{
         PFQuery *customizationsQuery = [PFQuery queryWithClassName:@"KikoCustomizations"];
         [customizationsQuery fromLocalDatastore];
-        [customizationsQuery includeKey:@"hair"];
+//        [customizationsQuery includeKey:@"hair"];
         [customizationsQuery includeKey:@"eyes"];
+        [customizationsQuery includeKey:@"hair_test"];
         sharedCustomizations = [customizationsQuery getObjectWithId:@"zaV9sxvDHn"];
      });
 

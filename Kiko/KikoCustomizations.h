@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+#import "KikoEyes.h"
+#import "Hair_Test.h"
+
 @interface KikoCustomizations : PFObject<PFSubclassing>
 
 @property (nonatomic) NSArray *eyes;
 @property (nonatomic) NSArray *hair;
+@property (nonatomic) NSArray *hair_test;
 
 + (KikoCustomizations *) sharedCustomizations;
 

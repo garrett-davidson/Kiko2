@@ -27,7 +27,17 @@
     CGPoint endingPoint;
 }
 
-@synthesize is1, is14;
+@dynamic eyes, hair;
+
+@synthesize is1, is14, faceCurve, hairCurve, hairBezierPath, rightEyebrow, line, leftEyebrow, leftEye, leftPupil, rightEye, rightPupil, nose, tempNose, outerMouth, dataPoints, hairPathArray, colorArray, hairInfo = _hairInfo, leftEyePath = _leftEyePath, rightEyePath =  _rightEyePath;
+
++ (NSString *) parseClassName {
+    return @"Face2";
+}
+
++ (void) load {
+    [self registerSubclass];
+}
 
 - (void) setData:(std::vector< std::shared_ptr<brf::Point>>)pointsVector hairInfo:(NSMutableArray *)hairInfo {
     [self initializeArrays];
@@ -274,7 +284,7 @@
     _leftEyePath = leftEyePath;
     _rightEyePath = rightEyePath;
 
-    if (!_eyes) {
+    if (!self.eyes) {
         [faceCurvePath appendPath:rightEyePath];
         [faceCurvePath appendPath:leftEyePath];
     }
