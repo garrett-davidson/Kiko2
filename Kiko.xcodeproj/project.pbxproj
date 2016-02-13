@@ -35,7 +35,6 @@
 		687D18601C1F749E00CD31D0 /* OldKikoAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 687D185F1C1F749E00CD31D0 /* OldKikoAnimator.mm */; };
 		687D18661C1F814A00CD31D0 /* UIBezierPath+Interpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 687D18651C1F814A00CD31D0 /* UIBezierPath+Interpolation.m */; };
 		687D18691C1F816600CD31D0 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 687D18681C1F816600CD31D0 /* CGPointExtension.m */; };
-		68820B981C6D6CAB004D9649 /* KikoHair2.m in Sources */ = {isa = PBXBuildFile; fileRef = 68820B971C6D6CAB004D9649 /* KikoHair2.m */; };
 		688698F31C192C5100FFA7D8 /* kiko-opening-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */; };
 		688698F61C1A4D9000FFA7D8 /* PlaygroundViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 688698F51C1A4D9000FFA7D8 /* PlaygroundViewController.mm */; };
 		6886991B1C1B5B2F00FFA7D8 /* BRFTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6886991A1C1B5B2F00FFA7D8 /* BRFTracker.mm */; };
@@ -135,8 +134,6 @@
 		687D18671C1F816600CD31D0 /* CGPointExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointExtension.h; sourceTree = "<group>"; };
 		687D18681C1F816600CD31D0 /* CGPointExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPointExtension.m; sourceTree = "<group>"; };
 		6881D76281E05559DF1E165C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		68820B961C6D6CAB004D9649 /* KikoHair2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KikoHair2.h; sourceTree = "<group>"; };
-		68820B971C6D6CAB004D9649 /* KikoHair2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KikoHair2.m; sourceTree = "<group>"; };
 		688698F21C192C5100FFA7D8 /* kiko-opening-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kiko-opening-logo.png"; sourceTree = "<group>"; };
 		688698F41C1A4D9000FFA7D8 /* PlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
 		688698F51C1A4D9000FFA7D8 /* PlaygroundViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlaygroundViewController.mm; sourceTree = "<group>"; };
@@ -263,8 +260,6 @@
 		6863E2021C68512C00ACBC5C /* NewDrawing */ = {
 			isa = PBXGroup;
 			children = (
-				68820B961C6D6CAB004D9649 /* KikoHair2.h */,
-				68820B971C6D6CAB004D9649 /* KikoHair2.m */,
 				684383591C6EE79200B35DD7 /* Hair_Test.h */,
 				6843835A1C6EE79200B35DD7 /* Hair_Test.m */,
 				6863E20F1C6851D200ACBC5C /* Face2.h */,
@@ -595,7 +590,7 @@
 				TargetAttributes = {
 					688E0D791C15ECBE008DB6AA = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = FL8523SFDK;
+						DevelopmentTeam = 848JC7C22W;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -737,7 +732,6 @@
 				68EEFBBE1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m in Sources */,
 				685D880B1C32B464002A3608 /* RegistrationImageViewController.mm in Sources */,
 				687D18601C1F749E00CD31D0 /* OldKikoAnimator.mm in Sources */,
-				68820B981C6D6CAB004D9649 /* KikoHair2.m in Sources */,
 				6863E20B1C68519100ACBC5C /* FaceLayer.m in Sources */,
 				6899E53D1C3DA76400F9F055 /* KikoCustomizations.m in Sources */,
 				685D88051C32107F002A3608 /* AccountViewController.m in Sources */,
@@ -913,7 +907,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -938,7 +932,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Kiko1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

@@ -22,10 +22,8 @@
 
 @property (strong, nonatomic) NSMutableArray *faceCurve;
 @property (strong, nonatomic) NSMutableArray *hairCurve;
-@property (strong, nonatomic) UIBezierPath *hairBezierPath;
 
 @property (strong, nonatomic) NSMutableArray *rightEyebrow;
-@property (strong, nonatomic) NSMutableArray *line;
 
 @property (strong, nonatomic) NSMutableArray *leftEyebrow;
 @property (strong, nonatomic) NSMutableArray *leftEye;
@@ -36,12 +34,16 @@
 @property (strong, nonatomic) NSMutableArray *tempNose;
 @property (strong, nonatomic) NSMutableArray *outerMouth;
 
-@property (strong, nonatomic) NSMutableArray *dataPoints;
-@property (strong, nonatomic) NSMutableArray *hairPathArray;
-@property (strong, nonatomic) NSMutableArray *colorArray;
+@property (strong, nonatomic) NSArray *hairInfo; //Parsed CSV
 
 
-@property (strong, nonatomic) NSArray *hairInfo;
+@property (nonatomic) UIBezierPath *hairPath;
+
+
+@property (strong, nonatomic) NSMutableArray *dataPoints;//Face Data Points
+@property (strong, nonatomic) NSMutableArray *hairPathArray;//Hair Parts Array
+@property (strong, nonatomic) NSMutableArray *colorArray;//Color Array
+
 
 @property (nonatomic) KikoEyes *eyes;
 @property (nonatomic) UIBezierPath *leftEyePath;

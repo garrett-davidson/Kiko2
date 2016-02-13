@@ -27,8 +27,12 @@
     
     tracker = [KikoFaceTracker sharedTracker];
     [tracker setTrackingImageView:self.trackingView];
+    self.trackingView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.trackingView.layer.borderWidth = 3.0;
     animator = [KikoAnimator sharedAnimator];
     [animator setAnimationView:self.animationView];
+    self.animationView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.animationView.layer.borderWidth = 3.0;
 }
 
 - (void) setCurrentChat:(KikoChat *)currentChat {
