@@ -472,7 +472,10 @@
 #pragma mark - Get Hair Features
 
 -(NSString *)getColorAtIndex : (int) index {
-    
+    NSLog(@"Get Color Count : %lu", [self.colorArray count]);
+    for (int i = 0; i < [self.colorArray count]; i++) {
+        NSLog(@"String color : %@", [self.colorArray objectAtIndex:i]);
+    }
     return [self.colorArray objectAtIndex:index];
     
 }

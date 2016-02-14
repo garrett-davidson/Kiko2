@@ -69,6 +69,7 @@
 		68F63AFA1C3591FA00A10C40 /* KikoMessage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AF91C3591FA00A10C40 /* KikoMessage.mm */; };
 		68F63AFD1C35954000A10C40 /* KikoChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AFC1C35954000A10C40 /* KikoChat.m */; };
 		68F63B531C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F63B521C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */; };
+		ED46D8151C700035000E0CCA /* FaceView2.m in Sources */ = {isa = PBXBuildFile; fileRef = ED46D8141C700035000E0CCA /* FaceView2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +210,8 @@
 		68F63B511C370D2600A10C40 /* StringUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StringUtils.hpp; sourceTree = "<group>"; };
 		68F63B521C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a; sourceTree = "<group>"; };
 		68F63B541C370DBD00A10C40 /* DrawingUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DrawingUtils.hpp; sourceTree = "<group>"; };
+		ED46D8131C700035000E0CCA /* FaceView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceView2.h; sourceTree = "<group>"; };
+		ED46D8141C700035000E0CCA /* FaceView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceView2.m; sourceTree = "<group>"; };
 		FA082C19EDA4D5D5DF8F854B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,6 +275,8 @@
 				6863E2071C68517900ACBC5C /* FacesArray.m */,
 				6863E2121C68E9AD00ACBC5C /* KikoAnimator.h */,
 				6863E2131C68E9AD00ACBC5C /* KikoAnimator.mm */,
+				ED46D8131C700035000E0CCA /* FaceView2.h */,
+				ED46D8141C700035000E0CCA /* FaceView2.m */,
 				6863E2151C68E9C400ACBC5C /* KikoFaceTracker.h */,
 				6863E2161C68E9C400ACBC5C /* KikoFaceTracker.mm */,
 			);
@@ -732,6 +737,7 @@
 				68EEFBBE1C3ACC6300B99FE3 /* SuggestedFriendsViewController.m in Sources */,
 				685D880B1C32B464002A3608 /* RegistrationImageViewController.mm in Sources */,
 				687D18601C1F749E00CD31D0 /* OldKikoAnimator.mm in Sources */,
+				ED46D8151C700035000E0CCA /* FaceView2.m in Sources */,
 				6863E20B1C68519100ACBC5C /* FaceLayer.m in Sources */,
 				6899E53D1C3DA76400F9F055 /* KikoCustomizations.m in Sources */,
 				685D88051C32107F002A3608 /* AccountViewController.m in Sources */,

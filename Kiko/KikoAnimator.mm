@@ -122,13 +122,14 @@
         UIBezierPath *hairBezier = [hairPaths objectAtIndex:i];
         CAShapeLayer *hair = [[CAShapeLayer alloc] init];
         hair.frame = CGRectMake(0, 0, 480.0, 640.0);
-        NSString *string = [_currentFace getColorAtIndex:i];
-        if ([string isEqualToString:@"DARK"]) {
-            [hair setFillColor:[UIColor yellowColor].CGColor];
+        
+        //NSString *string = [_currentFace getColorAtIndex:i];
+        
+            //[hair setFillColor:[UIColor yellowColor].CGColor];
 
-        } else {
+    
             [hair setFillColor:[UIColor yellowColor].CGColor];
-        }
+        
         [hair setStrokeColor:[[UIColor blackColor] CGColor]];
         [hair setPath: hairBezier.CGPath];
         [realtimeFaceLayer addSublayer:hair];

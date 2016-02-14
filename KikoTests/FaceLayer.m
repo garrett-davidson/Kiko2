@@ -8,7 +8,20 @@
 
 #import "FaceLayer.h"
 
-@implementation FaceLayer
+@implementation FaceLayer {
+    BOOL isResize;
+    CGRect rect;
+}
+
+
+-(id)init {
+    self = [super init];
+    if (self) {
+        isResize = YES;
+    }
+    
+    return self;
+}
 
 
 - (void)layoutSublayers {
@@ -18,6 +31,9 @@
     for (CALayer *subLayer in self.sublayers) {
         counter++;
 //        subLayer.frame = self.bounds;
+        [self setRect:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+        NSLog(@"Self Bounds : %f %f", self.bounds.size.width, self.bounds.size.height);
+        
        // NSLog(@"Sublayer Box : %f %f", subLayer.frame.size.width, subLayer.frame.size.height);
         //NSLog(@"Self Box : %f %f", self.bounds.size.width, self.bounds.size.height);
 
@@ -45,7 +61,14 @@
        // NSLog(@"Bounding Box 2: %f %f", boundingBox2.size.width, boundingBox2.size.height);
 
         //TODO: Check if this can be replaced with self.frame or bounds
-        CGRect boundingBox = CGRectMake(0, 0, 480.0, 640.0);
+        CGRect boundingBox;
+        if (isResize) {
+            boundingBox = CGRectMake(0, 0, 480.0, 640.0);
+            //isResize = NO;
+        } else {
+            boundingBox = [self getRect];
+        }
+        
         
       
         
@@ -90,6 +113,8 @@
             }
 //        }
     }
+    
+    isResize = NO;
 }
 
 -(id)copyWithZone:(NSZone *)zone {
@@ -98,6 +123,17 @@
     
     return layer;
 }
+
+-(void)setRect:(CGRect) rectangle {
+    rect = rectangle;
+}
+
+-(CGRect)getRect {
+    return rect;
+}
+
+
+
 
 
 
