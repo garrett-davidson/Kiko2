@@ -187,7 +187,7 @@
             [frameLayer addSublayer:rightEyeLayer];
         }
 
-        frameLayer.frame = _animationView.bounds;
+        frameLayer.frame = playbackView.bounds;
         [[playbackView layer] addSublayer:frameLayer];
 
 

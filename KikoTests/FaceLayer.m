@@ -25,14 +25,19 @@
 
 
 - (void)layoutSublayers {
+    NSLog(@"Self Bounds : %f %f", self.bounds.size.width, self.bounds.size.height);
     // resize your layers based on the view's new frame
+    
     
     int counter = 0;
     for (CALayer *subLayer in self.sublayers) {
         counter++;
 //        subLayer.frame = self.bounds;
-        [self setRect:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
-        NSLog(@"Self Bounds : %f %f", self.bounds.size.width, self.bounds.size.height);
+        if (isResize) {
+            [self setRect:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+        }
+        
+        
         
        // NSLog(@"Sublayer Box : %f %f", subLayer.frame.size.width, subLayer.frame.size.height);
         //NSLog(@"Self Box : %f %f", self.bounds.size.width, self.bounds.size.height);
@@ -64,6 +69,7 @@
         CGRect boundingBox;
         if (isResize) {
             boundingBox = CGRectMake(0, 0, 480.0, 640.0);
+            
             //isResize = NO;
         } else {
             boundingBox = [self getRect];
@@ -115,6 +121,9 @@
     }
     
     isResize = NO;
+    if (!isResize) {
+        [self setRect:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+    }
 }
 
 -(id)copyWithZone:(NSZone *)zone {

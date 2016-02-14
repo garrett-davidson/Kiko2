@@ -51,13 +51,19 @@
 
     [self addSubview:_messageView];
     _messageView.backgroundColor = [UIColor greenColor];
+    _messageView.layer.borderWidth = 3.0;
+    _messageView.layer.borderColor = [UIColor blackColor].CGColor;
 //    [self addSubview:_faceView];
 //    _faceView.backgroundColor = [UIColor greenColor];
+    
+     NSLog(@"Message View Bounds : %f %f", _messageView.layer.bounds.size.width, _messageView.layer.bounds.size.height);
 
     return self;
 }
 
 - (void) setFaceLayer:(FaceLayer *)faceLayer {
+   
+    
     [_faceLayer removeFromSuperlayer];
     _faceLayer = faceLayer;
 
