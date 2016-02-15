@@ -159,6 +159,7 @@
         [animator stopPlayingMessage];
     }
     else {
+        
         [animator playMessage:selectedMessage inView:((MessageTableViewCell*)[tableView cellForRowAtIndexPath:indexPath]).messageView];
     }
 }

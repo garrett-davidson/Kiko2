@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 #import "KikoFaceTracker.h"
 #import "KikoCustomizations.h"
+#import "Face1.h"
+#import "Hair1.h"
 
 @interface KikoAnimator() {
     NSMutableArray *hairArray;
@@ -102,11 +104,15 @@
 }
 
 - (void) updateAnimationWithFacePoints:(std::vector<std::shared_ptr<brf::Point> >)points {
+    Face1 *face = [[Face1 alloc] init];
+    Hair1 *hair = [[Hair1 alloc] init];
+    [hair createHairWithFacePointsAndCSV:points :hairArray];
+    [face createFaceWithPoints:points :[hair getBeginning] :[hair getEnding]];
     [_currentFace setData:points hairInfo:hairArray];
-    UIBezierPath *path = [_currentFace createSingleBezierPath];
+    UIBezierPath *path = [face getFaceBezierPath];
     //UIBezierPath *hairPath = [self.]
     UIBezierPath *hairPath = [_currentFace getHairPath];
-    NSMutableArray *hairPaths = _currentFace.hairPathArray;
+    NSMutableArray *hairPaths = [hair getHairBezierPathArray];
 
     CAShapeLayer *faceLayer = [[CAShapeLayer alloc] init];
     faceLayer.frame = CGRectMake(0, 0, 480.0, 640.0);

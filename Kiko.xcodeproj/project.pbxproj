@@ -70,6 +70,8 @@
 		68F63AFD1C35954000A10C40 /* KikoChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F63AFC1C35954000A10C40 /* KikoChat.m */; };
 		68F63B531C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F63B521C370D2600A10C40 /* libBRF_NXT_CPP_IOS_STATIC_LIBRARY.a */; };
 		ED46D8151C700035000E0CCA /* FaceView2.m in Sources */ = {isa = PBXBuildFile; fileRef = ED46D8141C700035000E0CCA /* FaceView2.m */; };
+		ED46D8181C7154D2000E0CCA /* Hair1.m in Sources */ = {isa = PBXBuildFile; fileRef = ED46D8171C7154D2000E0CCA /* Hair1.m */; };
+		ED46D81B1C7154E7000E0CCA /* Face1.m in Sources */ = {isa = PBXBuildFile; fileRef = ED46D81A1C7154E7000E0CCA /* Face1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +214,10 @@
 		68F63B541C370DBD00A10C40 /* DrawingUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DrawingUtils.hpp; sourceTree = "<group>"; };
 		ED46D8131C700035000E0CCA /* FaceView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceView2.h; sourceTree = "<group>"; };
 		ED46D8141C700035000E0CCA /* FaceView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceView2.m; sourceTree = "<group>"; };
+		ED46D8161C7154D2000E0CCA /* Hair1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hair1.h; sourceTree = "<group>"; };
+		ED46D8171C7154D2000E0CCA /* Hair1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hair1.m; sourceTree = "<group>"; };
+		ED46D8191C7154E7000E0CCA /* Face1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Face1.h; sourceTree = "<group>"; };
+		ED46D81A1C7154E7000E0CCA /* Face1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Face1.m; sourceTree = "<group>"; };
 		FA082C19EDA4D5D5DF8F854B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,6 +277,10 @@
 				6863E20D1C6851A900ACBC5C /* NSMutableArray+MessageList.m */,
 				6863E2091C68519100ACBC5C /* FaceLayer.h */,
 				6863E20A1C68519100ACBC5C /* FaceLayer.m */,
+				ED46D8161C7154D2000E0CCA /* Hair1.h */,
+				ED46D8171C7154D2000E0CCA /* Hair1.m */,
+				ED46D8191C7154E7000E0CCA /* Face1.h */,
+				ED46D81A1C7154E7000E0CCA /* Face1.m */,
 				6863E2061C68517900ACBC5C /* FacesArray.h */,
 				6863E2071C68517900ACBC5C /* FacesArray.m */,
 				6863E2121C68E9AD00ACBC5C /* KikoAnimator.h */,
@@ -754,6 +764,7 @@
 				688E0D821C15ECBE008DB6AA /* AppDelegate.mm in Sources */,
 				68B8CB381C32CF11000E7913 /* Face.m in Sources */,
 				688E0D7F1C15ECBE008DB6AA /* main.m in Sources */,
+				ED46D81B1C7154E7000E0CCA /* Face1.m in Sources */,
 				683B737E1C3F45D800B93B05 /* FaceView.mm in Sources */,
 				6899E53A1C3DA22700F9F055 /* KikoHair.m in Sources */,
 				6899E5371C3DA21C00F9F055 /* KikoEyes.m in Sources */,
@@ -761,6 +772,7 @@
 				68F63AFD1C35954000A10C40 /* KikoChat.m in Sources */,
 				68EEFBC71C3AD62D00B99FE3 /* SelectableFriendCollectionViewCell.m in Sources */,
 				68EEFBBB1C3ACB2500B99FE3 /* MessagesViewController.mm in Sources */,
+				ED46D8181C7154D2000E0CCA /* Hair1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
